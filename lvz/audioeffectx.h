@@ -1,19 +1,19 @@
 /*
   LVZ - An ugly C++ interface for writing LV2 plugins.
-  Copyright 2008-2011 David Robillard <http://drobilla.net>
+  Copyright 2008-2012 David Robillard <http://drobilla.net>
 
-  This is free software: you can redistribute it and/or modify it under the
-  terms of the GNU General Public License as published by the Free Software
-  Foundation, either version 3 of the License, or (at your option) any later
-  version.
+  This is free software: you can redistribute it and/or modify it
+  under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License,
+  or (at your option) any later version.
 
-  This software is distributed in the hope that it will be useful, but WITHOUT
-  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-  details.
+  This software is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU General Public License for more details.
 
-  You should have received a copy of the GNU General Public License along with
-  this software. If not, see <http://www.gnu.org/licenses/>.
+  You should have received a copy of the GNU General Public License
+  along with this software. If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef LVZ_AUDIOEFFECTX_H
@@ -22,7 +22,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "AEffect.h"
+class AudioEffect;
 
 typedef int (*audioMasterCallback)(int, int ver, int, int, int, int);
 
@@ -82,7 +82,6 @@ public:
 		, numParams(params)
 		, numPrograms(progs)
 	{
-		cEffect.flags = 0;
 	}
 
 	virtual void process         (float **inputs, float **outputs, int32_t nframes) = 0;
@@ -130,7 +129,6 @@ protected:
 	int32_t     numOutputs;
 	int32_t     numParams;
 	int32_t     numPrograms;
-	AEffect     cEffect;
 };
 
 #endif // LVZ_AUDIOEFFECTX_H

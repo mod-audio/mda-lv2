@@ -1,6 +1,6 @@
 /*
-  LVZ - A C++ interface for writing LV2 plugins.
-  Copyright 2008-2011 David Robillard <http://drobilla.net>
+  LVZ - An ugly C++ interface for writing LV2 plugins.
+  Copyright 2008-2012 David Robillard <http://drobilla.net>
 
   This is free software: you can redistribute it and/or modify it
   under the terms of the GNU General Public License as published by
