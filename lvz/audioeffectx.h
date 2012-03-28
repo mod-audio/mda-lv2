@@ -1,19 +1,19 @@
 /*
-  LVZ - A C++ interface for writing LV2 plugins.
+  LVZ - An ugly C++ interface for writing LV2 plugins.
   Copyright 2008-2011 David Robillard <http://drobilla.net>
 
-  This is free software: you can redistribute it and/or modify it
-  under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License,
-  or (at your option) any later version.
+  This is free software: you can redistribute it and/or modify it under the
+  terms of the GNU General Public License as published by the Free Software
+  Foundation, either version 3 of the License, or (at your option) any later
+  version.
 
-  This software is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  See the GNU General Public License for more details.
+  This software is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
 
-  You should have received a copy of the GNU General Public License
-  along with this software. If not, see <http://www.gnu.org/licenses/>.
+  You should have received a copy of the GNU General Public License along with
+  this software. If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef LVZ_AUDIOEFFECTX_H
@@ -24,20 +24,9 @@
 
 #include "AEffect.h"
 
-typedef int16_t LvzInt16;
 typedef int32_t LvzInt32;
 
 typedef int (*audioMasterCallback)(int, int ver, int, int, int, int);
-
-class AEffEditor;
-
-struct LvzFileSelect {
-	int reserved;
-	char* returnPath;
-	size_t sizeReturnPath;
-	char** returnMultiplePaths;
-	long nbReturnPath;
-};
 
 enum LvzPinFlags {
 	kLvzPinIsActive = 1<<0,
@@ -48,11 +37,6 @@ struct LvzPinProperties {
 	LvzPinProperties() : label(NULL), flags(0) {}
 	char* label;
 	int   flags;
-};
-
-enum LvzOpCodes {
-	effEditClose,
-	effEditOpen
 };
 
 enum LvzEventTypes {
@@ -77,17 +61,14 @@ struct LvzEvents {
 
 class AudioEffect {
 public:
-	AudioEffect() : editor(NULL) {}
+	AudioEffect() {}
 	virtual ~AudioEffect() {}
 
 	virtual void  setParameter(LvzInt32 index, float value) = 0;
 	virtual void  setParameterAutomated(LvzInt32 index, float value) {}
 	virtual float getParameter(LvzInt32 index)              = 0;
 
-	void setEditor(AEffEditor* e) { editor = e; }
-	virtual void masterIdle()                {}
-protected:
-	AEffEditor* editor;
+	virtual void masterIdle() {}
 };
 
 
@@ -137,9 +118,6 @@ public:
 	virtual void suspend()                   {}
 	virtual void beginEdit(LvzInt32 index)   {}
 	virtual void endEdit(LvzInt32 index)     {}
-
-	virtual bool openFileSelector (LvzFileSelect* sel)  { return false; }
-	virtual bool closeFileSelector (LvzFileSelect* sel) { return false; }
 
 	virtual long dispatcher(long opCode, long index, long value, void *ptr, float opt) {
 		return 0;
