@@ -57,7 +57,7 @@ bool  mdaCombo::getProductString(char* text) { strcpy(text, "MDA Combo"); return
 bool  mdaCombo::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaCombo::getEffectName(char* name)    { strcpy(name, "Combo"); return true; }
 
-void mdaCombo::setParameter(LvzInt32 index, float value)
+void mdaCombo::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -180,7 +180,7 @@ void mdaCombo::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaCombo::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaCombo::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -190,7 +190,7 @@ bool mdaCombo::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* n
 	return false;
 }
 
-float mdaCombo::getParameter(LvzInt32 index)
+float mdaCombo::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -207,7 +207,7 @@ float mdaCombo::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaCombo::getParameterName(LvzInt32 index, char *label)
+void mdaCombo::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -222,10 +222,10 @@ void mdaCombo::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
-void mdaCombo::getParameterDisplay(LvzInt32 index, char *text)
+void mdaCombo::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -241,17 +241,17 @@ void mdaCombo::getParameterDisplay(LvzInt32 index, char *text)
               case 6: strcpy(text, "4x12 >"); break;
            } break;
 
-    case 1: int2strng((LvzInt32)(200 * fParam2 - 100), text); break;
-    case 2: int2strng((LvzInt32)(200 * fParam3 - 100), text); break;
-    case 3: int2strng((LvzInt32)(40 * fParam4 - 20), text); break;
+    case 1: int2strng((int32_t)(200 * fParam2 - 100), text); break;
+    case 2: int2strng((int32_t)(200 * fParam3 - 100), text); break;
+    case 3: int2strng((int32_t)(40 * fParam4 - 20), text); break;
     case 4: if(fParam5>0.0) strcpy(text, "STEREO");
                        else strcpy(text, "MONO"); break;
-    case 5: int2strng((LvzInt32)(100 * fParam6), text); break;
-    case 6: int2strng((LvzInt32)(100 * fParam7), text); break;
+    case 5: int2strng((int32_t)(100 * fParam6), text); break;
+    case 6: int2strng((int32_t)(100 * fParam7), text); break;
   }
 }
 
-void mdaCombo::getParameterLabel(LvzInt32 index, char *label)
+void mdaCombo::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -268,7 +268,7 @@ void mdaCombo::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaCombo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaCombo::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -279,7 +279,7 @@ void mdaCombo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   float f1=ff1, f2=ff2, f3=ff3, f4=ff4, f5=ff5;
   float a2, b2, f6=ff6, f7=ff7, f8=ff8, f9=ff9, f10=ff10;
   float h0=hh0, h1=hh1;
-  LvzInt32 d1=del1, d2=del2, bp = bufpos;
+  int32_t d1=del1, d2=del2, bp = bufpos;
 
   trm = trim * i * i * i * i;
 
@@ -393,7 +393,7 @@ void mdaCombo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   if(fabs(h0)<1.0e-10) { hh0 = hh1 = 0.0f; } else { hh0=h0; hh1=h1; }
 }
 
-void mdaCombo::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaCombo::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -404,7 +404,7 @@ void mdaCombo::processReplacing(float **inputs, float **outputs, LvzInt32 sample
   float f1=ff1, f2=ff2, f3=ff3, f4=ff4, f5=ff5;
   float a2, b2, f6=ff6, f7=ff7, f8=ff8, f9=ff9, f10=ff10;
   float hf=hhf, hq=hhq, h0=hh0, h1=hh1;
-  LvzInt32 d1=del1, d2=del2, bp = bufpos;
+  int32_t d1=del1, d2=del2, bp = bufpos;
 
   trm = trim * i * i * i * i;
 

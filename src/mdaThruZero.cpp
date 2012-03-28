@@ -112,14 +112,14 @@ mdaThruZero::~mdaThruZero() ///destroy any buffers...
 }
 
 
-void mdaThruZero::setProgram(LvzInt32 program)
+void mdaThruZero::setProgram(int32_t program)
 {
   curProgram = program;
   resume();
 }
 
 
-void  mdaThruZero::setParameter(LvzInt32 index, float value)
+void  mdaThruZero::setParameter(int32_t index, float value)
 {
   if(index==3) phi=0.0f; //reset cycle
   programs[curProgram].param[index] = value;
@@ -127,10 +127,10 @@ void  mdaThruZero::setParameter(LvzInt32 index, float value)
 }
 
 
-float mdaThruZero::getParameter(LvzInt32 index) { return programs[curProgram].param[index]; }
+float mdaThruZero::getParameter(int32_t index) { return programs[curProgram].param[index]; }
 void  mdaThruZero::setProgramName(char *name) { strcpy(programs[curProgram].name, name); }
 void  mdaThruZero::getProgramName(char *name) { strcpy(name, programs[curProgram].name); }
-bool mdaThruZero::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaThruZero::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if ((unsigned int)index < NPROGS) 
 	{
@@ -140,7 +140,7 @@ bool mdaThruZero::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-void mdaThruZero::getParameterName(LvzInt32 index, char *label)
+void mdaThruZero::getParameterName(int32_t index, char *label)
 {
   switch(index)
   {
@@ -153,7 +153,7 @@ void mdaThruZero::getParameterName(LvzInt32 index, char *label)
 }
 
 
-void mdaThruZero::getParameterDisplay(LvzInt32 index, char *text)
+void mdaThruZero::getParameterDisplay(int32_t index, char *text)
 {
  	char string[16];
  	float * param = programs[curProgram].param;
@@ -171,7 +171,7 @@ void mdaThruZero::getParameterDisplay(LvzInt32 index, char *text)
 }
 
 
-void mdaThruZero::getParameterLabel(LvzInt32 index, char *label)
+void mdaThruZero::getParameterLabel(int32_t index, char *label)
 {
   switch(index)
   {
@@ -182,7 +182,7 @@ void mdaThruZero::getParameterLabel(LvzInt32 index, char *label)
 }
 
 
-void mdaThruZero::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaThruZero::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -210,7 +210,7 @@ void mdaThruZero::process(float **inputs, float **outputs, LvzInt32 sampleFrames
 }
 
 
-void mdaThruZero::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaThruZero::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -218,7 +218,7 @@ void mdaThruZero::processReplacing(float **inputs, float **outputs, LvzInt32 sam
   float *out2 = outputs[1];
 	float a, b, f=fb, f1=fb1, f2=fb2, ph=phi;
   float ra=rat, de=dep, we=wet, dr=dry, ds=deps, dm=dem;
-  LvzInt32  tmp, tmpi, bp=bufpos;
+  int32_t  tmp, tmpi, bp=bufpos;
   float tmpf;
 
 	--in1;

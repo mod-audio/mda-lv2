@@ -75,17 +75,17 @@ void mdaDetune::suspend() ///clear any buffers...
   pos0 = 0; pos1 = pos2 = 0.0f;
   
   //recalculate crossfade window
-  buflen = 1 << (8 + (LvzInt32)(4.9f * programs[curProgram].param[3]));
+  buflen = 1 << (8 + (int32_t)(4.9f * programs[curProgram].param[3]));
 	if (buflen > BUFMAX) buflen = BUFMAX;
   bufres = 1000.0f * (float)buflen / getSampleRate();
 
-  LvzInt32 i; //hanning half-overlap-and-add
+  int32_t i; //hanning half-overlap-and-add
   double p=0.0, dp=6.28318530718/buflen;
   for(i=0;i<buflen;i++) { win[i] = (float)(0.5 - 0.5 * cos(p)); p+=dp; }
 }
 
 
-void mdaDetune::setProgram(LvzInt32 program)
+void mdaDetune::setProgram(int32_t program)
 {
 	if ((unsigned int)program < NPROGS)
 	{
@@ -101,7 +101,7 @@ void mdaDetune::setProgram(LvzInt32 program)
     dry = wet - wet * param[1] * param[1];
     wet = (wet + wet - wet * param[1]) * param[1];
     
-    LvzInt32 tmp = 1 << (8 + (LvzInt32)(4.9f * param[3]));
+    int32_t tmp = 1 << (8 + (int32_t)(4.9f * param[3]));
 
     if(tmp!=buflen) //recalculate crossfade window
     {
@@ -109,7 +109,7 @@ void mdaDetune::setProgram(LvzInt32 program)
 	    if (buflen > BUFMAX) buflen = BUFMAX;
       bufres = 1000.0f * (float)buflen / getSampleRate();
 
-      LvzInt32 i; //hanning half-overlap-and-add
+      int32_t i; //hanning half-overlap-and-add
       double p=0.0, dp=6.28318530718/buflen;
       for(i=0;i<buflen;i++) { win[i] = (float)(0.5 - 0.5 * cos(p)); p+=dp; }
     }
@@ -117,7 +117,7 @@ void mdaDetune::setProgram(LvzInt32 program)
 }
 
 
-void  mdaDetune::setParameter(LvzInt32 which, float value)
+void  mdaDetune::setParameter(int32_t which, float value)
 {
   float * param = programs[curProgram].param;
   param[which] = value;
@@ -137,7 +137,7 @@ void  mdaDetune::setParameter(LvzInt32 which, float value)
       break;
     case 3:
     {
-      LvzInt32 tmp = 1 << (8 + (LvzInt32)(4.9f * param[3]));
+      int32_t tmp = 1 << (8 + (int32_t)(4.9f * param[3]));
 
       if(tmp!=buflen) //recalculate crossfade window
       {
@@ -145,7 +145,7 @@ void  mdaDetune::setParameter(LvzInt32 which, float value)
 	      if (buflen > BUFMAX) buflen = BUFMAX;
         bufres = 1000.0f * (float)buflen / getSampleRate();
 
-        LvzInt32 i; //hanning half-overlap-and-add
+        int32_t i; //hanning half-overlap-and-add
         double p=0.0, dp=6.28318530718/buflen;
         for(i=0;i<buflen;i++) { win[i] = (float)(0.5 - 0.5 * cos(p)); p+=dp; }
       }
@@ -157,10 +157,10 @@ void  mdaDetune::setParameter(LvzInt32 which, float value)
 }
 
 
-float mdaDetune::getParameter(LvzInt32 which) { return programs[curProgram].param[which]; }
+float mdaDetune::getParameter(int32_t which) { return programs[curProgram].param[which]; }
 void  mdaDetune::setProgramName(char *name) { strcpy(programs[curProgram].name, name); }
 void  mdaDetune::getProgramName(char *name) { strcpy(name, programs[curProgram].name); }
-bool mdaDetune::getProgramNameIndexed (LvzInt32 category, LvzInt32 which, char* name)
+bool mdaDetune::getProgramNameIndexed (int32_t category, int32_t which, char* name)
 {
 	if ((unsigned int)which < NPROGS)
 	{
@@ -171,7 +171,7 @@ bool mdaDetune::getProgramNameIndexed (LvzInt32 category, LvzInt32 which, char* 
 }
 
 
-void mdaDetune::getParameterName(LvzInt32 which, char *label)
+void mdaDetune::getParameterName(int32_t which, char *label)
 {
   switch(which)
   {
@@ -183,7 +183,7 @@ void mdaDetune::getParameterName(LvzInt32 which, char *label)
 }
 
 
-void mdaDetune::getParameterDisplay(LvzInt32 which, char *text)
+void mdaDetune::getParameterDisplay(int32_t which, char *text)
 {
  	char string[16];
 
@@ -199,7 +199,7 @@ void mdaDetune::getParameterDisplay(LvzInt32 which, char *text)
 }
 
 
-void mdaDetune::getParameterLabel(LvzInt32 which, char *label)
+void mdaDetune::getParameterLabel(int32_t which, char *label)
 {
   switch(which)
   {
@@ -211,7 +211,7 @@ void mdaDetune::getParameterLabel(LvzInt32 which, char *label)
 }
 
 
-void mdaDetune::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDetune::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -220,8 +220,8 @@ void mdaDetune::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   float a, b, c, d;
   float x, w=wet, y=dry, p1=pos1, p1f, d1=dpos1;
   float                  p2=pos2,      d2=dpos2;
-  LvzInt32  p0=pos0, p1i, p2i;
-  LvzInt32  l=buflen-1, lh=buflen>>1;
+  int32_t  p0=pos0, p1i, p2i;
+  int32_t  l=buflen-1, lh=buflen>>1;
   float lf = (float)buflen;
 
   --in1;
@@ -243,7 +243,7 @@ void mdaDetune::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 
     p1 -= d1;
     if(p1<0.0f) p1 += lf;           //output
-    p1i = (LvzInt32)p1;
+    p1i = (int32_t)p1;
     p1f = p1 - (float)p1i;
     a = *(buf + p1i);
     ++p1i &= l;
@@ -262,7 +262,7 @@ void mdaDetune::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 
     p2 -= d2;                //repeat for downwards shift - can't see a more efficient way?
     if(p2<0.0f) p2 += lf;           //output
-    p1i = (LvzInt32)p2;
+    p1i = (int32_t)p2;
     p1f = p2 - (float)p1i;
     a = *(buf + p1i);
     ++p1i &= l;
@@ -286,7 +286,7 @@ void mdaDetune::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 }
 
 
-void mdaDetune::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDetune::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -295,8 +295,8 @@ void mdaDetune::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
   float a, b, c, d;
   float x, w=wet, y=dry, p1=pos1, p1f, d1=dpos1;
   float                  p2=pos2,      d2=dpos2;
-  LvzInt32  p0=pos0, p1i, p2i;
-  LvzInt32  l=buflen-1, lh=buflen>>1;
+  int32_t  p0=pos0, p1i, p2i;
+  int32_t  l=buflen-1, lh=buflen>>1;
   float lf = (float)buflen;
 
   --in1;
@@ -316,7 +316,7 @@ void mdaDetune::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
 
     p1 -= d1;
     if(p1<0.0f) p1 += lf;           //output
-    p1i = (LvzInt32)p1;
+    p1i = (int32_t)p1;
     p1f = p1 - (float)p1i;
     a = *(buf + p1i);
     ++p1i &= l;
@@ -335,7 +335,7 @@ void mdaDetune::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
 
     p2 -= d2;  //repeat for downwards shift - can't see a more efficient way?
     if(p2<0.0f) p2 += lf;           //output
-    p1i = (LvzInt32)p2;
+    p1i = (int32_t)p2;
     p1f = p2 - (float)p1i;
     a = *(buf + p1i);
     ++p1i &= l;

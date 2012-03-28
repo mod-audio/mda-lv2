@@ -63,7 +63,7 @@ void mdaSplitter::resume() ///update internal parameters...
   if(freq>1.0f) freq = 1.0f;
 
   ff = -1.0f;               //above
-  LvzInt32 tmp = (LvzInt32)(2.9f * param[2]);  //frequency switching
+  int32_t tmp = (int32_t)(2.9f * param[2]);  //frequency switching
   if(tmp==0) ff = 0.0f;     //below
   if(tmp==1) freq = 0.001f; //all
 
@@ -71,7 +71,7 @@ void mdaSplitter::resume() ///update internal parameters...
   level = (float)pow(10.0f, 0.05f * ldisp + 0.3f);
 
   ll = 0.0f;                //above
-  tmp = (LvzInt32)(2.9f * param[4]);  //level switching
+  tmp = (int32_t)(2.9f * param[4]);  //level switching
   if(tmp==0) ll = -1.0f;    //below
   if(tmp==1) level = 0.0f;  //all
 
@@ -86,7 +86,7 @@ void mdaSplitter::resume() ///update internal parameters...
 
   i2l = i2r = o2l = o2r = (float)pow(10.0f, 2.0f * param[6] - 1.0f);  //gain
 
-  mode = (LvzInt32)(3.9f * param[0]);  //output routing
+  mode = (int32_t)(3.9f * param[0]);  //output routing
   switch(mode)
   {
     case  0: i2l  =  0.0f;  i2r  =  0.0f;  break;
@@ -103,14 +103,14 @@ void mdaSplitter::suspend() ///clear any buffers...
 }
 
 
-void mdaSplitter::setProgram(LvzInt32 program)
+void mdaSplitter::setProgram(int32_t program)
 {
   curProgram = program;
   resume();
 }
 
 
-void  mdaSplitter::setParameter(LvzInt32 which, float value) 
+void  mdaSplitter::setParameter(int32_t which, float value) 
 {
   float * param = programs[curProgram].param;
   param[which] = value;
@@ -120,7 +120,7 @@ void  mdaSplitter::setParameter(LvzInt32 which, float value)
     case 0:
     case 6:
       i2l = i2r = o2l = o2r = (float)pow(10.0f, 2.0f * param[6] - 1.0f);  //gain
-      mode = (LvzInt32)(3.9f * param[0]);  //output routing
+      mode = (int32_t)(3.9f * param[0]);  //output routing
       switch(mode)
       {
         case  0: i2l  =  0.0f;  i2r  =  0.0f;  break;
@@ -137,7 +137,7 @@ void  mdaSplitter::setParameter(LvzInt32 which, float value)
       freq = 5.5f * fdisp / getSampleRate();
       if(freq>1.0f) freq = 1.0f;
       ff = -1.0f;               //above
-      LvzInt32 tmp = (LvzInt32)(2.9f * param[2]);  //frequency switching
+      int32_t tmp = (int32_t)(2.9f * param[2]);  //frequency switching
       if(tmp==0) ff = 0.0f;     //below
       if(tmp==1) freq = 0.001f; //all
       break;
@@ -148,7 +148,7 @@ void  mdaSplitter::setParameter(LvzInt32 which, float value)
       ldisp = 40.0f * param[3] - 40.0f;  //level
       level = (float)pow(10.0f, 0.05f * ldisp + 0.3f);
       ll = 0.0f;                //above
-      LvzInt32 tmp = (LvzInt32)(2.9f * param[4]);  //level switching
+      int32_t tmp = (int32_t)(2.9f * param[4]);  //level switching
       if(tmp==0) ll = -1.0f;    //below
       if(tmp==1) level = 0.0f;  //all
       break;
@@ -165,10 +165,10 @@ void  mdaSplitter::setParameter(LvzInt32 which, float value)
 }
 
 
-float mdaSplitter::getParameter(LvzInt32 which) { return programs[curProgram].param[which]; }
+float mdaSplitter::getParameter(int32_t which) { return programs[curProgram].param[which]; }
 void  mdaSplitter::setProgramName(char *name) { strcpy(programs[curProgram].name, name); }
 void  mdaSplitter::getProgramName(char *name) { strcpy(name, programs[curProgram].name); }
-bool mdaSplitter::getProgramNameIndexed (LvzInt32 category, LvzInt32 which, char* name)
+bool mdaSplitter::getProgramNameIndexed (int32_t category, int32_t which, char* name)
 {
 	if ((unsigned int)which < NPROGS) 
 	{
@@ -178,7 +178,7 @@ bool mdaSplitter::getProgramNameIndexed (LvzInt32 category, LvzInt32 which, char
 	return false;
 }
 
-void mdaSplitter::getParameterName(LvzInt32 which, char *label)
+void mdaSplitter::getParameterName(int32_t which, char *label)
 {
   switch(which)
   {
@@ -193,7 +193,7 @@ void mdaSplitter::getParameterName(LvzInt32 which, char *label)
 }
 
 
-void mdaSplitter::getParameterDisplay(LvzInt32 which, char *text)
+void mdaSplitter::getParameterDisplay(int32_t which, char *text)
 {
  	char string[16];
  	float * param = programs[curProgram].param;
@@ -214,7 +214,7 @@ void mdaSplitter::getParameterDisplay(LvzInt32 which, char *text)
     case  5: sprintf(string, "%.0f", (float)pow(10.0f, 1.0f + 2.0f * param[which])); break;
     case  6: sprintf(string, "%.1f", 40.0f * param[which] - 20.0f); break;
     default:
-      switch((LvzInt32)(2.9f * param[which]))
+      switch((int32_t)(2.9f * param[which]))
       {
         case  0: strcpy (string, "BELOW"); break;
         case  1: strcpy (string, "ALL"); break;
@@ -227,7 +227,7 @@ void mdaSplitter::getParameterDisplay(LvzInt32 which, char *text)
 }
 
 
-void mdaSplitter::getParameterLabel(LvzInt32 which, char *label)
+void mdaSplitter::getParameterLabel(int32_t which, char *label)
 {
   *label = '\0';
 
@@ -242,7 +242,7 @@ void mdaSplitter::getParameterLabel(LvzInt32 which, char *label)
 }
 
 
-void mdaSplitter::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaSplitter::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -289,7 +289,7 @@ void mdaSplitter::process(float **inputs, float **outputs, LvzInt32 sampleFrames
 }
 
 
-void mdaSplitter::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaSplitter::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];

@@ -54,7 +54,7 @@ bool  mdaRoundPan::getProductString(char* text) { strcpy(text, "MDA RoundPan"); 
 bool  mdaRoundPan::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaRoundPan::getEffectName(char* name)    { strcpy(name, "RoundPan"); return true; }
 
-void mdaRoundPan::setParameter(LvzInt32 index, float value)
+void mdaRoundPan::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -101,7 +101,7 @@ void mdaRoundPan::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaRoundPan::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaRoundPan::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -111,7 +111,7 @@ bool mdaRoundPan::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-float mdaRoundPan::getParameter(LvzInt32 index)
+float mdaRoundPan::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -123,7 +123,7 @@ float mdaRoundPan::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaRoundPan::getParameterName(LvzInt32 index, char *label)
+void mdaRoundPan::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -133,18 +133,18 @@ void mdaRoundPan::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaRoundPan::getParameterDisplay(LvzInt32 index, char *text)
+void mdaRoundPan::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(360.0 * (fParam1 - 0.5)), text); break;
-    case 1: int2strng((LvzInt32)(57.296 * dphi * getSampleRate()), text); break;
+    case 0: int2strng((int32_t)(360.0 * (fParam1 - 0.5)), text); break;
+    case 1: int2strng((int32_t)(57.296 * dphi * getSampleRate()), text); break;
   }
 }
 
-void mdaRoundPan::getParameterLabel(LvzInt32 index, char *label)
+void mdaRoundPan::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -156,7 +156,7 @@ void mdaRoundPan::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaRoundPan::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRoundPan::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -191,7 +191,7 @@ void mdaRoundPan::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   phi = ph;
 }
 
-void mdaRoundPan::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRoundPan::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

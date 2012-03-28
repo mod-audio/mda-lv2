@@ -62,7 +62,7 @@ void mdaOverdrive::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaOverdrive::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaOverdrive::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -72,7 +72,7 @@ bool mdaOverdrive::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, cha
 	return false;
 }
 
-void mdaOverdrive::setParameter(LvzInt32 index, float value)
+void mdaOverdrive::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -84,7 +84,7 @@ void mdaOverdrive::setParameter(LvzInt32 index, float value)
   gain = (float)pow(10.0f, 2.0f * fParam3 - 1.0f);
 }
 
-float mdaOverdrive::getParameter(LvzInt32 index)
+float mdaOverdrive::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -97,7 +97,7 @@ float mdaOverdrive::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaOverdrive::getParameterName(LvzInt32 index, char *label)
+void mdaOverdrive::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -108,20 +108,20 @@ void mdaOverdrive::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaOverdrive::getParameterDisplay(LvzInt32 index, char *text)
+void mdaOverdrive::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(100 * fParam1     ), text); break;
-    case 1: int2strng((LvzInt32)(100 * fParam2     ), text); break;
-    case 2: int2strng((LvzInt32)( 40 * fParam3 - 20), text); break;
+    case 0: int2strng((int32_t)(100 * fParam1     ), text); break;
+    case 1: int2strng((int32_t)(100 * fParam2     ), text); break;
+    case 2: int2strng((int32_t)( 40 * fParam3 - 20), text); break;
   }
 
 }
 
-void mdaOverdrive::getParameterLabel(LvzInt32 index, char *label)
+void mdaOverdrive::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -134,7 +134,7 @@ void mdaOverdrive::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaOverdrive::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaOverdrive::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -172,7 +172,7 @@ void mdaOverdrive::process(float **inputs, float **outputs, LvzInt32 sampleFrame
   if(fabs(fb)>1.0e-10) filt2 = fb; else filt2 = 0.0f;
 }
 
-void mdaOverdrive::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaOverdrive::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

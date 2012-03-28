@@ -101,7 +101,7 @@ void mdaBandisto::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaBandisto::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaBandisto::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -111,7 +111,7 @@ bool mdaBandisto::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-void mdaBandisto::setParameter(LvzInt32 index, float value)
+void mdaBandisto::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -159,7 +159,7 @@ void mdaBandisto::setParameter(LvzInt32 index, float value)
   fi2 = (float)pow(10.0,fParam3 - 1.05); fo2=(float)(1.0 - fi2);
 }
 
-float mdaBandisto::getParameter(LvzInt32 index)
+float mdaBandisto::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -179,7 +179,7 @@ float mdaBandisto::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaBandisto::getParameterName(LvzInt32 index, char *label)
+void mdaBandisto::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -196,7 +196,7 @@ void mdaBandisto::getParameterName(LvzInt32 index, char *label)
   }
 }
 
-void mdaBandisto::getParameterDisplay(LvzInt32 index, char *text)
+void mdaBandisto::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -218,7 +218,7 @@ void mdaBandisto::getParameterDisplay(LvzInt32 index, char *text)
   }
 }
 
-void mdaBandisto::getParameterLabel(LvzInt32 index, char *label)
+void mdaBandisto::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -238,7 +238,7 @@ void mdaBandisto::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaBandisto::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaBandisto::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -293,7 +293,7 @@ void mdaBandisto::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   fb1=b1; fb2=b2, fb3=l;
 }
 
-void mdaBandisto::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaBandisto::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

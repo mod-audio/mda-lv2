@@ -63,7 +63,7 @@ void mdaTransient::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaTransient::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaTransient::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -73,7 +73,7 @@ bool mdaTransient::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, cha
 	return false;
 }
 
-void mdaTransient::setParameter(LvzInt32 index, float value)
+void mdaTransient::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -124,7 +124,7 @@ void mdaTransient::setParameter(LvzInt32 index, float value)
   att34 = (float)pow(10.0, - 4.0 * fParam6);
 }
 
-float mdaTransient::getParameter(LvzInt32 index)
+float mdaTransient::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -140,7 +140,7 @@ float mdaTransient::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaTransient::getParameterName(LvzInt32 index, char *label)
+void mdaTransient::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -154,23 +154,23 @@ void mdaTransient::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaTransient::getParameterDisplay(LvzInt32 index, char *text)
+void mdaTransient::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(200*fParam1 - 100),text); break;
-    case 1: int2strng((LvzInt32)(200*fParam2 - 100),text); break;
-    case 2: int2strng((LvzInt32)(40.0*fParam3 - 20.0),text); break;
-    case 3: int2strng((LvzInt32)(20*fParam4 - 10),text); break;
-    case 4: int2strng((LvzInt32)(100*fParam5),text); break;
-    case 5: int2strng((LvzInt32)(100*fParam6),text); break;
+    case 0: int2strng((int32_t)(200*fParam1 - 100),text); break;
+    case 1: int2strng((int32_t)(200*fParam2 - 100),text); break;
+    case 2: int2strng((int32_t)(40.0*fParam3 - 20.0),text); break;
+    case 3: int2strng((int32_t)(20*fParam4 - 10),text); break;
+    case 4: int2strng((int32_t)(100*fParam5),text); break;
+    case 5: int2strng((int32_t)(100*fParam6),text); break;
   }
 
 }
 
-void mdaTransient::getParameterLabel(LvzInt32 index, char *label)
+void mdaTransient::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -186,7 +186,7 @@ void mdaTransient::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaTransient::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaTransient::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -228,7 +228,7 @@ void mdaTransient::process(float **inputs, float **outputs, LvzInt32 sampleFrame
             else { env1=e1;  env2=e2;  env3=e3;  env4=e4;  fbuf1=fb1; fbuf2=fb2; }
 }
 
-void mdaTransient::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaTransient::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

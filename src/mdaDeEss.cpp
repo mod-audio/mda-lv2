@@ -47,7 +47,7 @@ bool  mdaDeEss::getProductString(char* text) { strcpy(text, "MDA De-ess"); retur
 bool  mdaDeEss::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaDeEss::getEffectName(char* name)    { strcpy(name, "De-ess"); return true; }
 
-void mdaDeEss::setParameter(LvzInt32 index, float value)
+void mdaDeEss::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -77,7 +77,7 @@ void mdaDeEss::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-float mdaDeEss::getParameter(LvzInt32 index)
+float mdaDeEss::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -90,7 +90,7 @@ float mdaDeEss::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaDeEss::getParameterName(LvzInt32 index, char *label)
+void mdaDeEss::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -103,7 +103,7 @@ void mdaDeEss::getParameterName(LvzInt32 index, char *label)
 #include <stdio.h>
 void long2string(long value, char *string) { sprintf(string, "%ld", value); }
 
-void mdaDeEss::getParameterDisplay(LvzInt32 index, char *text)
+void mdaDeEss::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -113,7 +113,7 @@ void mdaDeEss::getParameterDisplay(LvzInt32 index, char *text)
   }
 }
 
-void mdaDeEss::getParameterLabel(LvzInt32 index, char *label)
+void mdaDeEss::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -126,7 +126,7 @@ void mdaDeEss::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaDeEss::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDeEss::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -165,7 +165,7 @@ void mdaDeEss::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   if(fabs(en)<1.0e-10) env=0.f; else env=en;
 }
 
-void mdaDeEss::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDeEss::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

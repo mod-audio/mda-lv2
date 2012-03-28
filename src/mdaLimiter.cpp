@@ -73,7 +73,7 @@ void mdaLimiter::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaLimiter::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaLimiter::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -83,7 +83,7 @@ bool mdaLimiter::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char*
 	return false;
 }
 
-void mdaLimiter::setParameter(LvzInt32 index, float value)
+void mdaLimiter::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -107,7 +107,7 @@ void mdaLimiter::setParameter(LvzInt32 index, float value)
   rel = (float)pow(10.0, -2.0 - (3.0 * fParam4));
 }
 
-float mdaLimiter::getParameter(LvzInt32 index)
+float mdaLimiter::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -122,7 +122,7 @@ float mdaLimiter::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaLimiter::getParameterName(LvzInt32 index, char *label)
+void mdaLimiter::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -135,23 +135,23 @@ void mdaLimiter::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaLimiter::getParameterDisplay(LvzInt32 index, char *text)
+void mdaLimiter::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(40.0*fParam1 - 40.0),text); break;
-    case 1: int2strng((LvzInt32)(40.0*fParam2 - 20.0),text); break;
-    case 3: int2strng((LvzInt32)(-301030.1 / (getSampleRate() * log10(1.0 - att))),text); break;
-    case 2: int2strng((LvzInt32)(-301.0301 / (getSampleRate() * log10(1.0 - rel))),text); break;
+    case 0: int2strng((int32_t)(40.0*fParam1 - 40.0),text); break;
+    case 1: int2strng((int32_t)(40.0*fParam2 - 20.0),text); break;
+    case 3: int2strng((int32_t)(-301030.1 / (getSampleRate() * log10(1.0 - att))),text); break;
+    case 2: int2strng((int32_t)(-301.0301 / (getSampleRate() * log10(1.0 - rel))),text); break;
     case 4: if(fParam5>0.0) strcpy(text, "SOFT");
             else strcpy(text, "HARD"); break;
   }
 
 }
 
-void mdaLimiter::getParameterLabel(LvzInt32 index, char *label)
+void mdaLimiter::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -166,7 +166,7 @@ void mdaLimiter::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaLimiter::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLimiter::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -234,7 +234,7 @@ void mdaLimiter::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   gain = g;
 }
 
-void mdaLimiter::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLimiter::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

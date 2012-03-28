@@ -49,7 +49,7 @@ bool  mdaImage::getProductString(char* text) { strcpy(text, "MDA Image"); return
 bool  mdaImage::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaImage::getEffectName(char* name)    { strcpy(name, "Image"); return true; }
 
-void mdaImage::setParameter(LvzInt32 index, float value)
+void mdaImage::setParameter(int32_t index, float value)
 {
 	float w, k, c, b, g;
 
@@ -124,7 +124,7 @@ void mdaImage::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaImage::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaImage::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -134,7 +134,7 @@ bool mdaImage::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* n
 	return false;
 }
 
-float mdaImage::getParameter(LvzInt32 index)
+float mdaImage::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -150,7 +150,7 @@ float mdaImage::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaImage::getParameterName(LvzInt32 index, char *label)
+void mdaImage::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -164,9 +164,9 @@ void mdaImage::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaImage::getParameterDisplay(LvzInt32 index, char *text)
+void mdaImage::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -178,15 +178,15 @@ void mdaImage::getParameterDisplay(LvzInt32 index, char *text)
               case 3: strcpy(text, "LR->MS"); break;
 
            } break;
-    case 1: int2strng((LvzInt32)(400 * fParam2 - 200), text); break;
-    case 2: int2strng((LvzInt32)(200 * fParam3 - 100), text); break;
-    case 3: int2strng((LvzInt32)(400 * fParam4 - 200), text); break;
-    case 4: int2strng((LvzInt32)(200 * fParam5 - 100), text); break;
-    case 5: int2strng((LvzInt32)(40 * fParam6 - 20), text); break;
+    case 1: int2strng((int32_t)(400 * fParam2 - 200), text); break;
+    case 2: int2strng((int32_t)(200 * fParam3 - 100), text); break;
+    case 3: int2strng((int32_t)(400 * fParam4 - 200), text); break;
+    case 4: int2strng((int32_t)(200 * fParam5 - 100), text); break;
+    case 5: int2strng((int32_t)(40 * fParam6 - 20), text); break;
   }
 }
 
-void mdaImage::getParameterLabel(LvzInt32 index, char *label)
+void mdaImage::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -202,7 +202,7 @@ void mdaImage::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaImage::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaImage::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -230,7 +230,7 @@ void mdaImage::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 	}
 }
 
-void mdaImage::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaImage::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

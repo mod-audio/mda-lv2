@@ -74,7 +74,7 @@ bool  mdaShepard::getProductString(char* text) { strcpy(text, "MDA Shepard"); re
 bool  mdaShepard::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaShepard::getEffectName(char* name)    { strcpy(name, "Shepard"); return true; }
 
-void mdaShepard::setParameter(LvzInt32 index, float value)
+void mdaShepard::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -109,7 +109,7 @@ void mdaShepard::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaShepard::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaShepard::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -119,7 +119,7 @@ bool mdaShepard::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char*
 	return false;
 }
 
-float mdaShepard::getParameter(LvzInt32 index)
+float mdaShepard::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -132,7 +132,7 @@ float mdaShepard::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaShepard::getParameterName(LvzInt32 index, char *label)
+void mdaShepard::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -143,9 +143,9 @@ void mdaShepard::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaShepard::getParameterDisplay(LvzInt32 index, char *text)
+void mdaShepard::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -155,12 +155,12 @@ void mdaShepard::getParameterDisplay(LvzInt32 index, char *text)
               case 1: strcpy(text, "RING MOD"); break;
               case 2: strcpy(text, "TONES+IN"); break;
             } break;
-    case 1: int2strng((LvzInt32)(200 * fParam1 - 100), text); break;
-    case 2: int2strng((LvzInt32)(40 * fParam2 - 20), text); break;
+    case 1: int2strng((int32_t)(200 * fParam1 - 100), text); break;
+    case 2: int2strng((int32_t)(40 * fParam2 - 20), text); break;
   }
 }
 
-void mdaShepard::getParameterLabel(LvzInt32 index, char *label)
+void mdaShepard::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -173,7 +173,7 @@ void mdaShepard::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaShepard::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaShepard::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -181,7 +181,7 @@ void mdaShepard::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 	float *out2 = outputs[1];
 	float a, b, c;//, d;
   float r=rate, dr=drate, o=out, p=pos, di;
-  LvzInt32 x=max, m=mode, i1, i2;
+  int32_t x=max, m=mode, i1, i2;
 
 	--in1;
 	--in2;
@@ -225,7 +225,7 @@ void mdaShepard::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   pos=p; rate=r;
 }
 
-void mdaShepard::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaShepard::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -233,7 +233,7 @@ void mdaShepard::processReplacing(float **inputs, float **outputs, LvzInt32 samp
 	float *out2 = outputs[1];
 	float a, b;
   float r=rate, dr=drate, o=out, p=pos, di;
-  LvzInt32 x=max, m=mode, i1, i2;
+  int32_t x=max, m=mode, i1, i2;
 
 	--in1;
 	--in2;

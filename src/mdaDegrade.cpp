@@ -52,7 +52,7 @@ bool  mdaDegrade::getProductString(char* text) { strcpy(text, "MDA Degrade"); re
 bool  mdaDegrade::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaDegrade::getEffectName(char* name)    { strcpy(name, "Degrade"); return true; }
 
-void mdaDegrade::setParameter(LvzInt32 index, float value)
+void mdaDegrade::setParameter(int32_t index, float value)
 {
 	float f;
 
@@ -112,7 +112,7 @@ void mdaDegrade::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaDegrade::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaDegrade::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -122,7 +122,7 @@ bool mdaDegrade::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char*
 	return false;
 }
 
-float mdaDegrade::getParameter(LvzInt32 index)
+float mdaDegrade::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -138,7 +138,7 @@ float mdaDegrade::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaDegrade::getParameterName(LvzInt32 index, char *label)
+void mdaDegrade::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -152,22 +152,22 @@ void mdaDegrade::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaDegrade::getParameterDisplay(LvzInt32 index, char *text)
+void mdaDegrade::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(-30.0 * (1.0 - fParam1)), text); break;
-    case 1: int2strng((LvzInt32)(4.0 + 12.0 * fParam2), text); break;
-    case 2: int2strng((LvzInt32)(getSampleRate()/tn), text); break;
-    case 3: int2strng((LvzInt32)pow(10.0f, 2.30104f + 2.f*fParam4), text); break;
-    case 4: int2strng((LvzInt32)(200.0 * fabs(fParam5 - 0.5)), text); break;
-    case 5: int2strng((LvzInt32)(40.0 * fParam6 - 20.0), text); break;
+    case 0: int2strng((int32_t)(-30.0 * (1.0 - fParam1)), text); break;
+    case 1: int2strng((int32_t)(4.0 + 12.0 * fParam2), text); break;
+    case 2: int2strng((int32_t)(getSampleRate()/tn), text); break;
+    case 3: int2strng((int32_t)pow(10.0f, 2.30104f + 2.f*fParam4), text); break;
+    case 4: int2strng((int32_t)(200.0 * fabs(fParam5 - 0.5)), text); break;
+    case 5: int2strng((int32_t)(40.0 * fParam6 - 20.0), text); break;
   }
 }
 
-void mdaDegrade::getParameterLabel(LvzInt32 index, char *label)
+void mdaDegrade::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -182,7 +182,7 @@ void mdaDegrade::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaDegrade::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDegrade::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -241,7 +241,7 @@ void mdaDegrade::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
     buf8=b8, buf9=b9; buf0=b0; buf5=b5; tcount=t; }
 }
 
-void mdaDegrade::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDegrade::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

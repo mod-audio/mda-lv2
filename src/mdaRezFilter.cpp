@@ -52,7 +52,7 @@ mdaRezFilter::mdaRezFilter(audioMasterCallback audioMaster)	: AudioEffectX(audio
   setParameter(2, 0.5f); //go and set initial values!
 }
 
-void mdaRezFilter::setParameter(LvzInt32 index, float value)
+void mdaRezFilter::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -116,7 +116,7 @@ void mdaRezFilter::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaRezFilter::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaRezFilter::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -126,7 +126,7 @@ bool mdaRezFilter::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, cha
 	return false;
 }
 
-float mdaRezFilter::getParameter(LvzInt32 index)
+float mdaRezFilter::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -146,7 +146,7 @@ float mdaRezFilter::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaRezFilter::getParameterName(LvzInt32 index, char *label)
+void mdaRezFilter::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -164,28 +164,28 @@ void mdaRezFilter::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
-void mdaRezFilter::getParameterDisplay(LvzInt32 index, char *text)
+void mdaRezFilter::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(100 * fParam0), text); break;
-    case 1: int2strng((LvzInt32)(100 * fParam1), text); break;
-    case 2: int2strng((LvzInt32)(40 *fParam2 - 20),text); break;
-    case 3: int2strng((LvzInt32)(200 * fParam3 - 100), text); break;
+    case 0: int2strng((int32_t)(100 * fParam0), text); break;
+    case 1: int2strng((int32_t)(100 * fParam1), text); break;
+    case 2: int2strng((int32_t)(40 *fParam2 - 20),text); break;
+    case 3: int2strng((int32_t)(200 * fParam3 - 100), text); break;
     case 4: float2strng((float)(-301.0301 / (getSampleRate() * log10(1.0 - att))),text); break;
     case 5: float2strng((float)(-301.0301 / (getSampleRate() * log10(rel))),text); break;
-    case 6: int2strng((LvzInt32)(200 * fParam6 - 100), text); break;
+    case 6: int2strng((int32_t)(200 * fParam6 - 100), text); break;
     case 7: float2strng((float)pow(10.0f, 4.f*fParam7 - 2.f), text); break;
     case 8: if(tthr==0.f) strcpy(text, "FREE RUN");
-            else int2strng((LvzInt32)(20*log10(0.5*tthr)), text); break;
-    case 9: int2strng((LvzInt32)(100 * fParam9), text); break;
+            else int2strng((int32_t)(20*log10(0.5*tthr)), text); break;
+    case 9: int2strng((int32_t)(100 * fParam9), text); break;
   }
 }
 
-void mdaRezFilter::getParameterLabel(LvzInt32 index, char *label)
+void mdaRezFilter::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -205,7 +205,7 @@ void mdaRezFilter::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaRezFilter::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRezFilter::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -284,7 +284,7 @@ void mdaRezFilter::process(float **inputs, float **outputs, LvzInt32 sampleFrame
   phi=(float)fmod(ph,6.2831853f);
 }
 
-void mdaRezFilter::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRezFilter::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

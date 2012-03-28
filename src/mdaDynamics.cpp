@@ -67,7 +67,7 @@ void mdaDynamics::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaDynamics::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaDynamics::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -77,7 +77,7 @@ bool mdaDynamics::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-void mdaDynamics::setParameter(LvzInt32 index, float value)
+void mdaDynamics::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -117,7 +117,7 @@ void mdaDynamics::setParameter(LvzInt32 index, float value)
   dry = 1.0f - fParam10;  trim *= fParam10; //fx mix
 }
 
-float mdaDynamics::getParameter(LvzInt32 index)
+float mdaDynamics::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -137,7 +137,7 @@ float mdaDynamics::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaDynamics::getParameterName(LvzInt32 index, char *label)
+void mdaDynamics::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -155,35 +155,35 @@ void mdaDynamics::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
-void mdaDynamics::getParameterDisplay(LvzInt32 index, char *text)
+void mdaDynamics::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(40.0*fParam1 - 40.0),text); break;
+    case 0: int2strng((int32_t)(40.0*fParam1 - 40.0),text); break;
     case 1: if(fParam2>0.58)
             { if(fParam2<0.62) strcpy(text, "Limit");
               else float2strng(-rat,text); }
             else
             { if(fParam2<0.2) float2strng(0.5f+2.5f*fParam2,text);
               else float2strng(1.f/(1.f-rat),text); } break;
-    case 2: int2strng((LvzInt32)(40.0*fParam3 - 0.0),text); break; ///was -20.0
-    case 3: int2strng((LvzInt32)(-301030.1 / (getSampleRate() * log10(1.0 - att))),text); break;
-    case 4: int2strng((LvzInt32)(-301.0301 / (getSampleRate() * log10(1.0 - rel))),text); break;
+    case 2: int2strng((int32_t)(40.0*fParam3 - 0.0),text); break; ///was -20.0
+    case 3: int2strng((int32_t)(-301030.1 / (getSampleRate() * log10(1.0 - att))),text); break;
+    case 4: int2strng((int32_t)(-301.0301 / (getSampleRate() * log10(1.0 - rel))),text); break;
     case 5: if(lthr==0.f) strcpy(text, "OFF");
-            else int2strng((LvzInt32)(30.0*fParam6 - 20.0),text); break;
+            else int2strng((int32_t)(30.0*fParam6 - 20.0),text); break;
     case 6: if(xthr==0.f) strcpy(text, "OFF");
-            else int2strng((LvzInt32)(60.0*fParam7 - 60.0),text); break;
-    case 7: int2strng((LvzInt32)(-301030.1 / (getSampleRate() * log10(1.0 - gatt))),text); break;
-    case 8: int2strng((LvzInt32)(-1806.0 / (getSampleRate() * log10(xrat))),text); break;
-    case 9: int2strng((LvzInt32)(100.0*fParam10),text); break;
+            else int2strng((int32_t)(60.0*fParam7 - 60.0),text); break;
+    case 7: int2strng((int32_t)(-301030.1 / (getSampleRate() * log10(1.0 - gatt))),text); break;
+    case 8: int2strng((int32_t)(-1806.0 / (getSampleRate() * log10(xrat))),text); break;
+    case 9: int2strng((int32_t)(100.0*fParam10),text); break;
 
   }
 }
 
-void mdaDynamics::getParameterLabel(LvzInt32 index, char *label)
+void mdaDynamics::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -203,7 +203,7 @@ void mdaDynamics::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaDynamics::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDynamics::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -275,7 +275,7 @@ void mdaDynamics::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   if(ge<1.0e-10) genv=0.f; else genv=ge;
 }
 
-void mdaDynamics::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDynamics::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

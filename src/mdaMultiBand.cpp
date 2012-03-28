@@ -118,7 +118,7 @@ void mdaMultiBand::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaMultiBand::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaMultiBand::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -128,7 +128,7 @@ bool mdaMultiBand::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, cha
 	return false;
 }
 
-void mdaMultiBand::setParameter(LvzInt32 index, float value)
+void mdaMultiBand::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -180,7 +180,7 @@ void mdaMultiBand::setParameter(LvzInt32 index, float value)
   if(fParam13>0.5) mswap=1; else mswap=0;
 }
 
-float mdaMultiBand::getParameter(LvzInt32 index)
+float mdaMultiBand::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -203,7 +203,7 @@ float mdaMultiBand::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaMultiBand::getParameterName(LvzInt32 index, char *label)
+void mdaMultiBand::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -224,9 +224,9 @@ void mdaMultiBand::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaMultiBand::getParameterDisplay(LvzInt32 index, char *text)
+void mdaMultiBand::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -235,23 +235,23 @@ void mdaMultiBand::getParameterDisplay(LvzInt32 index, char *text)
     case 1: case 2: strcpy(text, "Mid"); break;
     case 3: case 4: strcpy(text, "High"); break;
      default: strcpy(text, "Output"); break; } break;
-    case 1: int2strng((LvzInt32)(getSampleRate() * fi1 * (0.098 + 0.09*fi1 + 0.5*(float)pow(fi1,8.2f))), text); break;
-    case 2: int2strng((LvzInt32)(getSampleRate() * fi2 * (0.015 + 0.15*fi2 + 0.9*(float)pow(fi2,8.2f))), text); break;
-    case 3: int2strng((LvzInt32)(30.0 * fParam4), text); break;
-    case 4: int2strng((LvzInt32)(30.0 * fParam5), text); break;
-    case 5: int2strng((LvzInt32)(30.0 * fParam6), text); break;
-    case 6: int2strng((LvzInt32)(40.0 * fParam7 - 20.0), text); break;
-    case 7: int2strng((LvzInt32)(40.0 * fParam8 - 20.0), text); break;
-    case 8: int2strng((LvzInt32)(40.0 * fParam9 - 20.0), text); break;
-    case 9: int2strng((LvzInt32)(-301030.1 / (getSampleRate() * log10(1.0 - att2))),text); break;
-    case 10: int2strng((LvzInt32)(-301.0301 / (getSampleRate() * log10(1.0 - rel2))),text); break;
-    case 11: int2strng((LvzInt32)(200.0 * fParam12), text); break;
+    case 1: int2strng((int32_t)(getSampleRate() * fi1 * (0.098 + 0.09*fi1 + 0.5*(float)pow(fi1,8.2f))), text); break;
+    case 2: int2strng((int32_t)(getSampleRate() * fi2 * (0.015 + 0.15*fi2 + 0.9*(float)pow(fi2,8.2f))), text); break;
+    case 3: int2strng((int32_t)(30.0 * fParam4), text); break;
+    case 4: int2strng((int32_t)(30.0 * fParam5), text); break;
+    case 5: int2strng((int32_t)(30.0 * fParam6), text); break;
+    case 6: int2strng((int32_t)(40.0 * fParam7 - 20.0), text); break;
+    case 7: int2strng((int32_t)(40.0 * fParam8 - 20.0), text); break;
+    case 8: int2strng((int32_t)(40.0 * fParam9 - 20.0), text); break;
+    case 9: int2strng((int32_t)(-301030.1 / (getSampleRate() * log10(1.0 - att2))),text); break;
+    case 10: int2strng((int32_t)(-301.0301 / (getSampleRate() * log10(1.0 - rel2))),text); break;
+    case 11: int2strng((int32_t)(200.0 * fParam12), text); break;
     case 12: if(mswap) strcpy(text, "S");
                   else strcpy(text, "M"); break;
   }
 }
 
-void mdaMultiBand::getParameterLabel(LvzInt32 index, char *label)
+void mdaMultiBand::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -274,7 +274,7 @@ void mdaMultiBand::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaMultiBand::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaMultiBand::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -333,7 +333,7 @@ void mdaMultiBand::process(float **inputs, float **outputs, LvzInt32 sampleFrame
                   else { fb1=b1;  fb2=b2;  fb3=l;   }
 }
 
-void mdaMultiBand::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaMultiBand::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

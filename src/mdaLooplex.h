@@ -46,31 +46,31 @@ public:
 	mdaLooplex(audioMasterCallback audioMaster);
 	~mdaLooplex();
 
-	virtual void process(float **inputs, float **outputs, LvzInt32 sampleframes);
-	virtual void processReplacing(float **inputs, float **outputs, LvzInt32 sampleframes);
-	virtual LvzInt32 processEvents(LvzEvents* events);
+	virtual void process(float **inputs, float **outputs, int32_t sampleframes);
+	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
+	virtual int32_t processEvents(LvzEvents* events);
 
-	virtual void setProgram(LvzInt32 program);
+	virtual void setProgram(int32_t program);
 	virtual void setProgramName(char *name);
 	virtual void getProgramName(char *name);
-	virtual void setParameter(LvzInt32 index, float value);
-	virtual float getParameter(LvzInt32 index);
-	virtual void getParameterLabel(LvzInt32 index, char *label);
-	virtual void getParameterDisplay(LvzInt32 index, char *text);
-	virtual void getParameterName(LvzInt32 index, char *text);
+	virtual void setParameter(int32_t index, float value);
+	virtual float getParameter(int32_t index);
+	virtual void getParameterLabel(int32_t index, char *label);
+	virtual void getParameterDisplay(int32_t index, char *text);
+	virtual void getParameterName(int32_t index, char *text);
 	virtual void setSampleRate(float sampleRate);
-	virtual void setBlockSize(LvzInt32 blockSize);
+	virtual void setBlockSize(int32_t blockSize);
     virtual void resume();
 
-	virtual bool getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* text);
-	virtual bool copyProgram (LvzInt32 destination);
+	virtual bool getProgramNameIndexed (int32_t category, int32_t index, char* text);
+	virtual bool copyProgram (int32_t destination);
 	virtual bool getEffectName (char* name);
 	virtual bool getVendorString (char* text);
 	virtual bool getProductString (char* text);
-	virtual LvzInt32 getVendorVersion () {return 1;}
-	virtual LvzInt32 canDo (char* text);
+	virtual int32_t getVendorVersion () {return 1;}
+	virtual int32_t canDo (char* text);
 
-	virtual LvzInt32 getNumMidiInputChannels ()  { return 1; }
+	virtual int32_t getNumMidiInputChannels ()  { return 1; }
 
   void idle();
 
@@ -82,15 +82,15 @@ private:
 
   #define EVENTBUFFER 120
   #define EVENTS_DONE 99999999
-  LvzInt32 notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
+  int32_t notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
 
   ///global internal variables
   float in_mix, in_pan, out_mix, feedback, modwhl;
 
   short *buffer;
-  LvzInt32 bufpos, buflen, bufmax, mode;
+  int32_t bufpos, buflen, bufmax, mode;
 
-  LvzInt32 bypass, bypassed, busy, status, recreq;
+  int32_t bypass, bypassed, busy, status, recreq;
   float oldParam0, oldParam1, oldParam2;
 
 };

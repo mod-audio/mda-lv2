@@ -50,24 +50,24 @@ class mdaSplitter : public AudioEffectX
 public:
   mdaSplitter(audioMasterCallback audioMaster);
 
-  virtual void  process(float **inputs, float **outputs, LvzInt32 sampleFrames);
-  virtual void  processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames);
-  virtual void  setProgram(LvzInt32 program);
+  virtual void  process(float **inputs, float **outputs, int32_t sampleFrames);
+  virtual void  processReplacing(float **inputs, float **outputs, int32_t sampleFrames);
+  virtual void  setProgram(int32_t program);
   virtual void  setProgramName(char *name);
   virtual void  getProgramName(char *name);
-	virtual bool getProgramNameIndexed (LvzInt32 category, LvzInt32 which, char* name);
-  virtual void  setParameter(LvzInt32 which, float value);
-  virtual float getParameter(LvzInt32 which);
-  virtual void  getParameterLabel(LvzInt32 which, char *label);
-  virtual void  getParameterDisplay(LvzInt32 which, char *text);
-  virtual void  getParameterName(LvzInt32 which, char *text);
+	virtual bool getProgramNameIndexed (int32_t category, int32_t which, char* name);
+  virtual void  setParameter(int32_t which, float value);
+  virtual float getParameter(int32_t which);
+  virtual void  getParameterLabel(int32_t which, char *label);
+  virtual void  getParameterDisplay(int32_t which, char *text);
+  virtual void  getParameterName(int32_t which, char *text);
   virtual void  suspend();
   virtual void  resume();
 
 	virtual bool getEffectName(char *name);
 	virtual bool getVendorString(char *text);
 	virtual bool getProductString(char *text);
-	virtual LvzInt32 getVendorVersion() { return 1000; }
+	virtual int32_t getVendorVersion() { return 1000; }
 
 protected:
   mdaSplitterProgram programs[NPROGS];
@@ -76,7 +76,7 @@ protected:
   float freq, fdisp, buf0, buf1, buf2, buf3;  //filter
   float level, ldisp, env, att, rel;          //level switch
   float ff, ll, pp, i2l, i2r, o2l, o2r;       //routing (freq, level, phase, output)
-  LvzInt32  mode;
+  int32_t  mode;
 
 };
 

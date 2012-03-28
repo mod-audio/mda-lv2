@@ -68,7 +68,7 @@ mdaJX10Program::mdaJX10Program()
 
 mdaJX10::mdaJX10(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NPROGS, NPARAMS)
 {
-  LvzInt32 i=0;
+  int32_t i=0;
   Fs = 44100.0f;
 
   programs = new mdaJX10Program[NPROGS];
@@ -145,7 +145,7 @@ mdaJX10::mdaJX10(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NP
 	}
 
   //initialise...
-  for(LvzInt32 v=0; v<NVOICES; v++) 
+  for(int32_t v=0; v<NVOICES; v++) 
   {
     voice[v].dp   = voice[v].dp2   = 1.0f;
     voice[v].saw  = voice[v].p     = voice[v].p2    = 0.0f;
@@ -171,7 +171,7 @@ void mdaJX10::update()  //parameter change
   double ifs = 1.0 / Fs;
   float * param = programs[curProgram].param;
 
-  mode = (LvzInt32)(7.9f * param[3]);
+  mode = (int32_t)(7.9f * param[3]);
   noisemix = param[21] * param[21];
   voltrim = (3.2f - param[0] - 1.5f * noisemix) * (1.5f - 0.5f * param[7]);
   noisemix *= 0.06f;
@@ -234,7 +234,7 @@ void mdaJX10::resume()
 
 void mdaJX10::suspend() //Used by Logic (have note off code in 3 places now...)
 {
-  for(LvzInt32 v=0; v<NVOICES; v++)
+  for(int32_t v=0; v<NVOICES; v++)
   {
     voice[v].envl = voice[v].env = 0.0f; 
     voice[v].envd = 0.99f;
@@ -250,14 +250,14 @@ mdaJX10::~mdaJX10()  //destroy any buffers...
 }
 
 
-void mdaJX10::setProgram(LvzInt32 program)
+void mdaJX10::setProgram(int32_t program)
 {
 	curProgram = program;
     update();
 } //may want all notes off here - but this stops use of patches as snapshots!
 
 
-void mdaJX10::setParameter(LvzInt32 index, float value)
+void mdaJX10::setParameter(int32_t index, float value)
 {
   programs[curProgram].param[index] = value;
   update();
@@ -266,7 +266,7 @@ void mdaJX10::setParameter(LvzInt32 index, float value)
 }
 
 
-void mdaJX10::fillpatch(LvzInt32 p, const char *name,
+void mdaJX10::fillpatch(int32_t p, const char *name,
                       float p0,  float p1,  float p2,  float p3,  float p4,  float p5, 
                       float p6,  float p7,  float p8,  float p9,  float p10, float p11,
                       float p12, float p13, float p14, float p15, float p16, float p17, 
@@ -288,16 +288,16 @@ void mdaJX10::fillpatch(LvzInt32 p, const char *name,
 }
 
 
-float mdaJX10::getParameter(LvzInt32 index)     { return programs[curProgram].param[index]; }
+float mdaJX10::getParameter(int32_t index)     { return programs[curProgram].param[index]; }
 void  mdaJX10::setProgramName(char *name)   { strcpy(programs[curProgram].name, name); }
 void  mdaJX10::getProgramName(char *name)   { strcpy(name, programs[curProgram].name); }
-void  mdaJX10::setBlockSize(LvzInt32 blockSize) {	AudioEffectX::setBlockSize(blockSize); }
+void  mdaJX10::setBlockSize(int32_t blockSize) {	AudioEffectX::setBlockSize(blockSize); }
 bool  mdaJX10::getEffectName(char* name)    { strcpy(name, "MDA JX10 Synth"); return true; }
 bool  mdaJX10::getVendorString(char* text)  {	strcpy(text, "MDA"); return true; }
 bool  mdaJX10::getProductString(char* text) { strcpy(text, "MDA JX10 Synth"); return true; }
 
 
-bool mdaJX10::getOutputProperties(LvzInt32 index, LvzPinProperties* properties)
+bool mdaJX10::getOutputProperties(int32_t index, LvzPinProperties* properties)
 {
 	if(index<NOUTS)
 	{
@@ -310,7 +310,7 @@ bool mdaJX10::getOutputProperties(LvzInt32 index, LvzPinProperties* properties)
 }
 
 
-bool mdaJX10::getProgramNameIndexed(LvzInt32 category, LvzInt32 index, char* text)
+bool mdaJX10::getProgramNameIndexed(int32_t category, int32_t index, char* text)
 {
 	if ((unsigned int)index < NPROGS)
 	{
@@ -321,7 +321,7 @@ bool mdaJX10::getProgramNameIndexed(LvzInt32 category, LvzInt32 index, char* tex
 }
 
 
-bool mdaJX10::copyProgram(LvzInt32 destination)
+bool mdaJX10::copyProgram(int32_t destination)
 {
   if(destination<NPROGS)
   {
@@ -332,7 +332,7 @@ bool mdaJX10::copyProgram(LvzInt32 destination)
 }
 
 
-LvzInt32 mdaJX10::canDo(char* text)
+int32_t mdaJX10::canDo(char* text)
 {
 	if(!strcmp (text, "receiveLvzEvents")) return 1;
 	if(!strcmp (text, "receiveLvzMidiEvent"))	return 1;
@@ -340,7 +340,7 @@ LvzInt32 mdaJX10::canDo(char* text)
 }
 
 
-void mdaJX10::getParameterName(LvzInt32 index, char *label)
+void mdaJX10::getParameterName(int32_t index, char *label)
 {
 	switch (index)
 	{
@@ -379,7 +379,7 @@ void mdaJX10::getParameterName(LvzInt32 index, char *label)
 }
 
 
-void mdaJX10::getParameterDisplay(LvzInt32 index, char *text)
+void mdaJX10::getParameterDisplay(int32_t index, char *text)
 {
 	char string[16];
 	float * param = programs[curProgram].param;
@@ -407,7 +407,7 @@ void mdaJX10::getParameterDisplay(LvzInt32 index, char *text)
     case 19: sprintf(string, "%.3f", lfoHz); break;
     case 20: if(param[index]<0.5f) sprintf(string, "PWM %3.0f", 100.0f - 200.0f * param[index]);
                else sprintf(string, "%7.0f", 200.0f * param[index] - 100.0f); break;
-    case 22: sprintf(string, "%d", (LvzInt32)(param[index] * 4.9f) - 2); break;
+    case 22: sprintf(string, "%d", (int32_t)(param[index] * 4.9f) - 2); break;
     default: sprintf(string, "%.0f", 100.0f * param[index]);
   }
 	string[8] = 0;
@@ -415,7 +415,7 @@ void mdaJX10::getParameterDisplay(LvzInt32 index, char *text)
 }
 
 
-void mdaJX10::getParameterLabel(LvzInt32 index, char *label)
+void mdaJX10::getParameterLabel(int32_t index, char *label)
 {
   switch(index)
   {
@@ -431,15 +431,15 @@ void mdaJX10::getParameterLabel(LvzInt32 index, char *label)
 }
 
 
-void mdaJX10::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaJX10::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out1 = outputs[0];
 	float* out2 = outputs[1];
-	LvzInt32 event=0, frame=0, frames, v;
+	int32_t event=0, frame=0, frames, v;
   float o, e, vib, pwm, pb=pbend, ipb=ipbend, gl=glide;
   float x, y, hpf=0.997f, min=1.0f, w=0.0f, ww=noisemix;
   float ff, fe=filtenv, fq=filtq * rezwhl, fx=1.97f-0.85f*fq, fz=fzip;
-  LvzInt32 k=K;
+  int32_t k=K;
   unsigned int r;
 
   vib = (float)sin(lfo);
@@ -574,8 +574,8 @@ void mdaJX10::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 
       if(frame<sampleFrames)
       {
-        LvzInt32 note = notes[event++];
-        LvzInt32 vel  = notes[event++];
+        int32_t note = notes[event++];
+        int32_t vel  = notes[event++];
         noteOn(note, vel);
       }
     }
@@ -597,15 +597,15 @@ void mdaJX10::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 }
 
 
-void mdaJX10::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaJX10::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out1 = outputs[0];
 	float* out2 = outputs[1];
-	LvzInt32 event=0, frame=0, frames, v;
+	int32_t event=0, frame=0, frames, v;
   float o, e, vib, pwm, pb=pbend, ipb=ipbend, gl=glide;
   float x, y, hpf=0.997f, min=1.0f, w=0.0f, ww=noisemix;
   float ff, fe=filtenv, fq=filtq * rezwhl, fx=1.97f-0.85f*fq, fz=fzip;
-  LvzInt32 k=K;
+  int32_t k=K;
   unsigned int r;
 
   vib = (float)sin(lfo);
@@ -741,8 +741,8 @@ void mdaJX10::processReplacing(float **inputs, float **outputs, LvzInt32 sampleF
 
       if(frame<sampleFrames)
       {
-        LvzInt32 note = notes[event++];
-        LvzInt32 vel  = notes[event++];
+        int32_t note = notes[event++];
+        int32_t vel  = notes[event++];
         noteOn(note, vel);
       }
     }
@@ -772,10 +772,10 @@ void mdaJX10::processReplacing(float **inputs, float **outputs, LvzInt32 sampleF
 }
 
 
-void mdaJX10::noteOn(LvzInt32 note, LvzInt32 velocity)
+void mdaJX10::noteOn(int32_t note, int32_t velocity)
 {
   float p, l=100.0f; //louder than any envelope!
-  LvzInt32  v=0, tmp, held=0;
+  int32_t  v=0, tmp, held=0;
   
   if(velocity>0) //note on
   {
@@ -912,11 +912,11 @@ void mdaJX10::noteOn(LvzInt32 note, LvzInt32 velocity)
 }
 
 
-LvzInt32 mdaJX10::processEvents(LvzEvents* ev)
+int32_t mdaJX10::processEvents(LvzEvents* ev)
 {
-  LvzInt32 npos=0;
+  int32_t npos=0;
   
-  for (LvzInt32 i=0; i<ev->numEvents; i++)
+  for (int32_t i=0; i<ev->numEvents; i++)
 	{
 		if((ev->events[i])->type != kLvzMidiType) continue;
 		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];
@@ -972,7 +972,7 @@ LvzInt32 mdaJX10::processEvents(LvzEvents* ev)
           default:  //all notes off
             if(midiData[1]>0x7A) 
             {  
-              for(LvzInt32 v=0; v<NVOICES; v++) 
+              for(int32_t v=0; v<NVOICES; v++) 
               { 
                 voice[v].envl = voice[v].env = 0.0f; 
                 voice[v].envd = 0.99f;

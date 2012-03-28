@@ -56,7 +56,7 @@ mdaAmbience::mdaAmbience(audioMasterCallback audioMaster) : AudioEffectX(audioMa
   setParameter(0, 0.7f); //go and set initial values!
 }
 
-void mdaAmbience::setParameter(LvzInt32 index, float value)
+void mdaAmbience::setParameter(int32_t index, float value)
 {
 	float tmp;
 
@@ -110,7 +110,7 @@ void mdaAmbience::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaAmbience::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaAmbience::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -120,7 +120,7 @@ bool mdaAmbience::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-float mdaAmbience::getParameter(LvzInt32 index)
+float mdaAmbience::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -134,7 +134,7 @@ float mdaAmbience::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaAmbience::getParameterName(LvzInt32 index, char *label)
+void mdaAmbience::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -145,7 +145,7 @@ void mdaAmbience::getParameterName(LvzInt32 index, char *label)
   }
 }
 
-void mdaAmbience::getParameterDisplay(LvzInt32 index, char *text)
+void mdaAmbience::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -156,7 +156,7 @@ void mdaAmbience::getParameterDisplay(LvzInt32 index, char *text)
   }
 }
 
-void mdaAmbience::getParameterLabel(LvzInt32 index, char *label)
+void mdaAmbience::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -170,7 +170,7 @@ void mdaAmbience::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaAmbience::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaAmbience::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -178,14 +178,14 @@ void mdaAmbience::process(float **inputs, float **outputs, LvzInt32 sampleFrames
 	float *out2 = outputs[1];
 	float a, b, c, d, r;
 	float t, f=fil, fb=fbak, dmp=damp, y=dry, w=wet;
-  LvzInt32  p=pos, d1, d2, d3, d4;
+  int32_t  p=pos, d1, d2, d3, d4;
 
   if(rdy==0) suspend();
 
-  d1 = (p + (LvzInt32)(107 * size)) & 1023;
-  d2 = (p + (LvzInt32)(142 * size)) & 1023;
-  d3 = (p + (LvzInt32)(277 * size)) & 1023;
-  d4 = (p + (LvzInt32)(379 * size)) & 1023;
+  d1 = (p + (int32_t)(107 * size)) & 1023;
+  d2 = (p + (int32_t)(142 * size)) & 1023;
+  d3 = (p + (int32_t)(277 * size)) & 1023;
+  d4 = (p + (int32_t)(379 * size)) & 1023;
 
   --in1;
 	--in2;
@@ -238,7 +238,7 @@ void mdaAmbience::process(float **inputs, float **outputs, LvzInt32 sampleFrames
                  else { fil=0.0f;  if(den==0) { den=1;  suspend(); } }
 }
 
-void mdaAmbience::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaAmbience::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -246,14 +246,14 @@ void mdaAmbience::processReplacing(float **inputs, float **outputs, LvzInt32 sam
 	float *out2 = outputs[1];
 	float a, b, r;
   float t, f=fil, fb=fbak, dmp=damp, y=dry, w=wet;
-  LvzInt32  p=pos, d1, d2, d3, d4;
+  int32_t  p=pos, d1, d2, d3, d4;
 
   if(rdy==0) suspend();
 
-  d1 = (p + (LvzInt32)(107 * size)) & 1023;
-  d2 = (p + (LvzInt32)(142 * size)) & 1023;
-  d3 = (p + (LvzInt32)(277 * size)) & 1023;
-  d4 = (p + (LvzInt32)(379 * size)) & 1023;
+  d1 = (p + (int32_t)(107 * size)) & 1023;
+  d2 = (p + (int32_t)(142 * size)) & 1023;
+  d3 = (p + (int32_t)(277 * size)) & 1023;
+  d4 = (p + (int32_t)(379 * size)) & 1023;
 
 	--in1;
 	--in2;

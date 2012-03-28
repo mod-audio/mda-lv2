@@ -27,23 +27,23 @@ public:
 	mdaBeatBox(audioMasterCallback audioMaster);
 	~mdaBeatBox();
 
-	virtual void process(float **inputs, float **outputs, LvzInt32 sampleFrames);
-	virtual void processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames);
+	virtual void process(float **inputs, float **outputs, int32_t sampleFrames);
+	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleFrames);
 	virtual void setProgramName(char *name);
 	virtual void getProgramName(char *name);
-	virtual bool getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name);
-	virtual void setParameter(LvzInt32 index, float value);
-	virtual float getParameter(LvzInt32 index);
-	virtual void getParameterLabel(LvzInt32 index, char *label);
-	virtual void getParameterDisplay(LvzInt32 index, char *text);
-	virtual void getParameterName(LvzInt32 index, char *text);
+	virtual bool getProgramNameIndexed (int32_t category, int32_t index, char* name);
+	virtual void setParameter(int32_t index, float value);
+	virtual float getParameter(int32_t index);
+	virtual void getParameterLabel(int32_t index, char *label);
+	virtual void getParameterDisplay(int32_t index, char *text);
+	virtual void getParameterName(int32_t index, char *text);
 	virtual void suspend();
   virtual void synth();
 
 	virtual bool getEffectName(char *name);
 	virtual bool getVendorString(char *text);
 	virtual bool getProductString(char *text);
-	virtual LvzInt32 getVendorVersion() { return 1000; }
+	virtual int32_t getVendorVersion() { return 1000; }
 
 protected:
 	float fParam1;
@@ -67,10 +67,10 @@ protected:
   float *hbuf;
   float *kbuf;
   float *sbuf, *sbuf2;
-	LvzInt32 hbuflen, hbufpos, hdel;
-	LvzInt32 sbuflen, sbufpos, sdel, sfx;
-  LvzInt32 kbuflen, kbufpos, kdel, ksfx;
-  LvzInt32 rec, recx, recpos;
+	int32_t hbuflen, hbufpos, hdel;
+	int32_t sbuflen, sbufpos, sdel, sfx;
+  int32_t kbuflen, kbufpos, kdel, ksfx;
+  int32_t rec, recx, recpos;
 
 	char programName[32];
 };

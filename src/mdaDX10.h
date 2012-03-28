@@ -52,7 +52,7 @@ struct VOICE  //voice state
   float cenv; //smoothed env
   float catt; //smoothing
   float cdec; //carrier envelope decay
-  LvzInt32  note; //remember what note triggered this
+  int32_t  note; //remember what note triggered this
 };
 
 
@@ -62,37 +62,37 @@ public:
 	mdaDX10(audioMasterCallback audioMaster);
 	~mdaDX10();
 
-	virtual void process(float **inputs, float **outputs, LvzInt32 sampleframes);
-	virtual void processReplacing(float **inputs, float **outputs, LvzInt32 sampleframes);
-	virtual LvzInt32 processEvents(LvzEvents* events);
+	virtual void process(float **inputs, float **outputs, int32_t sampleframes);
+	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
+	virtual int32_t processEvents(LvzEvents* events);
 
-	virtual void setProgram(LvzInt32 program);
+	virtual void setProgram(int32_t program);
 	virtual void setProgramName(char *name);
 	virtual void getProgramName(char *name);
-	virtual void setParameter(LvzInt32 index, float value);
-	virtual float getParameter(LvzInt32 index);
-	virtual void getParameterLabel(LvzInt32 index, char *label);
-	virtual void getParameterDisplay(LvzInt32 index, char *text);
-	virtual void getParameterName(LvzInt32 index, char *text);
+	virtual void setParameter(int32_t index, float value);
+	virtual float getParameter(int32_t index);
+	virtual void getParameterLabel(int32_t index, char *label);
+	virtual void getParameterDisplay(int32_t index, char *text);
+	virtual void getParameterName(int32_t index, char *text);
 	virtual void setSampleRate(float sampleRate);
-	virtual void setBlockSize(LvzInt32 blockSize);
+	virtual void setBlockSize(int32_t blockSize);
     virtual void resume();
 
-	virtual bool getOutputProperties (LvzInt32 index, LvzPinProperties* properties);
-	virtual bool getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* text);
-	virtual bool copyProgram (LvzInt32 destination);
+	virtual bool getOutputProperties (int32_t index, LvzPinProperties* properties);
+	virtual bool getProgramNameIndexed (int32_t category, int32_t index, char* text);
+	virtual bool copyProgram (int32_t destination);
 	virtual bool getEffectName (char* name);
 	virtual bool getVendorString (char* text);
 	virtual bool getProductString (char* text);
-	virtual LvzInt32 getVendorVersion () {return 1;}
-	virtual LvzInt32 canDo (char* text);
+	virtual int32_t getVendorVersion () {return 1;}
+	virtual int32_t canDo (char* text);
 
-	virtual LvzInt32 getNumMidiInputChannels ()  { return 1; }
+	virtual int32_t getNumMidiInputChannels ()  { return 1; }
 
 private:
 	void update();  //my parameter update
-  void noteOn(LvzInt32 note, LvzInt32 velocity);
-  void fillpatch(LvzInt32 p, const char *name,
+  void noteOn(int32_t note, int32_t velocity);
+  void fillpatch(int32_t p, const char *name,
                  float p0,  float p1,  float p2,  float p3,  float p4,  float p5,
                  float p6,  float p7,  float p8,  float p9,  float p10, float p11,
                  float p12, float p13, float p14, float p15);
@@ -102,12 +102,12 @@ private:
 
   #define EVENTBUFFER 120
   #define EVENTS_DONE 99999999
-  LvzInt32 notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
+  int32_t notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
 
   ///global internal variables
   VOICE voice[NVOICES];
   #define SUSTAIN 128
-  LvzInt32 sustain, activevoices, K;
+  int32_t sustain, activevoices, K;
 
   float tune, rati, ratf, ratio; //modulator ratio
   float catt, cdec, crel;        //carrier envelope

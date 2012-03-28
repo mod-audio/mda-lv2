@@ -89,7 +89,7 @@ bool  mdaStereo::getProductString(char* text) { strcpy(text, "MDA Stereo"); retu
 bool  mdaStereo::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaStereo::getEffectName(char* name)    { strcpy(name, "Stereo"); return true; }
 
-void mdaStereo::setParameter(LvzInt32 index, float value)
+void mdaStereo::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -154,7 +154,7 @@ void mdaStereo::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaStereo::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaStereo::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -164,7 +164,7 @@ bool mdaStereo::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* 
 	return false;
 }
 
-float mdaStereo::getParameter(LvzInt32 index)
+float mdaStereo::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -179,7 +179,7 @@ float mdaStereo::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaStereo::getParameterName(LvzInt32 index, char *label)
+void mdaStereo::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -192,23 +192,23 @@ void mdaStereo::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
-void mdaStereo::getParameterDisplay(LvzInt32 index, char *text)
+void mdaStereo::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(200.0 * fabs(fParam1 - 0.5)), text);break;
+    case 0: int2strng((int32_t)(200.0 * fabs(fParam1 - 0.5)), text);break;
     case 1: float2strng((float)(1000.0 * fdel / getSampleRate()), text); break;
-    case 2: int2strng((LvzInt32)(200.0 * (fParam3 - 0.5)), text); break;
+    case 2: int2strng((int32_t)(200.0 * (fParam3 - 0.5)), text); break;
     case 3: if(mod>0.f) float2strng((float)(1000.0 * mod / getSampleRate()), text);
             else strcpy(text, "OFF"); break;
     case 4: float2strng((float)pow(10.0,2.0 - 3.0 * fParam5), text); break;
   }
 }
 
-void mdaStereo::getParameterLabel(LvzInt32 index, char *label)
+void mdaStereo::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -224,7 +224,7 @@ void mdaStereo::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaStereo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaStereo::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -232,7 +232,7 @@ void mdaStereo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 	float *out2 = outputs[1];
 	float a, b, c, d;
   float li, ld, ri, rd, del, ph=phi, dph=dphi, mo=mod;
-  LvzInt32  tmp, bp = bufpos;
+  int32_t  tmp, bp = bufpos;
 
   li = fli;
   ld = fld;
@@ -295,7 +295,7 @@ void mdaStereo::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
  phi = (float)fmod(ph,6.2831853f);
 }
 
-void mdaStereo::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaStereo::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -303,7 +303,7 @@ void mdaStereo::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
 	float *out2 = outputs[1];
 	float a, b, c, d;
   float li, ld, ri, rd, del, ph=phi, dph=dphi, mo=mod;
-  LvzInt32 tmp, bp = bufpos;
+  int32_t tmp, bp = bufpos;
 
   li = fli;
   ld = fld;

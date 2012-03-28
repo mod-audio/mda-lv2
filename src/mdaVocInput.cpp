@@ -64,7 +64,7 @@ void mdaVocInput::resume() ///update internal parameters...
   fs = getSampleRate();
   ifs = 1.0f / fs;
 
-  track = (LvzInt32)(2.99f * param[0]);
+  track = (int32_t)(2.99f * param[0]);
   pmult = (float)pow(1.0594631f, floor(48.0f * param[1] - 24.0f));
   if(track==0) pstep = 110.0f * pmult * ifs;
 
@@ -90,22 +90,22 @@ mdaVocInput::~mdaVocInput() ///destroy any buffers...
 }
 
 
-void mdaVocInput::setProgram(LvzInt32 program)
+void mdaVocInput::setProgram(int32_t program)
 {
   curProgram = program;
   resume();
 }
 
 
-void  mdaVocInput::setParameter(LvzInt32 index, float value)
+void  mdaVocInput::setParameter(int32_t index, float value)
 {
   programs[curProgram].param[index] = value;
   resume();
 }
-float mdaVocInput::getParameter(LvzInt32 index) { return programs[curProgram].param[index]; }
+float mdaVocInput::getParameter(int32_t index) { return programs[curProgram].param[index]; }
 void  mdaVocInput::setProgramName(char *name) { strcpy(programs[curProgram].name, name); }
 void  mdaVocInput::getProgramName(char *name) { strcpy(name, programs[curProgram].name); }
-bool mdaVocInput::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaVocInput::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if ((unsigned int)index < NPROGS) 
 	{
@@ -115,7 +115,7 @@ bool mdaVocInput::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-void mdaVocInput::getParameterName(LvzInt32 index, char *label)
+void mdaVocInput::getParameterName(int32_t index, char *label)
 {
   switch(index)
   {
@@ -128,7 +128,7 @@ void mdaVocInput::getParameterName(LvzInt32 index, char *label)
 }
 
 
-void mdaVocInput::getParameterDisplay(LvzInt32 index, char *text)
+void mdaVocInput::getParameterDisplay(int32_t index, char *text)
 {
  	char string[16];
  	float * param = programs[curProgram].param;
@@ -139,10 +139,10 @@ void mdaVocInput::getParameterDisplay(LvzInt32 index, char *text)
                              case 1: strcpy(string, "FREE");   break;
                              case 2: strcpy(string, "QUANT"); } break;
 
-    case  1: if(track) sprintf(string, "%d", (LvzInt32)(48.0f * param[1] - 24.0f)); 
-                  else midi2string((LvzInt32)(48.0f * param[1] + 21.0f), string); break;
+    case  1: if(track) sprintf(string, "%d", (int32_t)(48.0f * param[1] - 24.0f)); 
+                  else midi2string((int32_t)(48.0f * param[1] + 21.0f), string); break;
 
-    case  4: midi2string((LvzInt32)(48.0f * param[4] + 45.0f), string); break;
+    case  4: midi2string((int32_t)(48.0f * param[4] + 45.0f), string); break;
 
     default: sprintf(string, "%.0f", 100.0f * param[index]);
   }
@@ -151,7 +151,7 @@ void mdaVocInput::getParameterDisplay(LvzInt32 index, char *text)
 }
 
 
-void mdaVocInput::getParameterLabel(LvzInt32 index, char *label)
+void mdaVocInput::getParameterLabel(int32_t index, char *label)
 {
   switch(index)
   {
@@ -163,10 +163,10 @@ void mdaVocInput::getParameterLabel(LvzInt32 index, char *label)
 }
 
 
-void mdaVocInput::midi2string(LvzInt32 n, char *text) //show name of MIDI note number (60=C3)
+void mdaVocInput::midi2string(int32_t n, char *text) //show name of MIDI note number (60=C3)
 {
   char t[8];
-  LvzInt32 o, s, p=0;
+  int32_t o, s, p=0;
 
   t[p++] = ' ';
   t[p++] = ' ';
@@ -199,7 +199,7 @@ void mdaVocInput::midi2string(LvzInt32 n, char *text) //show name of MIDI note n
 }
 
 
-void mdaVocInput::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaVocInput::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -210,7 +210,7 @@ void mdaVocInput::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   float l0=lbuf0, l1=lbuf1, l2=lbuf2, l3=lbuf3;
   float le=lenv, he=henv, et=lfreq*0.1f, lf=lfreq, v=vuv, mn=minp, mx=maxp;
   float rootm=39.863137f;
-  LvzInt32  tr=track;
+  int32_t  tr=track;
 
   --in1;
   --in2;
@@ -274,7 +274,7 @@ void mdaVocInput::process(float **inputs, float **outputs, LvzInt32 sampleFrames
 }
 
 
-void mdaVocInput::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaVocInput::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -285,7 +285,7 @@ void mdaVocInput::processReplacing(float **inputs, float **outputs, LvzInt32 sam
   float l0=lbuf0, l1=lbuf1, l2=lbuf2, l3=lbuf3;
   float le=lenv, he=henv, et=lfreq*0.1f, lf=lfreq, v=vuv, mn=minp, mx=maxp;
   float rootm=39.863137f;
-  LvzInt32  tr=track;
+  int32_t  tr=track;
 
   --in1;
   --in2;

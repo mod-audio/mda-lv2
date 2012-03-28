@@ -82,7 +82,7 @@ bool  mdaLeslie::getProductString(char* text) { strcpy(text, "MDA Leslie"); retu
 bool  mdaLeslie::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaLeslie::getEffectName(char* name)    { strcpy(name, "Leslie"); return true; }
 
-void mdaLeslie::setParameter(LvzInt32 index, float value)
+void mdaLeslie::setParameter(int32_t index, float value)
 {
   float * param = programs[curProgram].param;
 
@@ -107,7 +107,7 @@ mdaLeslie::~mdaLeslie()
   if(programs) delete [] programs; 
 }
 
-void mdaLeslie::setProgram(LvzInt32 program) 
+void mdaLeslie::setProgram(int32_t program) 
 {
 	curProgram = program;
     update();
@@ -168,7 +168,7 @@ void mdaLeslie::getProgramName(char *name)
 	strcpy(name, programs[curProgram].name);
 }
 
-bool mdaLeslie::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaLeslie::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if ((unsigned int)index < NPROGS) 
 	{
@@ -178,7 +178,7 @@ bool mdaLeslie::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* 
 	return false;
 }
 
-float mdaLeslie::getParameter(LvzInt32 index)
+float mdaLeslie::getParameter(int32_t index)
 {
   float v=0;
   float * param = programs[curProgram].param;
@@ -198,7 +198,7 @@ float mdaLeslie::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaLeslie::getParameterName(LvzInt32 index, char *label)
+void mdaLeslie::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -215,9 +215,9 @@ void mdaLeslie::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaLeslie::getParameterDisplay(LvzInt32 index, char *text)
+void mdaLeslie::getParameterDisplay(int32_t index, char *text)
 {
   float * param = programs[curProgram].param;
 	switch(index)
@@ -228,18 +228,18 @@ void mdaLeslie::getParameterDisplay(LvzInt32 index, char *text)
         if(param[0] < 0.1f) strcpy(text, "STOP"); 
                       else strcpy(text, "SLOW");
       }               else strcpy(text, "FAST");  break;
-    case 1: int2strng((LvzInt32)(100 * param[6]), text); break;
-    case 2: int2strng((LvzInt32)(100 * param[8]), text); break;
-    case 3: int2strng((LvzInt32)(100 * param[3]), text); break;
-    case 4: int2strng((LvzInt32)(100 * param[4]), text); break;
-    case 5: int2strng((LvzInt32)(100 * param[5]), text); break;
-    case 6: int2strng((LvzInt32)(10*int((float)pow(10.0f,1.179f + param[2]))), text); break; 
-    case 7: int2strng((LvzInt32)(40 * param[1] - 20), text); break;
-    case 8: int2strng((LvzInt32)(200 * param[7]), text); break;
+    case 1: int2strng((int32_t)(100 * param[6]), text); break;
+    case 2: int2strng((int32_t)(100 * param[8]), text); break;
+    case 3: int2strng((int32_t)(100 * param[3]), text); break;
+    case 4: int2strng((int32_t)(100 * param[4]), text); break;
+    case 5: int2strng((int32_t)(100 * param[5]), text); break;
+    case 6: int2strng((int32_t)(10*int((float)pow(10.0f,1.179f + param[2]))), text); break; 
+    case 7: int2strng((int32_t)(40 * param[1] - 20), text); break;
+    case 8: int2strng((int32_t)(200 * param[7]), text); break;
   }
 }
 
-void mdaLeslie::getParameterLabel(LvzInt32 index, char *label)
+void mdaLeslie::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -252,7 +252,7 @@ void mdaLeslie::getParameterLabel(LvzInt32 index, char *label)
 
 //--------------------------------------------------------------------------------
 
-void mdaLeslie::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLeslie::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -263,7 +263,7 @@ void mdaLeslie::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   float hl=hlev, hs=hspd, ht, hm=hmom, hp=hphi, hw=hwid, hd=hdep;
   float ll=llev, ls=lspd, lt, lm=lmom, lp=lphi, lw=lwid;
   float hint, k0=0.03125f, k1=32.f;
-  LvzInt32  hdd, hdd2, k=0, hps=hpos;
+  int32_t  hdd, hdd2, k=0, hps=hpos;
 
   ht=hset*(1.f-hm);
   lt=lset*(1.f-lm);
@@ -296,7 +296,7 @@ void mdaLeslie::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
       dshp = k0 * ((float)sin(hp + k1*hs) - shp);
       dslp = k0 * ((float)sin(lp + k1*ls) - slp);
 
-      k=(LvzInt32)k1;
+      k=(int32_t)k1;
     }
 
     fb1 = fo * (fb1 - a) + a;
@@ -339,7 +339,7 @@ void mdaLeslie::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   if(fabs(fb2)>1.0e-10) fbuf2=fb2; else fbuf2=0.f;
 }
 
-void mdaLeslie::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLeslie::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -350,7 +350,7 @@ void mdaLeslie::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
   float hl=hlev, hs=hspd, ht, hm=hmom, hp=hphi, hw=hwid, hd=hdep;
   float ll=llev, ls=lspd, lt, lm=lmom, lp=lphi, lw=lwid;
   float hint, k0=0.03125f, k1=32.f; //k0 = 1/k1
-  LvzInt32  hdd, hdd2, k=0, hps=hpos;
+  int32_t  hdd, hdd2, k=0, hps=hpos;
 
   ht=hset*(1.f-hm); //target speeds
   lt=lset*(1.f-lm);
@@ -381,7 +381,7 @@ void mdaLeslie::processReplacing(float **inputs, float **outputs, LvzInt32 sampl
       dshp = k0 * ((float)sin(hp + k1*hs) - shp);
       dslp = k0 * ((float)sin(lp + k1*ls) - slp);
 
-      k=(LvzInt32)k1;
+      k=(int32_t)k1;
     }
 
     fb1 = fo * (fb1 - a) + a; //crossover

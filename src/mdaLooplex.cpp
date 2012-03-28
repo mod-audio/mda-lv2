@@ -263,7 +263,7 @@ void mdaLooplex::idle()
     if(busy) return; //only do once per bypass
     busy = 1;
     float * param = programs[curProgram].param;
-    bufmax = 2 * (LvzInt32)Fs * (LvzInt32)(10.5f + 190.0f * param[0]);
+    bufmax = 2 * (int32_t)Fs * (int32_t)(10.5f + 190.0f * param[0]);
     if(buffer) delete [] buffer;
     buffer = new short[bufmax + 10];
     if(buffer) memset(buffer, 0, (bufmax + 10) * sizeof(short)); else bufmax = 0;
@@ -302,19 +302,19 @@ mdaLooplex::~mdaLooplex ()  //destroy any buffers...
       char wh[44];
       memcpy(wh, "RIFF____WAVEfmt \20\0\0\0\1\0\2\0________\4\0\20\0data____", 44);
 
-      LvzInt32 l = 36 + buflen * 2;
+      int32_t l = 36 + buflen * 2;
       wh[4] = (char)(l & 0xFF);  l >>= 8;
       wh[5] = (char)(l & 0xFF);  l >>= 8;
       wh[6] = (char)(l & 0xFF);  l >>= 8;
       wh[7] = (char)(l & 0xFF);
 
-      l = (LvzInt32)(Fs + 0.5f);
+      l = (int32_t)(Fs + 0.5f);
       wh[24] = (char)(l & 0xFF);  l >>= 8;
       wh[25] = (char)(l & 0xFF);  l >>= 8;
       wh[26] = (char)(l & 0xFF);  l >>= 8;
       wh[27] = (char)(l & 0xFF);
 
-      l = 4 * (LvzInt32)(Fs + 0.5f);
+      l = 4 * (int32_t)(Fs + 0.5f);
       wh[28] = (char)(l & 0xFF);  l >>= 8;
       wh[29] = (char)(l & 0xFF);  l >>= 8;
       wh[30] = (char)(l & 0xFF);  l >>= 8;
@@ -351,30 +351,30 @@ mdaLooplex::~mdaLooplex ()  //destroy any buffers...
 }
 
 
-void mdaLooplex::setProgram(LvzInt32 program)
+void mdaLooplex::setProgram(int32_t program)
 {
 	curProgram = program;
     update();
 }
 
 
-void mdaLooplex::setParameter(LvzInt32 index, float value)
+void mdaLooplex::setParameter(int32_t index, float value)
 {
   programs[curProgram].param[index] = value;
   update();
 }
 
 
-float mdaLooplex::getParameter(LvzInt32 index)     { return programs[curProgram].param[index]; }
+float mdaLooplex::getParameter(int32_t index)     { return programs[curProgram].param[index]; }
 void  mdaLooplex::setProgramName(char *name)   { strcpy(programs[curProgram].name, name); }
 void  mdaLooplex::getProgramName(char *name)   { strcpy(name, programs[curProgram].name); }
-void  mdaLooplex::setBlockSize(LvzInt32 blockSize) {	AudioEffectX::setBlockSize(blockSize); }
+void  mdaLooplex::setBlockSize(int32_t blockSize) {	AudioEffectX::setBlockSize(blockSize); }
 bool  mdaLooplex::getEffectName(char* name)    { strcpy(name, "Looplex"); return true; }
 bool  mdaLooplex::getVendorString(char* text)  {	strcpy(text, "mda"); return true; }
 bool  mdaLooplex::getProductString(char* text) { strcpy(text, "MDA Looplex"); return true; }
 
 
-bool mdaLooplex::getProgramNameIndexed(LvzInt32 category, LvzInt32 index, char* text)
+bool mdaLooplex::getProgramNameIndexed(int32_t category, int32_t index, char* text)
 {
 	if ((unsigned int)index < NPROGS)
 	{
@@ -385,7 +385,7 @@ bool mdaLooplex::getProgramNameIndexed(LvzInt32 category, LvzInt32 index, char* 
 }
 
 
-bool mdaLooplex::copyProgram(LvzInt32 destination)
+bool mdaLooplex::copyProgram(int32_t destination)
 {
   if(destination<NPROGS)
   {
@@ -396,7 +396,7 @@ bool mdaLooplex::copyProgram(LvzInt32 destination)
 }
 
 
-LvzInt32 mdaLooplex::canDo(char* text)
+int32_t mdaLooplex::canDo(char* text)
 {
   if(strcmp(text, "receiveLvzEvents") == 0) return 1;
   if(strcmp(text, "receiveLvzMidiEvent") == 0) return 1;
@@ -404,7 +404,7 @@ LvzInt32 mdaLooplex::canDo(char* text)
 }
 
 
-void mdaLooplex::getParameterName(LvzInt32 index, char *label)
+void mdaLooplex::getParameterName(int32_t index, char *label)
 {
 	switch (index)
 	{
@@ -421,7 +421,7 @@ void mdaLooplex::getParameterName(LvzInt32 index, char *label)
 }
 
 
-void mdaLooplex::getParameterDisplay(LvzInt32 index, char *text)
+void mdaLooplex::getParameterDisplay(int32_t index, char *text)
 {
 	char string[16];
 	float * param = programs[curProgram].param;
@@ -455,7 +455,7 @@ void mdaLooplex::getParameterDisplay(LvzInt32 index, char *text)
 }
 
 
-void mdaLooplex::getParameterLabel(LvzInt32 index, char *label)
+void mdaLooplex::getParameterLabel(int32_t index, char *label)
 {
   switch(index)
   {
@@ -467,22 +467,22 @@ void mdaLooplex::getParameterLabel(LvzInt32 index, char *label)
 }
 
 
-void mdaLooplex::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLooplex::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   notes[0] = EVENTS_DONE;  //mark events buffer as done
 }
 
 
-void mdaLooplex::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLooplex::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float* in1 = inputs[0];
   float* in2 = inputs[1];
   float* out1 = outputs[0];
 	float* out2 = outputs[1];
-	LvzInt32 event=0, frame=0, frames;
+	int32_t event=0, frame=0, frames;
   float l, r, dl, dr, d0 = 0.0f, d1;
   float imix = in_mix, ipan = in_pan, omix = out_mix, fb = feedback * modwhl;
-  LvzInt32 x;
+  int32_t x;
 
   if((bypassed = bypass)) return;
 
@@ -519,7 +519,7 @@ void mdaLooplex::processReplacing(float **inputs, float **outputs, LvzInt32 samp
         dl = fb * (float)buffer[bufpos];
         if(recreq)
         {
-          x = (LvzInt32)(32768.0f * l + dl + d0 - d1 + 100000.5f) - 100000;
+          x = (int32_t)(32768.0f * l + dl + d0 - d1 + 100000.5f) - 100000;
           if(x > 32767) x = 32767; else if(x < -32768) x = -32768;
           buffer[bufpos] = (short)x;
         }
@@ -529,7 +529,7 @@ void mdaLooplex::processReplacing(float **inputs, float **outputs, LvzInt32 samp
         dr = fb * (float)buffer[bufpos];
         if(recreq)
         {
-          x = (LvzInt32)(32768.0f * r + dr - d0 + d1 + 100000.5f) - 100000;
+          x = (int32_t)(32768.0f * r + dr - d0 + d1 + 100000.5f) - 100000;
           if(x > 32767) x = 32767; else if(x < -32768) x = -32768;
           buffer[bufpos] = (short)x;
         }
@@ -558,8 +558,8 @@ void mdaLooplex::processReplacing(float **inputs, float **outputs, LvzInt32 samp
 
     if(frame<sampleFrames)
     {
-      LvzInt32 note = notes[event++];
-      //LvzInt32 vel  = notes[event++];
+      int32_t note = notes[event++];
+      //int32_t vel  = notes[event++];
 
       if(note == 2)
       {
@@ -575,11 +575,11 @@ void mdaLooplex::processReplacing(float **inputs, float **outputs, LvzInt32 samp
 }
 
 
-LvzInt32 mdaLooplex::processEvents(LvzEvents* ev)
+int32_t mdaLooplex::processEvents(LvzEvents* ev)
 {
-  LvzInt32 npos=0;
+  int32_t npos=0;
 
-  for (LvzInt32 i=0; i<ev->numEvents; i++)
+  for (int32_t i=0; i<ev->numEvents; i++)
 	{
 		if((ev->events[i])->type != kLvzMidiType) continue;
 		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];

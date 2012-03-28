@@ -24,8 +24,6 @@
 
 #include "AEffect.h"
 
-typedef int32_t LvzInt32;
-
 typedef int (*audioMasterCallback)(int, int ver, int, int, int, int);
 
 enum LvzPinFlags {
@@ -48,12 +46,12 @@ struct LvzEvent {
 };
 
 struct LvzMidiEvent : public LvzEvent {
-	char* midiData;
-	LvzInt32 deltaFrames;
+	char*   midiData;
+	int32_t deltaFrames;
 };
 
 struct LvzEvents {
-	LvzInt32 numEvents;
+	int32_t    numEvents;
 	LvzEvent** events;
 };
 
@@ -64,9 +62,9 @@ public:
 	AudioEffect() {}
 	virtual ~AudioEffect() {}
 
-	virtual void  setParameter(LvzInt32 index, float value) = 0;
-	virtual void  setParameterAutomated(LvzInt32 index, float value) {}
-	virtual float getParameter(LvzInt32 index)              = 0;
+	virtual void  setParameter(int32_t index, float value) = 0;
+	virtual void  setParameterAutomated(int32_t index, float value) {}
+	virtual float getParameter(int32_t index)              = 0;
 
 	virtual void masterIdle() {}
 };
@@ -74,7 +72,7 @@ public:
 
 class AudioEffectX : public AudioEffect {
 public:
-	AudioEffectX(audioMasterCallback audioMaster, LvzInt32 progs, LvzInt32 params)
+	AudioEffectX(audioMasterCallback audioMaster, int32_t progs, int32_t params)
 		: URI("NIL")
 		, uniqueID("NIL")
 		, sampleRate(44100)
@@ -87,20 +85,20 @@ public:
 		cEffect.flags = 0;
 	}
 
-	virtual void process         (float **inputs, float **outputs, LvzInt32 nframes) = 0;
-	virtual void processReplacing(float **inputs, float **outputs, LvzInt32 nframes) = 0;
+	virtual void process         (float **inputs, float **outputs, int32_t nframes) = 0;
+	virtual void processReplacing(float **inputs, float **outputs, int32_t nframes) = 0;
 
-	virtual LvzInt32 processEvents(LvzEvents* ev) { return 0; }
+	virtual int32_t processEvents(LvzEvents* ev) { return 0; }
 
-	virtual const char*  getURI()           { return URI; }
-	virtual const char*  getUniqueID()      { return uniqueID; }
-	virtual float        getSampleRate()    { return sampleRate; }
-	virtual LvzInt32     getNumInputs()     { return numInputs; }
-	virtual LvzInt32     getNumOutputs()    { return numOutputs; }
-	virtual LvzInt32     getNumParameters() { return numParams; }
+	virtual const char* getURI()           { return URI; }
+	virtual const char* getUniqueID()      { return uniqueID; }
+	virtual float       getSampleRate()    { return sampleRate; }
+	virtual int32_t     getNumInputs()     { return numInputs; }
+	virtual int32_t     getNumOutputs()    { return numOutputs; }
+	virtual int32_t     getNumParameters() { return numParams; }
 
-	virtual void  getParameterName(LvzInt32 index, char *label) = 0;
-	virtual bool  getProductString(char* text)                  = 0;
+	virtual void getParameterName(int32_t index, char *label) = 0;
+	virtual bool getProductString(char* text)                 = 0;
 
 	virtual bool canHostDo(const char* act) { return false; }
 	virtual void canMono()                  {}
@@ -108,16 +106,16 @@ public:
 	virtual void isSynth()                  {}
 	virtual void wantEvents()               {}
 
-	virtual void setBlockSize(LvzInt32 size) {}
-	virtual void setNumInputs(LvzInt32 num)  { numInputs = num; }
-	virtual void setNumOutputs(LvzInt32 num) { numOutputs = num; }
+	virtual void setBlockSize(int32_t size)  {}
+	virtual void setNumInputs(int32_t num)   { numInputs = num; }
+	virtual void setNumOutputs(int32_t num)  { numOutputs = num; }
 	virtual void setSampleRate(float rate)   { sampleRate = rate; }
-	virtual void setProgram(LvzInt32 prog)   { curProgram = prog; }
+	virtual void setProgram(int32_t prog)    { curProgram = prog; }
 	virtual void setURI(const char* uri)     { URI = uri; }
 	virtual void setUniqueID(const char* id) { uniqueID = id; }
 	virtual void suspend()                   {}
-	virtual void beginEdit(LvzInt32 index)   {}
-	virtual void endEdit(LvzInt32 index)     {}
+	virtual void beginEdit(int32_t index)    {}
+	virtual void endEdit(int32_t index)      {}
 
 	virtual long dispatcher(long opCode, long index, long value, void *ptr, float opt) {
 		return 0;
@@ -127,11 +125,11 @@ protected:
 	const char* URI;
 	const char* uniqueID;
 	float       sampleRate;
-	LvzInt32    curProgram;
-	LvzInt32    numInputs;
-	LvzInt32    numOutputs;
-	LvzInt32    numParams;
-	LvzInt32    numPrograms;
+	int32_t     curProgram;
+	int32_t     numInputs;
+	int32_t     numOutputs;
+	int32_t     numParams;
+	int32_t     numPrograms;
 	AEffect     cEffect;
 };
 

@@ -63,7 +63,7 @@ void mdaRingMod::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaRingMod::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaRingMod::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -73,7 +73,7 @@ bool mdaRingMod::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char*
 	return false;
 }
 
-void mdaRingMod::setParameter(LvzInt32 index, float value)
+void mdaRingMod::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -85,7 +85,7 @@ void mdaRingMod::setParameter(LvzInt32 index, float value)
   ffb = 0.95f * fParam3;
 }
 
-float mdaRingMod::getParameter(LvzInt32 index)
+float mdaRingMod::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -98,7 +98,7 @@ float mdaRingMod::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaRingMod::getParameterName(LvzInt32 index, char *label)
+void mdaRingMod::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -109,20 +109,20 @@ void mdaRingMod::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaRingMod::getParameterDisplay(LvzInt32 index, char *text)
+void mdaRingMod::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(100. * floor(160. * fParam1)), text); break;
-    case 1: int2strng((LvzInt32)(100. * fParam2), text); break;
-    case 2: int2strng((LvzInt32)(100. * fParam3), text); break;
+    case 0: int2strng((int32_t)(100. * floor(160. * fParam1)), text); break;
+    case 1: int2strng((int32_t)(100. * fParam2), text); break;
+    case 2: int2strng((int32_t)(100. * fParam3), text); break;
   }
 
 }
 
-void mdaRingMod::getParameterLabel(LvzInt32 index, char *label)
+void mdaRingMod::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -135,7 +135,7 @@ void mdaRingMod::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaRingMod::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRingMod::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -177,7 +177,7 @@ void mdaRingMod::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   fprev = fp;
 }
 
-void mdaRingMod::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRingMod::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

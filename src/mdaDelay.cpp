@@ -56,7 +56,7 @@ bool  mdaDelay::getProductString(char* text) { strcpy(text, "MDA Delay"); return
 bool  mdaDelay::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaDelay::getEffectName(char* name)    { strcpy(name, "Delay"); return true; }
 
-void mdaDelay::setParameter(LvzInt32 index, float value)
+void mdaDelay::setParameter(int32_t index, float value)
 {
 	float tmp;
 
@@ -70,7 +70,7 @@ void mdaDelay::setParameter(LvzInt32 index, float value)
     case 5: fParam5 = value; break;
  }
   //calcs here
-  ldel = (LvzInt32)(size * fParam0 * fParam0);
+  ldel = (int32_t)(size * fParam0 * fParam0);
   if(ldel<4) ldel=4;
 
   switch(int(fParam1 * 17.9f)) //fixed left/right ratios
@@ -86,7 +86,7 @@ void mdaDelay::setParameter(LvzInt32 index, float value)
     case   9: tmp = 2.0000f; break;
     default: tmp = 4.0f * fParam1; break; //variable ratio
   }
-  rdel = (LvzInt32)(size * fParam0 * fParam0 * tmp);
+  rdel = (int32_t)(size * fParam0 * fParam0 * tmp);
   if(rdel>size) rdel=size;
   if(rdel<4) rdel=4;
 
@@ -133,7 +133,7 @@ void mdaDelay::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaDelay::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaDelay::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -143,7 +143,7 @@ bool mdaDelay::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* n
 	return false;
 }
 
-float mdaDelay::getParameter(LvzInt32 index)
+float mdaDelay::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -159,7 +159,7 @@ float mdaDelay::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaDelay::getParameterName(LvzInt32 index, char *label)
+void mdaDelay::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -173,22 +173,22 @@ void mdaDelay::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
-void mdaDelay::getParameterDisplay(LvzInt32 index, char *text)
+void mdaDelay::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: int2strng((LvzInt32)(ldel * 1000.0f / getSampleRate()), text); break;
-    case 1: int2strng((LvzInt32)(100 * rdel / ldel), text); break;
-    case 2: int2strng((LvzInt32)(99 * fParam2), text); break;
-    case 3: int2strng((LvzInt32)(200 * fParam3 - 100), text); break;
-    case 4: int2strng((LvzInt32)(100 * fParam4), text); break;
-    case 5: int2strng((LvzInt32)(20 * log10(2.0 * fParam5)), text); break;
+    case 0: int2strng((int32_t)(ldel * 1000.0f / getSampleRate()), text); break;
+    case 1: int2strng((int32_t)(100 * rdel / ldel), text); break;
+    case 2: int2strng((int32_t)(99 * fParam2), text); break;
+    case 3: int2strng((int32_t)(200 * fParam3 - 100), text); break;
+    case 4: int2strng((int32_t)(100 * fParam4), text); break;
+    case 5: int2strng((int32_t)(20 * log10(2.0 * fParam5)), text); break;
   }
 }
 
-void mdaDelay::getParameterLabel(LvzInt32 index, char *label)
+void mdaDelay::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -202,7 +202,7 @@ void mdaDelay::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaDelay::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -210,7 +210,7 @@ void mdaDelay::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
 	float *out2 = outputs[1];
 	float a, b, c, d, ol, or_, w=wet, y=dry, fb=fbk;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
-  LvzInt32 i=ipos, l, r, s=size;
+  int32_t i=ipos, l, r, s=size;
 
   l = (i + ldel) % (s + 1);
   r = (i + rdel) % (s + 1);
@@ -244,7 +244,7 @@ void mdaDelay::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   if(fabs(f0)<1.0e-10) fil0=0.0f; else fil0=f0;
 }
 
-void mdaDelay::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaDelay::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -252,7 +252,7 @@ void mdaDelay::processReplacing(float **inputs, float **outputs, LvzInt32 sample
 	float *out2 = outputs[1];
 	float a, b, ol, or_, w=wet, y=dry, fb=fbk;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
-  LvzInt32 i=ipos, l, r, s=size;
+  int32_t i=ipos, l, r, s=size;
 
   l = (i + ldel) % (s + 1);
   r = (i + rdel) % (s + 1);

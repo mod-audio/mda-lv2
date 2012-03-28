@@ -66,7 +66,7 @@ void mdaSubSynth::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaSubSynth::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaSubSynth::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -76,11 +76,11 @@ bool mdaSubSynth::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 	return false;
 }
 
-void mdaSubSynth::setProgram(LvzInt32 program)
+void mdaSubSynth::setProgram(int32_t program)
 {
 }
 
-void mdaSubSynth::setParameter(LvzInt32 index, float value)
+void mdaSubSynth::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -105,7 +105,7 @@ void mdaSubSynth::setParameter(LvzInt32 index, float value)
   dphi = (float)(0.456159 * pow(10.0,-2.5 + (1.5 * fParam3)));
 }
 
-float mdaSubSynth::getParameter(LvzInt32 index)
+float mdaSubSynth::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -121,7 +121,7 @@ float mdaSubSynth::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaSubSynth::getParameterName(LvzInt32 index, char *label)
+void mdaSubSynth::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -134,17 +134,17 @@ void mdaSubSynth::getParameterName(LvzInt32 index, char *label)
   }
 }
 
-void mdaSubSynth::getParameterDisplay(LvzInt32 index, char *text)
+void mdaSubSynth::getParameterDisplay(int32_t index, char *text)
 {
  	char string[16];
 
 	switch(index)
   {
-    case 1: sprintf(string, "%d", (LvzInt32)(100.0f * wet)); break;
-    case 2: sprintf(string, "%d", (LvzInt32)(0.0726 * getSampleRate() * pow(10.0,-2.5 + (1.5 * fParam3)))); break;
-    case 3: sprintf(string, "%d", (LvzInt32)(100. * dry)); break;
+    case 1: sprintf(string, "%d", (int32_t)(100.0f * wet)); break;
+    case 2: sprintf(string, "%d", (int32_t)(0.0726 * getSampleRate() * pow(10.0,-2.5 + (1.5 * fParam3)))); break;
+    case 3: sprintf(string, "%d", (int32_t)(100. * dry)); break;
     case 4: sprintf(string, "%.1f", 60.0f * fParam5 - 60.0f); break;
-    case 5: sprintf(string, "%d", (LvzInt32)(-301.03 / (getSampleRate() * log10(rls)))); break;
+    case 5: sprintf(string, "%d", (int32_t)(-301.03 / (getSampleRate() * log10(rls)))); break;
     
     case 0: switch(typ)
     {
@@ -159,7 +159,7 @@ void mdaSubSynth::getParameterDisplay(LvzInt32 index, char *text)
 	strcpy(text, (char *)string);
 }
 
-void mdaSubSynth::getParameterLabel(LvzInt32 index, char *label)
+void mdaSubSynth::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -183,7 +183,7 @@ void mdaSubSynth::resume()
 //--------------------------------------------------------------------------------
 // process
 
-void mdaSubSynth::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaSubSynth::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -282,7 +282,7 @@ void mdaSubSynth::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   env = en;
 }
 
-void mdaSubSynth::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaSubSynth::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];

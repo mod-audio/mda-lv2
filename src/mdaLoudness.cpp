@@ -77,7 +77,7 @@ void mdaLoudness::resume() ///update internal parameters...
 {
   float * param = programs[curProgram].param;
   float f, tmp;
-  LvzInt32  i;
+  int32_t  i;
 
   tmp = param[0] + param[0] - 1.0f;
   igain = 60.0f * tmp * tmp;
@@ -88,7 +88,7 @@ void mdaLoudness::resume() ///update internal parameters...
   if(tmp<0.0f) ogain *= -1.0f;
 
   f = 0.1f * igain + 6.0f;  //coefficient index + fractional part
-  i = (LvzInt32)f;
+  i = (int32_t)f;
   f -= (float)i;
 
   tmp = loudness[i][0];  A0 = tmp + f * (loudness[i + 1][0] - tmp);
@@ -128,22 +128,22 @@ mdaLoudness::~mdaLoudness() ///destroy any buffers...
   if(programs) delete[] programs;
 }
 
-void mdaLoudness::setProgram(LvzInt32 program)
+void mdaLoudness::setProgram(int32_t program)
 {
   curProgram = program;
   resume();
 }
 
-void  mdaLoudness::setParameter(LvzInt32 index, float value)
+void  mdaLoudness::setParameter(int32_t index, float value)
 {
   programs[curProgram].param[index] = value; //bug was here!
   resume();
 }
 
-float mdaLoudness::getParameter(LvzInt32 index) { return programs[curProgram].param[index]; }
+float mdaLoudness::getParameter(int32_t index) { return programs[curProgram].param[index]; }
 void  mdaLoudness::setProgramName(char *name) { strcpy(programs[curProgram].name, name); }
 void  mdaLoudness::getProgramName(char *name) { strcpy(name, programs[curProgram].name); }
-bool mdaLoudness::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaLoudness::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if ((unsigned int)index < NPROGS) 
 	{
@@ -154,7 +154,7 @@ bool mdaLoudness::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char
 }
 
 
-void mdaLoudness::getParameterName(LvzInt32 index, char *label)
+void mdaLoudness::getParameterName(int32_t index, char *label)
 {
   switch(index)
   {
@@ -165,7 +165,7 @@ void mdaLoudness::getParameterName(LvzInt32 index, char *label)
 }
 
 
-void mdaLoudness::getParameterDisplay(LvzInt32 index, char *text)
+void mdaLoudness::getParameterDisplay(int32_t index, char *text)
 {
  	char string[16];
 
@@ -181,7 +181,7 @@ void mdaLoudness::getParameterDisplay(LvzInt32 index, char *text)
 }
 
 
-void mdaLoudness::getParameterLabel(LvzInt32 index, char *label)
+void mdaLoudness::getParameterLabel(int32_t index, char *label)
 {
   switch(index)
   {
@@ -191,7 +191,7 @@ void mdaLoudness::getParameterLabel(LvzInt32 index, char *label)
 }
 
 
-void mdaLoudness::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLoudness::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];
@@ -255,7 +255,7 @@ void mdaLoudness::process(float **inputs, float **outputs, LvzInt32 sampleFrames
 }
 
 
-void mdaLoudness::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaLoudness::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
   float *in1 = inputs[0];
   float *in2 = inputs[1];

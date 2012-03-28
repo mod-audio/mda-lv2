@@ -60,11 +60,11 @@ mdaBeatBox::mdaBeatBox(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
 
   //calcs here
   hthr = (float)pow(10.f, 2.f * fParam1 - 2.f);
-  hdel = (LvzInt32)((0.04 + 0.20 * fParam2) * getSampleRate());
+  hdel = (int32_t)((0.04 + 0.20 * fParam2) * getSampleRate());
   sthr = (float)(40.0 * pow(10.f, 2.f * fParam7 - 2.f));
-  sdel = (LvzInt32)(0.12 * getSampleRate());
+  sdel = (int32_t)(0.12 * getSampleRate());
   kthr = (float)(220.0 * pow(10.f, 2.f * fParam4 - 2.f));
-  kdel = (LvzInt32)(0.10 * getSampleRate());
+  kdel = (int32_t)(0.10 * getSampleRate());
 
   hlev = (float)(0.0001f + fParam3 * fParam3 * 4.f);
   klev = (float)(0.0001f + fParam6 * fParam6 * 4.f);
@@ -101,7 +101,7 @@ void mdaBeatBox::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-bool mdaBeatBox::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char* name)
+bool mdaBeatBox::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
 	if (index == 0) 
 	{
@@ -111,7 +111,7 @@ bool mdaBeatBox::getProgramNameIndexed (LvzInt32 category, LvzInt32 index, char*
 	return false;
 }
 
-void mdaBeatBox::setParameter(LvzInt32 index, float value)
+void mdaBeatBox::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -130,7 +130,7 @@ void mdaBeatBox::setParameter(LvzInt32 index, float value)
   }
   //calcs here
   hthr = (float)pow(10.f, 2.f * fParam1 - 2.f);
-  hdel = (LvzInt32)((0.04 + 0.20 * fParam2) * getSampleRate());
+  hdel = (int32_t)((0.04 + 0.20 * fParam2) * getSampleRate());
   sthr = (float)(40.0 * pow(10.f, 2.f * fParam7 - 2.f));
   kthr = (float)(220.0 * pow(10.f, 2.f * fParam4 - 2.f));
 
@@ -149,10 +149,10 @@ void mdaBeatBox::setParameter(LvzInt32 index, float value)
   ksf1 = (float)cos(3.1415927 * kww);     //p
   ksf2 = (float)sin(3.1415927 * kww);     //q
 
-  if(wwx != ww) sfx = (LvzInt32)(2 * getSampleRate()); 
-  if(kwwx != kww) ksfx = (LvzInt32)(2 * getSampleRate());
+  if(wwx != ww) sfx = (int32_t)(2 * getSampleRate()); 
+  if(kwwx != kww) ksfx = (int32_t)(2 * getSampleRate());
 
-  rec = (LvzInt32)(4.9 * fParam11); 
+  rec = (int32_t)(4.9 * fParam11); 
   if ((rec!=recx) && (recpos>0)) //finish sample
   {
     switch(rec)
@@ -182,7 +182,7 @@ void mdaBeatBox::suspend()
 
 void mdaBeatBox::synth()
 {
-	LvzInt32 t; 
+	int32_t t; 
   float e=0.00012f, de, o, o1=0.f, o2=0.f, p=0.2f, dp;
 
   memset(hbuf, 0, hbuflen * sizeof(float)); //generate hi-hat
@@ -215,7 +215,7 @@ void mdaBeatBox::synth()
   }
 }
 
-float mdaBeatBox::getParameter(LvzInt32 index)
+float mdaBeatBox::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -237,7 +237,7 @@ float mdaBeatBox::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaBeatBox::getParameterName(LvzInt32 index, char *label)
+void mdaBeatBox::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -257,24 +257,24 @@ void mdaBeatBox::getParameterName(LvzInt32 index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(LvzInt32 value, char *string) { sprintf(string, "%d", value); }
+void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
-void mdaBeatBox::getParameterDisplay(LvzInt32 index, char *text)
+void mdaBeatBox::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
     case 0: float2strng((float)(40.0*fParam1 - 40.0),text); break;
-    case 1: int2strng((LvzInt32)(1000.f * hdel / getSampleRate()),text); break;
-    case 2: int2strng((LvzInt32)(20.f * log10(hlev)),text); break;
+    case 1: int2strng((int32_t)(1000.f * hdel / getSampleRate()),text); break;
+    case 2: int2strng((int32_t)(20.f * log10(hlev)),text); break;
     case 3: float2strng((float)(40.0*fParam4 - 40.0),text); break;
-    case 4: int2strng((LvzInt32)(0.5 * kww * getSampleRate()), text); break;
-    case 5: int2strng((LvzInt32)(20.f * log10(klev)),text); break;
+    case 4: int2strng((int32_t)(0.5 * kww * getSampleRate()), text); break;
+    case 5: int2strng((int32_t)(20.f * log10(klev)),text); break;
     case 6: float2strng((float)(40.0*fParam7 - 40.0),text); break;
-    case 7: int2strng((LvzInt32)(0.5 * ww * getSampleRate()), text); break;
-    case 8: int2strng((LvzInt32)(20.f * log10(slev)),text); break;
-    case 9: int2strng((LvzInt32)(100.f * fParam10),text); break; 
-    case 11: int2strng((LvzInt32)(20.f * log10(fParam12)),text); break;
+    case 7: int2strng((int32_t)(0.5 * ww * getSampleRate()), text); break;
+    case 8: int2strng((int32_t)(20.f * log10(slev)),text); break;
+    case 9: int2strng((int32_t)(100.f * fParam10),text); break; 
+    case 11: int2strng((int32_t)(20.f * log10(fParam12)),text); break;
 
     case 10: switch(rec)
             { case 0: strcpy(text, "-"); break;
@@ -285,7 +285,7 @@ void mdaBeatBox::getParameterDisplay(LvzInt32 index, char *text)
   }
 }
 
-void mdaBeatBox::getParameterLabel(LvzInt32 index, char *label)
+void mdaBeatBox::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -307,20 +307,20 @@ void mdaBeatBox::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaBeatBox::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaBeatBox::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
   float a, b, c, d, e, o, hf=hfil, ht=hthr, mx3=0.f, mx1=mix;
-  LvzInt32 hp=hbufpos, hl=hbuflen-2, hd=hdel;
+  int32_t hp=hbufpos, hl=hbuflen-2, hd=hdel;
   float kt=kthr;
-  LvzInt32 kp=kbufpos, kl=kbuflen-2, kd=kdel;  
+  int32_t kp=kbufpos, kl=kbuflen-2, kd=kdel;  
   float st=sthr, s, f1=sb1, f2=sb2, b1=sf1, b2=sf2, b3=sf3;
   float k, kf1=ksb1, kf2=ksb2, kb1=ksf1, kb2=ksf2;
   float hlv=hlev, klv=klev, slv=slev;
-  LvzInt32 sp=sbufpos, sl=sbuflen-2, sd=sdel;  
+  int32_t sp=sbufpos, sl=sbuflen-2, sd=sdel;  
   float ya=dyna, yr=dynr, ye=dyne, ym=dynm, mx4;
 
   if(sfx>0) { mx3=0.08f; slv=0.f; klv=0.f; hlv=0.f; mx1=0.f; sfx-=sampleFrames;} //key listen (snare)
@@ -402,20 +402,20 @@ void mdaBeatBox::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
   dyne=ye;
 }
 
-void mdaBeatBox::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaBeatBox::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
   float a, b, e, o, hf=hfil, ht=hthr, mx3=0.f, mx1=mix;
-  LvzInt32 hp=hbufpos, hl=hbuflen-2, hd=hdel;
+  int32_t hp=hbufpos, hl=hbuflen-2, hd=hdel;
   float kt=kthr;
-  LvzInt32 kp=kbufpos, kl=kbuflen-2, kd=kdel;  
+  int32_t kp=kbufpos, kl=kbuflen-2, kd=kdel;  
   float st=sthr, s, f1=sb1, f2=sb2, b1=sf1, b2=sf2, b3=sf3;
   float k, kf1=ksb1, kf2=ksb2, kb1=ksf1, kb2=ksf2;
   float hlv=hlev, klv=klev, slv=slev;
-  LvzInt32 sp=sbufpos, sl=sbuflen-2, sd=sdel;  
+  int32_t sp=sbufpos, sl=sbuflen-2, sd=sdel;  
   float ya=dyna, yr=dynr, ye=dyne, ym=dynm, mx4;
 
   if(sfx>0) { mx3=0.08f; slv=0.f; klv=0.f; hlv=0.f; mx1=0.f; sfx-=sampleFrames;} //key listen (snare)

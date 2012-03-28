@@ -70,7 +70,7 @@ bool  mdaRePsycho::getProductString(char* text) { strcpy(text, "MDA RePsycho!");
 bool  mdaRePsycho::getVendorString(char* text)  { strcpy(text, "mda"); return true; }
 bool  mdaRePsycho::getEffectName(char* name)    { strcpy(name, "RePsycho!"); return true; }
 
-void mdaRePsycho::setParameter(LvzInt32 index, float value)
+void mdaRePsycho::setParameter(int32_t index, float value)
 {
 	switch(index)
   {
@@ -124,7 +124,7 @@ void mdaRePsycho::getProgramName(char *name)
 	strcpy(name, programName);
 }
 
-float mdaRePsycho::getParameter(LvzInt32 index)
+float mdaRePsycho::getParameter(int32_t index)
 {
 	float v=0;
 
@@ -141,7 +141,7 @@ float mdaRePsycho::getParameter(LvzInt32 index)
   return v;
 }
 
-void mdaRePsycho::getParameterName(LvzInt32 index, char *label)
+void mdaRePsycho::getParameterName(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -158,7 +158,7 @@ void mdaRePsycho::getParameterName(LvzInt32 index, char *label)
 #include <stdio.h>
 void long2string(long value, char *string) { sprintf(string, "%ld", value); }
 
-void mdaRePsycho::getParameterDisplay(LvzInt32 index, char *text)
+void mdaRePsycho::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
@@ -173,7 +173,7 @@ void mdaRePsycho::getParameterDisplay(LvzInt32 index, char *text)
   }
 }
 
-void mdaRePsycho::getParameterLabel(LvzInt32 index, char *label)
+void mdaRePsycho::getParameterLabel(int32_t index, char *label)
 {
 	switch(index)
   {
@@ -190,7 +190,7 @@ void mdaRePsycho::getParameterLabel(LvzInt32 index, char *label)
 //--------------------------------------------------------------------------------
 // process
 
-void mdaRePsycho::process(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRePsycho::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
@@ -321,7 +321,7 @@ void mdaRePsycho::process(float **inputs, float **outputs, LvzInt32 sampleFrames
   buf2 = xx2;
 }
 
-void mdaRePsycho::processReplacing(float **inputs, float **outputs, LvzInt32 sampleFrames)
+void mdaRePsycho::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float *in1 = inputs[0];
 	float *in2 = inputs[1];
