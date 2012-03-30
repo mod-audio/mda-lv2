@@ -11,7 +11,7 @@ mda:Overdrive
 	doap:name "MDA Overdrive" ;
 	doap:shortdesc "Soft distortion" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
     rdfs:comment "Possible uses include adding body to drum loops, fuzz guitar, and that 'standing outside a nightclub' sound. This plug does not simulate valve distortion, and any attempt to process organ sounds through it will be extremely unrewarding!" ;

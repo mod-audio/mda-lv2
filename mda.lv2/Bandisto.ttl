@@ -12,7 +12,7 @@ mda:Bandisto
 	doap:name "MDA Bandisto" ;
 	doap:shortdesc "Multi-band distortion" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment "This plug is like MultiBand but uses 3 bands of clipping instead of compression.  This is unlikely to be a plug you use every day, but when you want to recreate the sound of torn bass-bins you know where to come!" ;

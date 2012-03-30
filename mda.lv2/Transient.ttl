@@ -9,7 +9,7 @@ mda:Transient
 	lv2:symbol "Transient" ;
 	doap:name "MDA Transient" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	lv2:port [

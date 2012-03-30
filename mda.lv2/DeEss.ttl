@@ -11,7 +11,7 @@ mda:DeEss
 	doap:name "MDA De-ess" ;
 	doap:shortdesc "High frequency dynamics processor" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """Reduce excessive sibilants (/s/ /t/ /sh/ etc.) in vocals and speech.

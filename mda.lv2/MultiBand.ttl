@@ -18,7 +18,7 @@ mda:MultiBand
 	doap:name "MDA MultiBand" ;
 	doap:shortdesc "Multi-band compressor with M-S processing modes" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """As well as just "squashing everything" this plug-in can be used to "overcook" the mid-frequencies while leaving the low end unprocessed, enhancing playback over small speakers without affecting the overall sound too much.

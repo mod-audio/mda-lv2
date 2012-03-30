@@ -12,7 +12,7 @@ mda:VocInput
 	doap:name "MDA VocInput" ;
 	doap:shortdesc "Pitch tracking oscillator for generating vocoder carrier input" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment "This plug-in produces a voice-like signal on the right channel to be used as a carrier signal with vocoder and other vocoder plug-ins. The input signal passes through on the left channel." ;

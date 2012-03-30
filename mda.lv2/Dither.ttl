@@ -12,7 +12,7 @@ mda:Dither
 	doap:name "MDA Dither" ;
 	doap:shortdesc "Range of dither types including noise shaping" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """When a waveform is rounded to the nearest 16 (or whatever)-bit value this causes distortion. Dither allows you to exchange this rough sounding signal-dependant distortion for a smooth background hiss.

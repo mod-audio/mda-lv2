@@ -11,7 +11,7 @@ mda:Detune
 	doap:name "MDA Detune" ;
 	doap:shortdesc "Simple up/down pitch shifting thickener" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment "A low-quality stereo pitch shifter for the sort of chorus and detune effects found on multi-effects hardware." ;

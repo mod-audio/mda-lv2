@@ -12,7 +12,7 @@ mda:Tracker
 	doap:name "MDA Tracker" ;
 	doap:shortdesc "Pitch tracking oscillator, or pitch tracking EQ" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """This plug-in tracks the frequency of the input signal with an oscillator, ring modulator or filter.  The pitch tracking only works with monophonic inputs, but can create interesting effects on unpitched sounds such as drums.

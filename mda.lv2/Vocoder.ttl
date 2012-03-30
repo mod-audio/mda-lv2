@@ -12,7 +12,7 @@ mda:Vocoder
 	doap:name "MDA Vocoder" ;
 	doap:shortdesc "Switchable 8 or 16 band vocoder" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """16-band vocoder for applying the spectrum of one sound (the modulator, usually a voice or rhythm part) to the waveform of another (the carrier, usually a synth pad or sawtooth wave).

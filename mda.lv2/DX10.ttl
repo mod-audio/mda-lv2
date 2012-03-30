@@ -17,7 +17,7 @@ mda:DX10
 	lv2:symbol "DX10" ;
 	doap:name "MDA DX10" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """Sounds similar to the later Yamaha DX synths including the heavy bass but with a warmer, cleaner tone.  This plug-in is 8-voice polyphonic.""" ;

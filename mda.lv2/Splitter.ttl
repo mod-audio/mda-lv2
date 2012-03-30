@@ -12,7 +12,7 @@ mda:Splitter
 	doap:name "MDA Splitter" ;
 	doap:shortdesc "Frequency/level crossover for setting up dynamic processing" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """This plug-in can split a signal based on frequency or level, for example for producing dynamic effects where only loud drum hits are sent to a reverb. Other functions include a simple "spectral gate" in INVERSE mode and a conventional gate and filter for separating drum sounds in NORMAL mode.""" ;

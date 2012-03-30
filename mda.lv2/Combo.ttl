@@ -12,7 +12,7 @@ mda:Combo
 	doap:name "MDA Combo" ;
 	doap:shortdesc "Amp & speaker simulator" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment "This plug-in can sound quite subtle but comes alive when used on guitar with the drive turned up!  Remember that distortion may not sound good on time-based effects such as delay and reverb, so put those effects after this plug, or after a separate distortion plug with Combo acting only as a speaker simulator." ;

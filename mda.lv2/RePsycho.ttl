@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix units: <http://lv2plug.in/ns/ext/units#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
 
 mda:RePsycho
 	a lv2:Plugin ,
@@ -12,7 +12,7 @@ mda:RePsycho
 	doap:name "MDA RePsycho!" ;
 	doap:shortdesc "Drum loop pitch changer" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """Event-based pitch shifter
@@ -29,7 +29,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
 		lv2:default 1 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:semitone ;
+		units:unit units:semitone12TET ;
 		rdfs:comment "Coarse tune (semitones)"
 	] , [
 		a lv2:InputPort ,

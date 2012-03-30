@@ -12,7 +12,7 @@ mda:Image
 	doap:name "MDA Image" ;
 	doap:shortdesc "Stereo image adjustment and M-S matrix" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment "Allows the level and pan of mono and stereo components to be adjusted separately, or components to be separated for individual processing before recombining with a second Image plug-in." ;

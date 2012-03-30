@@ -11,7 +11,7 @@ mda:Loudness
 	doap:name "MDA Loudness" ;
 	doap:shortdesc "Equal loudness contours for bass EQ and mix correction" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """The ear is less sensitive to low frequencies when listening at low volume. This plug-in is based on the Stevens-Davis equal loudness contours and allows the bass level to be adjusted to simulate or correct for this effect.

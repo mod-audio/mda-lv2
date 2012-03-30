@@ -12,7 +12,7 @@ mda:Shepard
 	doap:name "MDA Shepard" ;
 	doap:shortdesc "Continuously rising/falling tone generator" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
     rdfs:comment """This plug-in actually generates "Risset tones". Discrete stepping "Shepard tones" will hopefully be included in a future version.""" ;

@@ -3,16 +3,16 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-mda:stereoIn
+mda:mainIn
 	a pg:StereoGroup ,
 		pg:InputGroup ;
 	lv2:name "Input" ;
 	lv2:symbol "in" .
 
-mda:stereoOut
+mda:mainOut
 	a pg:StereoGroup ,
 		pg:OutputGroup ;
-	pg:source mda:stereoIn ;
+	pg:source mda:mainIn ;
 	lv2:name "Output" ;
 	lv2:symbol "out" .
 
@@ -36,10 +36,10 @@ mda:Combo
 	rdfs:seeAlso <Combo.ttl> ;
 	lv2:binary <Combo@LIB_EXT@> .
 
-#mda:DX10
-#	a lv2:Plugin ;
-#	rdfs:seeAlso <DX10.ttl> ;
-#	lv2:binary <DX10@LIB_EXT@> .
+mda:DX10
+	a lv2:Plugin ;
+	rdfs:seeAlso <DX10.ttl> ;
+	lv2:binary <DX10@LIB_EXT@> .
 
 mda:DeEss
 	a lv2:Plugin ;
@@ -76,20 +76,20 @@ mda:Dynamics
 	rdfs:seeAlso <Dynamics.ttl> ;
 	lv2:binary <Dynamics@LIB_EXT@> .
 
-#mda:EPiano
-#	a lv2:Plugin ;
-#	rdfs:seeAlso <EPiano.ttl> ;
-#	lv2:binary <EPiano@LIB_EXT@> .
+mda:EPiano
+	a lv2:Plugin ;
+	rdfs:seeAlso <EPiano.ttl> ;
+	lv2:binary <EPiano@LIB_EXT@> .
 
 mda:Image
 	a lv2:Plugin ;
 	rdfs:seeAlso <Image.ttl> ;
 	lv2:binary <Image@LIB_EXT@> .
 
-#mda:JX10
-#	a lv2:Plugin ;
-#	rdfs:seeAlso <JX10.ttl> ;
-#	lv2:binary <JX10@LIB_EXT@> .
+mda:JX10
+	a lv2:Plugin ;
+	rdfs:seeAlso <JX10.ttl> ;
+	lv2:binary <JX10@LIB_EXT@> .
 
 mda:Leslie
 	a lv2:Plugin ;
@@ -116,10 +116,10 @@ mda:Overdrive
 	rdfs:seeAlso <Overdrive.ttl> ;
 	lv2:binary <Overdrive@LIB_EXT@> .
 
-#mda:Piano
-#	a lv2:Plugin ;
-#	rdfs:seeAlso <Piano.ttl> ;
-#	lv2:binary <Piano@LIB_EXT@> .
+mda:Piano
+	a lv2:Plugin ;
+	rdfs:seeAlso <Piano.ttl> ;
+	lv2:binary <Piano@LIB_EXT@> .
 
 mda:RePsycho
 	a lv2:Plugin ;
@@ -195,4 +195,3 @@ mda:Vocoder
 	a lv2:Plugin ;
 	rdfs:seeAlso <Vocoder.ttl> ;
 	lv2:binary <Vocoder@LIB_EXT@> .
-

@@ -11,7 +11,7 @@ mda:SubSynth
 	doap:name "MDA SubSynth" ;
 	doap:shortdesc "Several low frequency enhancement methods" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
     rdfs:comment """More bass than you could ever need!

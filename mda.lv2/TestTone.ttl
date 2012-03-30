@@ -12,7 +12,7 @@ mda:TestTone
 	doap:name "MDA TestTone" ;
 	doap:shortdesc "Signal generator with pink and white noise, impulses and sweeps" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:pluginProperty lv2:hardRTCapable ;
+	lv2:optionalFeature lv2:hardRTCapable ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	lv2:port [
