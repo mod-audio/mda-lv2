@@ -100,7 +100,6 @@ def build(bld):
             JX10
             Leslie
             Limiter
-            Looplex
             Loudness
             MultiBand
             Overdrive
@@ -121,6 +120,7 @@ def build(bld):
             VocInput
             Vocoder
     '''.split()
+#            Looplex
 
     # Build plugin libraries
     for i in plugins:
