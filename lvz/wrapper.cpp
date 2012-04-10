@@ -49,7 +49,13 @@ typedef struct {
 static void
 lvz_cleanup(LV2_Handle instance)
 {
-	free(instance);
+	LVZPlugin* plugin = (LVZPlugin*)instance;
+	free(plugin->controls);
+	free(plugin->control_buffers);
+	free(plugin->inputs);
+	free(plugin->outputs);
+	delete plugin->effect;
+	free(plugin);
 }
 
 static void
