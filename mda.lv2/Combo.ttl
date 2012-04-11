@@ -31,22 +31,22 @@ mda:Combo
 			rdf:value 0.0
 		] , [
 			rdfs:label "Tradtional speaker simulator" ;
-			rdf:value 1.0
+			rdf:value 0.16666666
 		] , [
 			rdfs:label "Small radio speaker" ;
-			rdf:value 2.0
+			rdf:value 0.33333333
 		] , [
 			rdfs:label "Small combo (close mic)" ;
-			rdf:value 3.0
+			rdf:value 0.5
 		] , [
 			rdfs:label "Small combo (far mic)" ;
-			rdf:value 4.0
+			rdf:value 0.66666666
 		] , [
 			rdfs:label "Large stack (front mic)" ;
-			rdf:value 5.0
+			rdf:value 0.833333333
 		] , [
 			rdfs:label "Large stack (side mic, scooped mids)" ;
-			rdf:value 6.0
+			rdf:value 1.0
 		]
 	] , [
 		a lv2:InputPort ,
