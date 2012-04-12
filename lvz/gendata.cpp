@@ -29,8 +29,6 @@
 
 using namespace std;
 
-#define NS_LV2CORE "http://lv2plug.in/ns/lv2core#"
-
 // VST is so incredibly awful.  Just.. wow.
 #define MAX_NAME_LENGTH 1024
 char name_buf[MAX_NAME_LENGTH];
