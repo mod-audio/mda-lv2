@@ -14,6 +14,7 @@
 mda:DX10
 	a lv2:Plugin ,
 		lv2:InstrumentPlugin ;
+	lv2:project mda: ;
 	lv2:symbol "DX10" ;
 	doap:name "MDA DX10" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;

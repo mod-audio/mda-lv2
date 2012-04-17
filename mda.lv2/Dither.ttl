@@ -8,6 +8,7 @@
 mda:Dither
 	a lv2:Plugin ,
 		lv2:DistortionPlugin ;
+	lv2:project mda: ;
 	lv2:symbol "Dither" ;
 	doap:name "MDA Dither" ;
 	doap:shortdesc "Range of dither types including noise shaping" ;

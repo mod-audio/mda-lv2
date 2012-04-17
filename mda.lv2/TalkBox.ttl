@@ -6,6 +6,7 @@
 mda:TalkBox
 	a lv2:Plugin ,
 		lv2:FilterPlugin ;
+	lv2:project mda: ;
 	lv2:symbol "TalkBox" ;
 	doap:name "MDA TalkBox" ;
 	doap:shortdesc "High resolution vocoder" ;

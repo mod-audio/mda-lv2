@@ -6,6 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 mda:BeatBox
+	a lv2:Plugin ;
+	lv2:project mda: ;
 	lv2:symbol "BBox" ;
 	doap:name "MDA BeatBox" ;
 	doap:shortdesc "Drum replacer" ;
@@ -15,7 +17,7 @@ mda:BeatBox
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """Contains three samples (kick, snare and hat) designed to be triggered by incoming audio in three frequency ranges.  The default samples are based on the Roland CR-78.
 
-To record your own sounds, use the Record control to monitor the plug's input, then with the source stopped select the slot to record into, play your sound, then with the source stopped again, switch back to monitoring. This process is easier in an 'off line' editor such as WaveLab, rather than during a live mixdown in Cubase.""" ;
+To record your own sounds, use the Record control to monitor the plug's input, then with the source stopped select the slot to record into, play your sound, then with the source stopped again, switch back to monitoring.  This process is easier in an 'off line' editor such as WaveLab, rather than during a live mixdown in a DAW.""" ;
 	lv2:port [
 		a lv2:InputPort ,
 			lv2:ControlPort ;

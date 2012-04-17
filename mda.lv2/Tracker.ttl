@@ -8,6 +8,7 @@
 mda:Tracker
 	a lv2:Plugin ,
 		lv2:SpectralPlugin ;
+	lv2:project mda: ;
 	lv2:symbol "Tracker" ;
 	doap:name "MDA Tracker" ;
 	doap:shortdesc "Pitch tracking oscillator, or pitch tracking EQ" ;

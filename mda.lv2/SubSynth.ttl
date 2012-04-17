@@ -8,6 +8,7 @@
 
 mda:SubSynth
 	lv2:symbol "SubSynth" ;
+	lv2:project mda: ;
 	doap:name "MDA SubSynth" ;
 	doap:shortdesc "Several low frequency enhancement methods" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
