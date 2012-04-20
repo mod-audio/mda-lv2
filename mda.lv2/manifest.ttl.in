@@ -16,7 +16,12 @@ mda:
 	lv2:symbol "mda" ;
 	doap:name "MDA LV2" ;
 	doap:shortdesc "An LV2 port of the MDA plugins." ;
-	doap:maintainer <http://drobilla.net/drobilla#me> .
+	doap:maintainer <http://drobilla.net/drobilla#me> ;
+	doap:developer [
+		a foaf:Person ;
+		foaf:name "Paul Kellett" ;
+		foaf:mbox <paul@mda-vst.com>
+	] .
 
 mda:mainIn
 	a pg:StereoGroup ,

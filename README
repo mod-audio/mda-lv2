@@ -12,8 +12,7 @@ dependency lv2.h) released under the GPL v2 or later.  See COPYING for details.
 This port is based on revision 10 of the MDA SVN repository at
 <https://mda-vst.svn.sourceforge.net/svnroot/mda-vst>.  It is similar to, but
 not 100% compatible with, the original plugins, since some VSTisms have been
-changed to be more appropriate in an LV2 world (notably toggle and enumeration
-ports).
+changed to be more appropriate for LV2 (e.g. toggle ports).
 
 LVZ
 ---
