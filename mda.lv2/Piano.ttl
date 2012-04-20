@@ -26,7 +26,7 @@ mda:Piano
 			lv2:ControlPort ;
 		lv2:index 0 ;
 		lv2:name "Envelope Decay" ;
-		lv2:symbol "envelope_decay" ;
+		lv2:symbol "env_decay" ;
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
@@ -37,7 +37,7 @@ mda:Piano
 			lv2:ControlPort ;
 		lv2:index 1 ;
 		lv2:name "Envelope Release" ;
-		lv2:symbol "envelope_release" ;
+		lv2:symbol "env_release" ;
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
@@ -58,7 +58,7 @@ mda:Piano
 			lv2:ControlPort ;
 		lv2:index 3 ;
 		lv2:name "Velocity to Hardness" ;
-		lv2:symbol "velocity_to_hardness" ;
+		lv2:symbol "vel_to_hardness" ;
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0
@@ -76,7 +76,7 @@ mda:Piano
 			lv2:ControlPort ;
 		lv2:index 5 ;
 		lv2:name "Velocity to Muffling" ;
-		lv2:symbol "velocity_to_muffling" ;
+		lv2:symbol "vel_to_muffling" ;
 		lv2:default 0.251 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0
@@ -85,7 +85,7 @@ mda:Piano
 			lv2:ControlPort ;
 		lv2:index 6 ;
 		lv2:name "Velocity Sensitivity" ;
-		lv2:symbol "velocity_sensitivity" ;
+		lv2:symbol "vel_sensitivity" ;
 		lv2:default 0.376 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
