@@ -1,3 +1,4 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
@@ -19,6 +20,7 @@ mda:Piano
 	doap:name "MDA Piano" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
+	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	lv2:port [
@@ -152,4 +154,12 @@ mda:Piano
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
+	] , [
+		a lv2:InputPort ,
+			atom:AtomPort ;
+		atom:bufferType atom:Sequence ;
+		atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+		lv2:index 14 ;
+		lv2:symbol "event_in" ;
+		lv2:name "Event In"
 	] .

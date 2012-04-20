@@ -18,6 +18,8 @@
 
 #include "mdaJX10.h"
 
+#include "lv2/lv2plug.in/ns/ext/atom/util.h"
+
 #include <stdio.h>
 #include <stdlib.h> //rand()
 #include <math.h>
@@ -154,7 +156,6 @@ mdaJX10::mdaJX10(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NP
     voice[v].f0   = voice[v].f1    = voice[v].f2    = 0.0f;
     voice[v].note = 0;
   }
-  notes[0] = EVENTS_DONE;
   lfo = modwhl = filtwhl = press = fzip = 0.0f; 
   rezwhl = pbend = ipbend = 1.0f;
   volume = 0.0005f;
@@ -332,7 +333,7 @@ bool mdaJX10::copyProgram(int32_t destination)
 }
 
 
-int32_t mdaJX10::canDo(char* text)
+int32_t mdaJX10::canDo(const char* text)
 {
 	if(!strcmp (text, "receiveLvzEvents")) return 1;
 	if(!strcmp (text, "receiveLvzMidiEvent"))	return 1;
@@ -430,178 +431,11 @@ void mdaJX10::getParameterLabel(int32_t index, char *label)
   }
 }
 
-
-void mdaJX10::process(float **inputs, float **outputs, int32_t sampleFrames)
-{
-	float* out1 = outputs[0];
-	float* out2 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
-  float o, e, vib, pwm, pb=pbend, ipb=ipbend, gl=glide;
-  float x, y, hpf=0.997f, min=1.0f, w=0.0f, ww=noisemix;
-  float ff, fe=filtenv, fq=filtq * rezwhl, fx=1.97f-0.85f*fq, fz=fzip;
-  int32_t k=K;
-  unsigned int r;
-
-  vib = (float)sin(lfo);
-  ff = filtf + filtwhl + (filtlfo + press) * vib; //have to do again here as way that
-  pwm = 1.0f + vib * (modwhl + pwmdep);           //below triggers on k was too cheap!
-  vib = 1.0f + vib * (modwhl + vibrato);
-
-  if(activevoices>0 || notes[event]<sampleFrames)
-  {    
-    while(frame<sampleFrames)
-    {
-      frames = notes[event++];
-      if(frames>sampleFrames) frames = sampleFrames;
-      frames -= frame;
-      frame += frames;
-
-      while(--frames>=0)
-      {
-        VOICE *V = voice;
-        o = 0.0f;
-        
-        noise = (noise * 196314165) + 907633515;
-        r = (noise & 0x7FFFFF) + 0x40000000; //generate noise + fast convert to float
-        w = *(float *)&r;
-        w = ww * (w - 3.0f);
-
-        if(--k<0)
-        {
-          lfo += dlfo;
-          if(lfo>PI) lfo -= TWOPI;
-          vib = (float)sin(lfo);
-          ff = filtf + filtwhl + (filtlfo + press) * vib;
-          pwm = 1.0f + vib * (modwhl + pwmdep);
-          vib = 1.0f + vib * (modwhl + vibrato);
-          k = KMAX;
-        }
-
-        for(v=0; v<NVOICES; v++)  //for each voice
-        { 
-          e = V->env;
-          if(e > SILENCE)
-          { //Sinc-Loop Oscillator
-            x = V->p + V->dp;
-            if(x > min) 
-            {
-              if(x > V->pmax) 
-              { 
-                x = V->pmax + V->pmax - x;  
-                V->dp = -V->dp; 
-              }
-              V->p = x;
-              x = V->sin0 * V->sinx - V->sin1; //sine osc
-              V->sin1 = V->sin0;
-              V->sin0 = x;
-              x = x / V->p;
-            }
-            else
-            { 
-              V->p = x = - x;  
-              V->dp = V->period * vib * pb; //set period for next cycle
-              V->pmax = (float)floor(0.5f + V->dp) - 0.5f;
-              V->dc = -0.5f * V->lev / V->pmax;
-              V->pmax *= PI;
-              V->dp = V->pmax / V->dp;
-              V->sin0 = V->lev * (float)sin(x);
-              V->sin1 = V->lev * (float)sin(x - V->dp);
-              V->sinx = 2.0f * (float)cos(V->dp);
-              if(x*x > .1f) x = V->sin0 / x; else x = V->lev; //was 0.01f;
-            }
-            
-            y = V->p2 + V->dp2; //osc2
-            if(y > min) 
-            { 
-              if(y > V->pmax2) 
-              { 
-                y = V->pmax2 + V->pmax2 - y;  
-                V->dp2 = -V->dp2; 
-              }
-              V->p2 = y;
-              y = V->sin02 * V->sinx2 - V->sin12;
-              V->sin12 = V->sin02;
-              V->sin02 = y;
-              y = y / V->p2;
-            }
-            else
-            {
-              V->p2 = y = - y;  
-              V->dp2 = V->period * V->detune * pwm * pb;
-              V->pmax2 = (float)floor(0.5f + V->dp2) - 0.5f;
-              V->dc2 = -0.5f * V->lev2 / V->pmax2;
-              V->pmax2 *= PI;
-              V->dp2 = V->pmax2 / V->dp2;
-              V->sin02 = V->lev2 * (float)sin(y);
-              V->sin12 = V->lev2 * (float)sin(y - V->dp2);
-              V->sinx2 = 2.0f * (float)cos(V->dp2);
-              if(y*y > .1f) y = V->sin02 / y; else y = V->lev2;
-            }
-            V->saw = V->saw * hpf + V->dc + x - V->dc2 - y;  //integrated sinc = saw
-            x = V->saw + w;
-            V->env += V->envd * (V->envl - V->env);
-
-            if(k==KMAX) //filter freq update at LFO rate
-            {
-              if((V->env+V->envl)>3.0f) { V->envd=dec; V->envl=sus; } //envelopes
-              V->fenv += V->fenvd * (V->fenvl - V->fenv);
-              if((V->fenv+V->fenvl)>3.0f) { V->fenvd=fdec; V->fenvl=fsus; }
-
-              fz += 0.005f * (ff - fz); //filter zipper noise filter
-              y = V->fc * (float)exp(fz + fe * V->fenv) * ipb; //filter cutoff
-              if(y<0.005f) y=0.005f;
-              V->ff = y;
- 
-              V->period += gl * (V->target - V->period); //glide
-              if(V->target < V->period) V->period += gl * (V->target - V->period);
-            }
-
-            if(V->ff > fx) V->ff = fx; //stability limit
-
-            V->f0 += V->ff * V->f1; //state-variable filter
-            V->f1 -= V->ff * (V->f0 + fq * V->f1 - x - V->f2);
-            V->f1 -= 0.2f * V->f1 * V->f1 * V->f1; //soft limit  //was 0.08f
-            V->f2 = x;
-            
-            o += V->env * V->f0;
-          }
-          V++;
-        }
-
-        *out1++ += o;
-        *out2++ += o;
-      }
-
-      if(frame<sampleFrames)
-      {
-        int32_t note = notes[event++];
-        int32_t vel  = notes[event++];
-        noteOn(note, vel);
-      }
-    }
-  
-    activevoices = NVOICES;
-    for(v=0; v<NVOICES; v++)
-    {
-      if(voice[v].env<SILENCE)  //choke voices
-      {
-        voice[v].env = voice[v].envl = 0.0f;
-        voice[v].f0 = voice[v].f1 = voice[v].f2 = 0.0f;
-        activevoices--;
-      }
-    }
-  }
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
-  fzip = fz;
-  K = k;
-}
-
-
 void mdaJX10::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out1 = outputs[0];
 	float* out2 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
+	int32_t frame=0, frames, v;
   float o, e, vib, pwm, pb=pbend, ipb=ipbend, gl=glide;
   float x, y, hpf=0.997f, min=1.0f, w=0.0f, ww=noisemix;
   float ff, fe=filtenv, fq=filtq * rezwhl, fx=1.97f-0.85f*fq, fz=fzip;
@@ -613,12 +447,14 @@ void mdaJX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
   pwm = 1.0f + vib * (modwhl + pwmdep);           //below triggers on k was too cheap!
   vib = 1.0f + vib * (modwhl + vibrato);
 
-  if(activevoices>0 || notes[event]<sampleFrames)
+  LV2_Atom_Event* ev = lv2_atom_sequence_begin(&eventInput->body);
+  bool end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+  if(activevoices>0 || !end)
   {    
     while(frame<sampleFrames)
     {
-      frames = notes[event++];
-      if(frames>sampleFrames) frames = sampleFrames;
+      end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+      frames = end ? sampleFrames : ev->time.frames;
       frames -= frame;
       frame += frames;
 
@@ -739,11 +575,10 @@ void mdaJX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
         *out2++ = o;
       }
 
-      if(frame<sampleFrames)
+      if(!end)
       {
-        int32_t note = notes[event++];
-        int32_t vel  = notes[event++];
-        noteOn(note, vel);
+        processEvent(ev);
+        ev = lv2_atom_sequence_next(ev);
       }
     }
   
@@ -766,7 +601,6 @@ void mdaJX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
 			*out2++ = 0.0f;
 		}
   }
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
   fzip = fz;
   K = k;
 }
@@ -912,28 +746,21 @@ void mdaJX10::noteOn(int32_t note, int32_t velocity)
 }
 
 
-int32_t mdaJX10::processEvents(LvzEvents* ev)
+int32_t mdaJX10::processEvent(const LV2_Atom_Event* ev)
 {
-  int32_t npos=0;
-  
-  for (int32_t i=0; i<ev->numEvents; i++)
-	{
-		if((ev->events[i])->type != kLvzMidiType) continue;
-		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];
-		char* midiData = event->midiData;
+  if (ev->body.type != midiEventType)
+      return 0;
+
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
 		
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {
       case 0x80: //note off
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = 0;                  //vel
+        noteOn(midiData[1] & 0x7F, 0);
         break;
 
       case 0x90: //note on
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = midiData[2] & 0x7F; //vel
+        noteOn(midiData[1] & 0x7F, midiData[2] & 0x7F);
         break;
 
       case 0xB0: //controller
@@ -963,9 +790,7 @@ int32_t mdaJX10::processEvents(LvzEvents* ev)
             sustain = midiData[2] & 0x40;
             if(sustain==0)
             {
-              notes[npos++] = event->deltaFrames;
-              notes[npos++] = SUSTAIN; //end all sustained notes
-              notes[npos++] = 0;
+              noteOn(SUSTAIN, 0);
             }
             break;
 
@@ -1001,10 +826,6 @@ int32_t mdaJX10::processEvents(LvzEvents* ev)
       default: break;
     }
 
-    if(npos>EVENTBUFFER) npos -= 3; //discard events if buffer full!!
-    event++;
-	}
-  notes[npos] = EVENTS_DONE;
 	return 1;
 }
 

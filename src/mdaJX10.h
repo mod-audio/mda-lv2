@@ -94,9 +94,7 @@ public:
 	mdaJX10(audioMasterCallback audioMaster);
 	~mdaJX10();
 
-	virtual void process(float **inputs, float **outputs, int32_t sampleframes);
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
-	virtual int32_t processEvents(LvzEvents* events);
 
 	virtual void setProgram(int32_t program);
 	virtual void setProgramName(char *name);
@@ -118,9 +116,10 @@ public:
 	virtual bool getVendorString (char* text);
 	virtual bool getProductString (char* text);
 	virtual int32_t getVendorVersion () {return 1;}
-	virtual int32_t canDo (char* text);
+	virtual int32_t canDo (const char* text);
 
 private:
+	int32_t processEvent(const LV2_Atom_Event* ev);
 	void update();  //my parameter update
   void noteOn(int32_t note, int32_t velocity);
   void fillpatch(int32_t p, const char *name,
@@ -132,9 +131,6 @@ private:
   mdaJX10Program* programs;
   float Fs;
 
-  #define EVENTBUFFER 120
-  #define EVENTS_DONE 99999999
-  int32_t notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
   #define KMAX 32
 
   ///global internal variables

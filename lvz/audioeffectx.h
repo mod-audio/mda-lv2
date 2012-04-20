@@ -22,6 +22,9 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "lv2/lv2plug.in/ns/ext/atom/atom.h"
+#include "lv2/lv2plug.in/ns/ext/urid/urid.h"
+
 class AudioEffect;
 
 typedef int (*audioMasterCallback)(int, int ver, int, int, int, int);
@@ -75,6 +78,7 @@ public:
 	AudioEffectX(audioMasterCallback audioMaster, int32_t progs, int32_t params)
 		: URI("NIL")
 		, uniqueID("NIL")
+		, eventInput(NULL)
 		, sampleRate(44100)
 		, curProgram(0)
 		, numInputs(0)
@@ -84,8 +88,11 @@ public:
 	{
 	}
 
-	virtual void process         (float **inputs, float **outputs, int32_t nframes) = 0;
+	virtual void process         (float **inputs, float **outputs, int32_t nframes) {}
 	virtual void processReplacing(float **inputs, float **outputs, int32_t nframes) = 0;
+
+	void setMidiEventType(LV2_URID urid) { midiEventType = urid; }
+	void setEventInput(const LV2_Atom_Sequence* seq) { eventInput = seq; }
 
 	virtual int32_t processEvents(LvzEvents* ev) { return 0; }
 
@@ -99,11 +106,12 @@ public:
 	virtual void getParameterName(int32_t index, char *label) = 0;
 	virtual bool getProductString(char* text)                 = 0;
 
-	virtual bool canHostDo(const char* act) { return false; }
-	virtual void canMono()                  {}
-	virtual void canProcessReplacing()      {}
-	virtual void isSynth()                  {}
-	virtual void wantEvents()               {}
+	virtual int32_t canDo(const char* text) { return false; }
+	virtual bool    canHostDo(const char* act) { return false; }
+	virtual void    canMono()                  {}
+	virtual void    canProcessReplacing()      {}
+	virtual void    isSynth()                  {}
+	virtual void    wantEvents()               {}
 
 	virtual void setBlockSize(int32_t size)  {}
 	virtual void setNumInputs(int32_t num)   { numInputs = num; }
@@ -121,14 +129,16 @@ public:
 	}
 
 protected:
-	const char* URI;
-	const char* uniqueID;
-	float       sampleRate;
-	int32_t     curProgram;
-	int32_t     numInputs;
-	int32_t     numOutputs;
-	int32_t     numParams;
-	int32_t     numPrograms;
+	const char*              URI;
+	const char*              uniqueID;
+	const LV2_Atom_Sequence* eventInput;
+	LV2_URID                 midiEventType;
+	float                    sampleRate;
+	int32_t                  curProgram;
+	int32_t                  numInputs;
+	int32_t                  numOutputs;
+	int32_t                  numParams;
+	int32_t                  numPrograms;
 };
 
 #endif // LVZ_AUDIOEFFECTX_H

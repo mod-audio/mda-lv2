@@ -19,6 +19,8 @@
 #include "mdaPianoData.h"
 #include "mdaPiano.h"
 
+#include "lv2/lv2plug.in/ns/ext/atom/util.h"
+
 #include <stdio.h>
 #include <math.h>
 
@@ -109,7 +111,6 @@ mdaPiano::mdaPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, 
     voice[v].env = 0.0f;
     voice[v].dec = 0.99f; //all notes off
   }
-  notes[0] = EVENTS_DONE;
   volume = 0.2f;
   muff = 160.0f;
   cpos = sustain = activevoices = 0;
@@ -240,7 +241,7 @@ bool mdaPiano::copyProgram(int32_t destination)
 }
 
 
-int32_t mdaPiano::canDo(char* text)
+int32_t mdaPiano::canDo(const char* text)
 {
   if(strcmp(text, "receiveLvzEvents") == 0) return 1;
   if(strcmp(text, "receiveLvzMidiEvent") == 0) return 1;
@@ -313,79 +314,19 @@ void mdaPiano::guiGetDisplay(int32_t index, char *label)
   getParameterLabel(index, label + strlen(label));
 }
 
-
-
-void mdaPiano::process(float **inputs, float **outputs, int32_t sampleFrames)
-{
-	float* out0 = outputs[0];
-	float* out1 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
-  float x, l, r;
-  int32_t i;
-
-  while(frame<sampleFrames)
-  {
-    frames = notes[event++];
-    if(frames>sampleFrames) frames = sampleFrames;
-    frames -= frame;
-    frame += frames;
-
-    while(--frames>=0)
-    {
-      VOICE *V = voice;
-      l = r = 0.0f;
-
-      for(v=0; v<activevoices; v++)
-      {
-        V->frac += V->delta;  //integer-based linear interpolation
-        V->pos += V->frac >> 16;
-        V->frac &= 0xFFFF;
-        if(V->pos > V->end) V->pos -= V->loop;
-        i = waves[V->pos];
-        i = (i << 7) + (V->frac >> 9) * (waves[V->pos + 1] - i) + 0x40400000;
-        x = V->env * (*(float *)&i - 3.0f);  //fast int->float
-
-        V->env = V->env * V->dec;  //envelope
-        V->f0 += V->ff * (x + V->f1 - V->f0);  //muffle filter
-        V->f1 = x;
-
-        l += V->outl * V->f0;
-        r += V->outr * V->f0;
-
-        V++;
-      }
-      comb[cpos] = l + r;
-      ++cpos &= cmax;
-      x = cdep * comb[cpos];  //stereo simulator
-
-      *out0++ += l + x;
-      *out1++ += r - x;
-    }
-
-    if(frame<sampleFrames)
-    {
-      int32_t note = notes[event++];
-      int32_t vel  = notes[event++];
-      noteOn(note, vel);
-    }
-  }
-  for(v=0; v<activevoices; v++) if(voice[v].env < SILENCE) voice[v] = voice[--activevoices];
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
-}
-
-
 void mdaPiano::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out0 = outputs[0];
 	float* out1 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
+	int32_t frame=0, frames, v;
   float x, l, r;
   int32_t i;
 
+  LV2_Atom_Event* ev = lv2_atom_sequence_begin(&eventInput->body);
   while(frame<sampleFrames)
   {
-    frames = notes[event++];
-    if(frames>sampleFrames) frames = sampleFrames;
+    bool end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+    frames = end ? sampleFrames : ev->time.frames;
     frames -= frame;
     frame += frames;
 
@@ -432,15 +373,13 @@ if(!(r > -2.0f) || !(r < 2.0f))
       *out1++ = r - x;
     }
 
-    if(frame<sampleFrames)
+    if(!end)
     {
-      int32_t note = notes[event++];
-      int32_t vel  = notes[event++];
-      noteOn(note, vel);
+      processEvent(ev);
+      ev = lv2_atom_sequence_next(ev);
     }
   }
   for(v=0; v<activevoices; v++) if(voice[v].env < SILENCE) voice[v] = voice[--activevoices];
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
 }
 
 
@@ -518,28 +457,21 @@ void mdaPiano::noteOn(int32_t note, int32_t velocity)
 }
 
 
-int32_t mdaPiano::processEvents(LvzEvents* ev)
+int32_t mdaPiano::processEvent(const LV2_Atom_Event* ev)
 {
-  int32_t npos=0;
+  if (ev->body.type != midiEventType)
+      return 0;
 
-  for (int32_t i=0; i<ev->numEvents; i++)
-	{
-		if((ev->events[i])->type != kLvzMidiType) continue;
-		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];
-		char* midiData = event->midiData;
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
 
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {
       case 0x80: //note off
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = 0;                  //vel
+        noteOn(midiData[1] & 0x7F, 0);
         break;
 
       case 0x90: //note on
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = midiData[2] & 0x7F; //vel
+        noteOn(midiData[1] & 0x7F, midiData[2] & 0x7F);
         break;
 
       case 0xB0: //controller
@@ -559,9 +491,7 @@ int32_t mdaPiano::processEvents(LvzEvents* ev)
             sustain = midiData[2] & 0x40;
             if(sustain==0)
             {
-              notes[npos++] = event->deltaFrames;
-              notes[npos++] = SUSTAIN; //end all sustained notes
-              notes[npos++] = 0;
+              noteOn(SUSTAIN, 0); //end all sustained notes  
             }
             break;
 
@@ -583,10 +513,6 @@ int32_t mdaPiano::processEvents(LvzEvents* ev)
       default: break;
     }
 
-    if(npos>EVENTBUFFER) npos -= 3; //discard events if buffer full!!
-    event++; //?
-	}
-  notes[npos] = EVENTS_DONE;
 	return 1;
 }
 

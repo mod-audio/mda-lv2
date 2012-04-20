@@ -19,6 +19,8 @@
 #include "mdaEPianoData.h"
 #include "mdaEPiano.h"
 
+#include "lv2/lv2plug.in/ns/ext/atom/util.h"
+
 #include <stdio.h>
 #include <math.h>
 
@@ -132,7 +134,6 @@ mdaEPiano::mdaEPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster
     voice[v].env = 0.0f;
     voice[v].dec = 0.99f; //all notes off
   }
-  notes[0] = EVENTS_DONE;
   volume = 0.2f;
   muff = 160.0f;
   sustain = activevoices = 0;
@@ -263,7 +264,7 @@ bool mdaEPiano::copyProgram(int32_t destination)
 }
 
 
-int32_t mdaEPiano::canDo(char* text)
+int32_t mdaEPiano::canDo(const char* text)
 {
   if(strcmp(text, "receiveLvzEvents") == 0) return 1;
   if(strcmp(text, "receiveLvzMidiEvent") == 0) return 1;
@@ -344,87 +345,19 @@ void mdaEPiano::guiGetDisplay(int32_t index, char *label)
 }
 
 
-void mdaEPiano::process(float **inputs, float **outputs, int32_t sampleFrames)
-{
-	float* out0 = outputs[0];
-	float* out1 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
-  float x, l, r, od=overdrive;
-  int32_t i;
-
-  while(frame<sampleFrames)
-  {
-    frames = notes[event++];
-    if(frames>sampleFrames) frames = sampleFrames;
-    frames -= frame;
-    frame += frames;
-
-    while(--frames>=0)
-    {
-      VOICE *V = voice;
-      l = r = 0.0f;
-
-      for(v=0; v<activevoices; v++)
-      {
-        V->frac += V->delta;  //integer-based linear interpolation
-        V->pos += V->frac >> 16;
-        V->frac &= 0xFFFF;
-        if(V->pos > V->end) V->pos -= V->loop;
-        i = waves[V->pos];
-        i = (i << 7) + (V->frac >> 9) * (waves[V->pos + 1] - i) + 0x40400000;
-        x = V->env * (*(float *)&i - 3.0f);  //fast int->float
-        V->env = V->env * V->dec;  //envelope
-
-        if(x>0.0f) { x -= od * x * x;  if(x < -V->env) x = -V->env; } //+= 0.5f * x * x; } //overdrive
-
-        l += V->outl * x;
-        r += V->outr * x;
-
-        V++;
-      }
-      tl += tfrq * (l - tl);  //treble boost
-      tr += tfrq * (r - tr);
-      r  += treb * (r - tr);
-      l  += treb * (l - tl);
-
-      lfo0 += dlfo * lfo1;  //LFO for tremolo and autopan
-      lfo1 -= dlfo * lfo0;
-      l += l * lmod * lfo1;
-      r += r * rmod * lfo1;  //worth making all these local variables?
-
-      *out0++ += l;
-      *out1++ += r;
-    }
-
-    if(frame<sampleFrames)
-    {
-      if(activevoices == 0 && programs[curProgram].param[4] > 0.5f) 
-        { lfo0 = -0.7071f;  lfo1 = 0.7071f; } //reset LFO phase - good idea?
-      int32_t note = notes[event++];
-      int32_t vel  = notes[event++];
-      noteOn(note, vel);
-    }
-  }
-  if(fabs(tl)<1.0e-10) tl = 0.0f; //anti-denormal
-  if(fabs(tr)<1.0e-10) tr = 0.0f;
-
-  for(v=0; v<activevoices; v++) if(voice[v].env < SILENCE) voice[v] = voice[--activevoices];
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
-}
-
-
 void mdaEPiano::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out0 = outputs[0];
 	float* out1 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
+	int32_t frame=0, frames, v;
   float x, l, r, od=overdrive;
   int32_t i;
 
+  LV2_Atom_Event* ev = lv2_atom_sequence_begin(&eventInput->body);
   while(frame<sampleFrames)
   {
-    frames = notes[event++];
-    if(frames>sampleFrames) frames = sampleFrames;
+    bool end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+    frames = end ? sampleFrames : ev->time.frames;
     frames -= frame;
     frame += frames;
 
@@ -473,16 +406,18 @@ void mdaEPiano::processReplacing(float **inputs, float **outputs, int32_t sample
     {
       if(activevoices == 0 && programs[curProgram].param[4] > 0.5f) 
         { lfo0 = -0.7071f;  lfo1 = 0.7071f; } //reset LFO phase - good idea?
-      int32_t note = notes[event++];
-      int32_t vel  = notes[event++];
-      noteOn(note, vel);
+
+      if (!end) {
+        processEvent(ev);
+        ev = lv2_atom_sequence_next(ev);
+      }
+
     }
   }
   if(fabs(tl)<1.0e-10) tl = 0.0f; //anti-denormal
   if(fabs(tr)<1.0e-10) tr = 0.0f;
 
   for(v=0; v<activevoices; v++) if(voice[v].env < SILENCE) voice[v] = voice[--activevoices];
-  notes[0] = EVENTS_DONE;  //mark events buffer as done
 }
 
 
@@ -561,29 +496,23 @@ void mdaEPiano::noteOn(int32_t note, int32_t velocity)
 }
 
 
-int32_t mdaEPiano::processEvents(LvzEvents* ev)
+int32_t mdaEPiano::processEvent(const LV2_Atom_Event* ev)
 {
   float * param = programs[curProgram].param;
-  int32_t npos=0;
 
-  for (int32_t i=0; i<ev->numEvents; i++)
-	{
-		if((ev->events[i])->type != kLvzMidiType) continue;
-		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];
-		char* midiData = event->midiData;
+  if (ev->body.type != midiEventType)
+      return 0;
+
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
 
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {
       case 0x80: //note off
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = 0;                  //vel
+        noteOn(midiData[1] & 0x7F, 0);
         break;
 
       case 0x90: //note on
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = midiData[2] & 0x7F; //vel
+        noteOn(midiData[1] & 0x7F, midiData[2] & 0x7F);
         break;
 
       case 0xB0: //controller
@@ -608,9 +537,7 @@ int32_t mdaEPiano::processEvents(LvzEvents* ev)
             sustain = midiData[2] & 0x40;
             if(sustain==0)
             {
-              notes[npos++] = event->deltaFrames;
-              notes[npos++] = SUSTAIN; //end all sustained notes
-              notes[npos++] = 0;
+              noteOn(SUSTAIN, 0); //end all sustained notes  
             }
             break;
 
@@ -632,10 +559,6 @@ int32_t mdaEPiano::processEvents(LvzEvents* ev)
       default: break;
     }
 
-    if(npos>EVENTBUFFER) npos -= 3; //discard events if buffer full!!
-    event++; //?
-	}
-  notes[npos] = EVENTS_DONE;
 	return 1;
 }
 

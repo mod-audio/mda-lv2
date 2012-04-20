@@ -76,9 +76,7 @@ public:
 	mdaEPiano(audioMasterCallback audioMaster);
 	~mdaEPiano();
 
-	virtual void process(float **inputs, float **outputs, int32_t sampleframes);
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
-	virtual int32_t processEvents(LvzEvents* events);
 
 	virtual void setProgram(int32_t program);
 	virtual void setProgramName(char *name);
@@ -98,7 +96,7 @@ public:
 	virtual bool getVendorString (char* text);
 	virtual bool getProductString (char* text);
 	virtual int32_t getVendorVersion () {return 1;}
-	virtual int32_t canDo (char* text);
+	virtual int32_t canDo (const char* text);
 
 	virtual int32_t getNumMidiInputChannels ()  { return 1; }
 
@@ -106,6 +104,7 @@ public:
   void guiGetDisplay(int32_t index, char *label);
 
 private:
+	int32_t processEvent(const LV2_Atom_Event* ev);
 	void update();  //my parameter update
   void noteOn(int32_t note, int32_t velocity);
   void fillpatch(int32_t p, const char *name, float p0, float p1, float p2, float p3, float p4,
@@ -113,10 +112,6 @@ private:
 
   mdaEPianoProgram* programs;
   float Fs, iFs;
-
-  #define EVENTBUFFER 120
-  #define EVENTS_DONE 99999999
-  int32_t notes[EVENTBUFFER + 8];  //list of delta|note|velocity for current block
 
   ///global internal variables
   KGRP  kgrp[34];

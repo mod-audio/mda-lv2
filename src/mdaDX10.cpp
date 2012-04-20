@@ -18,6 +18,8 @@
 
 #include "mdaDX10.h"
 
+#include "lv2/lv2plug.in/ns/ext/atom/util.h"
+
 #include <stdio.h>
 #include <stdlib.h> //rand()
 #include <math.h>
@@ -90,7 +92,6 @@ mdaDX10::mdaDX10(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NP
     voice[i].mod0 = voice[i].mod1 = voice[i].dmod = 0.0f;
     voice[i].cdec = 0.99f; //all notes off
   }
-  notes[0] = EVENTS_DONE;
   lfo0 = dlfo = modwhl = 0.0f;
   lfo1 = pbend = 1.0f;
   volume = 0.0035f;
@@ -240,7 +241,7 @@ bool mdaDX10::copyProgram(int32_t destination)
 }
 
 
-int32_t mdaDX10::canDo(char* text)
+int32_t mdaDX10::canDo(const char* text)
 {
   if(strcmp(text, "receiveLvzEvents") == 0) return 1;
   if(strcmp(text, "receiveLvzMidiEvent") == 0) return 1;
@@ -304,101 +305,22 @@ void mdaDX10::getParameterLabel(int32_t index, char *label)
   }
 }
 
-
-void mdaDX10::process(float **inputs, float **outputs, int32_t sampleFrames)
-{
-	float* out1 = outputs[0];
-	float* out2 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
-  float o, x, e, mw=MW, w=rich, m=modmix;
-  int32_t k=K;
-
-  if(activevoices>0 || notes[event]<sampleFrames) //detect & bypass completely empty blocks
-  {
-    while(frame<sampleFrames)
-    {
-      frames = notes[event++];
-      if(frames>sampleFrames) frames = sampleFrames;
-      frames -= frame;
-      frame += frames;
-
-      while(--frames>=0)  //would be faster with voice loop outside frame loop!
-      {                   //but then each voice would need it's own LFO...
-        VOICE *V = voice;
-        o = 0.0f;
-
-        if(--k<0)
-        {
-          lfo0 += dlfo * lfo1; //sine LFO
-          lfo1 -= dlfo * lfo0;
-          mw = lfo1 * (modwhl + vibrato);
-          k=100;
-        }
-
-        for(v=0; v<NVOICES; v++) //for each voice
-        {
-          e = V->env;
-          if(e > SILENCE) //**** this is the synth ****
-          {
-            V->env = e * V->cdec; //decay & release
-            V->cenv += V->catt * (e - V->cenv); //attack
-
-            x = V->dmod * V->mod0 - V->mod1; //could add more modulator blocks like
-            V->mod1 = V->mod0;               //this for a wider range of FM sounds
-            V->mod0 = x;
-            V->menv += V->mdec * (V->mlev - V->menv);
-
-            x = V->car + V->dcar + x * V->menv + mw; //carrier phase
-            while(x >  1.0f) x -= 2.0f;  //wrap phase
-            while(x < -1.0f) x += 2.0f;
-            V->car = x;
-            o += V->cenv * (m * V->mod1 + (x + x * x * x * (w * x * x - 1.0f - w)));
-          }      //amp env //mod thru-mix //5th-order sine approximation
-          V++;
-        }
-        *out1++ += o;
-        *out2++ += o;
-      }
-
-      if(frame<sampleFrames) //next note on/off
-      {
-        int32_t note = notes[event++];
-        int32_t vel  = notes[event++];
-        noteOn(note, vel);
-      }
-    }
-
-    activevoices = NVOICES;
-    for(v=0; v<NVOICES; v++)
-    {
-      if(voice[v].env < SILENCE)  //choke voices that have finished
-      {
-        voice[v].env = voice[v].cenv = 0.0f;
-        activevoices--;
-      }
-      if(voice[v].menv < SILENCE) voice[v].menv = voice[v].mlev = 0.0f;
-    }
-  }
-
-  K=k; MW=mw; //remember these so vibrato speed not buffer size dependant!
-  notes[0] = EVENTS_DONE;
-}
-
-
 void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
 	float* out1 = outputs[0];
 	float* out2 = outputs[1];
-	int32_t event=0, frame=0, frames, v;
+	int32_t frame=0, frames, v;
   float o, x, e, mw=MW, w=rich, m=modmix;
   int32_t k=K;
 
-  if(activevoices>0 || notes[event]<sampleFrames) //detect & bypass completely empty blocks
+  LV2_Atom_Event* ev = lv2_atom_sequence_begin(&eventInput->body);
+  bool end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+  if(activevoices>0 || !end) //detect & bypass completely empty blocks
   {
     while(frame<sampleFrames)
     {
-      frames = notes[event++];
-      if(frames>sampleFrames) frames = sampleFrames;
+      end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
+      frames = end ? sampleFrames : ev->time.frames;
       frames -= frame;
       frame += frames;
 
@@ -444,11 +366,10 @@ void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
         *out2++ = o;
       }
 
-      if(frame<sampleFrames) //next note on/off
+      if(!end) //next note on/off
       {
-        int32_t note = notes[event++];
-        int32_t vel  = notes[event++];
-        noteOn(note, vel);
+        processEvent(ev);
+        ev = lv2_atom_sequence_next(ev);
       }
     }
 
@@ -472,7 +393,6 @@ void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
 		}
   }
   K=k; MW=mw; //remember these so vibrato speed not buffer size dependant!
-  notes[0] = EVENTS_DONE;
 }
 
 
@@ -528,28 +448,21 @@ void mdaDX10::noteOn(int32_t note, int32_t velocity)
 }
 
 
-int32_t mdaDX10::processEvents(LvzEvents* ev)
+int32_t mdaDX10::processEvent(const LV2_Atom_Event* ev)
 {
-  int32_t npos=0;
+  if (ev->body.type != midiEventType)
+      return 0;
 
-  for (int32_t i=0; i<ev->numEvents; i++)
-	{
-		if((ev->events[i])->type != kLvzMidiType) continue;
-		LvzMidiEvent* event = (LvzMidiEvent*)ev->events[i];
-		char* midiData = event->midiData;
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
 
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {
       case 0x80: //note off
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = 0;                  //vel
+        noteOn(midiData[1] & 0x7F, 0);
         break;
 
       case 0x90: //note on
-        notes[npos++] = event->deltaFrames; //delta
-        notes[npos++] = midiData[1] & 0x7F; //note
-        notes[npos++] = midiData[2] & 0x7F; //vel
+        noteOn(midiData[1] & 0x7F, midiData[2] & 0x7F);
         break;
 
       case 0xB0: //controller
@@ -567,9 +480,7 @@ int32_t mdaDX10::processEvents(LvzEvents* ev)
             sustain = midiData[2] & 0x40;
             if(sustain==0)
             {
-              notes[npos++] = event->deltaFrames;
-              notes[npos++] = SUSTAIN; //end all sustained notes
-              notes[npos++] = 0;
+              noteOn(SUSTAIN, 0);
             }
             break;
 
@@ -596,10 +507,6 @@ int32_t mdaDX10::processEvents(LvzEvents* ev)
       default: break;
     }
 
-    if(npos>EVENTBUFFER) npos -= 3; //discard events if buffer full!!
-    event++;
-	}
-  notes[npos] = EVENTS_DONE;
 	return 1;
 }
 

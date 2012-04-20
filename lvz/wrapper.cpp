@@ -32,6 +32,9 @@
 #include <stdlib.h>
 #include "audioeffectx.h"
 #include "lv2.h"
+#include "lv2/lv2plug.in/ns/ext/atom/atom.h"
+#include "lv2/lv2plug.in/ns/ext/midi/midi.h"
+#include "lv2/lv2plug.in/ns/ext/urid/urid.h"
 #include PLUGIN_HEADER
 
 extern "C" {
@@ -61,17 +64,19 @@ lvz_cleanup(LV2_Handle instance)
 static void
 lvz_connect_port(LV2_Handle instance, uint32_t port, void* data)
 {
-	LVZPlugin* plugin = (LVZPlugin*)instance;
-
-	uint32_t num_params = plugin->effect->getNumParameters();
-	uint32_t num_inputs = plugin->effect->getNumInputs();
+	LVZPlugin*     plugin      = (LVZPlugin*)instance;
+	const uint32_t num_params  = plugin->effect->getNumParameters();
+	const uint32_t num_inputs  = plugin->effect->getNumInputs();
+	const uint32_t num_outputs = plugin->effect->getNumOutputs();
 
 	if (port < num_params) {
 		plugin->control_buffers[port] = (float*)data;
 	} else if (port < num_params + num_inputs) {
 		plugin->inputs[port - num_params] = (float*)data;
-	} else {
+	} else if (port < num_params + num_inputs + num_outputs) {
 		plugin->outputs[port - num_params - num_inputs] = (float*)data;
+	} else if (port == num_params + num_inputs + num_outputs) {
+		plugin->effect->setEventInput((LV2_Atom_Sequence*)data);
 	}
 }
 
@@ -97,6 +102,15 @@ lvz_instantiate(const LV2_Descriptor*    descriptor,
 
 	LVZPlugin* plugin = (LVZPlugin*)malloc(sizeof(LVZPlugin));
 	plugin->effect = effect;
+
+	for (int i = 0; features[i]; ++i) {
+		if (!strcmp(features[i]->URI, LV2_URID__map)) {
+			LV2_URID_Map* map = (LV2_URID_Map*)features[i]->data;
+			plugin->effect->setMidiEventType(
+				map->map(map->handle, LV2_MIDI__MidiEvent));
+			break;
+		}
+	}
 
 	if (num_params > 0) {
 		plugin->controls        = (float*)malloc(sizeof(float) * num_params);
