@@ -46,6 +46,16 @@ mdaBeatBox::mdaBeatBox(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
   sbuflen = 60000;
   if(getSampleRate()>49000) { hbuflen*=2; kbuflen*=2; sbuflen*=2; }
 
+  hbufpos = 0;
+  kbufpos = 0;
+  sbufpos = 0;
+  hfil = 0;
+  sb1 = 0;
+  sb2 = 0;
+  ksb1 = 0;
+  ksb2 = 0;
+  wwx = 0;
+
   hbuf = new float[hbuflen];
 	sbuf = new float[sbuflen]; sbuf2 = new float[sbuflen];
 	kbuf = new float[kbuflen];

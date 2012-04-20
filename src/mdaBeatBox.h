@@ -58,7 +58,7 @@ protected:
   float fParam10;
   float fParam11;
   float fParam12;
-  float hthr, hfil, sthr, kthr, kfil1, kfil2, mix;
+  float hthr, hfil, sthr, kthr, mix;
   float klev, hlev, slev;
   float  ww,  wwx,  sb1,  sb2,  sf1,  sf2, sf3;
   float kww, kwwx, ksb1, ksb2, ksf1, ksf2;
