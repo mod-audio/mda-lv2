@@ -72,7 +72,6 @@ public:
 	virtual void masterIdle() {}
 };
 
-
 class AudioEffectX : public AudioEffect {
 public:
 	AudioEffectX(audioMasterCallback audioMaster, int32_t progs, int32_t params)

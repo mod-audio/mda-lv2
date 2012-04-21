@@ -33,7 +33,6 @@ using namespace std;
 #define MAX_NAME_LENGTH 1024
 char name_buf[MAX_NAME_LENGTH];
 
-
 struct Record {
 	Record(const string& n) : base_name(n) {}
 	string base_name;
@@ -41,10 +40,8 @@ struct Record {
 	UIs uis;
 };
 
-
 typedef std::map<string, Record> Manifest;
 Manifest manifest;
-
 
 string
 symbolify(const char* name)
@@ -83,7 +80,6 @@ symbolify(const char* name)
 
 	return str;
 }
-
 
 void
 write_plugin(AudioEffectX* effect, const string& lib_file_name)
@@ -152,7 +148,6 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 	}
 }
 
-
 void
 write_manifest(ostream& os)
 {
@@ -169,7 +164,6 @@ write_manifest(ostream& os)
 		os << "." << endl << endl;
 	}
 }
-
 
 int
 main(int argc, char** argv)
