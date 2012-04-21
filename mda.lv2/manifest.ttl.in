@@ -18,6 +18,7 @@ mda:
 	lv2:symbol "mda" ;
 	doap:name "MDA LV2" ;
 	doap:shortdesc "An LV2 port of the MDA plugins." ;
+	doap:homepage <http://drobilla.net/software/mda-lv2> ;
 	doap:maintainer <http://drobilla.net/drobilla#me> ;
 	doap:developer [
 		a foaf:Person ;

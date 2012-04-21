@@ -4,11 +4,11 @@ import shutil
 from waflib.extras import autowaf as autowaf
 
 # Version of this package (even if built as a child)
-MDALA_VERSION = '0.0.0'
+MDA_VERSION = '1.0.0'
 
 # Variables for 'waf dist'
-APPNAME = 'mda.lv2'
-VERSION = MDALA_VERSION
+APPNAME = 'mda-lv2'
+VERSION = MDA_VERSION
 
 # Mandatory variables
 top = '.'
