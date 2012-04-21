@@ -3,6 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://drobilla.net/plugins/mda/MultiBand/env>
@@ -31,9 +32,23 @@ To give more control when mastering (and to offer something different from other
 		lv2:index 0 ;
 		lv2:name "Listen" ;
 		lv2:symbol "listen" ;
-		lv2:default 1 ;
+		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
+		lv2:portProperty lv2:enumeration ;
+		lv2:scalePoint [
+			rdfs:label "Low" ;
+			rdf:value 0.0
+		] , [
+			rdfs:label "Mid" ;
+			rdf:value 0.33333333
+		] , [
+			rdfs:label "High" ;
+			rdf:value 0.66666666
+		] , [
+			rdfs:label "Output" ;
+			rdf:value 1.0
+		] ;
 		rdfs:comment "Audition the low, mid and high bands individually"
 	] , [
 		a lv2:InputPort ,
@@ -71,7 +86,7 @@ To give more control when mastering (and to offer something different from other
 		lv2:index 4 ;
 		lv2:name "M Comp" ;
 		lv2:symbol "m_comp" ;
-		lv2:default 0 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		rdfs:comment "Mid compression amount"
@@ -153,9 +168,10 @@ To give more control when mastering (and to offer something different from other
 		lv2:index 12 ;
 		lv2:name "Process" ;
 		lv2:symbol "process" ;
-		lv2:default 0.4 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
+		lv2:maximum 1.0 ;
+		lv2:portProperty lv2:toggled
 	] , [
 		a lv2:InputPort ,
 			lv2:AudioPort ;

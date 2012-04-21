@@ -23,9 +23,10 @@ mda:Image
 		lv2:index 0 ;
 		lv2:name "Mode" ;
 		lv2:symbol "mode" ;
-		lv2:default 0.6 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
+		lv2:portProperty lv2:enumeration ;
 		lv2:scalePoint [
 			rdfs:label "Stereo image adjustment" ;
 			rdf:value 0.0

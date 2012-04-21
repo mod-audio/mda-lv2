@@ -37,6 +37,9 @@ mdaDynamics::mdaDynamics(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam8 = (float)0.10; //gate attack
   fParam9 = (float)0.50; //gate decay
   fParam10= (float)1.00; //fx mix
+  thr = rat = env = env2 = att = rel = trim = lthr = xthr = xrat = dry = 0.0f;
+  genv = gatt = irel = 0.0f;
+  mode = 0;
 
   setNumInputs(2);		    // stereo in
 	setNumOutputs(2);		    // stereo out

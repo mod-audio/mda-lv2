@@ -50,6 +50,10 @@ mdaTracker::mdaTracker(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
   res1 = (float)cos(0.01); //p
   res2 = (float)sin(0.01); //q
 
+  fi = fo = thr = phi = ddphi = trans = buf1 = buf2 = dn = bold = wet = dry = 0.0f;
+  dyn = env = rel = saw = dsaw = res1 = res2 = buf3 = buf4 = 0.0f;
+  max = min = num = sig = mode = 0;
+
   setParameter(0, 0.0f);
 }
 

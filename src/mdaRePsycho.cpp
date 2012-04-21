@@ -35,7 +35,7 @@ mdaRePsycho::mdaRePsycho(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam4 = (float)1.0; //mix
   fParam5 = (float)0.45; //minimum chunk length
   fParam6 = (float)1.0; //fine tune
-  fParam7 = (float)0.4; //quality
+  fParam7 = (float)0.0; //quality
   size = 22050;
 	buffer = new float[size];
   buffer2 = new float[size];
@@ -168,7 +168,7 @@ void mdaRePsycho::getParameterDisplay(int32_t index, char *text)
     case 5: long2string((long)(100.0 * fParam4), text); break;
     case 4: long2string((long)(1000.0 * dtim / getSampleRate()), text); break;
     case 1: long2string((long)(int(99.0 * fParam6) - 99.0), text); break;
-    case 6: if(fParam7>0.5) strcpy(text, "HIGH");
+    case 6: if(fParam7>0.0) strcpy(text, "HIGH");
             else strcpy(text, "LOW"); break;
   }
 }
@@ -207,7 +207,7 @@ void mdaRePsycho::process(float **inputs, float **outputs, int32_t sampleFrames)
 	--out1;
 	--out2;
 
-  if(fParam7>0.5) //high quality
+  if(fParam7>0.0) //high quality
   {
     we=(float)(we*2.0);
     while(--sampleFrames >= 0)
@@ -338,7 +338,7 @@ void mdaRePsycho::processReplacing(float **inputs, float **outputs, int32_t samp
 	--out1;
 	--out2;
 
-  if(fParam7>0.5) //high quality
+  if(fParam7>0.0) //high quality
   {
     we=(float)(we*2.0);
     while(--sampleFrames >= 0)

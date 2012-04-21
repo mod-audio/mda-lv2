@@ -42,21 +42,22 @@ Very technical note This plug-in follows Steinberg's convention that a signal le
 		lv2:index 1 ;
 		lv2:name "Dither" ;
 		lv2:symbol "dither" ;
-		lv2:default 0.88 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
+		lv2:portProperty lv2:enumeration ;
 		lv2:scalePoint [
 			rdfs:label "Truncation" ;
 			rdf:value 0.0
 		] , [
 			rdfs:label "Triangular PDF dither" ;
-			rdf:value 0.25
+			rdf:value 0.33333333
 		] , [
 			rdfs:label "High-pass Triangular PDF dither" ;
-			rdf:value 0.5
+			rdf:value 0.66666666
 		] , [
 			rdfs:label "Second-order noise-shaped dither" ;
-			rdf:value 0.75
+			rdf:value 1.0
 		]
 	] , [
 		a lv2:InputPort ,
@@ -84,7 +85,7 @@ Very technical note This plug-in follows Steinberg's convention that a signal le
 		lv2:index 4 ;
 		lv2:name "Zoom" ;
 		lv2:symbol "zoom" ;
-		lv2:default 0 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		rdfs:comment """Allows the signal to be faded into the noise floor at a clearly audible level so dither settings can be "auditioned".  Note that some (perceptual) properties of dither will change when listened to in this way"""

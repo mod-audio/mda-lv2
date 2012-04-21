@@ -101,9 +101,11 @@ public:
 	virtual int32_t     getNumInputs()     { return numInputs; }
 	virtual int32_t     getNumOutputs()    { return numOutputs; }
 	virtual int32_t     getNumParameters() { return numParams; }
+	virtual int32_t     getNumPrograms()   { return numPrograms; }
 
 	virtual void getParameterName(int32_t index, char *label) = 0;
 	virtual bool getProductString(char* text)                 = 0;
+	virtual void getProgramName(char *name) { name[0] = '\0'; }
 
 	virtual int32_t canDo(const char* text) { return false; }
 	virtual bool    canHostDo(const char* act) { return false; }

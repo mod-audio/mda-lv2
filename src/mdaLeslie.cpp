@@ -31,7 +31,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaLeslieProgram::mdaLeslieProgram()
 {
-  param[0] = 0.66f;
+  param[0] = 0.5f;
   param[1] = 0.50f;
   param[2] = 0.48f;
   param[3] = 0.70f;
@@ -60,11 +60,11 @@ mdaLeslie::mdaLeslie(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster
   programs = new mdaLeslieProgram[numPrograms];
   if(programs)
   {
-    programs[1].param[0] = 0.33f;
+    programs[1].param[0] = 0.5f;
     programs[1].param[4] = 0.75f;
     programs[1].param[5] = 0.57f;
     strcpy(programs[1].name,"Slow");
-    programs[2].param[0] = 0.66f;
+    programs[2].param[0] = 1.0f;
     programs[2].param[4] = 0.60f;
     programs[2].param[5] = 0.70f;
     strcpy(programs[2].name,"Fast");

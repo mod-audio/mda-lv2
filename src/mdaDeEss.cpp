@@ -32,6 +32,13 @@ mdaDeEss::mdaDeEss(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 
   fParam1 = (float)0.15f; //thresh
   fParam2 = (float)0.60f; //f
   fParam3 = (float)0.50f; //drive
+  fbuf1 = 0.0f;
+  fbuf2 = 0.0f;
+  gai = 0.0f;
+  thr = 0.0f;
+  att = 0.0f;
+  rel = 0.0f;
+  fil = 0.0f;
   setNumInputs(2);
 	setNumOutputs(2);
 	setUniqueID("mdaDeEss");   //identify here

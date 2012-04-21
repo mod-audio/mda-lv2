@@ -30,7 +30,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaVocInputProgram::mdaVocInputProgram() ///default program settings
 {
-  param[0] = 0.25f;  //Tracking Off / On / Quant
+  param[0] = 0.0f;  //Tracking Off / On / Quant
   param[1] = 0.50f;  //Pitch
   param[2] = 0.20f;  //Breath Noise
   param[3] = 0.50f;  //Voiced/Unvoiced Thresh
@@ -46,6 +46,11 @@ mdaVocInput::mdaVocInput(audioMasterCallback audioMaster): AudioEffectX(audioMas
   setUniqueID("mdaVocInput");  ///identify plug-in here
 	DECLARE_LVZ_DEPRECATED(canMono) ();
   canProcessReplacing();
+
+  track = 0;
+  pstep = pmult = sawbuf = noise = lenv = henv = 0.0f;
+  lbuf0 = lbuf1 = lbuf2 = lbuf3 = lfreq = vuv = maxp = minp = 0.0f;
+  root = 0.0;
 
   programs = new mdaVocInputProgram[numPrograms];
   setProgram(0);

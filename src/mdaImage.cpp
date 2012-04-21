@@ -28,7 +28,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaImage::mdaImage(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 6)	// programs, parameters
 {
-  fParam1 = 0.6f; //mode
+  fParam1 = 0.0f; //mode
   fParam2 = 0.75f; //width
   fParam3 = 0.5f; //skew
   fParam4 = 0.75f; //centre

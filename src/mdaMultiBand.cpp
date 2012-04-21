@@ -41,7 +41,7 @@ mdaMultiBand::mdaMultiBand(audioMasterCallback audioMaster)	: AudioEffectX(audio
   fParam10 = (float)0.22; //attack    (3)
   fParam11 = (float)0.602; //release   (4)
   fParam12 = (float)0.55; //width
-  fParam13 = (float)0.40; //MS swap
+  fParam13 = (float)0.00; //MS swap
 /*  fParam1 = (float)1.00; //Listen: L/M/H/out
   fParam2 = (float)0.50; //xover1
   fParam3 = (float)0.50; //xover2
@@ -85,17 +85,16 @@ mdaMultiBand::mdaMultiBand(audioMasterCallback audioMaster)	: AudioEffectX(audio
   att3 = (float)pow(10.0, -0.05 -(1.5 * fParam10));
   rel3 = (float)pow(10.0, -2.0 - (2.5 * fParam11));
 
-  switch(int(fParam1*10.0))
+  switch(int(fParam1*3.9))
   {
     case 0: trim2=0.0; trim3=0.0; slev=0.0; break;
-    case 1:
-    case 2: trim1=0.0; trim3=0.0; slev=0.0; break;
-    case 3:
-    case 4: trim1=0.0; trim2=0.0; slev=0.0; break;
+    case 1: trim1=0.0; trim3=0.0; slev=0.0; break;
+    case 2: trim1=0.0; trim2=0.0; slev=0.0; break;
     default: slev=fParam12; break;
   }
   fi1 = (float)pow(10.0,fParam2 - 1.70); fo1=(float)(1.0 - fi1);
   fi2 = (float)pow(10.0,fParam3 - 1.05); fo2=(float)(1.0 - fi2);
+  fb1 = fb2 = fb3 = 0.0f;
   mswap = 0;
 }
 
@@ -165,19 +164,17 @@ void mdaMultiBand::setParameter(int32_t index, float value)
   att3 = (float)pow(10.0, -0.05 -(1.5 * fParam10));
   rel3 = (float)pow(10.0, -2.0 - (2.5 * fParam11));
 
-  switch(int(fParam1*10.0))
+  switch(int(fParam1*3.9))
   {
     case 0: trim2=0.0; trim3=0.0; slev=0.0; break;
-    case 1:
-    case 2: trim1=0.0; trim3=0.0; slev=0.0; break;
-    case 3:
-    case 4: trim1=0.0; trim2=0.0; slev=0.0; break;
+    case 1: trim1=0.0; trim3=0.0; slev=0.0; break;
+    case 2: trim1=0.0; trim2=0.0; slev=0.0; break;
     default: slev=fParam12; break;
   }
   fi1 = (float)pow(10.0,fParam2 - 1.70); fo1=(float)(1.0 - fi1);
   fi2 = (float)pow(10.0,fParam3 - 1.05); fo2=(float)(1.0 - fi2);
 
-  if(fParam13>0.5) mswap=1; else mswap=0;
+  if(fParam13>0.0) mswap=1; else mswap=0;
 }
 
 float mdaMultiBand::getParameter(int32_t index)
@@ -230,10 +227,10 @@ void mdaMultiBand::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: switch(int(fParam1*10.0))
+    case 0: switch(int(fParam1*3.9))
     { case 0: strcpy(text, "Low"); break;
-    case 1: case 2: strcpy(text, "Mid"); break;
-    case 3: case 4: strcpy(text, "High"); break;
+    case 1: strcpy(text, "Mid"); break;
+    case 2: strcpy(text, "High"); break;
      default: strcpy(text, "Output"); break; } break;
     case 1: int2strng((int32_t)(getSampleRate() * fi1 * (0.098 + 0.09*fi1 + 0.5*(float)pow(fi1,8.2f))), text); break;
     case 2: int2strng((int32_t)(getSampleRate() * fi2 * (0.015 + 0.15*fi2 + 0.9*(float)pow(fi2,8.2f))), text); break;

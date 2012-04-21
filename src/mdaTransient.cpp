@@ -41,6 +41,8 @@ mdaTransient::mdaTransient(audioMasterCallback audioMaster)	: AudioEffectX(audio
 	canProcessReplacing();	// supports both accumulating and replacing output
 	strcpy(programName, "Transient Processor");	// default program name
 
+	dry = att1 = att2 = rel12 = att34 = rel3 = rel4 = 0.0f;
+	env1 = env2 = env3 = env4 = fili = filo = filx = fbuf1 = fbuf2 = 0.0f;
   setParameter(0, 0.5f);
 }
 

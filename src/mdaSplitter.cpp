@@ -41,9 +41,9 @@ mdaSplitter::mdaSplitter(audioMasterCallback audioMaster): AudioEffectX(audioMas
   
   ///differences from default program...
   programs[1].param[2] = 0.50f;
-  programs[1].param[4] = 0.25f;
+  programs[1].param[4] = 0.0f;
   strcpy(programs[1].name,"Pass Peaks Only");
-  programs[2].param[0] = 0.60f;
+  programs[2].param[0] = 0.66666666f;
   strcpy(programs[2].name,"Stereo Crossover");
 
   setProgram(0);  

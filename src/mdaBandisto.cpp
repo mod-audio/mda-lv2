@@ -70,7 +70,7 @@ mdaBandisto::mdaBandisto(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   trim2 = (float)(trim2 * pow(10.0, 2.0 * fParam8 - 1.0));
   trim3 = (float)(trim3 * pow(10.0, 2.0 * fParam9 - 1.0));
 
-  switch(int(fParam1*5.0))
+  switch(int(fParam1*3.9))
   {
     case 0: trim2=0.0; trim3=0.0; slev=0.0; break;
     case 1: trim1=0.0; trim3=0.0; slev=0.0; break;
@@ -148,7 +148,7 @@ void mdaBandisto::setParameter(int32_t index, float value)
   trim2 = (float)(trim2 * pow(10.0, 2.0 * fParam8 - 1.0));
   trim3 = (float)(trim3 * pow(10.0, 2.0 * fParam9 - 1.0));
 
-  switch(int(fParam1*5.0))
+  switch(int(fParam1*3.9))
   {
     case 0: trim2=0.0; trim3=0.0; slev=0.0; break;
     case 1: trim1=0.0; trim3=0.0; slev=0.0; break;
@@ -200,7 +200,7 @@ void mdaBandisto::getParameterDisplay(int32_t index, char *text)
 {
 	switch(index)
   {
-    case 0: switch(int(fParam1*5.0))
+    case 0: switch(int(fParam1*3.9))
     { case 0: strcpy(text, "Low"); break;
       case 1: strcpy(text, "Mid"); break;
       case 2: strcpy(text, "High"); break;

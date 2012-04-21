@@ -23,7 +23,7 @@ mda:Splitter
 		lv2:index 0 ;
 		lv2:name "Mode" ;
 		lv2:symbol "mode" ;
-		lv2:default 0.1 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:portProperty lv2:enumeration ;
@@ -32,15 +32,15 @@ mda:Splitter
 			rdfs:label "Normal" ;
 			rdfs:comment "Output as selected with Frequency and Level controls"
 		] , [
-			rdf:value 0.25 ;
+			rdf:value 0.33333333 ;
 			rdfs:label "Inverse" ;
 			rdfs:comment "Inverse of shown selection (e.g. everything except low frequencies at high level)"
 		] , [
-			rdf:value 0.5 ;
+			rdf:value 0.66666666 ;
 			rdfs:label "Normal Inverse" ;
 			rdfs:comment "Left / Right split of above"
 		] , [
-			rdf:value 0.75 ;
+			rdf:value 1.0 ;
 			rdfs:label "Inverse Normal" ;
 			rdfs:comment "Right / Left split of above"
 		]
@@ -60,7 +60,7 @@ mda:Splitter
 		lv2:index 2 ;
 		lv2:name "Freq SW" ;
 		lv2:symbol "freq_sw" ;
-		lv2:default 0.25 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:portProperty lv2:enumeration ;

@@ -44,14 +44,14 @@ typedef std::map<string, Record> Manifest;
 Manifest manifest;
 
 string
-symbolify(const char* name)
+symbolify(const char* name, char space_char='_')
 {
 	string str(name);
 
 	// Like This -> Like_This
 	for (size_t i=0; i < str.length(); ++i)
 		if (str[i] == ' ')
-			str[i] = '_';
+			str[i] = space_char;
 
 	str[0] = std::tolower(str[0]);
 
@@ -63,15 +63,15 @@ symbolify(const char* name)
 				&& (!(str[i-1] == 'd' && str[i] == 'B'))
 				&& (!(str[i-1] == 'F' && str[i] == 'X'))
 				&& (!(str[i-1] == 'D' && str[i] == 'C')))
-			str = str.substr(0, i) + '_' + str.substr(i);
+			str = str.substr(0, i) + space_char + str.substr(i);
 
 	// To lowercase, and skip invalids
 	for (size_t i=1; i < str.length(); ) {
 		if (std::isalpha(str[i]) || std::isdigit(str[i])) {
 			str[i] = std::tolower(str[i]);
 			++i;
-		} else if (str[i-1] != '_') {
-			str[i] = '_';
+		} else if (str[i-1] != space_char) {
+			str[i] = space_char;
 			++i;
 		} else {
 			str = str.substr(0, i) + str.substr(i+1);
@@ -145,6 +145,43 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 		i->second.base_name = base_name;
 	} else {
 		manifest.insert(std::make_pair(effect->getURI(), Record(base_name)));
+	}
+
+	if (effect->getNumPrograms() > 1) {
+		std::string preset_file = base_name + "-presets.ttl";
+
+		fstream pos(preset_file.c_str(), ios::out);
+		pos << "@prefix lv2: <http://lv2plug.in/ns/lv2core#> ." << endl;
+		pos << "@prefix pset: <http://lv2plug.in/ns/ext/presets#> ." << endl;
+		pos << "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ." << endl << endl;
+		for (int32_t i = 0; i < effect->getNumPrograms(); ++i) {
+			effect->setProgram(i);
+			effect->getProgramName(name_buf);
+
+			std::string preset_uri = string(effect->getURI())
+				+ "#pset-" + symbolify(name_buf, '-');
+			
+			// Write wanifest entry
+			std::cout << "<" << preset_uri << ">"
+			          << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
+			          << effect->getURI() << "> ;\n\t"
+			          << "rdfs:seeAlso <" << preset_file << "> .\n" << std::endl;
+
+			// Write preset file
+			pos << "<" << preset_uri << ">"
+			    << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
+			    << effect->getURI() << "> ;\n\t"
+			    << "rdfs:label \"" << name_buf << "\"";
+			for (uint32_t i = 0; i < num_params; ++i) {
+				effect->getParameterName(i, name_buf);
+				pos << " ;\n\tlv2:port [" << endl;
+				pos << "\t\tlv2:symbol \"" << symbolify(name_buf) << "\" ;" << endl;
+				pos << "\t\tpset:value " << effect->getParameter(i) << " ;" << endl;
+				pos << "\t]";
+			}
+			pos << " .\n" << endl;
+		}
+		pos.close();
 	}
 }
 

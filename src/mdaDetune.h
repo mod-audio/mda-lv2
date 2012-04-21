@@ -17,7 +17,7 @@
 */
 
 #define NPARAMS  4  ///number of parameters
-#define NPROGS   4  ///number of programs
+#define NPROGS   3  ///number of programs
 #define BUFMAX   4096
 
 #ifndef __mdaDetune_H

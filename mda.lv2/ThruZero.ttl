@@ -64,7 +64,7 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
 		lv2:index 4 ;
 		lv2:name "Depth Mod" ;
 		lv2:symbol "depth_mod" ;
-		lv2:default 1 ;
+		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		rdfs:comment "Modulation depth - set to less than 100% to limit build up of low fequencies with feedback"

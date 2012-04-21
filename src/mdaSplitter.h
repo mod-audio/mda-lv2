@@ -29,7 +29,7 @@ class mdaSplitterProgram
 public:
   mdaSplitterProgram()
   {
-    param[0] = 0.10f;  //mode
+    param[0] = 0.00f;  //mode
     param[1] = 0.50f;  //freq
     param[2] = 0.25f;  //freq mode
     param[3] = 0.50f;  //level (was 2)

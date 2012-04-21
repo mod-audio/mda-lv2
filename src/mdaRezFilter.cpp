@@ -41,6 +41,10 @@ mdaRezFilter::mdaRezFilter(audioMasterCallback audioMaster)	: AudioEffectX(audio
   fParam8 = 0.00f; //trigger
   fParam9 = 0.75f; //max freq
 
+  fff = fq = fg = fmax = env = fenv = att = rel = 0.0f;
+  flfo = phi = dphi = bufl = buf0 = buf1 = buf2 = tthr = env2 = 0.0f;
+  lfomode = ttrig = tatt = 0;
+
   setNumInputs(2);
 	setNumOutputs(2);
 	setUniqueID("mdaRezFilter");

@@ -28,7 +28,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaTestTone::mdaTestTone(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 8)
 {
-  fParam0 = 0.47f; //mode
+  fParam0 = 0.0f; //mode
   fParam1 = 0.71f; //level dB
   fParam2 = 0.50f; //pan dB
   fParam3 = 0.57f; //freq1 B

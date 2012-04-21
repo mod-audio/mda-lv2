@@ -24,7 +24,7 @@
 #include "audioeffectx.h"
 
 #define NPARAMS 12       //number of parameters
-#define NPROGS   8       //number of programs
+#define NPROGS   5       //number of programs
 #define NOUTS    2       //number of outputs
 #define NVOICES 32       //max polyphony
 #define SUSTAIN 128

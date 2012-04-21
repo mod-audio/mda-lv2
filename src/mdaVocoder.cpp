@@ -30,14 +30,14 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaVocoderProgram::mdaVocoderProgram() ///default program settings
 {
-  param[0] = 0.33f;  //input select
+  param[0] = 0.0f;   //input select
   param[1] = 0.50f;  //output dB
   param[2] = 0.40f;  //hi thru
   param[3] = 0.40f;  //hi band
   param[4] = 0.16f;  //envelope
   param[5] = 0.55f;  //filter q
   param[6] = 0.6667f;//freq range
-  param[7] = 0.33f;  //num bands
+  param[7] = 0.0f;  //num bands
   strcpy(name, "Vocoder");
 }
 
@@ -54,7 +54,7 @@ mdaVocoder::mdaVocoder(audioMasterCallback audioMaster): AudioEffectX(audioMaste
   setProgram(0);
 
   ///differences from default program...
-  programs[1].param[7] = 0.66f;
+  programs[1].param[7] = 1.0f;
   strcpy(programs[1].name,"16 Band Vocoder");
   programs[2].param[2] = 0.00f;
   programs[2].param[3] = 0.00f;
@@ -90,7 +90,7 @@ void mdaVocoder::resume() ///update internal parameters...
   high =  param[3] * param[3] * param[3] * thru;
   thru *= param[2] * param[2] * param[2];
 
-  if(param[7]<0.5f)
+  if(param[7]<=0.0f)
   {
     nbnd=8;
     //re=0.003f;

@@ -25,7 +25,7 @@ Note that both carrier and modulator signals are taken from one input channel, w
 		lv2:index 0 ;
 		lv2:name "Mod In" ;
 		lv2:symbol "mod_in" ;
-		lv2:default 0.33 ;
+		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:portProperty lv2:enumeration ;
@@ -107,7 +107,8 @@ Note that both carrier and modulator signals are taken from one input channel, w
 		lv2:default 0.33 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		rdfs:comment "Select 16-band operation, or 8-band for thinner sound and reduced processor usage"
+		rdfs:comment "Select 16-band operation, or 8-band for thinner sound and reduced processor usage" ;
+		lv2:portProperty lv2:toggled
 	] , [
 		a lv2:InputPort ,
 			lv2:AudioPort ;
