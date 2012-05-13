@@ -27,6 +27,8 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 }
 
 mdaRoundPan::mdaRoundPan(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 2)	// programs, parameters
+	, fParam3(0.0f)
+	, fParam4(0.0f)
 {
   //inits here!
   fParam1 = (float)0.5; //pan

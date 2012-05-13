@@ -279,7 +279,7 @@ void mdaMultiBand::process(float **inputs, float **outputs, int32_t sampleFrames
 	float *out2 = outputs[1];
 	float a, b, c, d, l=fb3, m, h, s, sl=slev, tmp1, tmp2, tmp3;
   float f1i=fi1, f1o=fo1, f2i=fi2, f2o=fo2, b1=fb1, b2=fb2;
-  float g1=gain1, d1=driv1, t1=trim1, a1=att1, r1=1.f - rel1;
+  float g1=gain1, /*d1=driv1,*/ t1=trim1, a1=att1, r1=1.f - rel1;
   float g2=gain2, d2=driv2, t2=trim2, a2=att2, r2=1.f - rel2;
   float g3=gain3, d3=driv3, t3=trim3, a3=att3, r3=1.f - rel3;
   int ms=mswap;
@@ -306,7 +306,7 @@ void mdaMultiBand::process(float **inputs, float **outputs, int32_t sampleFrames
 
     tmp1 = (l>0)? l : -l;  //l
     g1 = (tmp1>g1)? g1+a1*(tmp1-g1) : g1*r1;
-    tmp1 = 1.f / (1.f + d1 * g1);
+    //tmp1 = 1.f / (1.f + d1 * g1);
 
     tmp2 = (m>0)? m : -m;
     g2 = (tmp2>g2)? g2+a2*(tmp2-g2) : g2*r2;
@@ -338,7 +338,7 @@ void mdaMultiBand::processReplacing(float **inputs, float **outputs, int32_t sam
 	float *out2 = outputs[1];
 	float a, b, c, d, l=fb3, m, h, s, sl=slev, tmp1, tmp2, tmp3;
   float f1i=fi1, f1o=fo1, f2i=fi2, f2o=fo2, b1=fb1, b2=fb2;
-  float g1=gain1, d1=driv1, t1=trim1, a1=att1, r1=1.f - rel1;
+  float g1=gain1, /*d1=driv1,*/ t1=trim1, a1=att1, r1=1.f - rel1;
   float g2=gain2, d2=driv2, t2=trim2, a2=att2, r2=1.f - rel2;
   float g3=gain3, d3=driv3, t3=trim3, a3=att3, r3=1.f - rel3;
   int ms=mswap;
@@ -363,7 +363,7 @@ void mdaMultiBand::processReplacing(float **inputs, float **outputs, int32_t sam
 
     tmp1 = (l>0)? l : -l;  //l
     g1 = (tmp1>g1)? g1+a1*(tmp1-g1) : g1*r1;
-    tmp1 = 1.f / (1.f + d1 * g1);
+    //tmp1 = 1.f / (1.f + d1 * g1);
 
     tmp2 = (m>0)? m : -m;
     g2 = (tmp2>g2)? g2+a2*(tmp2-g2) : g2*r2;

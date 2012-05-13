@@ -319,8 +319,6 @@ void mdaCombo::process(float **inputs, float **outputs, int32_t sampleFrames)
       f5 = o2 * f5 + i2 * f4;    f10 = o2 * f10 + i2 * f9;//high pass
       b = f4 - f5;               b2 = f9 - f10;
 
-      bp = (bp==0)? 999 : bp - 1; //buffer position
-
       *++out1 = c + b;
 		  *++out2 = d + b2;
       bp=bufpos;

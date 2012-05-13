@@ -18,6 +18,7 @@
 
 #include "mdaTalkBox.h"
 
+#include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <float.h>
@@ -345,6 +346,7 @@ void mdaTalkBox::processReplacing(float **inputs, float **outputs, int32_t sampl
 
 void mdaTalkBox::lpc(float *buf, float *car, int32_t n, int32_t o)
 {
+  assert(o >= 0);
   float z[ORD_MAX], r[ORD_MAX], k[ORD_MAX], G, x;
   int32_t i, j, nn=n;
 

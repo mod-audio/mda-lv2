@@ -27,6 +27,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 }
 
 mdaStereo::mdaStereo(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 5)	// programs, parameters
+	, fParam6(0.0f)
 {
   //inits here!
   fParam1 = (float)0.78; //Haas/Comb width

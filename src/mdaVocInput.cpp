@@ -224,7 +224,7 @@ void mdaVocInput::process(float **inputs, float **outputs, int32_t sampleFrames)
   while(--sampleFrames >= 0)
   {
     a = *++in1;
-    b = *++in2;
+    //b = *++in2;
     c = out1[1];
     d = out2[1];
 
@@ -299,7 +299,7 @@ void mdaVocInput::processReplacing(float **inputs, float **outputs, int32_t samp
   while(--sampleFrames >= 0)
   {
     a = *++in1;
-    b = *++in2;
+    //b = *++in2;
 
     l0 -= lf * (l1 + a);       //fundamental filter (peaking 2nd-order 100Hz lpf)
     l1 -= lf * (l1 - l0);

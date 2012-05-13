@@ -26,6 +26,8 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 }
 
 mdaRingMod::mdaRingMod(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 3)	// 1 program, 3 parameter only
+	, fParam4(0.0f)
+	, nul(0.0f)
 {
 	fParam1 = (float)0.0625; //1kHz
   fParam2 = (float)0.0;

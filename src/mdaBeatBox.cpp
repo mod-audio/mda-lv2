@@ -215,7 +215,7 @@ void mdaBeatBox::synth()
 
   memset(sbuf, 0, sbuflen * sizeof(float)); //generate snare
   de = (float)pow(10.0,-15.0/getSampleRate());
-  e=0.38f; dp = 1103.f / getSampleRate();
+  e=0.38f; //dp = 1103.f / getSampleRate();
   for(t=0;t<7000;t++)
   {
     o = (0.3f * o) + (float)((rand() % 2000) - 1000);

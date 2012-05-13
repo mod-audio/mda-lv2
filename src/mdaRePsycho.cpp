@@ -27,6 +27,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 }
 
 mdaRePsycho::mdaRePsycho(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 7)	// programs, parameters
+	, gai(0.0f)
 {
   //inits here!
   fParam1 = (float)0.6; //thresh
