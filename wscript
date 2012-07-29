@@ -44,18 +44,18 @@ def build_plugin(bld, lang, bundle, name, source, cflags=[], libs=[]):
     penv = bld.env.derive()
     penv['cshlib_PATTERN']   = bld.env['pluginlib_PATTERN']
     penv['cxxshlib_PATTERN'] = bld.env['pluginlib_PATTERN']
-    obj              = bld(features = '%s %sshlib' % (lang,lang))
-    obj.env          = penv
-    obj.source       = source + ['lvz/wrapper.cpp']
-    obj.includes     = [ '.', './lvz', './src' ]
-    obj.name         = name
-    obj.target       = os.path.join(bundle, name)
+    obj = bld(features     = '%s %sshlib' % (lang,lang),
+              env          = penv,
+              source       = source + ['lvz/wrapper.cpp'],
+              includes     = [ '.', './lvz', './src' ],
+              name         = name,
+              target       = os.path.join(bundle, name),
+              install_path = '${LV2DIR}/' + bundle,
+              uselib       = ['LV2'])
     if cflags != []:
         obj.cxxflags = cflags
     if libs != []:
         autowaf.use_lib(bld, obj, libs)
-    obj.install_path = '${LV2DIR}/' + bundle
-    obj.uselib = ['LV2']
 
     # Install data file
     data_file = '%s.ttl' % name
