@@ -29,7 +29,7 @@ def configure(conf):
     autowaf.check_pkg(conf, 'lv2', atleast_version='1.0.0', uselib_store='LV2')
 
     autowaf.display_msg(conf, "LV2 bundle directory",
-                        conf.env['LV2DIR'])
+                        conf.env.LV2DIR)
     print('')
 
 def build(bld):
@@ -48,7 +48,7 @@ def build(bld):
             install_path = '${LV2DIR}/mda.lv2')
 
     # Make a pattern for shared objects without the 'lib' prefix
-    module_pat = re.sub('^lib', '', bld.env['cxxshlib_PATTERN'])
+    module_pat = re.sub('^lib', '', bld.env.cxxshlib_PATTERN)
     module_ext = module_pat[module_pat.rfind('.'):]
 
     # Build manifest by substitution
@@ -110,7 +110,7 @@ def build(bld):
                                   'URI_PREFIX="http://drobilla.net/plugins/mda/"',
                                   'PLUGIN_URI_SUFFIX="%s"' % p,
                                   'PLUGIN_HEADER="src/mda%s.h"' % p])
-        obj.env['cxxshlib_PATTERN'] = module_pat
+        obj.env.cxxshlib_PATTERN = module_pat
 
         # Install data file
         bld.install_files('${LV2DIR}/' + bundle, os.path.join(bundle, p + '.ttl'))
