@@ -135,7 +135,7 @@ void mdaLimiter::getParameterName(int32_t index, char *label)
 }
 
 #include <stdio.h>
-void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
+static void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
 
 void mdaLimiter::getParameterDisplay(int32_t index, char *text)
 {

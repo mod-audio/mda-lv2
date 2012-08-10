@@ -84,8 +84,8 @@ bool mdaTestTone::getProgramNameIndexed (int32_t category, int32_t index, char* 
 }
 
 #include <stdio.h>
-void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
-void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
+static void int2strng(int32_t value, char *string) { sprintf(string, "%d", value); }
+static void float2strng(float value, char *string) { sprintf(string, "%.2f", value); }
 
 void mdaTestTone::setParameter(int32_t index, float value)
 {
@@ -431,7 +431,7 @@ void mdaTestTone::process(float **inputs, float **outputs, int32_t sampleFrames)
               break;
 
       case 2: //noise
-    #if WIN32
+    #ifdef _WIN32
       case 3: x = (float)(rand() - 16384); //for RAND_MAX = 32767
     #else //mac/gcc
       case 3: x = (float)((rand() & 0x7FFF) - 16384);
@@ -520,7 +520,7 @@ void mdaTestTone::processReplacing(float **inputs, float **outputs, int32_t samp
               break;
 
       case 2: //noise
-    #if WIN32
+    #ifdef _WIN32
       case 3: x = (float)(rand() - 16384); //for RAND_MAX = 32767
     #else //mac/gcc
       case 3: x = (float)((rand() & 0x7FFF) - 16384);

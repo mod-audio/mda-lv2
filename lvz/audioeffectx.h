@@ -29,6 +29,8 @@ class AudioEffect;
 
 typedef int (*audioMasterCallback)(int, int ver, int, int, int, int);
 
+AudioEffect* createEffectInstance(audioMasterCallback audioMaster);
+
 enum LvzPinFlags {
 	kLvzPinIsActive = 1<<0,
 	kLvzPinIsStereo = 1<<1
@@ -141,6 +143,10 @@ protected:
 	int32_t                  numParams;
 	int32_t                  numPrograms;
 };
+
+extern "C" {
+AudioEffectX* lvz_new_audioeffectx();
+}
 
 #endif // LVZ_AUDIOEFFECTX_H
 
