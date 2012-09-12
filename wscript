@@ -2,19 +2,15 @@
 import os
 import re
 import shutil
+import waflib.extras.autowaf as autowaf
 
-from waflib.extras import autowaf as autowaf
-
-# Version of this package (even if built as a child)
 MDA_VERSION = '1.0.0'
 
-# Variables for 'waf dist'
-APPNAME = 'mda-lv2'
-VERSION = MDA_VERSION
-
-# Mandatory variables
-top = '.'
-out = 'build'
+# Mandatory waf variables
+APPNAME = 'MDA'        # Package name for waf dist
+VERSION = MDA_VERSION  # Package version for waf dist
+top     = '.'          # Source directory
+out     = 'build'      # Build directory
 
 def options(opt):
     opt.load('compiler_cxx')
