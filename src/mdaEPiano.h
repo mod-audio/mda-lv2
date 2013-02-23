@@ -86,6 +86,7 @@ public:
 	virtual void getParameterLabel(int32_t index, char *label);
 	virtual void getParameterDisplay(int32_t index, char *text);
 	virtual void getParameterName(int32_t index, char *text);
+	virtual void setSampleRate(float sampleRate);
 	virtual void setBlockSize(int32_t blockSize);
   virtual void resume();
 

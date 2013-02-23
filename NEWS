@@ -1,3 +1,9 @@
+mda-lv2 (1.1.0) unstable;
+
+  * Fix tuning of Piano and EPiano at sample rates other than 44.1 kHz
+
+ -- David Robillard <d@drobilla.net>  Fri, 22 Feb 2013 21:43:47 -0500
+
 mda-lv2 (1.0.0) stable;
 
   * Initial release

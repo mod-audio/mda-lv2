@@ -145,11 +145,17 @@ void mdaPiano::update()  //parameter change
 }
 
 
+void mdaPiano::setSampleRate(float rate)
+{
+    AudioEffectX::setSampleRate(rate);
+    Fs = rate;
+    iFs = 1.0f / Fs;
+    if(Fs > 64000.0f) cmax = 0xFF; else cmax = 0x7F;
+}
+
+
 void mdaPiano::resume()
 {
-  Fs = getSampleRate();
-  iFs = 1.0f / Fs;
-  if(Fs > 64000.0f) cmax = 0xFF; else cmax = 0x7F;
   memset(comb, 0, sizeof(float) * 256);
 
   DECLARE_LVZ_DEPRECATED (wantEvents) ();

@@ -4,7 +4,7 @@ import re
 import shutil
 import waflib.extras.autowaf as autowaf
 
-MDA_VERSION = '1.0.0'
+MDA_VERSION = '1.1.0'
 
 # Mandatory waf variables
 APPNAME = 'MDA'        # Package name for waf dist
@@ -31,16 +31,11 @@ def configure(conf):
 def build(bld):
     bundle = 'mda.lv2'
 
-    # Copy data files to build bundle (build/mda.lv2)
-    def do_copy(task):
-        src = task.inputs[0].abspath()
-        tgt = task.outputs[0].abspath()
-        return shutil.copy(src, tgt)
-
     for i in bld.path.ant_glob('mda.lv2/[A-Z]*.ttl'):
-        bld(rule   = do_copy,
-            source = i,
-            target = bld.path.get_bld().make_node('mda.lv2/%s' % i),
+        bld(features     = 'subst',
+            is_copy      = True,
+            source       = i,
+            target       = bld.path.get_bld().make_node('mda.lv2/%s' % i),
             install_path = '${LV2DIR}/mda.lv2')
 
     # Make a pattern for shared objects without the 'lib' prefix

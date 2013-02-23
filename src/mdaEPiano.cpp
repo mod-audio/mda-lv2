@@ -169,12 +169,17 @@ void mdaEPiano::update()  //parameter change
 }
 
 
+void mdaEPiano::setSampleRate(float rate)
+{
+    AudioEffectX::setSampleRate(rate);
+    Fs = rate;
+    iFs = 1.0f / Fs;
+    dlfo = 6.283f * iFs * (float)exp(6.22f * programs[curProgram].param[5] - 2.61f); //lfo rate
+}
+
+
 void mdaEPiano::resume()
 {
-  Fs = getSampleRate();
-  iFs = 1.0f / Fs;
-  dlfo = 6.283f * iFs * (float)exp(6.22f * programs[curProgram].param[5] - 2.61f); //lfo rate
-
   DECLARE_LVZ_DEPRECATED (wantEvents) ();
 }
 
