@@ -98,7 +98,7 @@ def build(bld):
                   install_path = '${LV2DIR}/' + bundle,
                   uselib       = ['LV2'],
                   defines      = ['PLUGIN_CLASS=mda%s' % p,
-                                  'URI_PREFIX="http://drobilla.net/plugins/mda/"',
+                      'URI_PREFIX="http://portalmod.com/plugins/mda/"',
                                   'PLUGIN_URI_SUFFIX="%s"' % p,
                                   'PLUGIN_HEADER="src/mda%s.h"' % p])
         obj.env.cxxshlib_PATTERN = module_pat

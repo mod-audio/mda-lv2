@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ "x${1}x" == "x-lx" ]; then
+    cd mda.lv2
+    for lv2 in `ls *ttl`; do 
+        if [[ "$lv2" == *manifest* ]]; then 
+            continue 
+        fi
+        if [[ "$lv2" == *preset* ]]; then
+            continue
+        fi
+        echo mda-`echo ${lv2%.ttl} | tr A-Z a-z`.lv2; done
+    cd ..
+    exit 0
+fi
+
+if [ "x${LV2_PATH}x" == "xx" ]; then
+    LV2_PATH=${HOME}/.lv2/
+fi
+
+make
+make INSTALL_PATH=${LV2_PATH} install

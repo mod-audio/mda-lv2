@@ -1,0 +1,210 @@
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix mda: <http://drobilla.net/plugins/mda/> .
+@prefix mdapset: <http://drobilla.net/plugins/mda/presets#> .
+@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+<http://drobilla.net/drobilla#me>
+    a foaf:Person ;
+    foaf:name "David Robillard" ;
+    foaf:mbox <mailto:d@drobilla.net> ;
+    rdfs:seeAlso <http://drobilla.net/drobilla> .
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://portalmod.com>;
+        foaf:mbox <devel@portalmod.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <paul@mda-vst.com>
+    ] .
+
+modplugins:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+modplugins:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
+modplugins:DX10
+    a lv2:Plugin ;
+    rdfs:seeAlso <DX10.ttl> ;
+    lv2:binary <DX10@LIB_EXT@> .
+
+mdapset:DX10-bright-e-piano
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-jazz-e-piano
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-e-piano-pad
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-fuzzy-e-piano
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-soft-chimes
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-harpsichord
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-funk-clav
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-sitar
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-chiff-organ
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-tinkle
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-space-pad
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-koto
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-harp
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-jazz-guitar
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-steel-drum
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-log-drum
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-trumpet
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-horn
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-reed-1
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-reed-2
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-violin
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-chunky-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-e-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-clunk-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-thick-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-sine-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-square-bass
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-upright-bass-1
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-upright-bass-2
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-harmonics
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-scratch
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
+
+mdapset:DX10-syn-tom
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:seeAlso <DX10-presets.ttl> .
