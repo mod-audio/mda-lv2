@@ -1,0 +1,31 @@
+{
+    "author": "MDA", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Hi Thru", 
+            "symbol": "hi_thru"
+        }, 
+        {
+            "name": "Hi Band", 
+            "symbol": "hi_band"
+        }, 
+        {
+            "name": "Envelope", 
+            "symbol": "envelope"
+        }, 
+        {
+            "name": "Filter Q", 
+            "symbol": "filter_q"
+        }, 
+        {
+            "name": "Mid Freq", 
+            "symbol": "mid_freq"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }
+    ], 
+    "label": "MDA Vocoder"
+}

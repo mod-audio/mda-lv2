@@ -1,0 +1,19 @@
+{
+    "author": "MDA", 
+    "color": "orange", 
+    "controls": [
+        {
+            "name": "Drive", 
+            "symbol": "drive"
+        }, 
+        {
+            "name": "Muffle", 
+            "symbol": "muffle"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }
+    ], 
+    "label": "Overdrive"
+}

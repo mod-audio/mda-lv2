@@ -4,6 +4,8 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
+
 
 mda:Vocoder
 	a lv2:Plugin ,
@@ -141,4 +143,12 @@ Note that both carrier and modulator signals are taken from one input channel, w
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-vocoder.html>;
+        mod:templateData <modgui/data-mda-vocoder.json>;
+        mod:screenshot <modgui/screenshot-mda-vocoder.png>;
+        mod:thumbnail <modgui/thumb-mda-vocoder.png>;
+    ] .

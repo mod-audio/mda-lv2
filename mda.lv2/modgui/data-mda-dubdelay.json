@@ -1,0 +1,36 @@
+{
+    "author": "MDA", 
+    "color": "white", 
+    "controls": [
+        {
+            "name": "Delay", 
+            "symbol": "delay"
+        }, 
+        {
+            "name": "Feedback", 
+            "symbol": "feedback"
+        }, 
+        {
+            "name": "Fb Tone", 
+            "symbol": "fb_tone"
+        }, 
+        {
+            "name": "LFO Depth", 
+            "symbol": "lfo_depth"
+        }, 
+        {
+            "name": "LFO Rate", 
+            "symbol": "lfo_rate"
+        }, 
+        {
+            "name": "FX Mix", 
+            "symbol": "fx_mix"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }
+    ], 
+    "knob": "darkblue", 
+    "label": "DubDelay"
+}

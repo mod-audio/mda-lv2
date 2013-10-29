@@ -1,0 +1,28 @@
+{
+    "author": "MDA", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Tune", 
+            "symbol": "tune"
+        }, 
+        {
+            "name": "Thresh", 
+            "symbol": "thresh"
+        }, 
+        {
+            "name": "Release", 
+            "symbol": "release"
+        }, 
+        {
+            "name": "Dry Mix", 
+            "symbol": "dry_mix"
+        }, 
+        {
+            "name": "Level", 
+            "symbol": "level"
+        }
+    ], 
+    "knob": "cream", 
+    "label": "SubSynth"
+}

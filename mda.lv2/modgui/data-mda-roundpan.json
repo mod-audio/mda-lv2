@@ -1,0 +1,15 @@
+{
+    "author": "MDA", 
+    "color": "blue", 
+    "controls": [
+        {
+            "name": "Pan", 
+            "symbol": "pan"
+        }, 
+        {
+            "name": "Auto", 
+            "symbol": "auto"
+        }
+    ], 
+    "label": "RoundPan"
+}

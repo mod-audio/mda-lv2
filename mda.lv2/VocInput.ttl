@@ -4,6 +4,8 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
+
 
 mda:VocInput
 	a lv2:Plugin ,
@@ -109,4 +111,12 @@ mda:VocInput
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	 mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-vocinput.html>;
+        mod:templateData <modgui/data-mda-vocinput.json>;
+        mod:screenshot <modgui/screenshot-mda-vocinput.png>;
+        mod:thumbnail <modgui/thumb-mda-vocinput.png>;
+    ] .

@@ -1,0 +1,19 @@
+{
+    "author": "MDA", 
+    "color": "red", 
+    "controls": [
+        {
+            "name": "Thresh", 
+            "symbol": "thresh"
+        }, 
+        {
+            "name": "Freq", 
+            "symbol": "freq"
+        }, 
+        {
+            "name": "HF Drive", 
+            "symbol": "hf_drive"
+        }
+    ], 
+    "label": "De-ess"
+}

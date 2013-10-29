@@ -3,6 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 mda:Overdrive
 	a lv2:Plugin ,
@@ -78,4 +79,12 @@ mda:Overdrive
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	    mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-overdrive.html>;
+        mod:templateData <modgui/data-mda-overdrive.json>;
+        mod:screenshot <modgui/screenshot-mda-overdrive.png>;
+        mod:thumbnail <modgui/thumb-mda-overdrive.png>;
+    ] .

@@ -3,6 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 mda:Detune
 	a lv2:Plugin ,
@@ -88,4 +89,12 @@ mda:Detune
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-detune.html>;
+        mod:templateData <modgui/data-mda-detune.json>;
+        mod:screenshot <modgui/screenshot-mda-detune.png>;
+        mod:thumbnail <modgui/thumb-mda-detune.png>;
+    ] .

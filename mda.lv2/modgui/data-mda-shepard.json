@@ -1,0 +1,19 @@
+{
+    "author": "MDA", 
+    "color": "green", 
+    "controls": [
+        {
+            "name": "Mode", 
+            "symbol": "mode"
+        }, 
+        {
+            "name": "Rate", 
+            "symbol": "rate"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }
+    ], 
+    "label": "Shepard"
+}

@@ -1,0 +1,26 @@
+{
+    "author": "MDA", 
+    "controls": [
+        {
+            "name": "Drive", 
+            "symbol": "drive"
+        }, 
+        {
+            "name": "Bias", 
+            "symbol": "bias"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }, 
+        {
+            "name": "HPF Freq", 
+            "symbol": "hpf_freq"
+        }, 
+        {
+            "name": "HPF Reso", 
+            "symbol": "hpf_reso"
+        }
+    ], 
+    "label": "Combo"
+}

@@ -2,6 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 mda:Ambience
 	a lv2:Plugin ,
@@ -81,4 +82,12 @@ mda:Ambience
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	 mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-ambience.html>;
+        mod:templateData <modgui/data-mda-ambience.json>;
+        mod:screenshot <modgui/screenshot-mda-ambience.png>;
+        mod:thumbnail <modgui/thumb-mda-ambience.png>;
+    ] .

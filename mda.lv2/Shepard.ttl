@@ -4,6 +4,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 mda:Shepard
 	a lv2:Plugin ,
@@ -90,4 +91,12 @@ mda:Shepard
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
 	] ;
-	rdfs:comment "Continuously rising/falling tone generator." .
+	rdfs:comment "Continuously rising/falling tone generator." ;
+	mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-shepard.html>;
+        mod:templateData <modgui/data-mda-shepard.json>;
+        mod:screenshot <modgui/screenshot-mda-shepard.png>;
+        mod:thumbnail <modgui/thumb-mda-shepard.png>;
+    ] .

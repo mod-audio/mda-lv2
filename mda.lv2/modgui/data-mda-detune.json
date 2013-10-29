@@ -1,0 +1,19 @@
+{
+    "author": "MDA", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Detune", 
+            "symbol": "detune"
+        }, 
+        {
+            "name": "Mix", 
+            "symbol": "mix"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }
+    ], 
+    "label": "Detune"
+}

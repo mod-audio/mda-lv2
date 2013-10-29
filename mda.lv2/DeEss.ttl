@@ -3,6 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 mda:DeEss
 	a lv2:Plugin ,
@@ -80,4 +81,12 @@ For stronger de-essing you may want to use two plug-ins in series, or apply proc
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	 mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-de-ess.html>;
+        mod:templateData <modgui/data-mda-de-ess.json>;
+        mod:screenshot <modgui/screenshot-mda-de-ess.png>;
+        mod:thumbnail <modgui/thumb-mda-de-ess.png>;
+    ] .

@@ -1,0 +1,24 @@
+{
+    "author": "MDA", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Carrier", 
+            "symbol": "carrier"
+        }, 
+        {
+            "name": "Quality", 
+            "symbol": "quality"
+        }, 
+        {
+            "name": "Wet", 
+            "symbol": "wet"
+        }, 
+        {
+            "name": "Dry", 
+            "symbol": "dry"
+        }
+    ], 
+    "knob": "blue", 
+    "label": "TalkBox"
+}
