@@ -7,7 +7,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
-mda:SubSynth
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:SubSynth
 	lv2:symbol "SubSynth" ;
 	lv2:project mda: ;
 	doap:name "MDA SubSynth" ;

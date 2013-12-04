@@ -5,7 +5,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
-mda:Overdrive
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:Overdrive
 	a lv2:Plugin ,
 		lv2:DistortionPlugin ;
 	lv2:project mda: ;

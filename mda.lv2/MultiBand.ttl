@@ -12,7 +12,9 @@
 	lv2:name "Envelope" ;
 	lv2:symbol "env" .
 
-mda:MultiBand
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:MultiBand
 	a lv2:Plugin ,
 		lv2:MultiEQPlugin ;
 	lv2:project mda: ;

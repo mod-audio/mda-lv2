@@ -7,7 +7,9 @@
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
 
-mda:Limiter
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:Limiter
 	a lv2:Plugin ,
 		lv2:LimiterPlugin ;
 	lv2:project mda: ;

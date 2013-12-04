@@ -4,7 +4,9 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
-mda:TalkBox
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:TalkBox
 	a lv2:Plugin ,
 		lv2:FilterPlugin ;
 	lv2:project mda: ;

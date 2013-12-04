@@ -7,7 +7,9 @@
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
 
-mda:VocInput
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:VocInput
 	a lv2:Plugin ,
 		lv2:SpectralPlugin ;
 	lv2:project mda: ;

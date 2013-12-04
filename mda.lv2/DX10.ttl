@@ -12,7 +12,9 @@
 	lv2:name "Envelope" ;
 	lv2:symbol "env" .
 
-mda:DX10
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:DX10
 	a lv2:Plugin ,
 		lv2:InstrumentPlugin ;
 	lv2:project mda: ;

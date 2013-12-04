@@ -19,7 +19,9 @@
 	lv2:name "Amp Envelope" ;
 	lv2:symbol "amp_env" .
 
-mda:JX10
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:JX10
 	a lv2:Plugin ,
 		lv2:InstrumentPlugin ;
 	lv2:project mda: ;

@@ -6,7 +6,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 
-mda:RePsycho
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:RePsycho
 	a lv2:Plugin ,
 		lv2:PitchPlugin ;
 	lv2:project mda: ;

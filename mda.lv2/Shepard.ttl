@@ -6,7 +6,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
-mda:Shepard
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:Shepard
 	a lv2:Plugin ,
 		lv2:GeneratorPlugin ;
 	lv2:project mda: ;

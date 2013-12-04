@@ -4,7 +4,9 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 
-mda:EPiano
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:EPiano
 	a lv2:Plugin ,
 		lv2:InstrumentPlugin ;
 	lv2:project mda: ;

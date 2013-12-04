@@ -17,7 +17,9 @@
 	lv2:name "Filter" ;
 	lv2:symbol "filt" .
 
-mda:RezFilter
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:RezFilter
 	a lv2:Plugin ,
 		lv2:FilterPlugin ;
 	lv2:project mda: ;

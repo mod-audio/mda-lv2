@@ -5,7 +5,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-mda:Splitter
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:Splitter
 	a lv2:Plugin ,
 		lv2:DynamicsPlugin ;
 	lv2:project mda: ;

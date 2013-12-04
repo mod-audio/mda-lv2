@@ -4,7 +4,9 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 
-mda:Ambience
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+
+modplugins:Ambience
 	a lv2:Plugin ,
 		lv2:ReverbPlugin ;
 	lv2:project mda: ;
