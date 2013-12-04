@@ -5,14 +5,14 @@
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://drobilla.net/plugins/mda/DX10/env>
 	a param:EnvelopeControls ,
 		pg:InputGroup ;
 	lv2:name "Envelope" ;
 	lv2:symbol "env" .
-
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
 
 modplugins:DX10
 	a lv2:Plugin ,
@@ -200,4 +200,12 @@ modplugins:DX10
 		lv2:index 18 ;
 		lv2:symbol "event_in" ;
 		lv2:name "Event In"
-	] .
+	] ;
+    mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-dx10.html>;
+        mod:templateData <modgui/data-mda-dx10.json>;
+        mod:screenshot <modgui/screenshot-mda-dx10.png>;
+        mod:thumbnail <modgui/thumb-mda-dx10.png>;
+    ] .

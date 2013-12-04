@@ -1,0 +1,31 @@
+{
+    "author": "MDA ", 
+    "color": "green", 
+    "controls": [
+        {
+            "name": "Envelope Decay", 
+            "symbol": "env_decay"
+        }, 
+        {
+            "name": "Envelope Release", 
+            "symbol": "env_release"
+        }, 
+        {
+            "name": "Hardness", 
+            "symbol": "hardness"
+        }, 
+        {
+            "name": "Treble Boost", 
+            "symbol": "treble_boost"
+        }, 
+        {
+            "name": "Modulation", 
+            "symbol": "modulation"
+        }, 
+        {
+            "name": "LFO Rate", 
+            "symbol": "lfo_rate"
+        }
+    ], 
+    "label": "ePiano"
+}

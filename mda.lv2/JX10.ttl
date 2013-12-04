@@ -6,6 +6,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://drobilla.net/plugins/mda/JX10/filt_env>
 	a param:EnvelopeControls ,
@@ -309,4 +310,12 @@ modplugins:JX10
 		lv2:index 26 ;
 		lv2:symbol "event_in" ;
 		lv2:name "Event In"
-	] .
+	] ;
+    mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-jx10.html>;
+        mod:templateData <modgui/data-mda-jx10.json>;
+        mod:screenshot <modgui/screenshot-mda-jx10.png>;
+        mod:thumbnail <modgui/thumb-mda-jx10.png>;
+    ] .

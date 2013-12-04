@@ -1,0 +1,27 @@
+{
+    "author": "MDA ", 
+    "color": "green", 
+    "controls": [
+        {
+            "name": "OSC Mix", 
+            "symbol": "osc_mix"
+        }, 
+        {
+            "name": "OSC Tune", 
+            "symbol": "osc_tune"
+        }, 
+        {
+            "name": "OSC Fine", 
+            "symbol": "osc_fine"
+        }, 
+        {
+            "name": "Glide", 
+            "symbol": "glide"
+        }, 
+        {
+            "name": "Gld Rate", 
+            "symbol": "gld_rate"
+        }
+    ], 
+    "label": "JX10"
+}
