@@ -30,7 +30,6 @@
 #endif
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
 #include "audioeffectx.h"
 #include "lv2.h"
@@ -739,7 +738,6 @@ lvz_run(LV2_Handle instance, uint32_t sample_count)
     for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i) {
         float val = plugin->control_buffers[i][0];
         if (val != plugin->controls[i]) {
-            printf("valor: %f\n", translateParameter(plugin->effect, i, val));
             plugin->effect->setParameter(i, translateParameter(plugin->effect, i, val));
             plugin->controls[i] = val;
         }
