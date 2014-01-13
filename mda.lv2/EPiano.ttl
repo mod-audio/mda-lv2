@@ -17,6 +17,11 @@ modplugins:EPiano
 	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
+
+rdfs:comment """
+It's a virtual ePiano plugin. Based around 12 carefully sampled and mastered Rhodes Piano samples.
+""" ;
+
 	lv2:port [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
