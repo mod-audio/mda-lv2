@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -16,7 +16,6 @@ modplugins:Vocoder
     lv2:project mda: ;
     lv2:symbol "Vocoder" ;
     doap:name "MDA Vocoder" ;
-    mod:label "MDA Vocoder";
     doap:shortdesc "Switchable 8 or 16 band vocoder" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -27,13 +26,6 @@ modplugins:Vocoder
 Note that both carrier and modulator signals are taken from one input channel, which therefore must be stereo for normal operation. This is different to some other vocoder plug-ins where one of the input signals is taken from another plug-in in a different channel.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "yellow";
-    mod:brand "mda";
-    mod:pedalLabel "Vocoder";
-    mod:smallLabel "Vocoder";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -54,8 +46,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
             rdfs:label "Right" ;
             rdfs:comment "Modulator on right channel, carrier on left"
         ] ;
-        mod:iconLabel "Mod in";
-        mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -66,8 +56,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db ;
-        mod:iconLabel "Output";
-        mod:pedalButton "0-2";
 
         rdfs:comment "Level trim"
     ] , [
@@ -80,8 +68,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Hi Thru";
-        mod:pedalButton "0-4";
 
         rdfs:comment "Level of high frequency input modulator input fed to output - can improve realism and intelligibility"
     ] , [
@@ -94,8 +80,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Hi Band";
-        mod:pedalButton "0-6";
 
         rdfs:comment "Level of high frequency vocoder band - may be unpleasant for some carrier signals"
     ] , [
@@ -112,8 +96,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
             rdf:value 14.0 ;
             rdfs:label "FREEZE" ;
         ];
-        mod:iconLabel "Envelope";
-        mod:pedalButton "2-0";
 
         rdfs:comment "Envelope tracking speed - set to minimum to freeze filter shape"
     ] , [
@@ -126,8 +108,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Envelope";
-        mod:pedalButton "2-2";
 
         rdfs:comment "Sharpness of each filter band - low values sound more synthetic, high-mid values more vocal"
     ] , [
@@ -142,8 +122,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
         lv2:minimum 200.0 ;
         lv2:maximum 1600.0 ;
         units:unit units:hz ;
-        mod:iconLabel "Mid Freq";
-        mod:pedalButton "2-4";
 
         rdfs:comment "Shift the filter bank up or down to optimize frequency range"
     ] , [
@@ -163,8 +141,6 @@ Note that both carrier and modulator signals are taken from one input channel, w
             rdf:value 1.0 ;
             rdfs:label "16 BAND" ;
         ] ;
-        mod:iconLabel "Quality";
-        mod:pedalButton "2-6";
 
         rdfs:comment "Select 16-band operation, or 8-band for thinner sound and reduced processor usage" ;
     ] , [

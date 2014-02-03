@@ -4,11 +4,10 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
-
 
 modplugins:RoundPan
     a lv2:Plugin ,
@@ -16,7 +15,6 @@ modplugins:RoundPan
     lv2:project mda: ;
     lv2:symbol "RoundPan" ;
     doap:name "MDA RoundPan" ;
-    mod:label "MDA RoundPan";
     doap:shortdesc "3D panner" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -25,13 +23,6 @@ modplugins:RoundPan
     rdfs:comment "Like all 3D processes the result depends on where you sit relative to the speakers, and mono compatibility is not guaranteed. This plug-in must be used in a stereo channel or bus!" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "blue";
-    mod:brand "mda";
-    mod:pedalLabel "Round Panner";
-    mod:smallLabel "RoundPan";
-    mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -44,8 +35,6 @@ modplugins:RoundPan
         lv2:minimum -180.0 ;
         lv2:maximum 180.0 ;
         units:unit units:degree ;
-        mod:iconLabel "Pan";
-        mod:pedalButton "1-1";
         rdfs:comment "Fixed pan position (when Auto = 0)"
     ] , [
         a lv2:InputPort ,
@@ -62,8 +51,6 @@ modplugins:RoundPan
             units:symbol "deg/sec" ;
             units:render "%f deg/sec"
         ];
-        mod:iconLabel "Auto";
-        mod:pedalButton "1-5";
         rdfs:comment "Autopan rate (turn to left for anticlockwise, right for clockwise)"
     ] , [
         a lv2:InputPort ,

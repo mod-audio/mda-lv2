@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
@@ -16,7 +16,6 @@ modplugins:Stereo
     lv2:project mda: ;
     lv2:symbol "Stereo" ;
     doap:name "MDA Stereo" ;
-    mod:label "MDA Stereo";
     doap:shortdesc "Haas delay and comb filtering" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,13 +23,6 @@ modplugins:Stereo
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "blue";
-    mod:brand "mda";
-    mod:pedalLabel "Stereo";
-    mod:smallLabel "Stereo";
-    mod:bypassLedPosition "118-83";
 
 
 
@@ -49,8 +41,6 @@ modplugins:Stereo
         units:symbol "HAAS<>COMB" ;
         units:render "%f HAAS<>COMB"
         ];
-    mod:iconLabel "Width";
-    mod:pedalButton "0-0";
 
     ] , [
         a lv2:InputPort ,
@@ -62,8 +52,6 @@ modplugins:Stereo
         lv2:minimum 0.45 ;
         lv2:maximum 47.62 ;
         units:unit units:ms;
-    mod:iconLabel "Delay";
-    mod:pedalButton "0-3";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -73,8 +61,6 @@ modplugins:Stereo
         lv2:default 0.0 ;
         lv2:minimum -100.0 ;
         lv2:maximum 100.0 ;
-    mod:iconLabel "Balance";
-    mod:pedalButton "0-6";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -88,8 +74,6 @@ modplugins:Stereo
             rdfs:label "OFF" ;
             rdf:value 0.0
         ];
-    mod:iconLabel "Mod";
-    mod:pedalButton "2-1"
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -100,8 +84,6 @@ modplugins:Stereo
         lv2:minimum 0.10 ;
         lv2:maximum 100.0 ;
         units:unit units:s;
-    mod:iconLabel "Rate";
-    mod:pedalButton "2-5";
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;

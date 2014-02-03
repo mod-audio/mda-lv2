@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -16,7 +16,6 @@ modplugins:Tracker
     lv2:project mda: ;
     lv2:symbol "Tracker" ;
     doap:name "MDA Tracker" ;
-    mod:label "MDA Tracker";
     doap:shortdesc "Pitch tracking oscillator, or pitch tracking EQ" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -27,13 +26,6 @@ modplugins:Tracker
 This plug can be used with white or pink noise inputs to generate random pitch sequences.  Interesting evolving soundscapes can be made with a drum loop input and Tracker, RezFilter and Delay in series.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "darkblue";
-    mod:brand "mda";
-    mod:pedalLabel "Tracker";
-    mod:smallLabel "Tracker";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -61,8 +53,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
             rdf:value 1.0 ;
             rdfs:label "Peaking EQ"
         ] ;
-        mod:iconLabel "Mode";
-        mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -73,8 +63,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc;
-        mod:iconLabel "Dynamics";
-        mod:pedalButton "0-2";
         rdfs:comment "Apply dynamics of input signal to generated output"
     ] , [
         a lv2:InputPort ,
@@ -86,8 +74,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc;
-        mod:iconLabel "Mix";
-        mod:pedalButton "0-4";
         rdfs:comment "Wet/dry mix"
     ] , [
         a lv2:InputPort ,
@@ -99,8 +85,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc;
-        mod:iconLabel "Glide";
-        mod:pedalButton "0-6";
         rdfs:comment "Maximum pitch change rate"
     ] , [
         a lv2:InputPort ,
@@ -112,8 +96,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum -36.0 ;
         lv2:maximum 36.0 ;
         units:unit units:semitone12TET;
-        mod:iconLabel "Transpose";
-        mod:pedalButton "2-0";
         rdfs:comment "Pitch offset to create harmonics, octave doubling, etc."
     ] , [
         a lv2:InputPort ,
@@ -127,8 +109,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum 39.0 ;
         lv2:maximum 7350.0 ;
         units:unit units:hz;
-        mod:iconLabel "MaxPitch";
-        mod:pedalButton "2-2";
         rdfs:comment "Maximum allowed pitch - to supress pitch tracking errors"
     ] , [
         a lv2:InputPort ,
@@ -140,8 +120,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum -60.0 ;
         lv2:maximum 0.0 ;
         units:unit units:db;
-        mod:iconLabel "Trigger";
-        mod:pedalButton "2-4";
         rdfs:comment "Threshold level for pitch tracker - raise to stop tracking in gaps"
     ] , [
         a lv2:InputPort ,
@@ -153,8 +131,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db;
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,

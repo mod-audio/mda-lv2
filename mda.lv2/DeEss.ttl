@@ -4,11 +4,10 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
-
 
 modplugins:DeEss
     a lv2:Plugin ,
@@ -16,7 +15,6 @@ modplugins:DeEss
     lv2:project mda: ;
     lv2:symbol "DeEss" ;
     doap:name "MDA De-ess" ;
-    mod:label "MDA DeEss";
     doap:shortdesc "High frequency dynamics processor" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -27,12 +25,6 @@ modplugins:DeEss
 For stronger de-essing you may want to use two plug-ins in series, or apply processing twice.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-    mod:pedalModel "japanese";
-    mod:pedalColor "red";
-    mod:brand "mda";
-    mod:pedalLabel "DeEsser";
-    mod:smallLabel "DeEsser";
-    mod:bypassLedPosition "118-83";
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -43,8 +35,6 @@ For stronger de-essing you may want to use two plug-ins in series, or apply proc
         lv2:minimum -60 ;
         lv2:maximum 0 ;
         units:unit units:db ;
-        mod:iconLabel "ThreShold";
-        mod:pedalButton "1-0";
         rdfs:comment "Set maximum level for high frequencies"
     ] , [
         a lv2:InputPort ,
@@ -58,8 +48,6 @@ For stronger de-essing you may want to use two plug-ins in series, or apply proc
         lv2:minimum 1000 ;
         lv2:maximum 12000 ;
         units:unit units:hz ;
-        mod:iconLabel "Freq";
-        mod:pedalButton "1-3";
         rdfs:comment "Lowest frequency affected (a HF shelf is used for stronger de-essing than designs that work on a frequency band)"
     ] , [
         a lv2:InputPort ,
@@ -71,8 +59,6 @@ For stronger de-essing you may want to use two plug-ins in series, or apply proc
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-        mod:iconLabel "HF Drive";
-        mod:pedalButton "1-6";
         rdfs:comment "Boost high frequencies before de-essing - can be used to enhance breathy vocals"
     ] , [
         a lv2:InputPort ,

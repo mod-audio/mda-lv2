@@ -2,7 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -12,7 +12,6 @@ modplugins:Loudness
 	lv2:project mda: ;
 	lv2:symbol "Loudness" ;
 	doap:name "MDA Loudness" ;
-	mod:label "MDA Loudness";
 	doap:shortdesc "Equal loudness contours for bass EQ and mix correction" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;

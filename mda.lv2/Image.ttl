@@ -2,7 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,7 +16,6 @@ modplugins:Image
     lv2:project mda: ;
     lv2:symbol "Image" ;
     doap:name "MDA Image" ;
-    mod:label "MDA Image";
     doap:shortdesc "Stereo image adjustment and M-S matrix" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -25,12 +24,6 @@ modplugins:Image
     rdfs:comment "Allows the level and pan of mono and stereo components to be adjusted separately, or components to be separated for individual processing before recombining with a second Image plug-in." ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-    mod:pedalModel "japanese";
-    mod:pedalColor "blue";
-    mod:brand "mda";
-    mod:pedalLabel "Image";
-    mod:smallLabel "Image";
-    mod:bypassLedPosition "118-83";
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -54,8 +47,6 @@ modplugins:Image
             rdfs:label "Decode from MS (input channels reversed)" ;
             rdf:value 0.75
         ] ;
-        mod:iconLabel "Mode";
-        mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -66,8 +57,6 @@ modplugins:Image
         lv2:minimum -200.0 ;
         lv2:maximum 200.0 ;
         units:unit units:pc;
-        mod:iconLabel "S Width";
-        mod:pedalButton "0-3";
         rdfs:comment "Stereo width (level of stereo component)"
     ] , [
         a lv2:InputPort ,
@@ -84,8 +73,6 @@ modplugins:Image
         units:symbol "L<>R" ;
         units:render "%f L<>R"
         ];
-        mod:iconLabel "S Pan";
-        mod:pedalButton "0-6";
         rdfs:comment "Stereo image skew"
     ] , [
         a lv2:InputPort ,
@@ -97,8 +84,6 @@ modplugins:Image
         lv2:minimum -200.0 ;
         lv2:maximum 200.0 ;
         units:unit units:pc;
-        mod:iconLabel "M Level";
-        mod:pedalButton "2-0";
         rdfs:comment "Centre depth"
     ] , [
         a lv2:InputPort ,
@@ -115,8 +100,6 @@ modplugins:Image
         units:symbol "L<>R" ;
         units:render "%f L<>R"
         ];
-        mod:iconLabel "M Pan";
-        mod:pedalButton "2-3";
         rdfs:comment "Centre pan"
     ] , [
         a lv2:InputPort ,
@@ -128,8 +111,6 @@ modplugins:Image
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db;
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6";
         rdfs:comment "Level trim (a 6dB correction may be required for some MS encoded material)"
     ] , [
         a lv2:InputPort ,

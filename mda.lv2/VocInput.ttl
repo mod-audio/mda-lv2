@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 
 modplugins:VocInput
     a lv2:Plugin ,
@@ -13,7 +13,6 @@ modplugins:VocInput
     lv2:project mda: ;
     lv2:symbol "VocInput" ;
     doap:name "MDA VocInput" ;
-    mod:label "MDA VocInput";
     doap:shortdesc "Pitch tracking oscillator for generating vocoder carrier input" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -22,13 +21,6 @@ modplugins:VocInput
     rdfs:comment "This plug-in produces a voice-like signal on the right channel to be used as a carrier signal with vocoder and other vocoder plug-ins. The input signal passes through on the left channel." ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-	mod:pedalModel "japanese";
-	mod:pedalColor "darkblue";
-	mod:brand "mda";
-	mod:pedalLabel "Voc Input";
-	mod:smallLabel "VocInput";
-	mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -51,8 +43,6 @@ modplugins:VocInput
             rdf:value 1.0 ;
             rdfs:label "Track quantized input pitch"
         ] ;
-		mod:iconLabel "Tracking";
-		mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -62,8 +52,6 @@ modplugins:VocInput
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-		mod:iconLabel "Pitch";
-		mod:pedalButton "2-0";
         rdfs:comment "Oscillator pitch, or pitch transpose in tracking modes"
     ] , [
         a lv2:InputPort ,
@@ -74,8 +62,6 @@ modplugins:VocInput
         lv2:default 0.2 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-		mod:iconLabel "Breath";
-		mod:pedalButton "0-3";
         rdfs:comment "Amount of breath noise"
     ] , [
         a lv2:InputPort ,
@@ -86,8 +72,6 @@ modplugins:VocInput
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-		mod:iconLabel "S Thresh";
-		mod:pedalButton "2-3";
         rdfs:comment "Sensitivity for adding sibilance / fricative noise to consonants"
     ] , [
         a lv2:InputPort ,
@@ -98,8 +82,6 @@ modplugins:VocInput
         lv2:default 0.35 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-		mod:iconLabel "Max Freq";
-		mod:pedalButton "0-6";
         rdfs:comment "Maximum allowed pitch - mainly used to reduce pitch tracking errors"
     ] , [
         a lv2:InputPort ,

@@ -6,7 +6,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -23,7 +23,6 @@ modplugins:MultiBand
     lv2:project mda: ;
     lv2:symbol "MultiBand" ;
     doap:name "MDA MultiBand" ;
-    mod:label "MDA MultiBand";
     doap:shortdesc "Multi-band compressor with M-S processing modes" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -34,13 +33,6 @@ modplugins:MultiBand
 To give more control when mastering (and to offer something different from other dynamics processors) in Mono mode this plug does not compress any stereo information, but in Stereo mode only the stereo component is processed giving control over ambience and space with a similar sound to strereo "shufflers" - but be careful with the levels!  The stereo width control works as a "mono depth" control in Stereo mode.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "red";
-    mod:brand "mda";
-    mod:pedalLabel "MultiBand Compressor";
-    mod:smallLabel "MBand Comp";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -78,8 +70,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum 87.0 ;
         lv2:maximum 1020.0 ;
         units:unit units:hz ;
-        mod:iconLabel "L-M";
-        mod:pedalButton "0-0";
         rdfs:comment "Low / mid crossover frequency"
     ] , [
         a lv2:InputPort ,
@@ -93,8 +83,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum 111.0 ;
         lv2:maximum 19606.0 ;
         units:unit units:hz;
-        mod:iconLabel "M-H";
-        mod:pedalButton "2-0";
         rdfs:comment "Mid / high crossover frequency"
     ] , [
         a lv2:InputPort ,
@@ -106,8 +94,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum 0.0 ;
         lv2:maximum 30.0 ;
         units:unit units:db ;
-        mod:iconLabel "L Comp";
-        mod:pedalButton "0-2";
         rdfs:comment "Low compression amount"
     ] , [
         a lv2:InputPort ,
@@ -119,8 +105,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum 0.0 ;
         lv2:maximum 30.0 ;
         units:unit units:db;
-        mod:iconLabel "M Comp";
-        mod:pedalButton "0-4";
         rdfs:comment "Mid compression amount"
     ] , [
         a lv2:InputPort ,
@@ -132,8 +116,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum 0.0 ;
         lv2:maximum 30.0 ;
         units:unit units:db;
-        mod:iconLabel "H Comp";
-        mod:pedalButton "0-6";
         rdfs:comment "High compression amount"
     ] , [
         a lv2:InputPort ,
@@ -145,8 +127,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db;
-        mod:iconLabel "Low Out";
-        mod:pedalButton "2-2";
         rdfs:comment "Low output level trim"
     ] , [
         a lv2:InputPort ,
@@ -158,8 +138,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db;
-        mod:iconLabel "Mid Out";
-        mod:pedalButton "2-4";
         rdfs:comment "Mid output level trim"
     ] , [
         a lv2:InputPort ,
@@ -171,8 +149,6 @@ To give more control when mastering (and to offer something different from other
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db;
-        mod:iconLabel "High Out";
-        mod:pedalButton "2-6";
         rdfs:comment "High output level trim"
     ] , [
         a lv2:InputPort ,

@@ -4,7 +4,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -15,7 +15,6 @@ modplugins:Delay
     lv2:project mda: ;
     lv2:symbol "Delay" ;
     doap:name "MDA Delay" ;
-    mod:label "MDA Delay";
     doap:shortdesc "Simple stereo delay with feedback tone control" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -23,13 +22,6 @@ modplugins:Delay
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
-
-        mod:pedalModel "japanese";
-    mod:pedalColor "white";
-    mod:brand "mda";
-    mod:pedalLabel "Delay";
-    mod:smallLabel "Delay";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -42,8 +34,6 @@ modplugins:Delay
         lv2:maximum 742 ;
         units:unit units:ms ;
         rdfs:comment "Left channel delay time";
-        mod:iconLabel "L Delay";
-        mod:pedalButton "0-0";
 
     ] , [
         a lv2:InputPort ,
@@ -55,8 +45,6 @@ modplugins:Delay
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         rdfs:comment "Right channel delay as a percentage of left channel delay - variable to left, fixed ratios to right";
-        mod:iconLabel "R/L Delay";
-        mod:pedalButton "0-3";
 
     ] , [
         a lv2:InputPort ,
@@ -69,8 +57,6 @@ modplugins:Delay
         lv2:maximum 99 ;
         units:unit units:pc ;
         rdfs:comment "Feedback (sum of left and right outputs)";
-        mod:iconLabel "Feedback";
-        mod:pedalButton "0-6";
 
     ] , [
         a lv2:InputPort ,
@@ -89,8 +75,6 @@ modplugins:Delay
         units:render "%f Lo<>Hi"
         ] ;
         rdfs:comment "Feedback filtering - low-pass to left, high-pass to right";
-        mod:iconLabel "FB Tone";
-        mod:pedalButton "2-0";
 
     ] , [
         a lv2:InputPort ,
@@ -103,8 +87,6 @@ modplugins:Delay
         lv2:maximum 100 ;
         rdfs:comment "Wet / dry mix";
         units:unit units:pc ;
-        mod:iconLabel "Mix";
-        mod:pedalButton "2-3";
 
     ] , [
         a lv2:InputPort ,
@@ -118,8 +100,6 @@ modplugins:Delay
         units:unit units:db ;
         lv2:scalePoint [rdfs:label "OFF" ;rdf:value -34];
         rdfs:comment "Level trim";
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6";
 
     ] , [
         a lv2:InputPort ,

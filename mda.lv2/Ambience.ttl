@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 
@@ -13,21 +13,12 @@ modplugins:Ambience
     lv2:project mda: ;
     lv2:symbol "Amb" ;
     doap:name "MDA Ambience" ;
-    mod:label "MDA Ambience";
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "cream";
-    mod:brand "mda";
-    mod:pedalLabel "Ambience";
-    mod:smallLabel "Ambience";
-    mod:bypassLedPosition "118-83";
-
 
     lv2:port [
         a lv2:InputPort ,
@@ -39,8 +30,6 @@ modplugins:Ambience
         lv2:minimum 0 ;
         lv2:maximum 10 ;
         units:unit units:m ;
-    mod:iconLabel "Size";
-    mod:pedalButton "1-0";
 
     ] , [
         a lv2:InputPort ,
@@ -52,8 +41,6 @@ modplugins:Ambience
         lv2:minimum 0 ;
         lv2:maximum 100 ;
         units:unit units:pc ;
-    mod:iconLabel "HF Damp";
-    mod:pedalButton "1-2";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -64,8 +51,6 @@ modplugins:Ambience
         lv2:minimum 0 ;
         lv2:maximum 100 ;
         units:unit units:pc ;
-    mod:iconLabel "Mix";
-    mod:pedalButton "1-4";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -76,8 +61,6 @@ modplugins:Ambience
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-    mod:iconLabel "Output";
-    mod:pedalButton "1-6";
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;

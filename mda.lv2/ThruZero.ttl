@@ -5,11 +5,10 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
-
 
 modplugins:ThruZero
     a lv2:Plugin ,
@@ -17,7 +16,6 @@ modplugins:ThruZero
     lv2:project mda: ;
     lv2:symbol "ThruZero" ;
     doap:name "MDA ThruZero" ;
-    mod:label "MDA ThruZero";
     doap:shortdesc "Classic tape-flanging simulation" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -28,13 +26,6 @@ modplugins:ThruZero
 This plug simulates tape-flanging, where two copies of a signal cancel out completely as the tapes pass each other. It can also be used for other "modulated delay" effects such as phasing and simple chorusing.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "purple";
-    mod:brand "mda";
-    mod:pedalLabel "ThruZero Flange";
-    mod:smallLabel "ThruZero";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -50,8 +41,6 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
             rdf:value 93.34
         ];
         units:unit units:s ;
-        mod:iconLabel "Rate";
-        mod:pedalButton "0-0";
 
         rdfs:comment "Modulation rate (sine wave) - set to minimum for static comb filtering"
     ] , [
@@ -64,8 +53,6 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:minimum 0.0 ;
         lv2:maximum 45.35 ;
         units:unit units:ms ;
-        mod:iconLabel "Depth";
-        mod:pedalButton "0-3";
         rdfs:comment "Maximum modulation depth"
     ] , [
         a lv2:InputPort ,
@@ -77,8 +64,6 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Mix";
-        mod:pedalButton "0-6";
         rdfs:comment "Wet / dry mix - set to 50% for complete cancelling"
     ] , [
         a lv2:InputPort ,
@@ -90,8 +75,6 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:minimum -100.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "FeedBack";
-        mod:pedalButton "2-1";
         rdfs:comment """Add positive or negative feedback for harsher or "ringing" sound"""
     ] , [
         a lv2:InputPort ,
@@ -103,8 +86,6 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "DepthMod";
-        mod:pedalButton "2-5";
         rdfs:comment "Modulation depth - set to less than 100% to limit build up of low fequencies with feedback"
     ] , [
         a lv2:InputPort ,

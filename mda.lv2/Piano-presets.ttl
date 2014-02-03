@@ -2,7 +2,6 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-
 <http://drobilla.net/plugins/mda/presets#Piano-mda-piano>
     a pset:Preset ;
     lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;

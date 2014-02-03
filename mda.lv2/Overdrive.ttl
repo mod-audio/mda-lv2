@@ -4,7 +4,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -15,7 +15,6 @@ modplugins:Overdrive
     lv2:project mda: ;
     lv2:symbol "Overdrive" ;
     doap:name "MDA Overdrive" ;
-    mod:label "MDA Overdrive";
     doap:shortdesc "Soft distortion" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,13 +23,6 @@ modplugins:Overdrive
     rdfs:comment "Possible uses include adding body to drum loops, fuzz guitar, and that 'standing outside a nightclub' sound. This plug does not simulate valve distortion, and any attempt to process organ sounds through it will be extremely unrewarding!" ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "orange";
-    mod:brand "mda";
-    mod:pedalLabel "OverDrive";
-    mod:smallLabel "OverDrive";
-    mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -43,8 +35,6 @@ modplugins:Overdrive
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Drive";
-        mod:pedalButton "1-1";
         rdfs:comment "Amount of distortion"
     ] , [
         a lv2:InputPort ,
@@ -56,8 +46,6 @@ modplugins:Overdrive
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Muffle";
-        mod:pedalButton "1-3";
         rdfs:comment "Gentle low-pass filter"
     ] , [
         a lv2:InputPort ,
@@ -69,8 +57,6 @@ modplugins:Overdrive
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db ;
-        mod:iconLabel "Output";
-        mod:pedalButton "1-5";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,

@@ -3,7 +3,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -27,7 +27,6 @@ modplugins:JX10
 	lv2:project mda: ;
 	lv2:symbol "JX10" ;
 	doap:name "MDA JX10" ;
-	mod:label "JX10";
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;

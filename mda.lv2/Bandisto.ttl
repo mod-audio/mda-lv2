@@ -6,11 +6,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
-
 
 modplugins:Bandisto
     a lv2:Plugin ,
@@ -24,7 +23,6 @@ modplugins:Bandisto
         foaf:mbox <devel@portalmod.com>;
     ] ;
 
-    mod:label "MDA Bandisto";
     doap:shortdesc "Multi-band distortion" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -33,13 +31,6 @@ modplugins:Bandisto
     rdfs:comment "This plug is like MultiBand but uses 3 bands of clipping instead of compression.  This is unlikely to be a plug you use every day, but when you want to recreate the sound of torn bass-bins you know where to come!" ;
     lv2:minorVersion 0;
     lv2:microVersion 5;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "orange";
-    mod:brand "mda";
-    mod:pedalLabel "Multi Band Distortion";
-    mod:smallLabel "MBandDisto";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -77,8 +68,6 @@ modplugins:Bandisto
         lv2:minimum 88 ;
         lv2:maximum 1020 ;
         units:unit units:hz ;
-        mod:iconLabel "L-M";
-        mod:pedalButton "0-0";
 
         rdfs:comment "Low / mid crossover frequency"
     ] , [
@@ -93,8 +82,6 @@ modplugins:Bandisto
         units:unit units:hz ;
         lv2:portProperty epp:logarithmic;
         lv2:portProperty pprops:logarithmic ;
-        mod:iconLabel "M-H";
-        mod:pedalButton "2-0";
 
         rdfs:comment "Mid / high crossover frequency"
     ] , [
@@ -107,9 +94,6 @@ modplugins:Bandisto
         lv2:minimum 0 ;
         lv2:maximum 60 ;
         units:unit units:db ;
-        mod:iconLabel "Low Dist";
-        mod:pedalButton "0-2";
-
 
         rdfs:comment "Distortion amount for low band"
     ] , [
@@ -122,9 +106,6 @@ modplugins:Bandisto
         lv2:minimum 0 ;
         lv2:maximum 60 ;
         units:unit units:db ;
-        mod:iconLabel "Med Dist";
-        mod:pedalButton "0-4";
-
 
         rdfs:comment "Distortion amount for mid band"
     ] , [
@@ -137,9 +118,6 @@ modplugins:Bandisto
         lv2:minimum 0 ;
         lv2:maximum 60 ;
         units:unit units:db ;
-        mod:iconLabel "High Dist";
-        mod:pedalButton "0-6";
-
 
         rdfs:comment "Distortion amount for high band"
     ] , [
@@ -152,9 +130,6 @@ modplugins:Bandisto
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-        mod:iconLabel "Low Out";
-        mod:pedalButton "2-2";
-
 
         rdfs:comment "Output level for low band"
     ] , [
@@ -167,9 +142,6 @@ modplugins:Bandisto
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-        mod:iconLabel "Med Out";
-        mod:pedalButton "2-4";
-
 
         rdfs:comment "Output level for mid band"
     ] , [
@@ -182,9 +154,6 @@ modplugins:Bandisto
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-        mod:iconLabel "High Out";
-        mod:pedalButton "2-6";
-
 
         rdfs:comment "Output level for high band"
     ] , [

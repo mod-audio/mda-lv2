@@ -6,11 +6,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
-
 
 modplugins:SubSynth
     a lv2:Plugin ,
@@ -18,7 +17,6 @@ modplugins:SubSynth
     lv2:symbol "SubSynth" ;
     lv2:project mda: ;
     doap:name "MDA SubSynth" ;
-    mod:label "MDA SubSynth";
     doap:shortdesc "Several low frequency enhancement methods" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -27,13 +25,6 @@ modplugins:SubSynth
     rdfs:comment """More bass than you could ever need! Be aware that you may be adding low frequency content outside the range of your monitor speakers.  To avoid clipping, follow with a limiter plug-in (this can also give some giant hip-hop drum sounds!).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "darkblue";
-    mod:brand "mda";
-    mod:pedalLabel "SubSynth";
-    mod:smallLabel "SubSynth";
-    mod:bypassLedPosition "118-83";
 
 
 
@@ -64,8 +55,6 @@ modplugins:SubSynth
             rdfs:label "Key Osc." ;
             rdfs:comment """Adds a decaying "boom" - usually made with an oscillator before a noise gate keyed with the kick drum signal."""
         ] ;
-        mod:iconLabel "Type";
-        mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -76,8 +65,6 @@ modplugins:SubSynth
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Level";
-        mod:pedalButton "0-3";
         rdfs:comment "Amount of synthesized low frequency signal to be added"
     ] , [
         a lv2:InputPort ,
@@ -92,8 +79,6 @@ modplugins:SubSynth
         lv2:minimum 10.0 ;
         lv2:maximum 320.0 ;
         units:unit units:hz ;
-        mod:iconLabel "Tune";
-        mod:pedalButton "0-6";
         rdfs:comment "Maximum frequency - keep as low as possible to reduce distortion. In Key Osc mode sets the oscillator frequency"
     ] , [
         a lv2:InputPort ,
@@ -105,8 +90,6 @@ modplugins:SubSynth
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Dry Mix";
-        mod:pedalButton "2-0";
         rdfs:comment "Reduces the level of the original signal"
     ] , [
         a lv2:InputPort ,
@@ -118,8 +101,6 @@ modplugins:SubSynth
         lv2:minimum -60.0 ;
         lv2:maximum 0.0 ;
         units:unit units:db ;
-        mod:iconLabel "Threshold";
-        mod:pedalButton "2-3";
         rdfs:comment """Increase to "gate" the low frequency effect and stop unwanted background rumbling"""
     ] , [
         a lv2:InputPort ,
@@ -131,8 +112,6 @@ modplugins:SubSynth
         lv2:minimum 1.0 ;
         lv2:maximum 1569.0 ;
         units:unit units:ms ;
-        mod:iconLabel "Release";
-        mod:pedalButton "2-6";
         lv2:designation param:release ;
         rdfs:comment "Decay time in Key Osc mode"
     ] , [

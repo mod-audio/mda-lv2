@@ -4,10 +4,9 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
-
 
 modplugins:Detune
     a lv2:Plugin ,
@@ -15,7 +14,6 @@ modplugins:Detune
     lv2:project mda: ;
     lv2:symbol "Detune" ;
     doap:name "MDA Detune" ;
-    mod:label "MDA Detune";
     doap:shortdesc "Simple up/down pitch shifting thickener" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,13 +22,6 @@ modplugins:Detune
     rdfs:comment "A low-quality stereo pitch shifter for the sort of chorus and detune effects found on multi-effects hardware." ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "darkblue";
-    mod:brand "mda";
-    mod:pedalLabel "Detune";
-    mod:smallLabel "Detune";
-    mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -43,8 +34,6 @@ modplugins:Detune
         lv2:minimum 0 ;
         lv2:maximum 300 ;
         units:unit units:cent ;
-        mod:iconLabel "Detune";
-        mod:pedalButton "1-0";
         rdfs:comment "Detune amount in cents (left channel is lowered in pitch, right channel is raised)"
     ] , [
         a lv2:InputPort ,
@@ -56,8 +45,6 @@ modplugins:Detune
         lv2:minimum 0 ;
         lv2:maximum 99 ;
         units:unit units:pc ;
-        mod:iconLabel "Mix";
-        mod:pedalButton "1-2";
         rdfs:comment "Wet / dry mix"
     ] , [
         a lv2:InputPort ,
@@ -69,8 +56,6 @@ modplugins:Detune
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db ;
-    mod:iconLabel "Out";
-    mod:pedalButton "1-4";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,
@@ -82,8 +67,6 @@ modplugins:Detune
         lv2:minimum 5.8 ;
         lv2:maximum 92.9 ;
         units:unit units:ms ;
-    mod:iconLabel "Latency";
-    mod:pedalButton "1-6";
         rdfs:comment "Trade-off between latency and low-frequency response"
     ] , [
         a lv2:InputPort ,

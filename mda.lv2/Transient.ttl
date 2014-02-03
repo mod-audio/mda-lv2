@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
@@ -16,7 +16,6 @@ modplugins:Transient
     lv2:project mda: ;
     lv2:symbol "Transient" ;
     doap:name "MDA Transient" ;
-    mod:label "MDA Transient";
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

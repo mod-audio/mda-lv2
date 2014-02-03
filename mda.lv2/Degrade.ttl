@@ -4,7 +4,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -15,7 +15,6 @@ modplugins:Degrade
     lv2:project mda: ;
     lv2:symbol "Degrade" ;
     doap:name "MDA Degrade" ;
-    mod:label "MDA Degrade";
     doap:shortdesc "Sample quality reduction" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -23,12 +22,6 @@ modplugins:Degrade
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-    mod:pedalModel "japanese";
-    mod:pedalColor "orange";
-    mod:brand "mda";
-    mod:pedalLabel "Degrade";
-    mod:smallLabel "Degrade";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -41,8 +34,6 @@ modplugins:Degrade
         lv2:maximum 0 ;
         lv2:portProperty lv2:integer ;
         units:unit units:db ;
-        mod:iconLabel "HeadRoom";
-        mod:pedalButton "0-0";
         rdfs:comment "Peak clipping threshold"
     ] , [
         a lv2:InputPort ,
@@ -60,8 +51,6 @@ modplugins:Degrade
         units:symbol "bit" ;
         units:render "%f bits"
         ] ;
-        mod:iconLabel "Quant";
-        mod:pedalButton "2-0";
         rdfs:comment """Bit depth (typically 8 or below for "telephone" quality)"""
     ] , [
         a lv2:InputPort ,
@@ -80,8 +69,6 @@ modplugins:Degrade
         units:symbol "s_sh" ;
         units:render "%f S<>S&&H"
         ] ;
-        mod:iconLabel "Rate";
-        mod:pedalButton "0-3";
         rdfs:comment "Sample Rate (turn control to left or right for different sound characters)"
     ] , [
         a lv2:InputPort ,
@@ -95,8 +82,6 @@ modplugins:Degrade
         lv2:minimum 200 ;
         lv2:maximum 20000 ;
         units:unit units:db ;
-        mod:iconLabel "PostFilter";
-        mod:pedalButton "2-3";
         rdfs:comment "Low-pass filter to muffle the distortion produced by the previous two controls"
     ] , [
         a lv2:InputPort ,
@@ -114,8 +99,6 @@ modplugins:Degrade
         units:symbol "oddeve" ;
         units:render "%f Odd<>Eve"
         ] ;
-        mod:iconLabel "Non-Lin";
-        mod:pedalButton "0-6";
         rdfs:comment """Additional harmonic distortion "thickening" (turn control to left or right for different sound characters)"""
     ] , [
         a lv2:InputPort ,
@@ -133,8 +116,6 @@ modplugins:Degrade
         units:symbol "oddeve" ;
         units:render "%f Odd<>Eve"
         ] ;
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6"
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

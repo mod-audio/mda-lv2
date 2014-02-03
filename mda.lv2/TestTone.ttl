@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 
 modplugins:TestTone
     a lv2:Plugin ,
@@ -13,7 +13,6 @@ modplugins:TestTone
     lv2:project mda: ;
     lv2:symbol "TestTone" ;
     doap:name "MDA TestTone" ;
-    mod:label "MDA TestTone";
     doap:shortdesc "Signal generator with pink and white noise, impulses and sweeps" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -21,13 +20,6 @@ modplugins:TestTone
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-	mod:pedalModel "japanese";
-	mod:pedalColor "green";
-	mod:brand "mda";
-	mod:pedalLabel "TestTone";
-	mod:smallLabel "TestTone";
-	mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -73,8 +65,6 @@ modplugins:TestTone
             rdfs:label "Lin Sweep" ;
             rdfs:comment "Linear frequency sweep"
         ] ;
-	mod:iconLabel "Mode";
-	mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -84,8 +74,6 @@ modplugins:TestTone
         lv2:default 0.71 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "Output";
-	mod:pedalButton "0-6";
         rdfs:comment "Peak output level"
     ] , [
         a lv2:InputPort ,
@@ -96,8 +84,6 @@ modplugins:TestTone
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "Channel";
-	mod:pedalButton "2-6";
         rdfs:comment "Generate signals on left or right channel only"
     ] , [
         a lv2:InputPort ,
@@ -108,8 +94,6 @@ modplugins:TestTone
         lv2:default 0.57 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "F1";
-	mod:pedalButton "0-2";
         rdfs:comment "Base frequency (not applicable to pink and white noise or impulses)"
     ] , [
         a lv2:InputPort ,
@@ -120,8 +104,6 @@ modplugins:TestTone
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "F2";
-	mod:pedalButton "0-4";
         rdfs:comment "Fine frequency control, or end frequency for sweep modes"
     ] , [
         a lv2:InputPort ,
@@ -132,8 +114,6 @@ modplugins:TestTone
         lv2:default 0.3 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "Sweep";
-	mod:pedalButton "2-0";
         rdfs:comment "Sweep duration for sweep modes (2 seconds silence is also added between sweeps).  Sets repetition rate in inpulse mode"
     ] , [
         a lv2:InputPort ,
@@ -144,8 +124,6 @@ modplugins:TestTone
         lv2:default 0.0 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "Thru";
-	mod:pedalButton "2-2";
         rdfs:comment "Allow the input signal to pass through the plug-in"
     ] , [
         a lv2:InputPort ,
@@ -156,8 +134,6 @@ modplugins:TestTone
         lv2:default 1.0 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-	mod:iconLabel "ZeroDB";
-	mod:pedalButton "2-4";
         rdfs:comment "Calibrate output so indicated level is relative to, for example -0.01 dB FS or -18 dB FS"
     ] , [
         a lv2:InputPort ,

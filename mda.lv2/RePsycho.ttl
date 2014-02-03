@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 
@@ -16,7 +16,6 @@ modplugins:RePsycho
     lv2:project mda: ;
     lv2:symbol "RePsycho" ;
     doap:name "MDA RePsycho!" ;
-    mod:label "MDA RePsycho";
     doap:shortdesc "Drum loop pitch changer" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;

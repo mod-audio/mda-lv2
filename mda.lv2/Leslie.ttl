@@ -2,7 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,7 +16,6 @@ modplugins:Leslie
     lv2:project mda: ;
     lv2:symbol "Leslie" ;
     doap:name "MDA Leslie" ;
-    mod:label "MDA Leslie";
     doap:shortdesc "Rotary speaker simulator" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -25,13 +24,6 @@ modplugins:Leslie
     rdfs:comment "No overdrive or speaker cabinet simulation is added - you may want to combine this plug-in with Combo.  For a much thicker sound try combining two Leslie plug-ins in series!" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "brown";
-    mod:brand "mda";
-    mod:pedalLabel "Leslie";
-    mod:smallLabel "Leslie";
-    mod:bypassLedPosition "118-83";
 
     lv2:port[
         a lv2:InputPort ,
@@ -64,8 +56,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Lo Width";
-        mod:pedalButton "2-2";
         rdfs:comment "Low rotor pan modulation"
     ] , [
         a lv2:InputPort ,
@@ -77,8 +67,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Lo Throb";
-        mod:pedalButton "2-4";
         rdfs:comment "Low rotor amplitude modulation"
     ] , [
         a lv2:InputPort ,
@@ -90,8 +78,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Hi Width";
-        mod:pedalButton "0-2";
         rdfs:comment "High rotor pan modulation"
     ] , [
         a lv2:InputPort ,
@@ -103,8 +89,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Hi Depth";
-        mod:pedalButton "0-6";
         rdfs:comment "High rotor frequency modulation (doppler)"
     ] , [
         a lv2:InputPort ,
@@ -116,8 +100,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Hi Throb";
-        mod:pedalButton "0-4";
         rdfs:comment "High rotor amplitude modulation"
     ] , [
         a lv2:InputPort ,
@@ -129,8 +111,6 @@ modplugins:Leslie
         lv2:minimum 150.0 ;
         lv2:maximum 1510.0 ;
         units:unit units:hz ;
-        mod:iconLabel "X-Over";
-        mod:pedalButton "2-0";
         rdfs:comment "Crossover frequency between high and low rotors"
     ] , [
         a lv2:InputPort ,
@@ -142,8 +122,6 @@ modplugins:Leslie
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db ;
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,
@@ -155,8 +133,6 @@ modplugins:Leslie
         lv2:minimum 0.0 ;
         lv2:maximum 200.0 ;
         units:unit units:pc ;
-        mod:iconLabel "Speed";
-        mod:pedalButton "0-0";
         rdfs:comment "Fine control for rotor speed"
     ] , [
         a lv2:InputPort ,

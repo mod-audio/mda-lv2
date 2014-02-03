@@ -2,7 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -16,7 +16,6 @@ modplugins:Limiter
     lv2:project mda: ;
     lv2:symbol "Limiter" ;
     doap:name "MDA Limiter" ;
-    mod:label "MDA Limiter";
     doap:shortdesc "Opto-electronic style limiter" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,12 +23,6 @@ modplugins:Limiter
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-    mod:pedalModel "japanese";
-    mod:pedalColor "red";
-    mod:brand "mda";
-    mod:pedalLabel "Limiter";
-    mod:smallLabel "Limiter";
-    mod:bypassLedPosition "118-83";
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -40,8 +33,6 @@ modplugins:Limiter
         lv2:minimum -40.0 ;
         lv2:maximum 0.0 ;
         units:unit units:db ;
-        mod:iconLabel "Threshold";
-        mod:pedalButton "1-0";
         rdfs:comment "Threshold (this is not a brickwall limiter so this is only approximate)"
     ] , [
         a lv2:InputPort ,
@@ -53,8 +44,6 @@ modplugins:Limiter
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db ;
-        mod:iconLabel "Output";
-        mod:pedalButton "1-6";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,
@@ -66,8 +55,6 @@ modplugins:Limiter
         lv2:minimum 1.0 ;
         lv2:maximum 1571.0 ;
         units:unit units:ms ;
-        mod:iconLabel "Release";
-        mod:pedalButton "1-4";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -78,8 +65,6 @@ modplugins:Limiter
         lv2:minimum 0.0 ;
         lv2:maximum 1563.0 ;
         units:unit units:ms ;
-        mod:iconLabel "Attack";
-        mod:pedalButton "1-2";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

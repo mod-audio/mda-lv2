@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
@@ -16,7 +16,6 @@ modplugins:TalkBox
     lv2:project mda: ;
     lv2:symbol "TalkBox" ;
     doap:name "MDA TalkBox" ;
-    mod:label "MDA TalkBox";
     doap:shortdesc "High resolution vocoder" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,13 +23,6 @@ modplugins:TalkBox
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "yellow";
-    mod:brand "mda";
-    mod:pedalLabel "TalkBox";
-    mod:smallLabel "TalkBox";
-    mod:bypassLedPosition "118-83";
 
 
     lv2:port [
@@ -43,8 +35,6 @@ modplugins:TalkBox
         lv2:minimum 0.0 ;
         lv2:maximum 200.0 ;
         units:unit units:pc;
-    mod:iconLabel "Wet";
-    mod:pedalButton "1-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -55,8 +45,6 @@ modplugins:TalkBox
         lv2:minimum 0.0 ;
         lv2:maximum 200.0 ;
         units:unit units:pc;
-    mod:iconLabel "Dry";
-    mod:pedalButton "1-2";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -74,8 +62,6 @@ modplugins:TalkBox
             rdfs:label "Left" ;
             rdf:value 1.0
         ];
-        mod:iconLabel "Carrier";
-        mod:pedalButton "1-4";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -85,8 +71,6 @@ modplugins:TalkBox
         lv2:default 100.0 ;
         lv2:minimum 5.0 ;
         lv2:maximum 100.0 ;
-    mod:iconLabel "Quality";
-    mod:pedalButton "1-6";
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;

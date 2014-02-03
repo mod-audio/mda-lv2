@@ -3,7 +3,7 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -15,7 +15,6 @@ modplugins:Combo
     lv2:project mda: ;
     lv2:symbol "Combo" ;
     doap:name "MDA Combo" ;
-    mod:label "MDA Combo";
     doap:shortdesc "Amp & speaker simulator" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -24,13 +23,6 @@ modplugins:Combo
     rdfs:comment "This plug-in can sound quite subtle but comes alive when used on guitar with the drive turned up!  Remember that distortion may not sound good on time-based effects such as delay and reverb, so put those effects after this plug, or after a separate distortion plug with Combo acting only as a speaker simulator." ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "brown";
-    mod:brand "mda";
-    mod:pedalLabel "Combo";
-    mod:smallLabel "MDA Combo";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -42,9 +34,6 @@ modplugins:Combo
         lv2:minimum 0 ;
         lv2:maximum 6 ;
         lv2:portProperty lv2:enumeration ;
-
-        mod:iconLabel "Model";
-        mod:pedalButton "1-0";
 
         lv2:scalePoint [
             rdfs:label "D.I. (flat frequency response)" ;
@@ -83,8 +72,6 @@ modplugins:Combo
             units:symbol "S <> H" ;
             units:render "%f Sh"
         ];
-        mod:iconLabel "Drive";
-        mod:pedalButton "1-2";
 
         rdfs:comment "Amount of clipping"
     ] , [
@@ -108,8 +95,6 @@ modplugins:Combo
         lv2:minimum -20 ;
         lv2:maximum 20 ;
         units:unit units:db;
-        mod:iconLabel "Output";
-        mod:pedalButton "1-6";
 
         rdfs:comment "Level trim"
     ] , [
@@ -133,8 +118,6 @@ modplugins:Combo
         lv2:minimum 1.0 ;
         lv2:maximum 50.0 ;
         units:unit units:pc;
-        mod:iconLabel "HighPass";
-        mod:pedalButton "1-4";
 
         rdfs:comment "High-Pass Filter Cutoff Frequency"
     ] , [

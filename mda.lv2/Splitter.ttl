@@ -5,7 +5,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -16,7 +16,6 @@ modplugins:Splitter
     lv2:project mda: ;
     lv2:symbol "Splitter" ;
     doap:name "MDA Splitter" ;
-    mod:label "MDA Splitter";
     doap:shortdesc "Frequency/level crossover for setting up dynamic processing" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -25,13 +24,6 @@ modplugins:Splitter
     rdfs:comment """This plug-in can split a signal based on frequency or level, for example for producing dynamic effects where only loud drum hits are sent to a reverb. Other functions include a simple "spectral gate" in INVERSE mode and a conventional gate and filter for separating drum sounds in NORMAL mode.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
-    mod:pedalModel "japanese";
-    mod:pedalColor "red";
-    mod:brand "mda";
-    mod:pedalLabel "Splitter";
-    mod:smallLabel "Splitter";
-    mod:bypassLedPosition "118-83";
 
     lv2:port [
         a lv2:InputPort ,
@@ -60,8 +52,6 @@ modplugins:Splitter
             rdfs:label "Inverse Normal" ;
             rdfs:comment "Right / Left split of above"
         ];
-        mod:iconLabel "Mode";
-        mod:pedalButton "0-0";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -74,8 +64,6 @@ modplugins:Splitter
         lv2:minimum 100.0 ;
         lv2:maximum 10000.0 ;
         units:unit units:hz ;
-        mod:iconLabel "Freq";
-        mod:pedalButton "0-2";
         rdfs:comment "Crossover frequency"
     ] , [
         a lv2:InputPort ,
@@ -97,8 +85,6 @@ modplugins:Splitter
             rdfs:label "High" ;
             rdf:value 1.0
         ];
-        mod:iconLabel "Freq SW";
-        mod:pedalButton "2-2";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -109,8 +95,6 @@ modplugins:Splitter
         lv2:minimum -40.0 ;
         lv2:maximum 0.0 ;
         units:unit units:db ;
-        mod:iconLabel "Level";
-        mod:pedalButton "0-4";
         rdfs:comment "Gate threshold"
     ] , [
         a lv2:InputPort ,
@@ -132,8 +116,6 @@ modplugins:Splitter
             rdfs:label "High" ;
             rdf:value 1.0
         ];
-        mod:iconLabel "Level SW";
-        mod:pedalButton "2-4";
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -144,8 +126,6 @@ modplugins:Splitter
         lv2:minimum 10.0 ;
         lv2:maximum 1000.0 ;
         units:unit units:ms ;
-        mod:iconLabel "Envelope";
-        mod:pedalButton "0-6";
         rdfs:comment "Gate envelope speed"
     ] , [
         a lv2:InputPort ,
@@ -157,8 +137,6 @@ modplugins:Splitter
         lv2:minimum -20.0 ;
         lv2:maximum 20.0 ;
         units:unit units:db ;
-        mod:iconLabel "Output";
-        mod:pedalButton "2-6";
         rdfs:comment "Level trim"
     ] , [
         a lv2:InputPort ,
