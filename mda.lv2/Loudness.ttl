@@ -1,10 +1,10 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
 
 modplugins:Loudness
 	a lv2:Plugin ,
@@ -12,6 +12,7 @@ modplugins:Loudness
 	lv2:project mda: ;
 	lv2:symbol "Loudness" ;
 	doap:name "MDA Loudness" ;
+	mod:label "MDA Loudness";
 	doap:shortdesc "Equal loudness contours for bass EQ and mix correction" ;
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
@@ -25,7 +26,9 @@ If a mix was made with a very low or very high monitoring level, the amount of b
 Check how a mix would sound at a much louder level by decreasing Loudness. (although the non-linear behaviour of the ear at very high levels is not simulated by this plug-in).
 
 Fade out without the sound becoming "tinny" by activating Link and using Loudness to adjust the level without affecting the tonal balance.""" ;
-	lv2:port [
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	lv2:ports[
 		a lv2:InputPort ,
 			lv2:ControlPort ;
 		lv2:index 0 ;

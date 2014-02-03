@@ -1,154 +1,193 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 modplugins:Leslie
-	a lv2:Plugin ,
-		lv2:SimulatorPlugin ;
-	lv2:project mda: ;
-	lv2:symbol "Leslie" ;
-	doap:name "MDA Leslie" ;
-	doap:shortdesc "Rotary speaker simulator" ;
-	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:optionalFeature lv2:hardRTCapable ;
-	pg:mainInput mda:mainIn ;
-	pg:mainOutput mda:mainOut ;
-	rdfs:comment "No overdrive or speaker cabinet simulation is added - you may want to combine this plug-in with Combo.  For a much thicker sound try combining two Leslie plug-ins in series!" ;
-	lv2:port [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 0 ;
-		lv2:name "Mode" ;
-		lv2:symbol "mode" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		lv2:portProperty lv2:enumeration ;
-		lv2:scalePoint [
-			rdfs:label "Stop" ;
-			rdf:value 0.0
-		] , [
-			rdfs:label "Slow" ;
-			rdf:value 0.5
-		] , [
-			rdfs:label "Fast" ;
-			rdf:value 1.0
-		]
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 1 ;
-		lv2:name "Lo Width" ;
-		lv2:symbol "lo_width" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Low rotor pan modulation"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 2 ;
-		lv2:name "Lo Throb" ;
-		lv2:symbol "lo_throb" ;
-		lv2:default 0.6 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Low rotor amplitude modulation"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 3 ;
-		lv2:name "Hi Width" ;
-		lv2:symbol "hi_width" ;
-		lv2:default 0.7 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "High rotor pan modulation"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 4 ;
-		lv2:name "Hi Depth" ;
-		lv2:symbol "hi_depth" ;
-		lv2:default 0.6 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "High rotor frequency modulation (doppler)"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 5 ;
-		lv2:name "Hi Throb" ;
-		lv2:symbol "hi_throb" ;
-		lv2:default 0.7 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "High rotor amplitude modulation"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 6 ;
-		lv2:name "X-Over" ;
-		lv2:symbol "x_over" ;
-		lv2:default 0.48 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Crossover frequency between high and low rotors"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 7 ;
-		lv2:name "Output" ;
-		lv2:symbol "output" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Level trim"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 8 ;
-		lv2:name "Speed" ;
-		lv2:symbol "speed" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Fine control for rotor speed"
-	] , [
-		a lv2:InputPort ,
-			lv2:AudioPort ;
-		lv2:index 9 ;
-		lv2:symbol "left_in" ;
-		lv2:name "Left In" ;
-		lv2:designation pg:left ;
-		pg:group mda:mainIn
-	] , [
-		a lv2:InputPort ,
-			lv2:AudioPort ;
-		lv2:index 10 ;
-		lv2:symbol "right_in" ;
-		lv2:name "Right In" ;
-		lv2:designation pg:right ;
-		pg:group mda:mainIn
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 11 ;
-		lv2:symbol "left_out" ;
-		lv2:name "Left Out" ;
-		lv2:designation pg:left ;
-		pg:group mda:mainOut
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 12 ;
-		lv2:symbol "right_out" ;
-		lv2:name "Right Out" ;
-		lv2:designation pg:right ;
-		pg:group mda:mainOut
-	] .
+    a lv2:Plugin ,
+        lv2:SimulatorPlugin ;
+    lv2:project mda: ;
+    lv2:symbol "Leslie" ;
+    doap:name "MDA Leslie" ;
+    mod:label "MDA Leslie";
+    doap:shortdesc "Rotary speaker simulator" ;
+    doap:license <http://usefulinc.com/doap/licenses/gpl> ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    pg:mainInput mda:mainIn ;
+    pg:mainOutput mda:mainOut ;
+    rdfs:comment "No overdrive or speaker cabinet simulation is added - you may want to combine this plug-in with Combo.  For a much thicker sound try combining two Leslie plug-ins in series!" ;
+    lv2:minorVersion 0;
+    lv2:microVersion 3;
+
+    mod:pedalModel "japanese";
+    mod:pedalColor "brown";
+    mod:brand "mda";
+    mod:pedalLabel "Leslie";
+    mod:smallLabel "Leslie";
+    mod:bypassLedPosition "118-83";
+
+    lv2:port[
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 0 ;
+        lv2:name "Mode" ;
+        lv2:symbol "mode" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:enumeration ;
+        lv2:scalePoint [
+            rdfs:label "Stop" ;
+            rdf:value 0.0
+        ] , [
+            rdfs:label "Slow" ;
+            rdf:value 0.5
+        ] , [
+            rdfs:label "Fast" ;
+            rdf:value 1.0
+        ] ;
+
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:name "Lo Width" ;
+        lv2:symbol "lo_width" ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Lo Width";
+        mod:pedalButton "2-2";
+        rdfs:comment "Low rotor pan modulation"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:name "Lo Throb" ;
+        lv2:symbol "lo_throb" ;
+        lv2:default 60.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Lo Throb";
+        mod:pedalButton "2-4";
+        rdfs:comment "Low rotor amplitude modulation"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 3 ;
+        lv2:name "Hi Width" ;
+        lv2:symbol "hi_width" ;
+        lv2:default 70.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Hi Width";
+        mod:pedalButton "0-2";
+        rdfs:comment "High rotor pan modulation"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 4 ;
+        lv2:name "Hi Depth" ;
+        lv2:symbol "hi_depth" ;
+        lv2:default 70.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Hi Depth";
+        mod:pedalButton "0-6";
+        rdfs:comment "High rotor frequency modulation (doppler)"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:name "Hi Throb" ;
+        lv2:symbol "hi_throb" ;
+        lv2:default 70.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Hi Throb";
+        mod:pedalButton "0-4";
+        rdfs:comment "High rotor amplitude modulation"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:name "X-Over" ;
+        lv2:symbol "x_over" ;
+        lv2:default 772.8 ;
+        lv2:minimum 150.0 ;
+        lv2:maximum 1510.0 ;
+        units:unit units:hz ;
+        mod:iconLabel "X-Over";
+        mod:pedalButton "2-0";
+        rdfs:comment "Crossover frequency between high and low rotors"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:name "Output" ;
+        lv2:symbol "output" ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
+        units:unit units:db ;
+        mod:iconLabel "Output";
+        mod:pedalButton "2-6";
+        rdfs:comment "Level trim"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:name "Speed" ;
+        lv2:symbol "speed" ;
+        lv2:default 100.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 200.0 ;
+        units:unit units:pc ;
+        mod:iconLabel "Speed";
+        mod:pedalButton "0-0";
+        rdfs:comment "Fine control for rotor speed"
+    ] , [
+        a lv2:InputPort ,
+            lv2:AudioPort ;
+        lv2:index 9 ;
+        lv2:symbol "left_in" ;
+        lv2:name "Left In" ;
+        lv2:designation pg:left ;
+        pg:group mda:mainIn
+    ] , [
+        a lv2:InputPort ,
+            lv2:AudioPort ;
+        lv2:index 10 ;
+        lv2:symbol "right_in" ;
+        lv2:name "Right In" ;
+        lv2:designation pg:right ;
+        pg:group mda:mainIn
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 11 ;
+        lv2:symbol "left_out" ;
+        lv2:name "Left Out" ;
+        lv2:designation pg:left ;
+        pg:group mda:mainOut
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 12 ;
+        lv2:symbol "right_out" ;
+        lv2:name "Right Out" ;
+        lv2:designation pg:right ;
+        pg:group mda:mainOut
+    ] .

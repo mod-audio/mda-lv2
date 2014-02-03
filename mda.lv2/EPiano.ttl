@@ -2,165 +2,176 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
-@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 modplugins:EPiano
-	a lv2:Plugin ,
-		lv2:InstrumentPlugin ;
-	lv2:project mda: ;
-	lv2:symbol "EPiano" ;
-	doap:name "MDA ePiano" ;
-	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:optionalFeature lv2:hardRTCapable ;
-	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
-	pg:mainInput mda:mainIn ;
-	pg:mainOutput mda:mainOut ;
-
-rdfs:comment """
-It's a virtual ePiano plugin. Based around 12 carefully sampled and mastered Rhodes Piano samples.
-""" ;
-
-	lv2:port [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 0 ;
-		lv2:name "Envelope Decay" ;
-		lv2:symbol "env_decay" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 1 ;
-		lv2:name "Envelope Release" ;
-		lv2:symbol "env_release" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 2 ;
-		lv2:name "Hardness" ;
-		lv2:symbol "hardness" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 3 ;
-		lv2:name "Treble Boost" ;
-		lv2:symbol "treble_boost" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 4 ;
-		lv2:name "Modulation" ;
-		lv2:symbol "modulation" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 5 ;
-		lv2:name "LFO Rate" ;
-		lv2:symbol "lfo_rate" ;
-		lv2:default 0.65 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 6 ;
-		lv2:name "Velocity Sense" ;
-		lv2:symbol "vel_sense" ;
-		lv2:default 0.25 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 7 ;
-		lv2:name "Stereo Width" ;
-		lv2:symbol "stereo_width" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 8 ;
-		lv2:name "Polyphonic" ;
-		lv2:symbol "polyphonic" ;
-		lv2:default 1.0 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		lv2:portProperty lv2:toggled
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 9 ;
-		lv2:name "Fine Tuning" ;
-		lv2:symbol "fine_tuning" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 10 ;
-		lv2:name "Random Tuning" ;
-		lv2:symbol "random_tuning" ;
-		lv2:default 0.146 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 11 ;
-		lv2:name "Overdrive" ;
-		lv2:symbol "overdrive" ;
-		lv2:default 0.0 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 12 ;
-		lv2:symbol "left_out" ;
-		lv2:name "Left Out" ;
-		lv2:designation pg:left ;
-		pg:group mda:mainOut
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 13 ;
-		lv2:symbol "right_out" ;
-		lv2:name "Right Out" ;
-		lv2:designation pg:right ;
-		pg:group mda:mainOut
-	] , [
-		a lv2:InputPort ,
-			atom:AtomPort ;
-		atom:bufferType atom:Sequence ;
-		atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
-		lv2:index 14 ;
-		lv2:symbol "event_in" ;
-		lv2:name "Event In"
-	];
-    mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-epiano.html>;
-        mod:templateData <modgui/data-mda-epiano.json>;
-        mod:screenshot <modgui/screenshot-mda-epiano.png>;
-        mod:thumbnail <modgui/thumb-mda-epiano.png>;
+    a lv2:Plugin ,
+        lv2:InstrumentPlugin ;
+    lv2:project mda: ;
+    lv2:symbol "EPiano" ;
+    doap:name "MDA ePiano" ;
+    mod:label "MDA EPiano";
+    doap:license <http://usefulinc.com/doap/licenses/gpl> ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
+    pg:mainInput mda:mainIn ;
+    pg:mainOutput mda:mainOut ;
+    lv2:minorVersion 0;
+    lv2:microVersion 3;
+    lv2:port[
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 0 ;
+        lv2:name "Envelope Decay" ;
+        lv2:symbol "env_decay" ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:name "Envelope Release" ;
+        lv2:symbol "env_release" ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:name "Hardness" ;
+        lv2:symbol "hardness" ;
+        lv2:default 0.0 ;
+        lv2:minimum -50.0 ;
+        lv2:maximum 50.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 3 ;
+        lv2:name "Treble Boost" ;
+        lv2:symbol "treble_boost" ;
+        lv2:default 0.0 ;
+        lv2:minimum -50.0 ;
+        lv2:maximum 50.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 4 ;
+        lv2:name "Modulation" ;
+        lv2:symbol "modulation" ;
+        lv2:default 0.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 100.0 ;
+        units:unit [
+        a            units:Unit ;
+        rdfs:label   "Pan/Trem" ;
+        units:symbol "PAM<>TREM" ;
+        units:render "%f PAM<>TREM"
+        ]
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:name "LFO Rate" ;
+        lv2:symbol "lfo_rate" ;
+        lv2:default 23.285 ;
+        lv2:minimum 0.07 ;
+        lv2:maximum 36.97 ;
+        units:unit units:hz
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:name "Velocity Sense" ;
+        lv2:symbol "vel_sense" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:name "Stereo Width" ;
+        lv2:symbol "stereo_width" ;
+        lv2:default 100.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 200.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:name "Polyphonic" ;
+        lv2:symbol "polyphonic" ;
+        lv2:default 1.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:toggled
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:name "Fine Tuning" ;
+        lv2:symbol "fine_tuning" ;
+        lv2:default 0.0 ;
+        lv2:minimum -50.0 ;
+        lv2:maximum 50.0 ;
+        units:unit units:cent
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:name "Random Tuning" ;
+        lv2:symbol "random_tuning" ;
+        lv2:default 7.3 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 50.0 ;
+        units:unit units:cent
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:name "Overdrive" ;
+        lv2:symbol "overdrive" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 12 ;
+        lv2:symbol "left_out" ;
+        lv2:name "Left Out" ;
+        lv2:designation pg:left ;
+        pg:group mda:mainOut
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 13 ;
+        lv2:symbol "right_out" ;
+        lv2:name "Right Out" ;
+        lv2:designation pg:right ;
+        pg:group mda:mainOut
+    ] , [
+        a lv2:InputPort ,
+            atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+        lv2:index 14 ;
+        lv2:symbol "event_in" ;
+        lv2:name "Event In"
     ] .

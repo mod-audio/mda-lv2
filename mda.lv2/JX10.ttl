@@ -2,11 +2,12 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
+@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://drobilla.net/plugins/mda/JX10/filt_env>
 	a param:EnvelopeControls ,
@@ -20,14 +21,13 @@
 	lv2:name "Amp Envelope" ;
 	lv2:symbol "amp_env" .
 
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
-
 modplugins:JX10
 	a lv2:Plugin ,
 		lv2:InstrumentPlugin ;
 	lv2:project mda: ;
 	lv2:symbol "JX10" ;
 	doap:name "MDA JX10" ;
+	mod:label "JX10";
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
@@ -35,7 +35,9 @@ modplugins:JX10
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """When Vibrato is set to PWM, the two oscillators are phase-locked and will produce a square wave if set to the same pitch. Pitch modulation of one oscillator then causes Pulse Width Modulation. (pitch modulation of both oscillators for vibrato is still available from the modulation wheel). Unlike other synths, in PWM mode the oscillators can still be detuned to give a wider range of PWM effects.
     """ ;
-	lv2:port [
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	lv2:port[
 		a lv2:InputPort ,
 			lv2:ControlPort ;
 		lv2:index 0 ;
@@ -310,12 +312,4 @@ modplugins:JX10
 		lv2:index 26 ;
 		lv2:symbol "event_in" ;
 		lv2:name "Event In"
-	] ;
-    mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-jx10.html>;
-        mod:templateData <modgui/data-mda-jx10.json>;
-        mod:screenshot <modgui/screenshot-mda-jx10.png>;
-        mod:thumbnail <modgui/thumb-mda-jx10.png>;
-    ] .
+	] .

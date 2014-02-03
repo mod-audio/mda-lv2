@@ -6,7 +6,9 @@
 	a pset:Preset ;
 	lv2:appliesTo <http://drobilla.net/plugins/mda/Leslie> ;
 	rdfs:label "Default" ;
-	lv2:port [
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	lv2:port[
 		lv2:symbol "mode" ;
 		pset:value 0.5
 	] , [
@@ -39,7 +41,9 @@
 	a pset:Preset ;
 	lv2:appliesTo <http://drobilla.net/plugins/mda/Leslie> ;
 	rdfs:label "Slow" ;
-	lv2:port [
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	lv2:port[
 		lv2:symbol "mode" ;
 		pset:value 0.5
 	] , [
@@ -72,7 +76,9 @@
 	a pset:Preset ;
 	lv2:appliesTo <http://drobilla.net/plugins/mda/Leslie> ;
 	rdfs:label "Fast" ;
-	lv2:port [
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	lv2:port[
 		lv2:symbol "mode" ;
 		pset:value 1.0
 	] , [

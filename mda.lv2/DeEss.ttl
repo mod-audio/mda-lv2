@@ -3,92 +3,107 @@
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.
-
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+
 
 modplugins:DeEss
-	a lv2:Plugin ,
-		lv2:DynamicsPlugin ;
-	lv2:project mda: ;
-	lv2:symbol "DeEss" ;
-	doap:name "MDA De-ess" ;
-	doap:shortdesc "High frequency dynamics processor" ;
-	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
-	lv2:optionalFeature lv2:hardRTCapable ;
-	pg:mainInput mda:mainIn ;
-	pg:mainOutput mda:mainOut ;
-	rdfs:comment """Reduce excessive sibilants (/s/ /t/ /sh/ etc.) in vocals and speech.
+    a lv2:Plugin ,
+        lv2:DynamicsPlugin ;
+    lv2:project mda: ;
+    lv2:symbol "DeEss" ;
+    doap:name "MDA De-ess" ;
+    mod:label "MDA DeEss";
+    doap:shortdesc "High frequency dynamics processor" ;
+    doap:license <http://usefulinc.com/doap/licenses/gpl> ;
+    lv2:optionalFeature lv2:hardRTCapable ;
+    pg:mainInput mda:mainIn ;
+    pg:mainOutput mda:mainOut ;
+    rdfs:comment """Reduce excessive sibilants (/s/ /t/ /sh/ etc.) in vocals and speech.
 
 For stronger de-essing you may want to use two plug-ins in series, or apply processing twice.""" ;
-	lv2:port [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 0 ;
-		lv2:name "Thresh" ;
-		lv2:symbol "thresh" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Set maximum level for high frequencies"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 1 ;
-		lv2:name "Freq" ;
-		lv2:symbol "freq" ;
-		lv2:default 0.6 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Lowest frequency affected (a HF shelf is used for stronger de-essing than designs that work on a frequency band)"
-	] , [
-		a lv2:InputPort ,
-			lv2:ControlPort ;
-		lv2:index 2 ;
-		lv2:name "HF Drive" ;
-		lv2:symbol "hf_drive" ;
-		lv2:default 0.5 ;
-		lv2:minimum 0.0 ;
-		lv2:maximum 1.0 ;
-		rdfs:comment "Boost high frequencies before de-essing - can be used to enhance breathy vocals"
-	] , [
-		a lv2:InputPort ,
-			lv2:AudioPort ;
-		lv2:index 3 ;
-		lv2:symbol "left_in" ;
-		lv2:name "Left In" ;
-		lv2:designation pg:left ;
-		pg:group mda:mainIn
-	] , [
-		a lv2:InputPort ,
-			lv2:AudioPort ;
-		lv2:index 4 ;
-		lv2:symbol "right_in" ;
-		lv2:name "Right In" ;
-		lv2:designation pg:right ;
-		pg:group mda:mainIn
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 5 ;
-		lv2:symbol "left_out" ;
-		lv2:name "Left Out" ;
-		lv2:designation pg:left ;
-		pg:group mda:mainOut
-	] , [
-		a lv2:OutputPort ,
-			lv2:AudioPort ;
-		lv2:index 6 ;
-		lv2:symbol "right_out" ;
-		lv2:name "Right Out" ;
-		lv2:designation pg:right ;
-		pg:group mda:mainOut
-	] ;
-	 mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-de-ess.html>;
-        mod:templateData <modgui/data-mda-de-ess.json>;
-        mod:screenshot <modgui/screenshot-mda-de-ess.png>;
-        mod:thumbnail <modgui/thumb-mda-de-ess.png>;
+    lv2:minorVersion 0;
+    lv2:microVersion 2;
+    mod:pedalModel "japanese";
+    mod:pedalColor "red";
+    mod:brand "mda";
+    mod:pedalLabel "DeEsser";
+    mod:smallLabel "DeEsser";
+    mod:bypassLedPosition "118-83";
+    lv2:port [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 0 ;
+        lv2:name "Thresh" ;
+        lv2:symbol "thresh" ;
+        lv2:default -30 ;
+        lv2:minimum -60 ;
+        lv2:maximum 0 ;
+        units:unit units:db ;
+        mod:iconLabel "ThreShold";
+        mod:pedalButton "1-0";
+        rdfs:comment "Set maximum level for high frequencies"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:name "Freq" ;
+        lv2:symbol "freq" ;
+        lv2:portProperty epp:logarithmic;
+        lv2:portProperty pprops:logarithmic ;
+        lv2:default 7600 ;
+        lv2:minimum 1000 ;
+        lv2:maximum 12000 ;
+        units:unit units:hz ;
+        mod:iconLabel "Freq";
+        mod:pedalButton "1-3";
+        rdfs:comment "Lowest frequency affected (a HF shelf is used for stronger de-essing than designs that work on a frequency band)"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:name "HF Drive" ;
+        lv2:symbol "hf_drive" ;
+        lv2:default 0 ;
+        lv2:minimum -20 ;
+        lv2:maximum 20 ;
+        units:unit units:db ;
+        mod:iconLabel "HF Drive";
+        mod:pedalButton "1-6";
+        rdfs:comment "Boost high frequencies before de-essing - can be used to enhance breathy vocals"
+    ] , [
+        a lv2:InputPort ,
+            lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "left_in" ;
+        lv2:name "Left In" ;
+        lv2:designation pg:left ;
+        pg:group mda:mainIn
+    ] , [
+        a lv2:InputPort ,
+            lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "right_in" ;
+        lv2:name "Right In" ;
+        lv2:designation pg:right ;
+        pg:group mda:mainIn
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 5 ;
+        lv2:symbol "left_out" ;
+        lv2:name "Left Out" ;
+        lv2:designation pg:left ;
+        pg:group mda:mainOut
+    ] , [
+        a lv2:OutputPort ,
+            lv2:AudioPort ;
+        lv2:index 6 ;
+        lv2:symbol "right_out" ;
+        lv2:name "Right Out" ;
+        lv2:designation pg:right ;
+        pg:group mda:mainOut
     ] .
