@@ -3,8 +3,20 @@
     "color": "darkblue", 
     "controls": [
         {
+            "name": "Type", 
+            "symbol": "type"
+        }, 
+        {
+            "name": "Level", 
+            "symbol": "level"
+        }, 
+        {
             "name": "Tune", 
             "symbol": "tune"
+        }, 
+        {
+            "name": "Dry Mix", 
+            "symbol": "dry_mix"
         }, 
         {
             "name": "Thresh", 
@@ -13,16 +25,7 @@
         {
             "name": "Release", 
             "symbol": "release"
-        }, 
-        {
-            "name": "Dry Mix", 
-            "symbol": "dry_mix"
-        }, 
-        {
-            "name": "Level", 
-            "symbol": "level"
         }
     ], 
-    "knob": "cream", 
     "label": "SubSynth"
 }

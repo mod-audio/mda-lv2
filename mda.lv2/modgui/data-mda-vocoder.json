@@ -3,6 +3,14 @@
     "color": "darkblue", 
     "controls": [
         {
+            "name": "Mod In", 
+            "symbol": "mod_in"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }, 
+        {
             "name": "Hi Thru", 
             "symbol": "hi_thru"
         }, 
@@ -23,9 +31,9 @@
             "symbol": "mid_freq"
         }, 
         {
-            "name": "Output", 
-            "symbol": "output"
+            "name": "Quality", 
+            "symbol": "quality"
         }
     ], 
-    "label": "MDA Vocoder"
+    "label": "Vocoder"
 }

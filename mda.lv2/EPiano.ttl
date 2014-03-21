@@ -11,10 +11,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-rdfs:comment """
-It's a virtual ePiano plugin. Based around 12 carefully sampled and mastered Rhodes Piano samples.
-""" ;
-
 modplugins:EPiano
     a lv2:Plugin ,
         lv2:InstrumentPlugin ;
@@ -28,6 +24,10 @@ modplugins:EPiano
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+
+    rdfs:comment """
+    It's a virtual ePiano plugin. Based around 12 carefully sampled and mastered Rhodes Piano samples.
+    """ ;
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -177,4 +177,12 @@ modplugins:EPiano
         lv2:index 14 ;
         lv2:symbol "event_in" ;
         lv2:name "Event In"
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-epiano.html>;
+        mod:templateData <modgui/data-mda-epiano.json>;
+        mod:screenshot <modgui/screenshot-mda-epiano.png>;
+        mod:thumbnail <modgui/thumb-mda-epiano.png>;
     ] .

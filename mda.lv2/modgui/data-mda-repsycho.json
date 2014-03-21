@@ -1,0 +1,35 @@
+{
+    "author": "MDA", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Tune", 
+            "symbol": "tune"
+        }, 
+        {
+            "name": "Fine", 
+            "symbol": "fine"
+        }, 
+        {
+            "name": "Decay", 
+            "symbol": "decay"
+        }, 
+        {
+            "name": "Thresh", 
+            "symbol": "thresh"
+        }, 
+        {
+            "name": "Hold", 
+            "symbol": "hold"
+        }, 
+        {
+            "name": "Mix", 
+            "symbol": "mix"
+        }, 
+        {
+            "name": "Quality", 
+            "symbol": "quality"
+        }
+    ], 
+    "label": "RePsycho!"
+}

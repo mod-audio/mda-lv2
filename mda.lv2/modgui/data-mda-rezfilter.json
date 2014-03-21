@@ -1,0 +1,39 @@
+{
+    "author": "MDA", 
+    "color": "yellow", 
+    "controls": [
+        {
+            "name": "Freq", 
+            "symbol": "freq"
+        }, 
+        {
+            "name": "Res", 
+            "symbol": "res"
+        }, 
+        {
+            "name": "Output", 
+            "symbol": "output"
+        }, 
+        {
+            "name": "Env->VCF", 
+            "symbol": "env_vcf"
+        }, 
+        {
+            "name": "Attack", 
+            "symbol": "attack"
+        }, 
+        {
+            "name": "Release", 
+            "symbol": "release"
+        }, 
+        {
+            "name": "LFO->VCF", 
+            "symbol": "lfo_vcf"
+        }, 
+        {
+            "name": "LFO Rate", 
+            "symbol": "lfo_rate"
+        }
+    ], 
+    "label": "RezFilter"
+}

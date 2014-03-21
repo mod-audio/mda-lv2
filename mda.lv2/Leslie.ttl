@@ -166,4 +166,12 @@ modplugins:Leslie
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-leslie.html>;
+        mod:templateData <modgui/data-mda-leslie.json>;
+        mod:screenshot <modgui/screenshot-mda-leslie.png>;
+        mod:thumbnail <modgui/thumb-mda-leslie.png>;
     ] .

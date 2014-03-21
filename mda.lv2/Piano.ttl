@@ -186,4 +186,12 @@ modplugins:Piano
         lv2:index 14 ;
         lv2:symbol "event_in" ;
         lv2:name "Event In"
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-piano.html>;
+        mod:templateData <modgui/data-mda-piano.json>;
+        mod:screenshot <modgui/screenshot-mda-piano.png>;
+        mod:thumbnail <modgui/thumb-mda-piano.png>;
     ] .

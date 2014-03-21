@@ -89,4 +89,12 @@ Fade out without the sound becoming "tinny" by activating Link and using Loudnes
 		lv2:name "Right Out" ;
 		lv2:designation pg:right ;
 		pg:group mda:mainOut
-	] .
+	] ;
+	 mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-loudness.html>;
+        mod:templateData <modgui/data-mda-loudness.json>;
+        mod:screenshot <modgui/screenshot-mda-loudness.png>;
+        mod:thumbnail <modgui/thumb-mda-loudness.png>;
+    ] .

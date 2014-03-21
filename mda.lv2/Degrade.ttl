@@ -158,4 +158,12 @@ modplugins:Degrade
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-degrade.html>;
+        mod:templateData <modgui/data-mda-degrade.json>;
+        mod:screenshot <modgui/screenshot-mda-degrade.png>;
+        mod:thumbnail <modgui/thumb-mda-degrade.png>;
     ] .

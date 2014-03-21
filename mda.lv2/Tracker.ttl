@@ -164,4 +164,12 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-tracker.html>;
+        mod:templateData <modgui/data-mda-tracker.json>;
+        mod:screenshot <modgui/screenshot-mda-tracker.png>;
+        mod:thumbnail <modgui/thumb-mda-tracker.png>;
     ] .

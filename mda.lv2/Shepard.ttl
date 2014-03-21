@@ -21,7 +21,7 @@ modplugins:Shepard
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
-    rdfs:comment """This plug-in actually generates "Risset tones". Discrete stepping "Shepard tones" will hopefully be included in a future version.""" ;
+    rdfs:comment """This plug-in actually generates "Risset tones". Discrete stepping "Shepard tones" will hopefully be included in a future version. Continuously rising/falling tone generator.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
 
@@ -100,4 +100,11 @@ modplugins:Shepard
         lv2:designation pg:right ;
         pg:group mda:mainOut
     ] ;
-    rdfs:comment "Continuously rising/falling tone generator." .
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-shepard.html>;
+        mod:templateData <modgui/data-mda-shepard.json>;
+        mod:screenshot <modgui/screenshot-mda-shepard.png>;
+        mod:thumbnail <modgui/thumb-mda-shepard.png>;
+    ] .

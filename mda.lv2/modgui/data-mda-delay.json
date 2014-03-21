@@ -3,8 +3,12 @@
     "color": "white", 
     "controls": [
         {
-            "name": "Delay", 
-            "symbol": "delay"
+            "name": "L Delay", 
+            "symbol": "l_delay"
+        }, 
+        {
+            "name": "R/L Delay", 
+            "symbol": "r_delay"
         }, 
         {
             "name": "Feedback", 
@@ -15,14 +19,6 @@
             "symbol": "fb_tone"
         }, 
         {
-            "name": "LFO Depth", 
-            "symbol": "lfo_depth"
-        }, 
-        {
-            "name": "LFO Rate", 
-            "symbol": "lfo_rate"
-        }, 
-        {
             "name": "FX Mix", 
             "symbol": "fx_mix"
         }, 
@@ -31,5 +27,5 @@
             "symbol": "output"
         }
     ], 
-    "label": "DubDelay"
+    "label": "Delay"
 }

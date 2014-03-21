@@ -119,4 +119,12 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-thruzero.html>;
+        mod:templateData <modgui/data-mda-thruzero.json>;
+        mod:screenshot <modgui/screenshot-mda-thruzero.png>;
+        mod:thumbnail <modgui/thumb-mda-thruzero.png>;
     ] .

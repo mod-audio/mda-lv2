@@ -234,4 +234,12 @@ modplugins:DX10
         lv2:index 18 ;
         lv2:symbol "event_in" ;
         lv2:name "Event In"
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-dx10.html>;
+        mod:templateData <modgui/data-mda-dx10.json>;
+        mod:screenshot <modgui/screenshot-mda-dx10.png>;
+        mod:thumbnail <modgui/thumb-mda-dx10.png>;
     ] .

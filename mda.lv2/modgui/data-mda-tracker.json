@@ -3,34 +3,37 @@
     "color": "darkblue", 
     "controls": [
         {
-            "name": "Trigger", 
-            "symbol": "trigger"
-        }, 
-        {
-            "name": "Maximum", 
-            "symbol": "maximum"
-        }, 
-        {
-            "name": "Glide", 
-            "symbol": "glide"
+            "name": "Mode", 
+            "symbol": "mode"
         }, 
         {
             "name": "Dynamics", 
             "symbol": "dynamics"
         }, 
         {
+            "name": "Mix", 
+            "symbol": "mix"
+        }, 
+        {
+            "name": "Glide", 
+            "symbol": "glide"
+        }, 
+        {
             "name": "Transpose", 
             "symbol": "transpose"
         }, 
         {
-            "name": "Mix", 
-            "symbol": "mix"
+            "name": "Maximum", 
+            "symbol": "maximum"
+        }, 
+        {
+            "name": "Trigger", 
+            "symbol": "trigger"
         }, 
         {
             "name": "Output", 
             "symbol": "output"
         }
     ], 
-    "knob": "darkblue", 
-    "label": "Pitch Tracker"
+    "label": "Tracker"
 }

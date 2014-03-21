@@ -3,6 +3,10 @@
     "color": "darkblue", 
     "controls": [
         {
+            "name": "Tracking", 
+            "symbol": "tracking"
+        }, 
+        {
             "name": "Pitch", 
             "symbol": "pitch"
         }, 
@@ -19,6 +23,5 @@
             "symbol": "max_freq"
         }
     ], 
-    "knob": "darkblue", 
-    "label": "Voc Input"
+    "label": "VocInput"
 }

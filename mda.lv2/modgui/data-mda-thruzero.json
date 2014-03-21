@@ -11,18 +11,17 @@
             "symbol": "depth"
         }, 
         {
-            "name": "Depth Mod", 
-            "symbol": "depth_mod"
+            "name": "Mix", 
+            "symbol": "mix"
         }, 
         {
             "name": "Feedback", 
             "symbol": "feedback"
         }, 
         {
-            "name": "Mix", 
-            "symbol": "mix"
+            "name": "Depth Mod", 
+            "symbol": "depth_mod"
         }
     ], 
-    "knob": "blue", 
-    "label": "ThruZero Flange"
+    "label": "ThruZero"
 }

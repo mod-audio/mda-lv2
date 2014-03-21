@@ -133,4 +133,12 @@ modplugins:Delay
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
+    ] ;
+     mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-delay.html>;
+        mod:templateData <modgui/data-mda-delay.json>;
+        mod:screenshot <modgui/screenshot-mda-delay.png>;
+        mod:thumbnail <modgui/thumb-mda-delay.png>;
     ] .
