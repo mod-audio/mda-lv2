@@ -1,0 +1,19 @@
+{
+    "author": "MDA", 
+    "color": "purple", 
+    "controls": [
+        {
+            "name": "Freq", 
+            "symbol": "freq"
+        }, 
+        {
+            "name": "Fine", 
+            "symbol": "fine"
+        }, 
+        {
+            "name": "Feedback", 
+            "symbol": "feedback"
+        }
+    ], 
+    "label": "RingMod"
+}
