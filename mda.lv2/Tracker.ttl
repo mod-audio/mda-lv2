@@ -8,7 +8,6 @@
 @prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 modplugins:Tracker
     a lv2:Plugin ,
@@ -104,7 +103,6 @@ This plug can be used with white or pink noise inputs to generate random pitch s
         lv2:name "Maximum" ;
         lv2:symbol "maximum" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 6500.0 ;
         lv2:minimum 39.0 ;
         lv2:maximum 7350.0 ;

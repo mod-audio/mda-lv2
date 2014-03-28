@@ -9,7 +9,6 @@
 @prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 <http://drobilla.net/plugins/mda/MultiBand/env>
     a param:EnvelopeControls ,
@@ -65,7 +64,6 @@ To give more control when mastering (and to offer something different from other
         lv2:name "L <> M" ;
         lv2:symbol "l_m" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 110.7 ;
         lv2:minimum 87.0 ;
         lv2:maximum 1020.0 ;
@@ -78,7 +76,6 @@ To give more control when mastering (and to offer something different from other
         lv2:name "M <> H" ;
         lv2:symbol "m_h" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 17153.79 ;
         lv2:minimum 111.0 ;
         lv2:maximum 19606.0 ;

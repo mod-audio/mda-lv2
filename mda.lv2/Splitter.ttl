@@ -8,7 +8,6 @@
 @prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 modplugins:Splitter
     a lv2:Plugin ,
@@ -59,7 +58,6 @@ modplugins:Splitter
         lv2:name "Freq" ;
         lv2:symbol "freq" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 5050.0 ;
         lv2:minimum 100.0 ;
         lv2:maximum 10000.0 ;

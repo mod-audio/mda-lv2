@@ -9,7 +9,6 @@
 @prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 modplugins:SubSynth
     a lv2:Plugin ,
@@ -73,8 +72,7 @@ modplugins:SubSynth
         lv2:name "Tune" ;
         lv2:symbol "tune" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
-        lv2:portProperty pprops:continuousCV ;
+        lv2:portProperty epp:continuousCV ;
         lv2:default 198.0 ;
         lv2:minimum 10.0 ;
         lv2:maximum 320.0 ;

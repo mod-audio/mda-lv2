@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix modplugins: <http://portalmod.com/plugins/mda/> .
 @prefix mod: <http://portalmod.com/ns/modgui#> .
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
@@ -59,7 +59,7 @@ modplugins:Degrade
         lv2:name "Rate" ;
         lv2:symbol "rate" ;
         lv2:portProperty lv2:integer ;
-        lv2:portProperty pprops:logarithmic ;
+        lv2:portProperty epp:logarithmic ;
         lv2:default 44100 ;
         lv2:minimum 5 ;
         lv2:maximum 44100 ;
@@ -77,7 +77,7 @@ modplugins:Degrade
         lv2:name "Post Filter" ;
         lv2:symbol "post_filt" ;
         lv2:portProperty lv2:integer ;
-        lv2:portProperty pprops:logarithmic ;
+        lv2:portProperty epp:logarithmic ;
         lv2:default 15000 ;
         lv2:minimum 200 ;
         lv2:maximum 20000 ;

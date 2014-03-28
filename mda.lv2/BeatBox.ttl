@@ -8,7 +8,6 @@
 @prefix mod: <http://portalmod.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
-@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 modplugins:BeatBox
     a lv2:Plugin ;
@@ -76,7 +75,6 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:name "Kik Trig" ;
         lv2:symbol "kik_trig" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 527.4 ;
         lv2:minimum 22 ;
         lv2:maximum 3494 ;
@@ -109,7 +107,6 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:name "Snr Trig" ;
         lv2:symbol "snr_trig" ;
         lv2:portProperty epp:logarithmic;
-        lv2:portProperty pprops:logarithmic ;
         lv2:default 527.4 ;
         lv2:minimum 22 ;
         lv2:maximum 3494 ;
