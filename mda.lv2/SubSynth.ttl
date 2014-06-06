@@ -147,10 +147,10 @@ modplugins:SubSynth
     ] ;
      mod:gui [
         a mod:Gui;
-        mod:resourcesDirectory <modgui/SubSynth>;
-        mod:stylesheet <modgui/SubSynth/mda-subsynth.css>;
-        mod:iconTemplate <modgui/SubSynth/icon-mda-subsynth.html>;
-        mod:templateData <modgui/SubSynth/data-mda-subsynth.json>;
-        mod:screenshot <modgui/SubSynth/screenshot-mda-subsynth.png>;
-        mod:thumbnail <modgui/SubSynth/thumb-mda-subsynth.png>;
+        mod:resourcesDirectory <modgui>;
+        mod:stylesheet <modgui/mda-subsynth.css>;
+        mod:iconTemplate <modgui/icon-mda-subsynth.html>;
+        mod:templateData <modgui/data-mda-subsynth.json>;
+        mod:screenshot <modgui/screenshot-mda-subsynth.png>;
+        mod:thumbnail <modgui/thumb-mda-subsynth.png>;
     ] .
