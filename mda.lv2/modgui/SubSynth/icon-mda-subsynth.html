@@ -1,16 +1,32 @@
-<div class="mod-pedal mod-pedal-boxy mod-eight-knobs mod-boxy75 mod-{{color}}">
+<div class="mda-subsynth mod-pedal mod-pedal-boxy">
     <div mod-role="drag-handle" class="mod-drag-handle"></div>
     <div class="mod-plugin-author"><h1>{{author}}</h1></div>
     <div class="mod-plugin-name"><h1>{{label}}</h1></div>
     <div class="mod-light on" mod-role="bypass-light"></div>
-    <div class="mod-control-group clearfix">
-        {{#controls}}
-        <div class="mod-knob">
-            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>
-            <span class="mod-knob-title">{{name}}</span>
+        <div class="mod-knob2">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="type"></div>
         </div>
-        {{/controls}}
+    <div class="mod-control-group group1 clearfix">
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="tune"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="dry_mix"></div>
+        </div>
     </div>
+    <div class="mod-control-group group2 clearfix">
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="level"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="release"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="thresh"></div>
+        </div>
+    </div>
+
+
     <div class="mod-footswitch" mod-role="bypass"></div>
     <div class="mod-pedal-input">
         {{#effect.ports.audio.input}}
