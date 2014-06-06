@@ -1,0 +1,181 @@
+    .mda-subsynth * {
+        color: white !important;
+    }
+    .mda-subsynth .mod-plugin-name , .mda-subsynth .mod-plugin-author  {
+        display: none;
+    }
+    .mda-subsynth .mod-control-group .mod-knob {
+        text-align: center;
+        width: 70px
+        }
+    .mod-knob#speed {
+      position: absolute;
+      top: 66px;
+      left: 20px;
+    }
+    .mod-knob#da_db {
+      position: absolute;
+      top: 66px;
+      left: 265px;
+    }
+    .mda-subsynth .mod-knob-title {
+        position: relative !important;
+        padding-top: 20px;
+    }
+    .mda-subsynth {
+        background-image:url(/resources/mda-subsynth.png{{{ns}}}) !important;
+        background-size: 337px 464px;
+        background-position: 15px top;
+        width: 328px;
+        height: 464px;
+    }
+     .mda-subsynth .mod-control-group {
+      top: 0;
+      height: auto !important;
+      width: auto !important;
+      text-align: left;
+      position: relative;
+     }
+    .mda-subsynth .mod-control-group#wet {
+      left: 370px;
+      top: 375px;
+      position: absolute;
+      width: 70px !important;
+      height: 70px !important;
+    }
+
+    .mda-subsynth .mod-control-group.group1 {
+      margin-top: 40px;
+      margin-left: 34px;
+      float: left;
+      width: 264px !important;
+    }
+    .mda-subsynth .mod-control-group.group2 {
+        margin-top: -3px;
+        margin-left: 34px;
+        float: left;
+        width: 263px !important;
+    }
+    .mda-subsynth .mod-control-group.group1 .mod-knob {
+      text-align: center;
+    }
+    .mda-subsynth .mod-control-group.group1 .mod-knob:first-child {
+      float: left;
+    }
+    .mda-subsynth .mod-control-group.group1 .mod-knob:last-child {
+      float: right;
+    }
+    .mda-subsynth .mod-control-group.group2 .mod-knob {
+      text-align: center;
+      margin: 0 26px 24px 0;
+      float: left;
+    }
+    .mda-subsynth .mod-control-group.group2 .mod-knob:last-child {
+      margin: 0 0 24px 0;
+    }
+
+    .mda-subsynth  .mod-knob2 .mod-knob-image {
+      background-image: url(/resources/mda-subsynth_knob2.png{{{ns}}});
+      background-repeat:no-repeat;
+      background-size:auto 59px;
+      height:59px;
+      width:59px;
+      margin:26px auto 0 auto;
+      cursor: pointer;
+      z-index: 40;
+      position:relative;
+      overflow:hidden;
+}
+    .mda-subsynth .mod-knob .mod-knob-image {
+      background-image: url(/resources/mda-subsynth_knob.png{{{ns}}});
+      background-repeat:no-repeat;
+      background-size:auto 59px;
+      height:59px;
+      width:59px;
+      margin:0 auto 0 auto;
+      cursor: pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .mda-subsynth .mod-light {
+        top: 181px;
+    }
+    .mda-subsynth .mod-slider {
+      position: relative;
+      float: right;
+      height: 200px;
+      color: black;
+      font-size: inherit;
+      margin-right: -18px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      width: 68px;
+    }
+    .mda-subsynth .mod-slider-value {
+      position: absolute;
+      color: #57D8FF !important;
+      background: #222;
+      font-family: monospace;
+      text-align: right;
+      padding-right: 2px;
+      border: 1px inset #555;
+      display: block;
+      height: 20px;
+      width: 50px;
+      left: 275px;
+      top: 80px;
+
+      overflow: hidden;
+    }
+    .mda-subsynth .mod-slider .mod-slider-image {
+        background-image: url(/resources/_strip.png{{{ns}}});
+        background-repeat: no-repeat;
+        background-size: auto 170px;
+        height: 170px;
+        margin: 0 auto;
+        width: 68px;
+    }
+    .mda-subsynth .mod-footswitch {
+        background-image:url(/resources/footswitch.png{{{ns}}});
+        background-position:top center;
+        background-repeat:no-repeat;
+        background-size:auto 132px;
+        bottom: 25px;
+        cursor:pointer;
+        height:66px;
+        width: 66px;
+        left: 150px !important;
+        position:absolute;
+    }
+    .mda-subsynth .mod-knob-value  {
+        color: #57D8FF !important;
+        background: #222;
+        font-family: monospace;
+        text-align: right;
+        margin: 0 0 8px 8px;
+        padding-right: 2px;
+        border: 1px inset #555;
+        display: block;
+        height: 20px;
+        width: 50px;
+        overflow: hidden;
+    }
+    .mda-subsynth .mod-footswitch.on {
+        background-position:top center;
+    }
+    .mda-subsynth .mod-footswitch.off {
+        background-position:bottom center;
+    }
+    .mda-subsynth .mod-pedal-input {
+        top: 36px;
+    }
+    .mda-subsynth .mod-pedal-input .mod-input {
+        margin-bottom: 95px;
+    }
+    .mda-subsynth .mod-pedal-output {
+        top: 36px;
+    }
+    .mda-subsynth .mod-pedal-output .mod-output  {
+        margin-bottom: 95px
+    }
