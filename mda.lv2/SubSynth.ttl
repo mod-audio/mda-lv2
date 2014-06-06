@@ -148,9 +148,9 @@ modplugins:SubSynth
      mod:gui [
         a mod:Gui;
         mod:resourcesDirectory <modgui/Subsynth>;
-        mod:stylesheet <modgui/Subsynth/mda-subsynth.css>;
-        mod:iconTemplate <modgui/Subsynth/icon-mda-subsynth.html>;
-        mod:templateData <modgui/Subsynth/data-mda-subsynth.json>;
-        mod:screenshot <modgui/Subsynth/screenshot-mda-subsynth.png>;
-        mod:thumbnail <modgui/Subsynth/thumb-mda-subsynth.png>;
+        mod:stylesheet <modgui/SubSynth/mda-subsynth.css>;
+        mod:iconTemplate <modgui/SubSynth/icon-mda-subsynth.html>;
+        mod:templateData <modgui/SubSynth/data-mda-subsynth.json>;
+        mod:screenshot <modgui/SubSynth/screenshot-mda-subsynth.png>;
+        mod:thumbnail <modgui/SubSynth/thumb-mda-subsynth.png>;
     ] .
