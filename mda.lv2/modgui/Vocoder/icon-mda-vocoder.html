@@ -1,15 +1,32 @@
-<div class="mod-pedal mod-pedal-boxy mod-eight-knobs mod-boxy75 mod-{{color}}">
+<div class="mod-pedal mda-vocoder mod-pedal-boxy">
     <div mod-role="drag-handle" class="mod-drag-handle"></div>
     <div class="mod-plugin-author"><h1>{{author}}</h1></div>
     <div class="mod-plugin-name"><h1>{{label}}</h1></div>
     <div class="mod-light on" mod-role="bypass-light"></div>
-    <div class="mod-control-group clearfix">
-        {{#controls}}
+    <div class="mod-control-group group1 clearfix">
         <div class="mod-knob">
-            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>
-            <span class="mod-knob-title">{{name}}</span>
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="filter_q"></div>
         </div>
-        {{/controls}}
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="mid_freq"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hi_thru"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="hi_band"></div>
+        </div>
+    </div>
+    <div class="mod-control-group group2 clearfix">
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="envelope"></div>
+        </div>
+        <div class="mod-knob" id="mda-switch">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="quality"></div>
+        </div>
+        <div class="mod-knob">
+            <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="output"></div>
+        </div>
     </div>
     <div class="mod-footswitch" mod-role="bypass"></div>
     <div class="mod-pedal-input">
@@ -37,3 +54,151 @@
         {{/effect.ports.midi.output}}
     </div>
 </div>
+<style>
+    .mda-vocoder * {
+        color: white !important;
+    }
+    .mda-vocoder .mod-plugin-name , .mda-vocoder .mod-plugin-author  {
+        display: none;
+    }
+    .mda-vocoder .mod-control-group .mod-knob {
+        text-align: center;
+        width: 70px
+        }
+    .mod-knob#speed {
+      position: absolute;
+      top: 66px;
+      left: 20px;
+    }
+    .mod-knob#da_db {
+      position: absolute;
+      top: 66px;
+      left: 265px;
+    }
+    .mda-vocoder .mod-knob-title {
+        position: relative !important;
+        padding-top: 20px;
+    }
+    .mda-vocoder {
+        background-image:url(/resources/mda-vocoder.png{{{ns}}}) !important;
+        background-size: 399px 370px;
+        background-position: 15px top;
+        width: 400px;
+        height: 370px;
+    }
+     .mda-vocoder .mod-control-group {
+      top: 0;
+      height: auto !important;
+      width: auto !important;
+      text-align: left;
+      position: relative;
+     }
+    .mda-vocoder .mod-control-group.group1 {
+      margin-top: 118px;
+      margin-left: 41px;
+      float: left;
+      width: 370px !important;
+    }
+    .mda-vocoder .mod-control-group.group2 {
+        margin-top: -40px;
+        margin-left: 42px;
+        float: left;
+        width: 370px !important;
+    }
+    .mda-vocoder .mod-control-group.group1 .mod-knob {
+      text-align: center;
+      float: left;
+      margin-right: 12px;
+    }
+
+    .mda-vocoder .mod-control-group.group2 .mod-knob {
+      text-align: center;
+      height: 60px;
+      margin: 0 51px 0 0;
+      float: left;
+    }
+    .mda-vocoder  .mod-knob2 .mod-knob-image {
+      background-image: url(/resources/mda-vocoder_knob2.png{{{ns}}});
+      background-repeat:no-repeat;
+      background-size:auto 59px;
+      height:59px;
+      width:59px;
+      margin:26px auto 0 auto;
+      cursor: pointer;
+      z-index: 40;
+      position:relative;
+      overflow:hidden;
+}
+    .mda-vocoder .mod-knob .mod-knob-image {
+      background-image: url(/resources/mda-vocoder_knob.png{{{ns}}});
+      background-repeat:no-repeat;
+      background-size:auto 59px;
+      height:59px;
+      width:59px;
+      margin:0 auto 0 auto;
+      cursor: pointer;
+      position:relative;
+      overflow:hidden;
+    }
+    .mda-vocoder .mod-knob#mda-switch {
+        margin-top: 3px
+    }
+    .mda-vocoder .mod-knob#mda-switch .mod-knob-image {
+        background-image: url(/resources/vocoder-switch.png{{{ns}}}) !important ;
+        background-repeat:no-repeat;
+        background-size:auto 23px;
+        height:23px;
+        width:46px;
+    }
+    .mda-vocoder .mod-light {
+        top: 66px;
+    }
+
+    .mda-vocoder .mod-footswitch {
+        background-image:url(/resources/footswitch.png{{{ns}}});
+        background-position:top center;
+        background-repeat:no-repeat;
+        background-size:auto 132px;
+        bottom: 25px;
+        cursor:pointer;
+        height:66px;
+        width: 66px;
+        left: 178px !important;
+        position:absolute;
+    }
+    .mda-vocoder .mod-knob-value  {
+        color: #57D8FF !important;
+        background: #222;
+        font-family: monospace;
+        text-align: right;
+        margin: 0 0 8px 8px;
+        padding-right: 2px;
+        border: 1px inset #555;
+        display: block;
+        height: 20px;
+        width: 50px;
+        overflow: hidden;
+    }
+    .mda-vocoder .mod-footswitch.on {
+        background-position:top center;
+    }
+    .mda-vocoder .mod-footswitch.off {
+        background-position:bottom center;
+    }
+    .mda-vocoder .mod-pedal-input {
+        top: 25px;
+        left: -30px;
+    }
+    .mda-vocoder .mod-pedal-input .mod-input {
+        margin-bottom: 22px;
+    }
+    .mda-vocoder .mod-pedal-output {
+        top: 25px;
+        right: -24px;
+    }
+    .mda-vocoder .mod-pedal-output .mod-output  {
+        margin-bottom: 22px
+    }
+
+
+</style>
