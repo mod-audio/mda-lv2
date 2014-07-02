@@ -176,9 +176,9 @@ Note that both carrier and modulator signals are taken from one input channel, w
     ] ;
      mod:gui [
         a mod:Gui;
-        mod:resourcesDirectory <modgui/vocoder>;
-        mod:iconTemplate <modgui/vocoder/icon-mda-vocoder.html>;
-        mod:templateData <modgui/vocoder/data-mda-vocoder.json>;
-        mod:screenshot <modgui/vocoder/screenshot-mda-vocoder.png>;
-        mod:thumbnail <modgui/vocoder/thumb-mda-vocoder.png>;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-mda-vocoder.html>;
+        mod:templateData <modgui/data-mda-vocoder.json>;
+        mod:screenshot <modgui/screenshot-mda-vocoder.png>;
+        mod:thumbnail <modgui/thumb-mda-vocoder.png>;
     ] .
