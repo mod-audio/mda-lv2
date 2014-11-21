@@ -205,12 +205,4 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-beatbox.html>;
-        mod:templateData <modgui/data-mda-beatbox.json>;
-        mod:screenshot <modgui/screenshot-mda-beatbox.png>;
-        mod:thumbnail <modgui/thumb-mda-beatbox.png>;
     ] .
