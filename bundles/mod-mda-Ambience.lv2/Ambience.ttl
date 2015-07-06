@@ -2,7 +2,7 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 
@@ -16,8 +16,10 @@ mda:Ambience
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
-    lv2:minorVersion 0;
-    lv2:microVersion 3;
+    lv2:minorVersion 0 ;
+    lv2:microVersion 3 ;
+    mod:brand "MDA" ;
+    mod:label "Ambience" ;
 
     lv2:port [
         a lv2:InputPort ,
@@ -92,13 +94,4 @@ mda:Ambience
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-ambience.html>;
-        mod:templateData <modgui/data-mda-ambience.json>;
-        mod:screenshot <modgui/screenshot-mda-ambience.png>;
-        mod:thumbnail <modgui/thumb-mda-ambience.png>;
     ] .
-
