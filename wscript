@@ -29,25 +29,9 @@ def configure(conf):
     print('')
 
 def build(bld):
-    bundle = 'mda.lv2'
-
-    for i in bld.path.ant_glob('mda.lv2/[A-Z]*.ttl'):
-        bld(features     = 'subst',
-            is_copy      = True,
-            source       = i,
-            target       = bld.path.get_bld().make_node('mda.lv2/%s' % i),
-            install_path = '${LV2DIR}/mda.lv2')
-
     # Make a pattern for shared objects without the 'lib' prefix
     module_pat = re.sub('^lib', '', bld.env.cxxshlib_PATTERN)
     module_ext = module_pat[module_pat.rfind('.'):]
-
-    # Build manifest by substitution
-    bld(features     = 'subst',
-        source       = 'mda.lv2/manifest.ttl.in',
-        target       = bld.path.get_bld().make_node('mda.lv2/manifest.ttl'),
-        LIB_EXT      = module_ext,
-        install_path = '${LV2DIR}/mda.lv2')
 
     plugins = '''
             Ambience
@@ -89,6 +73,23 @@ def build(bld):
     '''.split()
 
     for p in plugins:
+        bundle = 'mod-mda-%s.lv2' % p
+
+        # generate ttl files
+        #for i in bld.path.ant_glob('mda.lv2/[A-Z]*.ttl'):
+            #bld(features     = 'subst',
+                #is_copy      = True,
+                #source       = i,
+                #target       = bld.path.get_bld().make_node('mda.lv2/%s' % i),
+                #install_path = '${LV2DIR}/mda.lv2')
+
+        # Build manifest by substitution
+        bld(features     = 'subst',
+            source       = '%s/manifest.ttl.in' % bundle,
+            target       = bld.path.get_bld().make_node('%s/manifest.ttl' % bundle),
+            LIB_EXT      = module_ext,
+            install_path = '${LV2DIR}/%s' % bundle)
+
         # Build plugin library
         obj = bld(features     = 'cxx cxxshlib',
                   source       = ['src/mda%s.cpp' % p, 'lvz/wrapper.cpp'],
