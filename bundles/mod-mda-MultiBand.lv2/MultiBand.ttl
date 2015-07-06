@@ -9,7 +9,7 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 
-<http://drobilla.net/plugins/mda/MultiBand/env>
+<http://moddevices.com/plugins/mda/MultiBand/env>
     a param:EnvelopeControls ,
         pg:InputGroup ;
     lv2:name "Envelope" ;
@@ -157,7 +157,7 @@ To give more control when mastering (and to offer something different from other
         lv2:maximum 1755.0 ;
         units:unit units:ms;
         lv2:designation param:attack ;
-        pg:group <http://drobilla.net/plugins/mda/MultiBand/env>
+        pg:group <http://moddevices.com/plugins/mda/MultiBand/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -169,7 +169,7 @@ To give more control when mastering (and to offer something different from other
         lv2:maximum 1571.0 ;
         units:unit units:ms;
         lv2:designation param:release ;
-        pg:group <http://drobilla.net/plugins/mda/MultiBand/env>
+        pg:group <http://moddevices.com/plugins/mda/MultiBand/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

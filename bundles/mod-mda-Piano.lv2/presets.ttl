@@ -2,9 +2,9 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://drobilla.net/plugins/mda/presets#Piano-mda-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-mda-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "MDA Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -44,9 +44,9 @@
         pset:value 0.5
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-plain-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-plain-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Plain Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -86,9 +86,9 @@
         pset:value 0.5
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-compressed-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-compressed-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Compressed Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -128,9 +128,9 @@
         pset:value 0.5
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-dance-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-dance-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Dance Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -170,9 +170,9 @@
         pset:value 0.667
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-concert-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-concert-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Concert Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -212,9 +212,9 @@
         pset:value 0.66
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-dark-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-dark-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Dark Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -254,9 +254,9 @@
         pset:value 0.5
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-school-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-school-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "School Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -296,9 +296,9 @@
         pset:value 0.801
     ] .
 
-<http://drobilla.net/plugins/mda/presets#Piano-broken-piano>
+<http://moddevices.com/plugins/mda/presets#Piano-broken-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://drobilla.net/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
     rdfs:label "Broken Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;

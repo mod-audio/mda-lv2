@@ -10,7 +10,7 @@
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://drobilla.net/plugins/mda/Piano/env>
+<http://moddevices.com/plugins/mda/Piano/env>
     a param:EnvelopeControls ,
         pg:InputGroup ;
     lv2:name "Envelope" ;
@@ -41,7 +41,7 @@ mda:Piano
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:decay ;
-        pg:group <http://drobilla.net/plugins/mda/Piano/env>
+        pg:group <http://moddevices.com/plugins/mda/Piano/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -53,7 +53,7 @@ mda:Piano
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:release ;
-        pg:group <http://drobilla.net/plugins/mda/Piano/env>
+        pg:group <http://moddevices.com/plugins/mda/Piano/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

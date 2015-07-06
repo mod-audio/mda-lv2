@@ -2,9 +2,9 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://drobilla.net/plugins/mda/presets#Vocoder-default>
+<http://moddevices.com/plugins/mda/presets#Vocoder-default>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Vocoder> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Default" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -32,9 +32,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Vocoder-16-band-vocoder>
+<http://moddevices.com/plugins/mda/presets#Vocoder-16-band-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Vocoder> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "16 Band Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -62,9 +62,9 @@
 		pset:value 1.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Vocoder-old-vocoder>
+<http://moddevices.com/plugins/mda/presets#Vocoder-old-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Vocoder> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Old Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -92,9 +92,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Vocoder-choral-vocoder>
+<http://moddevices.com/plugins/mda/presets#Vocoder-choral-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Vocoder> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Choral Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -122,9 +122,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Vocoder-pad-vocoder>
+<http://moddevices.com/plugins/mda/presets#Vocoder-pad-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Vocoder> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Pad Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;

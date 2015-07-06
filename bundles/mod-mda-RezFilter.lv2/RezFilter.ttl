@@ -9,13 +9,13 @@
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<http://drobilla.net/plugins/mda/RezFilter/env>
+<http://moddevices.com/plugins/mda/RezFilter/env>
     a param:EnvelopeControls ,
         pg:InputGroup ;
     lv2:name "Envelope" ;
     lv2:symbol "env" .
 
-<http://drobilla.net/plugins/mda/RezFilter/filt>
+<http://moddevices.com/plugins/mda/RezFilter/filt>
     a param:FilterControls ,
         pg:InputGroup ;
     lv2:name "Filter" ;
@@ -45,7 +45,7 @@ mda:RezFilter
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:cutoffFrequency ;
-        pg:group <http://drobilla.net/plugins/mda/RezFilter/filt>
+        pg:group <http://moddevices.com/plugins/mda/RezFilter/filt>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -57,7 +57,7 @@ mda:RezFilter
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:resonance ;
-        pg:group <http://drobilla.net/plugins/mda/RezFilter/filt>
+        pg:group <http://moddevices.com/plugins/mda/RezFilter/filt>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -91,7 +91,7 @@ mda:RezFilter
         lv2:maximum 160.83 ;
         units:unit units:ms;
         lv2:designation param:attack ;
-        pg:group <http://drobilla.net/plugins/mda/RezFilter/env>
+        pg:group <http://moddevices.com/plugins/mda/RezFilter/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -103,7 +103,7 @@ mda:RezFilter
         lv2:maximum 15511.64 ;
         units:unit units:ms;
         lv2:designation param:release ;
-        pg:group <http://drobilla.net/plugins/mda/RezFilter/env>
+        pg:group <http://moddevices.com/plugins/mda/RezFilter/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

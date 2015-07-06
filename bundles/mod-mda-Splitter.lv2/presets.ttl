@@ -2,9 +2,9 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://drobilla.net/plugins/mda/presets#Splitter-frequency-level-splitter>
+<http://moddevices.com/plugins/mda/presets#Splitter-frequency-level-splitter>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Splitter> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Frequency/Level Splitter" ;
 	lv2:port [
 		lv2:symbol "mode" ;
@@ -29,9 +29,9 @@
 		pset:value 0.5
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Splitter-pass-peaks-only>
+<http://moddevices.com/plugins/mda/presets#Splitter-pass-peaks-only>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Splitter> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Pass Peaks Only" ;
 	lv2:port [
 		lv2:symbol "mode" ;
@@ -56,9 +56,9 @@
 		pset:value 0.5
 	] .
 
-<http://drobilla.net/plugins/mda/presets#Splitter-stereo-crossover>
+<http://moddevices.com/plugins/mda/presets#Splitter-stereo-crossover>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/Splitter> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Stereo Crossover" ;
 	lv2:port [
 		lv2:symbol "mode" ;

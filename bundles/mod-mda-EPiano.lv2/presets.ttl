@@ -2,9 +2,9 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://drobilla.net/plugins/mda/presets#EPiano-default>
+<http://moddevices.com/plugins/mda/presets#EPiano-default>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
 	rdfs:label "Default" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -46,9 +46,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#EPiano-bright>
+<http://moddevices.com/plugins/mda/presets#EPiano-bright>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
 	rdfs:label "Bright" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -90,9 +90,9 @@
 		pset:value 0.5
 	] .
 
-<http://drobilla.net/plugins/mda/presets#EPiano-mellow>
+<http://moddevices.com/plugins/mda/presets#EPiano-mellow>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
 	rdfs:label "Mellow" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -134,9 +134,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#EPiano-autopan>
+<http://moddevices.com/plugins/mda/presets#EPiano-autopan>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
 	rdfs:label "Autopan" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -178,9 +178,9 @@
 		pset:value 0.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#EPiano-tremolo>
+<http://moddevices.com/plugins/mda/presets#EPiano-tremolo>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
 	rdfs:label "Tremolo" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;

@@ -10,7 +10,7 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 
-<http://drobilla.net/plugins/mda/DX10/env>
+<http://moddevices.com/plugins/mda/DX10/env>
     a param:EnvelopeControls ,
         pg:InputGroup ;
     lv2:name "Envelope" ;
@@ -42,7 +42,7 @@ mda:DX10
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:attack ;
-        pg:group <http://drobilla.net/plugins/mda/DX10/env>
+        pg:group <http://moddevices.com/plugins/mda/DX10/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -54,7 +54,7 @@ mda:DX10
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:decay ;
-        pg:group <http://drobilla.net/plugins/mda/DX10/env>
+        pg:group <http://moddevices.com/plugins/mda/DX10/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -66,7 +66,7 @@ mda:DX10
         lv2:maximum 100.0 ;
         units:unit units:pc;
         lv2:designation param:release ;
-        pg:group <http://drobilla.net/plugins/mda/DX10/env>
+        pg:group <http://moddevices.com/plugins/mda/DX10/env>
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

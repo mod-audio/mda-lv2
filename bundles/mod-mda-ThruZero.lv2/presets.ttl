@@ -2,9 +2,9 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://drobilla.net/plugins/mda/presets#ThruZero-thru-zero-flanger>
+<http://moddevices.com/plugins/mda/presets#ThruZero-thru-zero-flanger>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	rdfs:label "Thru-Zero Flanger" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -23,9 +23,9 @@
 		pset:value 1.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#ThruZero-phase-canceller>
+<http://moddevices.com/plugins/mda/presets#ThruZero-phase-canceller>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	rdfs:label "Phase Canceller" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -44,9 +44,9 @@
 		pset:value 1.0
 	] .
 
-<http://drobilla.net/plugins/mda/presets#ThruZero-chorus-doubler>
+<http://moddevices.com/plugins/mda/presets#ThruZero-chorus-doubler>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	rdfs:label "Chorus Doubler" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -65,9 +65,9 @@
 		pset:value 0.7
 	] .
 
-<http://drobilla.net/plugins/mda/presets#ThruZero-mad-modulator>
+<http://moddevices.com/plugins/mda/presets#ThruZero-mad-modulator>
 	a pset:Preset ;
-	lv2:appliesTo <http://drobilla.net/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	rdfs:label "Mad Modulator" ;
 	lv2:port [
 		lv2:symbol "rate" ;

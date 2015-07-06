@@ -8,13 +8,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 
-<http://drobilla.net/plugins/mda/JX10/filt_env>
+<http://moddevices.com/plugins/mda/JX10/filt_env>
 	a param:EnvelopeControls ,
 		pg:InputGroup ;
 	lv2:name "Filter Envelope" ;
 	lv2:symbol "filt_env" .
 
-<http://drobilla.net/plugins/mda/JX10/amp_env>
+<http://moddevices.com/plugins/mda/JX10/amp_env>
 	a param:EnvelopeControls ,
 		pg:InputGroup ;
 	lv2:name "Amp Envelope" ;
@@ -157,7 +157,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:attack ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/filt_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -168,7 +168,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:decay ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/filt_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -179,7 +179,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:sustain ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/filt_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -190,7 +190,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:release ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/filt_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -201,7 +201,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:attack ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/amp_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -212,7 +212,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:decay ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/amp_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -223,7 +223,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:sustain ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/amp_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
@@ -234,7 +234,7 @@ mda:JX10
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2:designation param:release ;
-		pg:group <http://drobilla.net/plugins/mda/JX10/amp_env>
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
 	] , [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
