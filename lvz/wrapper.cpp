@@ -443,7 +443,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(6):
             return (value + 100)/(200);
             case(7):
-            return (2 + log10(value)/4;
+            return 2 + log10(value)/4;
             case(8):
             return (value + 37)/(40);
             case(9):
