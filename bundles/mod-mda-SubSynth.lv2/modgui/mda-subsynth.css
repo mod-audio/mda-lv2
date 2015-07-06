@@ -1,3 +1,164 @@
+
+/* STYLES FOR THE BOXY PEDAL */
+
+@import url(/fonts/nexa/stylesheet.css);
+@import url(/fonts/questrial/stylesheet.css);
+
+/* = CONTAINER
+================================================ */
+.mod-pedal-boxy{{{cns}}} {
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:230px 431px;
+    height:431px;
+    position:absolute;
+    width:230px;
+    border-radius: 26px;
+}
+
+/* = PLUGIN'S AUTHOR
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-plugin-brand {
+    left:0;
+    position:absolute;
+    right:0;
+    text-align:center;
+    text-transform:uppercase;
+    top:160px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-plugin-brand h1 {
+    border-color:#000;
+    border-radius:12px;
+    border-style:solid;
+    border-width:4px;
+    display:inline-block;
+    font-family:"Nexa";
+    font-size:32px;
+    padding:3px 9px 0;
+}
+
+/* = PLUGIN'S NAME
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-plugin-name {
+    left:30px;
+    overflow:hidden;
+    position:absolute;
+    right:30px;
+    text-align:center;
+    top:340px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-plugin-name h1 {
+    font-family:"Questrial";
+    font-size:21px;
+    line-height:1;
+}
+
+/* = LIGHT ON/OFF
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-light {
+    background-position:center center;
+    background-repeat:no-repeat;
+    height:32px;
+    left:10px;
+    position:absolute;
+    right:10px;
+    top:235px;
+}
+
+/* = KNOBS
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-control-group {
+    margin:20px;
+    position:relative;
+    text-align:center;
+    z-index:30;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob {
+    overflow:hidden;
+    position:relative;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob {
+    height:110px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-control-group .mod-knob > span.mod-knob-title {
+    bottom:0px;
+    display:block;
+    font-size:11px;
+    font-weight:bold;
+    height:12px;
+    left:0;
+    line-height:1;
+    margin:0;
+    overflow:hidden;
+    padding:0;
+    position:absolute;
+    right:0;
+    text-transform:uppercase;
+}
+
+/* = ENUMERATED LIST
+================================================ */
+.mod-pedal-boxy{{{cns}}} .mod-enumerated-group {
+    height:31px;
+    margin:20px auto 0 !important;
+    position:relative;
+    width:190px;
+    z-index:35;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated {
+    background-position:right center;
+    background-repeat:no-repeat;
+    font-size:11px;
+    font-weight:bold;
+    left:0;
+    line-height:2;
+    overflow:hidden;
+    position:absolute;
+    right:0;
+    text-align:left;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-selected {
+    background-color:rgba(0,0,0,.3);
+    box-shadow:inset 0 0 4px rgba(0,0,0,.3);
+    border-radius:4px;
+    padding:3px 9px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-selected {
+    border-radius:4px 4px 0 0;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-list {
+    display:none;
+    color:#fff;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-list {
+    background-color:rgba(0,0,0,.9);
+    display:none;
+    height:115px;
+    overflow:auto;
+    position:relative;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-list > div {
+    padding:3px 9px;
+}
+
+.mod-pedal-boxy{{{cns}}} .mod-enumerated .mod-enumerated-list > div:hover {
+    background-color:rgba(255,255,255,.2);
+    cursor:pointer;
+}
+
+/* STYLES FOR THE PLUGIN */
+
     .mda-subsynth * {
         color: white !important;
     }
@@ -7,7 +168,7 @@
     .mda-subsynth .mod-control-group .mod-knob {
         text-align: center;
         width: 70px
-        }
+    }
     .mod-knob#speed {
       position: absolute;
       top: 66px;
@@ -24,34 +185,31 @@
     }
     .mda-subsynth {
         background-image:url(/resources/mda-subsynth.png{{{ns}}}) !important;
-        background-size: 337px 464px;
-        background-position: 15px top;
-        width: 328px;
-        height: 464px;
+        background-size: 327px 456px !important;
+        width: 327px;
+        height: 456px;
+        border-radius: 0 !important;
     }
-     .mda-subsynth .mod-control-group {
+    .mda-subsynth .mod-knob2 {
+        top: -8px;
+        position: relative;
+    }
+    .mda-subsynth .mod-control-group {
       top: 0;
       height: auto !important;
       width: auto !important;
       text-align: left;
       position: relative;
-     }
-    .mda-subsynth .mod-control-group#wet {
-      left: 370px;
-      top: 375px;
-      position: absolute;
-      width: 70px !important;
-      height: 70px !important;
     }
 
     .mda-subsynth .mod-control-group.group1 {
-      margin-top: 40px;
+      margin-top: 34px;
       margin-left: 34px;
       float: left;
       width: 264px !important;
     }
     .mda-subsynth .mod-control-group.group2 {
-        margin-top: -3px;
+        margin-top: -5px;
         margin-left: 34px;
         float: left;
         width: 263px !important;
@@ -137,7 +295,7 @@
         cursor:pointer;
         height:66px;
         width: 66px;
-        left: 150px !important;
+        left: 135px !important;
         position:absolute;
     }
     .mda-subsynth .mod-knob-value  {
@@ -160,14 +318,14 @@
         background-position:bottom center;
     }
     .mda-subsynth .mod-pedal-input {
-        top: 36px;
+        top: 23px;
     }
     .mda-subsynth .mod-pedal-input .mod-input {
-        margin-bottom: 95px;
+        margin-bottom: 84px;
     }
     .mda-subsynth .mod-pedal-output {
-        top: 36px;
+        top: 23px;
     }
     .mda-subsynth .mod-pedal-output .mod-output  {
-        margin-bottom: 95px
+        margin-bottom: 84px;
     }

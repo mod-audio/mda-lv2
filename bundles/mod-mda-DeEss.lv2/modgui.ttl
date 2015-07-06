@@ -1,1 +1,30 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/DeEss>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-de-ess.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-de-ess.css> ;
+        modgui:screenshot <modgui/screenshot-mda-de-ess.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-de-ess.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "De-ess" ;
+        modgui:model "boxy" ;
+        modgui:panel "3-knobs" ;
+        modgui:color "red" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "thresh" ;
+            lv2:name "Thresh" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "freq" ;
+            lv2:name "Freq" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "hf_drive" ;
+            lv2:name "HF Drive" ;
+        ] ;
+    ] .

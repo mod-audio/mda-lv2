@@ -2,7 +2,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
@@ -179,12 +179,4 @@ mda:EPiano
         lv2:index 14 ;
         lv2:symbol "event_in" ;
         lv2:name "Event In"
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-epiano.html>;
-        mod:templateData <modgui/data-mda-epiano.json>;
-        mod:screenshot <modgui/screenshot-mda-epiano.png>;
-        mod:thumbnail <modgui/thumb-mda-epiano.png>;
     ] .

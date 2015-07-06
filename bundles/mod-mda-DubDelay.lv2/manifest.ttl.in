@@ -6,5 +6,6 @@
 mda:DubDelay
     a lv2:Plugin ;
     rdfs:seeAlso <DubDelay.ttl> ,
-        <common.ttl> ;
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <DubDelay@LIB_EXT@> .

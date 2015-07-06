@@ -1,1 +1,50 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/Piano>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-piano.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-piano.css> ;
+        modgui:screenshot <modgui/screenshot-mda-piano.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-piano.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Piano" ;
+        modgui:model "boxy" ;
+        modgui:panel "8-knobs" ;
+        modgui:color "green" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "env_decay" ;
+            lv2:name "Env Decay" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "env_release" ;
+            lv2:name "Env Rel" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "hardness_offset" ;
+            lv2:name "Hardness" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "vel_to_hardness" ;
+            lv2:name "Vel 2 Hard" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "muffling_filter" ;
+            lv2:name "Muff Fltr" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "vel_to_muffling" ;
+            lv2:name "Vel 2 Muff" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "vel_sensitivity" ;
+            lv2:name "Vel Sens" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "stereo_width" ;
+            lv2:name "Stereo" ;
+        ] ;
+    ] .

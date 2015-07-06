@@ -1,0 +1,46 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/DubDelay>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-dubdelay.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-dubdelay.css> ;
+        modgui:screenshot <modgui/screenshot-mda-dubdelay.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-dubdelay.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "DubDelay" ;
+        modgui:model "boxy" ;
+        modgui:panel "8-knobs" ;
+        modgui:color "white" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "delay" ;
+            lv2:name "Delay" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "feedback" ;
+            lv2:name "Feedback" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "fb_tone" ;
+            lv2:name "Fb Tone" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "lfo_depth" ;
+            lv2:name "LFO Depth" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "lfo_rate" ;
+            lv2:name "LFO Rate" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "fx_mix" ;
+            lv2:name "FX Mix" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "output" ;
+            lv2:name "Output" ;
+        ] ;
+    ] .

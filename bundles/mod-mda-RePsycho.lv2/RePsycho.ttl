@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 
@@ -145,12 +145,4 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-repsycho.html>;
-        mod:templateData <modgui/data-mda-repsycho.json>;
-        mod:screenshot <modgui/screenshot-mda-repsycho.png>;
-        mod:thumbnail <modgui/thumb-mda-repsycho.png>;
     ] .

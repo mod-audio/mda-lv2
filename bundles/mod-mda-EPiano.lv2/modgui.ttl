@@ -1,1 +1,42 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/EPiano>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-epiano.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-epiano.css> ;
+        modgui:screenshot <modgui/screenshot-mda-epiano.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-epiano.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "ePiano" ;
+        modgui:model "boxy" ;
+        modgui:panel "6-knobs" ;
+        modgui:color "green" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "env_decay" ;
+            lv2:name "Env Decay" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "env_release" ;
+            lv2:name "Env Rel" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "hardness" ;
+            lv2:name "Hardness" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "treble_boost" ;
+            lv2:name "Treble Boost" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "modulation" ;
+            lv2:name "Modul" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "lfo_rate" ;
+            lv2:name "LFO Rate" ;
+        ] ;
+    ] .

@@ -1,1 +1,50 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/Tracker>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-tracker.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-tracker.css> ;
+        modgui:screenshot <modgui/screenshot-mda-tracker.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-tracker.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Tracker" ;
+        modgui:model "boxy" ;
+        modgui:panel "8-knobs" ;
+        modgui:color "darkblue" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "mode" ;
+            lv2:name "Mode" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "dynamics" ;
+            lv2:name "Dynamics" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "glide" ;
+            lv2:name "Glide" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "transpose" ;
+            lv2:name "Transpose" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "maximum" ;
+            lv2:name "Maximum" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "trigger" ;
+            lv2:name "Trigger" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "output" ;
+            lv2:name "Output" ;
+        ] ;
+    ] .

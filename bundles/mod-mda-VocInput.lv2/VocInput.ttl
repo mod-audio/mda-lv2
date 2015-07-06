@@ -4,7 +4,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 
 mda:VocInput
     a lv2:Plugin ,
@@ -115,12 +115,4 @@ mda:VocInput
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-vocinput.html>;
-        mod:templateData <modgui/data-mda-vocinput.json>;
-        mod:screenshot <modgui/screenshot-mda-vocinput.png>;
-        mod:thumbnail <modgui/thumb-mda-vocinput.png>;
     ] .

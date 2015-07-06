@@ -3,7 +3,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
@@ -90,12 +90,4 @@ mda:Overdrive
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-overdrive.html>;
-        mod:templateData <modgui/data-mda-overdrive.json>;
-        mod:screenshot <modgui/screenshot-mda-overdrive.png>;
-        mod:thumbnail <modgui/thumb-mda-overdrive.png>;
     ] .

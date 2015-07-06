@@ -1,7 +1,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -116,12 +116,4 @@ mda:Limiter
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
         pg:group mda:mainOut
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-limiter.html>;
-        mod:templateData <modgui/data-mda-limiter.json>;
-        mod:screenshot <modgui/screenshot-mda-limiter.png>;
-        mod:thumbnail <modgui/thumb-mda-limiter.png>;
     ] .

@@ -1,1 +1,35 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/Limiter>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-limiter.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-limiter.css> ;
+        modgui:screenshot <modgui/screenshot-mda-limiter.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-limiter.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Limiter" ;
+        modgui:model "japanese" ;
+        modgui:panel "4-knobs" ;
+        modgui:color "red" ;
+        modgui:knob "darkblue" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "thresh" ;
+            lv2:name "Thresh" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "attack" ;
+            lv2:name "Attack" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "release" ;
+            lv2:name "Release" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "knee" ;
+            lv2:name "Knee" ;
+        ] ;
+    ] .

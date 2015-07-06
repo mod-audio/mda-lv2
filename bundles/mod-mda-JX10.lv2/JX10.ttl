@@ -2,7 +2,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -314,12 +314,4 @@ mda:JX10
 		lv2:index 26 ;
 		lv2:symbol "event_in" ;
 		lv2:name "Event In"
-	] ;
-	 mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-jx10.html>;
-        mod:templateData <modgui/data-mda-jx10.json>;
-        mod:screenshot <modgui/screenshot-mda-jx10.png>;
-        mod:thumbnail <modgui/thumb-mda-jx10.png>;
-    ] .
+	] .

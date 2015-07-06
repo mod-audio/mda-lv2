@@ -1,1 +1,40 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/SubSynth>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-subsynth.html> ;
+        modgui:stylesheet <modgui/mda-subsynth.css> ;
+        modgui:screenshot <modgui/screenshot-mda-subsynth.png> ;
+        modgui:thumbnail <modgui/thumb-mda-subsynth.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Ambience" ;
+        modgui:color "darkblue" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:name "Type" ;
+            lv2:name "type" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:name "Level" ;
+            lv2:name "level" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:name "Tune" ;
+            lv2:name "tune" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:name "Dry Mix" ;
+            lv2:name "dry_mix" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:name "Thresh" ;
+            lv2:name "thresh" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:name "Release" ;
+            lv2:name "release" ;
+        ] ;
+    ] .

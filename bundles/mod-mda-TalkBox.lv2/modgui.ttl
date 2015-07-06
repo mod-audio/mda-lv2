@@ -1,1 +1,35 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/TalkBox>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-talkbox.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-talkbox.css> ;
+        modgui:screenshot <modgui/screenshot-mda-talkbox.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-talkbox.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "TalkBox" ;
+        modgui:model "japanese" ;
+        modgui:panel "4-knobs" ;
+        modgui:color "darkblue" ;
+        modgui:knob "blue" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "carrier" ;
+            lv2:name "Carrier" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "quality" ;
+            lv2:name "Quality" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "dry" ;
+            lv2:name "Dry" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "wet" ;
+            lv2:name "Wet" ;
+        ] ;
+    ] .
