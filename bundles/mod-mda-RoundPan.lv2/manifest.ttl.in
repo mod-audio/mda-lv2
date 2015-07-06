@@ -3,7 +3,7 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-modplugins:RoundPan
+mda:RoundPan
     a lv2:Plugin ;
     rdfs:seeAlso <RoundPan.ttl> ;
     lv2:binary <RoundPan@LIB_EXT@> .

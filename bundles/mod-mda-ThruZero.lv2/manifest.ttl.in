@@ -3,7 +3,7 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-modplugins:ThruZero
+mda:ThruZero
     a lv2:Plugin ;
     rdfs:seeAlso <ThruZero.ttl> ;
     lv2:binary <ThruZero@LIB_EXT@> .

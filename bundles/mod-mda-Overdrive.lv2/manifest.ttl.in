@@ -3,7 +3,7 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-modplugins:Overdrive
+mda:Overdrive
     a lv2:Plugin ;
     rdfs:seeAlso <Overdrive.ttl> ;
     lv2:binary <Overdrive@LIB_EXT@> .

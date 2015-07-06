@@ -1,7 +1,6 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
-@prefix mda: <http://drobilla.net/plugins/mda/> .
-@prefix modplugins: <http://moddevices.com/plugins/mda/> .
+@prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/modgui#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,7 +9,7 @@
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
-modplugins:Image
+mda:Image
     a lv2:Plugin ,
         lv2:SpatialPlugin ;
     lv2:project mda: ;

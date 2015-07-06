@@ -3,7 +3,7 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-modplugins:RezFilter
+mda:RezFilter
     a lv2:Plugin ;
     rdfs:seeAlso <RezFilter.ttl> ;
     lv2:binary <RezFilter@LIB_EXT@> .

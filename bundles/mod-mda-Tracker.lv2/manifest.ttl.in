@@ -3,7 +3,7 @@
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-modplugins:Tracker
+mda:Tracker
     a lv2:Plugin ;
     rdfs:seeAlso <Tracker.ttl> ;
     lv2:binary <Tracker@LIB_EXT@> .

@@ -1,8 +1,7 @@
 @prefix atom: <http://lv2plug.in/ns/ext/atom#> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
-@prefix mda: <http://drobilla.net/plugins/mda/> .
-@prefix modplugins: <http://moddevices.com/plugins/mda/> .
+@prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/modgui#> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
@@ -17,7 +16,7 @@
     lv2:name "Envelope" ;
     lv2:symbol "env" .
 
-modplugins:DX10
+mda:DX10
     a lv2:Plugin ,
         lv2:InstrumentPlugin ;
     lv2:project mda: ;
