@@ -45,33 +45,33 @@
 // para valores de 0 a 1, pois o código do mda foi projetado para trabalhar com esses valores
 
 
-float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
+float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted) {
     if(strcmp(effect->getUniqueID(), "mdaAmb") == 0) {
             switch(port) {
                 case 0:
-                return (value)/(10);
+                return inverted ? value*10.f : value/10.f;
                 case 1:
-                return (value)/(100);
+                return inverted ? value*100.f : value/100.f;
                 case 2:
-                return (value)/(100);
+                return inverted ? value*100.f : value/100.f;
                 case 3:
-                return (value + 20)/(40);
+                return inverted ? value*40.f-20.f : (value+20.f)/(40.f);
             }
     }
     else if(strcmp(effect->getUniqueID(), "mdaBand") == 0) {
         switch(port) {
             case(0):
-            return (value)/(3);
+            return value/(3);
             case(1):
             return (value - 88)/(1020 - 88);
             case(2):
             return (value - 112)/(19606 - 112);
             case(3):
-            return (value)/(60);
+            return value/(60);
             case(4):
-            return (value)/(60);
+            return value/(60);
             case(5):
-            return (value)/(60);
+            return value/(60);
             case(6):
             return (value - 20)/(40);
             case(7):
@@ -79,7 +79,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(8):
             return (value - 20)/(40);
             case(9):
-            return (float) value;
+            return value;
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaBBox") == 0) {
@@ -105,7 +105,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(9):
             return (value - 1)/(99);
             case(10):
-            return (float) (value)/4;
+            return value/4;
             case(11):
             return (value + 41)/(41);
         }
@@ -113,7 +113,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaCombo") == 0) {
         switch(port) {
             case(0):
-            return  (float) (value)/6;
+            return  value/6;
             case(1):
             return (value + 100)/(200);
             case(2):
@@ -121,11 +121,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(3):
             return (value + 20)/(40);
             case(4):
-            return  (float) value;
+            return  value;
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
-            return (value)/(100);
+            return value/(100);
         }
 
     }
@@ -148,9 +148,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaDetune") == 0) {
         switch(port) {
             case(0):
-            return (value)/(300);
+            return value/(300);
             case(1):
-            return (value)/(99);
+            return value/(99);
             case(2):
             return (value + 20)/(40);
             case(3):
@@ -162,9 +162,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(0):
             return (value - 8)/(16);
             case(1):
-            return (value)/(3);
+            return value/(3);
             case(2):
-            return (value)/(4);
+            return value/(4);
             case(3):
             return (value + 2)/(4);
             case(4):
@@ -175,17 +175,17 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
         switch(port) {
             case(0):
-            return (value)/7341;
+            return value/7341;
             case(1):
             return (value + 110)/(220);
             case(2):
             return (value + 100)/(200);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
             return  1 - ((value - 0.10)/99.9);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
             return (value + 34)/(40);
         }
@@ -193,37 +193,37 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaDX10") == 0) {
         switch(port) {
             case(0):
-            return (value)/(100);
+            return value/(100);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
-            return (value)/(100);
+            return value/(100);
             case(3):
-            return (value)/(40);
+            return value/(40);
             case(4):
-            return (value)/(0.750);
+            return value/(0.750);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
-            return (value)/(100);
+            return value/(100);
             case(7):
-            return (value)/(100);
+            return value/(100);
             case(8):
-            return (value)/(100);
+            return value/(100);
             case(9):
-            return (value)/(100);
+            return value/(100);
             case(10):
-            return (value)/(100);
+            return value/(100);
             case(11):
             return (value + 3)/(6);
             case(12):
             return (value + 100)/(200);
             case(13):
-            return (value)/(100);
+            return value/(100);
             case(14):
-            return (value)/(100);
+            return value/(100);
             case(15):
-            return (value)/(25);
+            return value/(25);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDynamics") == 0) {
@@ -233,7 +233,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(1):
             return 1 - ((value + 17)/(17.5));
             case(2):
-            return (value)/(40);
+            return value/(40);
             case(3):
             return (value - 2)/(1569);
             case(4):
@@ -247,15 +247,15 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(8):
             return (value - 9)/(17375);
             case(9):
-            return (value)/(100);
+            return value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaEPiano") == 0) {
         switch(port) {
             case(0):
-            return (value)/(100);
+            return value/(100);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
             return (value + 50)/(100);
             case(3):
@@ -265,23 +265,23 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(5):
             return (value - 0.07)/(36.90);
             case(6):
-            return (value)/(100);
+            return value/(100);
             case(7):
-            return (value)/(200);
+            return value/(200);
             case(8):
-            return (value);
+            return value;
             case(9):
             return (value + 50)/(100);
             case(10):
-            return (value)/(50);
+            return value/(50);
             case(11):
-            return (value)/(100);
+            return value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaImage") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
             return (value + 200)/(400);
             case(2):
@@ -300,23 +300,23 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaLeslie") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
-            return (value)/(100);
+            return value/(100);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
-            return (value)/(100);
+            return value/(100);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
             return (value - 150)/(1360);
             case(7):
             return (value + 20)/(40);
             case(8):
-            return (value)/(200);
+            return value/(200);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaLimiter") == 0) {
@@ -328,9 +328,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(2):
             return (value - 1)/(1570);
             case(3):
-            return (value)/(1563);
+            return value/(1563);
             case(4):
-            return (value);
+            return value;
         }
     }
     //else if(strcmp(effect->getUniqueID(), "mdaLoopLex") == 0) {
@@ -342,17 +342,17 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaMultiBand") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
             return (value - 87)/(933);
             case(2):
             return (value - 111)/(19495);
             case(3):
-            return (value)/(30);
+            return value/(30);
             case(4):
-            return (value)/(30);
+            return value/(30);
             case(5):
-            return (value)/(30);
+            return value/(30);
             case(6):
             return (value + 20)/(40);
             case(7):
@@ -364,18 +364,18 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(10):
             return (value - 1)/(1570);
             case(11):
-            return (value)/(200);
+            return value/(200);
             case(12):
-            return (value);
+            return value;
         }
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaOverdrive") == 0) {
         switch(port) {
             case(0):
-            return (value)/(100);
+            return value/(100);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
             return (value + 20)/(40);
         }
@@ -383,27 +383,27 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaPiano") == 0) {
         switch(port) {
             case(0):
-            return (value)/(100);
+            return value/(100);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
             return (value + 50)/(100);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
-            return (value)/(100);
+            return value/(100);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
-            return (value)/(100);
+            return value/(100);
             case(7):
-            return (value)/(200);
+            return value/(200);
             case(8):
-            return (value);
+            return value;
             case(9):
             return (value + 50)/(100);
             case(10):
-            return (value)/(50);
+            return value/(50);
             case(11):
             return (value + 50)/(100);
         }
@@ -421,43 +421,43 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(4):
             return (value - 10)/(250);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
-            return (value);
+            return value;
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRezFilter") == 0) {
         switch(port) {
             case(0):
-            return (value)/(100);
+            return value/(100);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
             return (value + 20)/(40);
             case(3):
             return (value + 100)/(200);
             case(4):
-            return (value)/(160.83);
+            return value/(160.83);
             case(5):
             return (value - 1.56)/(15510.08);
             case(6):
             return (value + 100)/(200);
             case(7):
-            return (2 + log10(value))/4;
+            return (2 + log10(value)/4;
             case(8):
             return (value + 37)/(40);
             case(9):
-            return (value)/(100);
+            return value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRingMod") == 0) {
          switch(port) {
             case(0):
-            return (value)/(16000);
+            return value/(16000);
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
-            return (value)/(100);
+            return value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRoundPan") == 0) {
@@ -471,7 +471,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaShepard") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
             return (value + 100)/(200);
             case(2):
@@ -481,15 +481,15 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaSplitter") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
             return (value - 100)/(9900);
             case(2):
-            return (value);
+            return value;
             case(3):
             return (value + 40)/(40);
             case(4):
-            return (value);
+            return value;
             case(5):
             return (value - 10)/(990);
             case(6):
@@ -505,7 +505,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(2):
             return (value + 100)/(200);
             case(3):
-            return (value)/(47.62);
+            return value/(47.62);
             case(4):
             return (value - 0.1)/(99.9);
         }
@@ -513,13 +513,13 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaSubSynth") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
             return (value - 10)/(310);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
             return (value + 60)/60;
             case(5):
@@ -529,11 +529,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaTalkBox") == 0) {
         switch(port) {
             case(0):
-            return (value)/(200);
+            return value/(200);
             case(1):
-            return (value)/(200);
+            return value/(200);
             case(2):
-            return (value);
+            return value;
             case(3):
             return pow((value - 5)/(95), 0.5);
         }
@@ -546,25 +546,25 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(0):
             return 1 - ((value - 0.1)/(93.24));
             case(1):
-            return (value)/(45.35);
+            return value/(45.35);
             case(2):
-            return (value)/(100);
+            return value/(100);
             case(3):
             return (value + 100)/(200);
             case(4):
-            return (value)/(100);
+            return value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaTracker") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
-            return (value)/(100);
+            return value/(100);
             case(2):
-            return (value)/(100);
+            return value/(100);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
             return (value + 36)/(72);
             case(5):
@@ -586,9 +586,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
             case(3):
             return (value + 10)/(20);
             case(4):
-            return (value)/(100);
+            return value/(100);
             case(5):
-            return (value)/(100);
+            return value/(100);
 
         }
     }
@@ -598,21 +598,21 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value) {
     else if(strcmp(effect->getUniqueID(), "mdaVocoder") == 0) {
         switch(port) {
             case(0):
-            return (value);
+            return value;
             case(1):
             return (value + 20)/(40);
             case(2):
-            return (value)/(100);
+            return value/(100);
             case(3):
-            return (value)/(100);
+            return value/(100);
             case(4):
             return (value - 14)/(9986);
             case(5):
-            return (value)/(100);
+            return value/(100);
             case(6):
             return (value - 200)/(1400);
             case(7):
-            return (value);
+            return value;
         }
     }
     return value;
@@ -703,6 +703,7 @@ lvz_instantiate(const LV2_Descriptor*    descriptor,
         plugin->control_buffers = (float**)malloc(sizeof(float*) * num_params);
         for (uint32_t i = 0; i < num_params; ++i) {
             plugin->controls[i] = effect->getParameter(i);
+            //plugin->controls[i] = translateParameter(effect, i, effect->getParameter(i), true); TODO
             plugin->control_buffers[i] = NULL;
         }
     } else {
@@ -739,7 +740,7 @@ lvz_run(LV2_Handle instance, uint32_t sample_count)
     for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i) {
         float val = plugin->control_buffers[i][0];
         if (val != plugin->controls[i]) {
-            plugin->effect->setParameter(i, translateParameter(plugin->effect, i, val));
+            plugin->effect->setParameter(i, translateParameter(plugin->effect, i, val, false));
             plugin->controls[i] = val;
         }
     }
