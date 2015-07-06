@@ -107,7 +107,8 @@ mda:Combo
         lv2:default 0 ;
         lv2:minimum 0 ;
         lv2:maximum 1 ;
-        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ,
+            lv2:toggled ;
         rdfs:comment "Process in stereo.  Defaults to Mono to reduce processor usage."
     ] , [
         a lv2:InputPort ,
