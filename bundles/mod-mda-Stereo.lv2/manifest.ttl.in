@@ -1,48 +1,7 @@
-@prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
-@prefix mda: <http://drobilla.net/plugins/mda/> .
-@prefix mdapset: <http://drobilla.net/plugins/mda/presets#> .
-@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
-@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix mda:  <http://moddevices.com/plugins/mda/> .
+@prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix modplugins: <http://moddevices.com/plugins/mda/> .
-
-<http://drobilla.net/drobilla#me>
-    a foaf:Person ;
-    foaf:name "David Robillard" ;
-    foaf:mbox <mailto:d@drobilla.net> ;
-    rdfs:seeAlso <http://drobilla.net/drobilla> .
-
-mda:
-    a doap:Project ;
-    lv2:symbol "mda" ;
-    doap:name "MDA LV2" ;
-    doap:shortdesc "An LV2 port of the MDA plugins." ;
-    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <devel@moddevices.com>;
-    ] ;
-    doap:developer [
-        a foaf:Person ;
-        foaf:name "Paul Kellett" ;
-        foaf:mbox <paul@mda-vst.com>
-    ] .
-
-modplugins:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-modplugins:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
 
 modplugins:Stereo
     a lv2:Plugin ;
