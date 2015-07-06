@@ -4,7 +4,7 @@
 @prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
-@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
 
 mda:Ambience
     a lv2:Plugin ,

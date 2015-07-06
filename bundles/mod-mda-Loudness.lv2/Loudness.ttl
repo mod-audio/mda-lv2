@@ -29,7 +29,7 @@ Fade out without the sound becoming "tinny" by activating Link and using Loudnes
 	mod:brand "MDA" ;
 	mod:label "Loudness" ;
 
-	lv2:ports[
+	lv2:port [
 		a lv2:InputPort ,
 			lv2:ControlPort ;
 		lv2:index 0 ;

@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
-@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
@@ -142,7 +142,7 @@ mda:RezFilter
         lv2:default -37.0 ;
         lv2:minimum -37.0 ;
         lv2:maximum 3.0 ;
-        lv2:portProperty lv2:intenger;
+        #lv2:portProperty lv2:intenger;
         units:unit units:db;
         lv2:scalePoint [
             rdfs:label "FREE RUN" ;
