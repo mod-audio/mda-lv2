@@ -6,7 +6,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
+@prefix modplugins: <http://moddevices.com/plugins/mda/> .
 
 <http://drobilla.net/drobilla#me>
     a foaf:Person ;
@@ -22,8 +22,8 @@ mda:
     doap:homepage <http://drobilla.net/software/mda-lv2> ;
     doap:maintainer [
         foaf:name "MOD Team";
-        foaf:homepage <http://portalmod.com>;
-        foaf:mbox <devel@portalmod.com>;
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <devel@moddevices.com>;
     ] ;
     doap:developer [
         a foaf:Person ;

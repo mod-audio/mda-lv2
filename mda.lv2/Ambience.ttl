@@ -2,8 +2,8 @@
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://drobilla.net/plugins/mda/> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
-@prefix modplugins: <http://portalmod.com/plugins/mda/> .
-@prefix mod: <http://portalmod.com/ns/modgui#> .
+@prefix modplugins: <http://moddevices.com/plugins/mda/> .
+@prefix mod: <http://moddevices.com/ns/modgui#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 
