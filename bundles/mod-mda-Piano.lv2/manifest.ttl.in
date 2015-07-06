@@ -1,6 +1,7 @@
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
 @prefix mda:  <http://moddevices.com/plugins/mda/> .
 @prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 mda:Piano
