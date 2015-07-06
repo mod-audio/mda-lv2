@@ -20,7 +20,8 @@ mda:VocInput
     rdfs:comment "This plug-in produces a voice-like signal on the right channel to be used as a carrier signal with vocoder and other vocoder plug-ins. The input signal passes through on the left channel." ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
+    mod:brand "MDA" ;
+    mod:label "VocInput" ;
 
     lv2:port [
         a lv2:InputPort ,

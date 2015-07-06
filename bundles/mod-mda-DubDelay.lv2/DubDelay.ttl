@@ -22,7 +22,8 @@ mda:DubDelay
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 5;
-
+    mod:brand "MDA" ;
+    mod:label "DubDelay" ;
 
     lv2:port[
         a lv2:InputPort ,

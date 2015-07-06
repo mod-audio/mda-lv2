@@ -23,6 +23,9 @@ mda:Image
     rdfs:comment "Allows the level and pan of mono and stereo components to be adjusted separately, or components to be separated for individual processing before recombining with a second Image plug-in." ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "Image" ;
+
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;

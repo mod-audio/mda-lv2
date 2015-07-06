@@ -1,1 +1,38 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/DX10>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-dx10.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-dx10.css> ;
+        modgui:screenshot <modgui/screenshot-mda-dx10.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-dx10.png> ;
+        modgui:brand "MDA " ;
+        modgui:label "DX10" ;
+        modgui:model "boxy" ;
+        modgui:panel "5-knobs" ;
+        modgui:color "green" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "attack" ;
+            lv2:name "Attack" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "decay" ;
+            lv2:name "Decay" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "release" ;
+            lv2:name "Release" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "coarse" ;
+            lv2:name "Coarse" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "fine" ;
+            lv2:name "Fine" ;
+        ] ;
+    ] .

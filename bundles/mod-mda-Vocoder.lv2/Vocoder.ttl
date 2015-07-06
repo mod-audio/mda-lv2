@@ -25,6 +25,8 @@ mda:Vocoder
 Note that both carrier and modulator signals are taken from one input channel, which therefore must be stereo for normal operation. This is different to some other vocoder plug-ins where one of the input signals is taken from another plug-in in a different channel.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "Vocoder" ;
 
     lv2:port [
         a lv2:InputPort ,

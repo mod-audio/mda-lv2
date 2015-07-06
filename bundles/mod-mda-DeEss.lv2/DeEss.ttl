@@ -23,6 +23,9 @@ mda:DeEss
 For stronger de-essing you may want to use two plug-ins in series, or apply processing twice.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "DeEss" ;
+
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;

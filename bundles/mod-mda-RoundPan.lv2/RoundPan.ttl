@@ -22,7 +22,8 @@ mda:RoundPan
     rdfs:comment "Like all 3D processes the result depends on where you sit relative to the speakers, and mono compatibility is not guaranteed. This plug-in must be used in a stereo channel or bus!" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
+    mod:brand "MDA" ;
+    mod:label "RoundPan" ;
 
     lv2:port [
         a lv2:InputPort ,

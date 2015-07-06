@@ -19,7 +19,8 @@ mda:TestTone
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
+    mod:brand "MDA" ;
+    mod:label "TestTone" ;
 
     lv2:port [
         a lv2:InputPort ,

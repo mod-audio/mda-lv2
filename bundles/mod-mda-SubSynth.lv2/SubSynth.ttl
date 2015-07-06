@@ -23,8 +23,8 @@ mda:SubSynth
     rdfs:comment """More bass than you could ever need! Be aware that you may be adding low frequency content outside the range of your monitor speakers.  To avoid clipping, follow with a limiter plug-in (this can also give some giant hip-hop drum sounds!).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
-
-
+    mod:brand "MDA" ;
+    mod:label "SubSynth" ;
 
     lv2:port [
         a lv2:InputPort ,

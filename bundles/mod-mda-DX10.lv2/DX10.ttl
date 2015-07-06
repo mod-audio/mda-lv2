@@ -2,7 +2,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix lv2: <http://lv2plug.in/ns/lv2core#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
-@prefix mod: <http://moddevices.com/ns/modgui#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -31,6 +31,9 @@ mda:DX10
     rdfs:comment "Sounds similar to the later Yamaha DX synths including the heavy bass but with a warmer, cleaner tone.  This plug-in is 8-voice polyphonic." ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "DX10" ;
+
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;
@@ -231,12 +234,4 @@ mda:DX10
         lv2:index 18 ;
         lv2:symbol "event_in" ;
         lv2:name "Event In"
-    ] ;
-     mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-mda-dx10.html>;
-        mod:templateData <modgui/data-mda-dx10.json>;
-        mod:screenshot <modgui/screenshot-mda-dx10.png>;
-        mod:thumbnail <modgui/thumb-mda-dx10.png>;
     ] .

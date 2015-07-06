@@ -22,6 +22,8 @@ mda:Combo
     rdfs:comment "This plug-in can sound quite subtle but comes alive when used on guitar with the drive turned up!  Remember that distortion may not sound good on time-based effects such as delay and reverb, so put those effects after this plug, or after a separate distortion plug with Combo acting only as a speaker simulator." ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
+    mod:brand "MDA" ;
+    mod:label "Combo" ;
 
     lv2:port [
         a lv2:InputPort ,

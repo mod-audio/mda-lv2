@@ -21,6 +21,8 @@ mda:Delay
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
+    mod:brand "MDA" ;
+    mod:label "Delay" ;
 
     lv2:port [
         a lv2:InputPort ,

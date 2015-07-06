@@ -24,6 +24,8 @@ mda:Tracker
 This plug can be used with white or pink noise inputs to generate random pitch sequences.  Interesting evolving soundscapes can be made with a drum loop input and Tracker, RezFilter and Delay in series.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "Tracker" ;
 
     lv2:port [
         a lv2:InputPort ,

@@ -26,6 +26,8 @@ mda:ThruZero
 This plug simulates tape-flanging, where two copies of a signal cancel out completely as the tapes pass each other. It can also be used for other "modulated delay" effects such as phasing and simple chorusing.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "ThruZero" ;
 
     lv2:port [
         a lv2:InputPort ,

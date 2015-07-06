@@ -23,6 +23,8 @@ mda:Splitter
     rdfs:comment """This plug-in can split a signal based on frequency or level, for example for producing dynamic effects where only loud drum hits are sent to a reverb. Other functions include a simple "spectral gate" in INVERSE mode and a conventional gate and filter for separating drum sounds in NORMAL mode.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "Splitter" ;
 
     lv2:port [
         a lv2:InputPort ,

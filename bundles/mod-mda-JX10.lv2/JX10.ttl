@@ -36,6 +36,9 @@ mda:JX10
     """ ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
+	mod:brand "MDA" ;
+	mod:label "JX10" ;
+
 	lv2:port[
 		a lv2:InputPort ,
 			lv2:ControlPort ;

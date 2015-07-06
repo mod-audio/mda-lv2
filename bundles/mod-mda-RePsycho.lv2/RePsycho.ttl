@@ -27,6 +27,8 @@ Chops audio into individual beats and shifts each beat downwards in pitch. Only 
 Alternative uses include a triggered flanger or sub-octave doubler (both with mix set to 50% or less) and a swing quantizer (with a high threshold so not all beats trigger).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 1;
+    mod:brand "MDA" ;
+    mod:label "RePsycho" ;
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;

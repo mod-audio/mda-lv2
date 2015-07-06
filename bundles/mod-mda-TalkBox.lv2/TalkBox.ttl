@@ -22,7 +22,8 @@ mda:TalkBox
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
+    mod:brand "MDA" ;
+    mod:label "TalkBox" ;
 
     lv2:port [
         a lv2:InputPort ,

@@ -31,6 +31,8 @@ mda:MultiBand
 To give more control when mastering (and to offer something different from other dynamics processors) in Mono mode this plug does not compress any stereo information, but in Stereo mode only the stereo component is processed giving control over ambience and space with a similar sound to strereo "shufflers" - but be careful with the levels!  The stereo width control works as a "mono depth" control in Stereo mode.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "MultiBand" ;
 
     lv2:port [
         a lv2:InputPort ,

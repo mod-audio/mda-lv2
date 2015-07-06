@@ -24,6 +24,8 @@ mda:EPiano
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "ePiano" ;
 
     rdfs:comment """
     It's a virtual ePiano plugin. Based around 12 carefully sampled and mastered Rhodes Piano samples.

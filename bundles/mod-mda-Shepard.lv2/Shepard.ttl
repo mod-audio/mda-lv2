@@ -23,6 +23,8 @@ mda:Shepard
     rdfs:comment """This plug-in actually generates "Risset tones". Discrete stepping "Shepard tones" will hopefully be included in a future version. Continuously rising/falling tone generator.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
+    mod:brand "MDA" ;
+    mod:label "Shepard" ;
 
     lv2:port [
         a lv2:InputPort ,

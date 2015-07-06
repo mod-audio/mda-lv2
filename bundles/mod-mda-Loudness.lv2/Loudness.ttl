@@ -26,6 +26,9 @@ Check how a mix would sound at a much louder level by decreasing Loudness. (alth
 Fade out without the sound becoming "tinny" by activating Link and using Loudness to adjust the level without affecting the tonal balance.""" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
+	mod:brand "MDA" ;
+	mod:label "Loudness" ;
+
 	lv2:ports[
 		a lv2:InputPort ,
 			lv2:ControlPort ;

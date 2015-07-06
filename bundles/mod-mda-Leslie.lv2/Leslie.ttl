@@ -24,6 +24,8 @@ mda:Leslie
     rdfs:comment "No overdrive or speaker cabinet simulation is added - you may want to combine this plug-in with Combo.  For a much thicker sound try combining two Leslie plug-ins in series!" ;
     lv2:minorVersion 0;
     lv2:microVersion 3;
+    mod:brand "MDA" ;
+    mod:label "Leslie" ;
 
     lv2:port[
         a lv2:InputPort ,

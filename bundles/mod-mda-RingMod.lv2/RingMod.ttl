@@ -23,7 +23,8 @@ mda:RingMod
 Can be used as a high-frequency enhancer for drum sounds (when mixed with the original), adding dissonance to pitched material, and severe tremolo (at low frequency settings).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
-
+    mod:brand "MDA" ;
+    mod:label "RingMod" ;
 
     lv2:port [
         a lv2:InputPort ,

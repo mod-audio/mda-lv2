@@ -33,6 +33,9 @@ No gain changes should be applied after this plug-in. Make sure any master outpu
 Very technical note This plug-in follows Steinberg's convention that a signal level of 1.0 corresponds to a 16-bit output of 32768. If your host application does not allow this exact gain setting the effectiveness of dither may be reduced (check for harmonic distortion of a 1 kHz sine wave using a spectrum analyser).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "Dither" ;
+
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;

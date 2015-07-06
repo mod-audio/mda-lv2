@@ -23,6 +23,9 @@ mda:BeatBox
 To record your own sounds, use the Record control to monitor the plug's input, then with the source stopped select the slot to record into, play your sound, then with the source stopped again, switch back to monitoring.  This process is easier in an 'off line' editor such as WaveLab, rather than during a live mixdown in a DAW.""" ;
     lv2:minorVersion 0;
     lv2:microVersion 2;
+    mod:brand "MDA" ;
+    mod:label "BeatBox" ;
+
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;
