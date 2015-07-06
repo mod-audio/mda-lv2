@@ -5,20 +5,22 @@
 
 mda:Detune
     a lv2:Plugin ;
-    rdfs:seeAlso <Detune.ttl> ;
+    rdfs:seeAlso <Detune.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Detune@LIB_EXT@> .
 
-mdapset:Detune-stereo-detune
+mdap:Detune-stereo-detune
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
-    rdfs:seeAlso <Detune-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Detune-symphonic
+mdap:Detune-symphonic
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
-    rdfs:seeAlso <Detune-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Detune-out-of-tune
+mdap:Detune-out-of-tune
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
-    rdfs:seeAlso <Detune-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .

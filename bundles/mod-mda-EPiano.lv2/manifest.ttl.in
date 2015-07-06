@@ -5,31 +5,33 @@
 
 mda:EPiano
     a lv2:Plugin ;
-    rdfs:seeAlso <EPiano.ttl> ;
+    rdfs:seeAlso <EPiano.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <EPiano@LIB_EXT@> .
 
-mdapset:EPiano-default
+mdap:EPiano-default
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
-    rdfs:seeAlso <EPiano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:EPiano-bright
+mdap:EPiano-bright
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
-    rdfs:seeAlso <EPiano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:EPiano-mellow
+mdap:EPiano-mellow
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
-    rdfs:seeAlso <EPiano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:EPiano-autopan
+mdap:EPiano-autopan
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
-    rdfs:seeAlso <EPiano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:EPiano-tremolo
+mdap:EPiano-tremolo
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
-    rdfs:seeAlso <EPiano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 

@@ -5,5 +5,7 @@
 
 mda:DeEss
     a lv2:Plugin ;
-    rdfs:seeAlso <DeEss.ttl> ;
+    rdfs:seeAlso <DeEss.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <DeEss@LIB_EXT@> .

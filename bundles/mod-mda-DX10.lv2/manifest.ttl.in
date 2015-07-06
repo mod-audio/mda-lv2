@@ -5,165 +5,167 @@
 
 mda:DX10
     a lv2:Plugin ;
-    rdfs:seeAlso <DX10.ttl> ;
+    rdfs:seeAlso <DX10.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <DX10@LIB_EXT@> .
 
-mdapset:DX10-bright-e-piano
+mdap:DX10-bright-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-jazz-e-piano
+mdap:DX10-jazz-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-e-piano-pad
+mdap:DX10-e-piano-pad
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-fuzzy-e-piano
+mdap:DX10-fuzzy-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-soft-chimes
+mdap:DX10-soft-chimes
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-harpsichord
+mdap:DX10-harpsichord
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-funk-clav
+mdap:DX10-funk-clav
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-sitar
+mdap:DX10-sitar
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-chiff-organ
+mdap:DX10-chiff-organ
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-tinkle
+mdap:DX10-tinkle
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-space-pad
+mdap:DX10-space-pad
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-koto
+mdap:DX10-koto
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-harp
+mdap:DX10-harp
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-jazz-guitar
+mdap:DX10-jazz-guitar
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-steel-drum
+mdap:DX10-steel-drum
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-log-drum
+mdap:DX10-log-drum
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-trumpet
+mdap:DX10-trumpet
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-horn
+mdap:DX10-horn
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-reed-1
+mdap:DX10-reed-1
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-reed-2
+mdap:DX10-reed-2
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-violin
+mdap:DX10-violin
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-chunky-bass
+mdap:DX10-chunky-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-e-bass
+mdap:DX10-e-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-clunk-bass
+mdap:DX10-clunk-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-thick-bass
+mdap:DX10-thick-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-sine-bass
+mdap:DX10-sine-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-square-bass
+mdap:DX10-square-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-upright-bass-1
+mdap:DX10-upright-bass-1
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-upright-bass-2
+mdap:DX10-upright-bass-2
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-harmonics
+mdap:DX10-harmonics
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-scratch
+mdap:DX10-scratch
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:DX10-syn-tom
+mdap:DX10-syn-tom
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
-    rdfs:seeAlso <DX10-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .

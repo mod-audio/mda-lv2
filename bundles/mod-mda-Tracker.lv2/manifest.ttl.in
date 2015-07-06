@@ -5,5 +5,7 @@
 
 mda:Tracker
     a lv2:Plugin ;
-    rdfs:seeAlso <Tracker.ttl> ;
+    rdfs:seeAlso <Tracker.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Tracker@LIB_EXT@> .

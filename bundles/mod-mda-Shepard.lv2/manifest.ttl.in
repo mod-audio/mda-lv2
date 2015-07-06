@@ -5,6 +5,8 @@
 
 mda:Shepard
     a lv2:Plugin ;
-    rdfs:seeAlso <Shepard.ttl> ;
+    rdfs:seeAlso <Shepard.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Shepard@LIB_EXT@> .
 

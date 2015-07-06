@@ -5,6 +5,8 @@
 
 mda:RePsycho
     a lv2:Plugin ;
-    rdfs:seeAlso <RePsycho.ttl> ;
+    rdfs:seeAlso <RePsycho.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <RePsycho@LIB_EXT@> .
 

@@ -5,26 +5,28 @@
 
 mda:ThruZero
     a lv2:Plugin ;
-    rdfs:seeAlso <ThruZero.ttl> ;
+    rdfs:seeAlso <ThruZero.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <ThruZero@LIB_EXT@> .
 
-mdapset:ThruZero-thru-zero-flanger
+mdap:ThruZero-thru-zero-flanger
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
-    rdfs:seeAlso <ThruZero-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:ThruZero-phase-canceller
+mdap:ThruZero-phase-canceller
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
-    rdfs:seeAlso <ThruZero-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:ThruZero-chorus-doubler
+mdap:ThruZero-chorus-doubler
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
-    rdfs:seeAlso <ThruZero-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:ThruZero-mad-modulator
+mdap:ThruZero-mad-modulator
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
-    rdfs:seeAlso <ThruZero-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 

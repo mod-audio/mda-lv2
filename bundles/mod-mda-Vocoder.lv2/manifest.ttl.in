@@ -5,30 +5,32 @@
 
 mda:Vocoder
     a lv2:Plugin ;
-    rdfs:seeAlso <Vocoder.ttl> ;
+    rdfs:seeAlso <Vocoder.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Vocoder@LIB_EXT@> .
 
-mdapset:Vocoder-vocoder
+mdap:Vocoder-default
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
-    rdfs:seeAlso <Vocoder-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Vocoder-16-band-vocoder
+mdap:Vocoder-16-band-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
-    rdfs:seeAlso <Vocoder-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Vocoder-old-vocoder
+mdap:Vocoder-old-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
-    rdfs:seeAlso <Vocoder-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Vocoder-choral-vocoder
+mdap:Vocoder-choral-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
-    rdfs:seeAlso <Vocoder-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Vocoder-pad-vocoder
+mdap:Vocoder-pad-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
-    rdfs:seeAlso <Vocoder-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .

@@ -5,5 +5,7 @@
 
 mda:RezFilter
     a lv2:Plugin ;
-    rdfs:seeAlso <RezFilter.ttl> ;
+    rdfs:seeAlso <RezFilter.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <RezFilter@LIB_EXT@> .

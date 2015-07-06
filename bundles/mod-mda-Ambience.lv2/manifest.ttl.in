@@ -5,7 +5,7 @@
 
 mda:Ambience
     a lv2:Plugin ;
-    lv2:binary <Ambience@LIB_EXT@> ;
     rdfs:seeAlso <Ambience.ttl> ,
         <common.ttl> ,
         <modgui.ttl> ;
+    lv2:binary <Ambience@LIB_EXT@> .

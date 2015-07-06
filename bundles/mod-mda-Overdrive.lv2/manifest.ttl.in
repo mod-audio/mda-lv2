@@ -5,5 +5,7 @@
 
 mda:Overdrive
     a lv2:Plugin ;
-    rdfs:seeAlso <Overdrive.ttl> ;
+    rdfs:seeAlso <Overdrive.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Overdrive@LIB_EXT@> .

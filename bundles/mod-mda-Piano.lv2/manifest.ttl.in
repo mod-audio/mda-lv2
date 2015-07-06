@@ -5,45 +5,47 @@
 
 mda:Piano
     a lv2:Plugin ;
-    rdfs:seeAlso <Piano.ttl> ;
+    rdfs:seeAlso <Piano.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Piano@LIB_EXT@> .
 
-mdapset:Piano-mda-piano
+mdap:Piano-mda-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-plain-piano
+mdap:Piano-plain-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-compressed-piano
+mdap:Piano-compressed-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-dance-piano
+mdap:Piano-dance-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-concert-piano
+mdap:Piano-concert-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-dark-piano
+mdap:Piano-dark-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-school-piano
+mdap:Piano-school-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Piano-broken-piano
+mdap:Piano-broken-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
-    rdfs:seeAlso <Piano-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .

@@ -5,21 +5,23 @@
 
 mda:Leslie
     a lv2:Plugin ;
-    rdfs:seeAlso <Leslie.ttl> ;
+    rdfs:seeAlso <Leslie.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Leslie@LIB_EXT@> .
 
-mdapset:Leslie-leslie-simulator
+mdap:Leslie-leslie-simulator
     a pset:Preset ;
     lv2:appliesTo mda:Leslie ;
-    rdfs:seeAlso <Leslie-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Leslie-slow
+mdap:Leslie-slow
     a pset:Preset ;
     lv2:appliesTo mda:Leslie ;
-    rdfs:seeAlso <Leslie-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 
-mdapset:Leslie-fast
+mdap:Leslie-fast
     a pset:Preset ;
     lv2:appliesTo mda:Leslie ;
-    rdfs:seeAlso <Leslie-presets.ttl> .
+    rdfs:seeAlso <presets.ttl> .
 

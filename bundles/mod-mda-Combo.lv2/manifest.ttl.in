@@ -5,5 +5,7 @@
 
 mda:Combo
     a lv2:Plugin ;
-    rdfs:seeAlso <Combo.ttl> ;
+    rdfs:seeAlso <Combo.ttl> ,
+        <common.ttl> ,
+        <modgui.ttl> ;
     lv2:binary <Combo@LIB_EXT@> .
