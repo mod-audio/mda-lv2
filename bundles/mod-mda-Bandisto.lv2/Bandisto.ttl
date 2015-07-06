@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
-@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 
 mda:Bandisto

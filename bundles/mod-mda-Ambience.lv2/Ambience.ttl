@@ -3,7 +3,7 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
-@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 
 mda:Ambience
@@ -31,7 +31,6 @@ mda:Ambience
         lv2:minimum 0 ;
         lv2:maximum 10 ;
         units:unit units:m ;
-
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

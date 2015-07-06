@@ -7,7 +7,7 @@
 @prefix mda: <http://moddevices.com/plugins/mda/> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
-@prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 <http://moddevices.com/plugins/mda/Piano/env>
