@@ -1,1 +1,37 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
+
+<http://moddevices.com/plugins/mda/Combo>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-combo.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-combo.css> ;
+        modgui:screenshot <modgui/screenshot-mda-combo.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-combo.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Combo" ;
+        modgui:model "combo-model-001" ;
+        modgui:panel "0625" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "drive" ;
+            lv2:name "Drive" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "bias" ;
+            lv2:name "Bias" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "output" ;
+            lv2:name "Output" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "hpf_freq" ;
+            lv2:name "HPF Freq" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "hpf_reso" ;
+            lv2:name "HPF Reso" ;
+        ] ;
+    ] .
