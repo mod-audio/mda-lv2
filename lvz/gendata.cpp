@@ -161,7 +161,7 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 			std::string preset_uri = string(effect->getURI())
 				+ "#pset-" + symbolify(name_buf, '-');
 			
-			// Write wanifest entry
+			// Write manifest entry
 			std::cout << "<" << preset_uri << ">"
 			          << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
 			          << effect->getURI() << "> ;\n\t"
