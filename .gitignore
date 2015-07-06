@@ -6,3 +6,4 @@ build/
 .lock*
 
 manifest.ttl
+debian
