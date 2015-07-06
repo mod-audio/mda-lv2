@@ -75,17 +75,9 @@ def build(bld):
     for p in plugins:
         bundle = 'mod-mda-%s.lv2' % p
 
-        # generate ttl files
-        #for i in bld.path.ant_glob('mda.lv2/[A-Z]*.ttl'):
-            #bld(features     = 'subst',
-                #is_copy      = True,
-                #source       = i,
-                #target       = bld.path.get_bld().make_node('mda.lv2/%s' % i),
-                #install_path = '${LV2DIR}/mda.lv2')
-
         # Build manifest by substitution
         bld(features     = 'subst',
-            source       = '%s/manifest.ttl.in' % bundle,
+            source       = 'bundles/%s/manifest.ttl.in' % bundle,
             target       = bld.path.get_bld().make_node('%s/manifest.ttl' % bundle),
             LIB_EXT      = module_ext,
             install_path = '${LV2DIR}/%s' % bundle)
@@ -103,6 +95,14 @@ def build(bld):
                                   'PLUGIN_URI_SUFFIX="%s"' % p,
                                   'PLUGIN_HEADER="src/mda%s.h"' % p])
         obj.env.cxxshlib_PATTERN = module_pat
+
+        # Set extra files for install
+        for i in bld.path.ant_glob('bundles/%s/*.ttl' % bundle):
+            bld(features     = 'subst',
+                is_copy      = True,
+                source       = i,
+                target       = bld.path.get_bld().make_node('%s/%s' % (bundle, i)),
+                install_path = '${LV2DIR}/%s' % bundle)
 
         # Install data file
         bld.install_files('${LV2DIR}/' + bundle, os.path.join(bundle, p + '.ttl'))
