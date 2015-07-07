@@ -104,5 +104,37 @@ def build(bld):
                 target       = bld.path.get_bld().make_node('%s/%s' % (bundle, i)),
                 install_path = '${LV2DIR}/%s' % bundle)
 
+        # Install modgui
+        modgui = 'bundles/%s/modgui' % bundle
+
+        def install_modgui_data(folder):
+            for j in bld.path.ant_glob('%s/%s/*' % (modgui, folder)):
+                bld.path.get_bld().make_node('%s/modgui/%s' % (bundle, folder)).mkdir()
+                bld(features     = 'subst',
+                    is_copy      = True,
+                    source       = j,
+                    target       = bld.path.get_bld().make_node('%s/modgui/%s/%s' % (bundle, folder, j)),
+                    install_path = '${LV2DIR}/%s/modgui/%s' % (bundle, folder))
+
+        for i in bld.path.ant_glob('%s/*' % modgui):
+            bld.path.get_bld().make_node('%s/modgui' % bundle).mkdir()
+            bld(features     = 'subst',
+                is_copy      = True,
+                source       = i,
+                target       = bld.path.get_bld().make_node('%s/modgui/%s' % (bundle, i)),
+                install_path = '${LV2DIR}/%s/modgui' % bundle)
+
+            install_modgui_data('combos/model-001')
+            install_modgui_data('knobs/chicken-head')
+            install_modgui_data('knobs/boxy')
+            install_modgui_data('knobs/lata')
+            install_modgui_data('knobs/japanese')
+            install_modgui_data('pedals')
+            install_modgui_data('pedals/boxy')
+            install_modgui_data('pedals/boxy75')
+            install_modgui_data('pedals/japanese')
+            install_modgui_data('switches')
+            install_modgui_data('utils')
+
         # Install data file
         bld.install_files('${LV2DIR}/' + bundle, os.path.join(bundle, p + '.ttl'))
