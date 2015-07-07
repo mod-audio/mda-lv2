@@ -72,6 +72,10 @@ def build(bld):
             Vocoder
     '''.split()
 
+    # Install meta bundle
+    bundle = 'mod-mda-meta'
+    bld.install_files('${LV2DIR}/' + bundle, 'bundles/%s/manifest.ttl' % bundle)
+
     for p in plugins:
         bundle = 'mod-mda-%s.lv2' % p
 
