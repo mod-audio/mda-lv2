@@ -6,6 +6,5 @@
 mda:Stereo
     a lv2:Plugin ;
     rdfs:seeAlso <Stereo.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Stereo@LIB_EXT@> .

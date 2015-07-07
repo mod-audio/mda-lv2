@@ -5,6 +5,5 @@
 
 mda:Transient
     a lv2:Plugin ;
-    rdfs:seeAlso <Transient.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Transient.ttl> ;
     lv2:binary <Transient@LIB_EXT@> .

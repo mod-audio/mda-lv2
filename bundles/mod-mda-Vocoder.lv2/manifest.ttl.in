@@ -7,7 +7,6 @@
 mda:Vocoder
     a lv2:Plugin ;
     rdfs:seeAlso <Vocoder.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Vocoder@LIB_EXT@> .
 

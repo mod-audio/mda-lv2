@@ -5,6 +5,5 @@
 
 mda:BeatBox
     a lv2:Plugin ;
-    rdfs:seeAlso <BeatBox.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <BeatBox.ttl> ;
     lv2:binary <BeatBox@LIB_EXT@> .

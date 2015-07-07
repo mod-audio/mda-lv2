@@ -5,6 +5,5 @@
 
 mda:MultiBand
     a lv2:Plugin ;
-    rdfs:seeAlso <MultiBand.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <MultiBand.ttl> ;
     lv2:binary <MultiBand@LIB_EXT@> .

@@ -5,6 +5,5 @@
 
 mda:Dynamics
     a lv2:Plugin ;
-    rdfs:seeAlso <Dynamics.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Dynamics.ttl> ;
     lv2:binary <Dynamics@LIB_EXT@> .

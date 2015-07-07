@@ -5,6 +5,5 @@
 
 mda:Image
     a lv2:Plugin ;
-    rdfs:seeAlso <Image.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Image.ttl> ;
     lv2:binary <Image@LIB_EXT@> .

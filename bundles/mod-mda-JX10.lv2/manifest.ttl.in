@@ -7,7 +7,6 @@
 mda:JX10
     a lv2:Plugin ;
     rdfs:seeAlso <JX10.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <JX10@LIB_EXT@> .
 

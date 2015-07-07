@@ -5,6 +5,5 @@
 
 mda:Degrade
     a lv2:Plugin ;
-    rdfs:seeAlso <Degrade.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Degrade.ttl> ;
     lv2:binary <Degrade@LIB_EXT@> .

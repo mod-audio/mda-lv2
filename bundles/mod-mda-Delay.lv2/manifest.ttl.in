@@ -6,6 +6,5 @@
 mda:Delay
     a lv2:Plugin ;
     rdfs:seeAlso <Delay.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Delay@LIB_EXT@> .

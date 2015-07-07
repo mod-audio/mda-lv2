@@ -7,7 +7,6 @@
 mda:EPiano
     a lv2:Plugin ;
     rdfs:seeAlso <EPiano.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <EPiano@LIB_EXT@> .
 

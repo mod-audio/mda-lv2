@@ -5,6 +5,5 @@
 
 mda:Dither
     a lv2:Plugin ;
-    rdfs:seeAlso <Dither.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Dither.ttl> ;
     lv2:binary <Dither@LIB_EXT@> .

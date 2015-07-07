@@ -6,6 +6,5 @@
 mda:RoundPan
     a lv2:Plugin ;
     rdfs:seeAlso <RoundPan.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <RoundPan@LIB_EXT@> .

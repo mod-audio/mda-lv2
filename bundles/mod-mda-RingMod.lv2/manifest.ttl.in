@@ -6,6 +6,5 @@
 mda:RingMod
     a lv2:Plugin ;
     rdfs:seeAlso <RingMod.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <RingMod@LIB_EXT@> .

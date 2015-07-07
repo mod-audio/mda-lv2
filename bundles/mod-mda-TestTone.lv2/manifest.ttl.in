@@ -5,6 +5,5 @@
 
 mda:TestTone
     a lv2:Plugin ;
-    rdfs:seeAlso <TestTone.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <TestTone.ttl> ;
     lv2:binary <TestTone@LIB_EXT@> .

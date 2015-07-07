@@ -5,6 +5,5 @@
 
 mda:Bandisto
     a lv2:Plugin ;
-    rdfs:seeAlso <Bandisto.ttl> ,
-        <common.ttl> ;
+    rdfs:seeAlso <Bandisto.ttl> ;
     lv2:binary <Bandisto@LIB_EXT@> .

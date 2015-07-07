@@ -15,12 +15,6 @@ mda:Bandisto
     lv2:project mda: ;
     lv2:symbol "Band" ;
     doap:name "MDA Bandisto" ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <mailto:devel@moddevices.com>;
-    ] ;
-
     doap:shortdesc "Multi-band distortion" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;

@@ -7,7 +7,6 @@
 mda:Splitter
     a lv2:Plugin ;
     rdfs:seeAlso <Splitter.ttl> ,
-        <common.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Splitter@LIB_EXT@> .
 
