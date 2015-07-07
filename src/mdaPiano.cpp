@@ -108,6 +108,7 @@ mdaPiano::mdaPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, 
   //initialise...
   for(int32_t v=0; v<NVOICES; v++)
   {
+    memset(&voice[v], 0, sizeof(voice[v]));
     voice[v].env = 0.0f;
     voice[v].dec = 0.99f; //all notes off
   }
@@ -115,6 +116,7 @@ mdaPiano::mdaPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, 
   muff = 160.0f;
   cpos = sustain = activevoices = 0;
   comb = new float[256];
+  memset(comb, 0, sizeof(float) * 256);
 
   guiUpdate = 0;
 
@@ -468,7 +470,7 @@ int32_t mdaPiano::processEvent(const LV2_Atom_Event* ev)
   if (ev->body.type != midiEventType)
       return 0;
 
-  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY_CONST(&ev->body);
 
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {

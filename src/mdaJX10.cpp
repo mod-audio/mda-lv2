@@ -751,7 +751,7 @@ int32_t mdaJX10::processEvent(const LV2_Atom_Event* ev)
   if (ev->body.type != midiEventType)
       return 0;
 
-  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
+  const uint8_t* midiData = (const uint8_t*)LV2_ATOM_BODY_CONST(&ev->body);
 		
     switch(midiData[0] & 0xf0) //status byte (all channels)
     {

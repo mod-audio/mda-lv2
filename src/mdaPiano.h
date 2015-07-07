@@ -127,7 +127,7 @@ private:
   int32_t  cmax;
   float *comb, cdep, width, trim;
   int32_t  size, sustain;
-  float tune, fine, random, stretch;
+  float fine, random, stretch;
   float muff, muffvel, sizevel, velsens, volume;
 };
 
