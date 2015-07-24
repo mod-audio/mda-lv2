@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#EPiano-default>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano_NOT> ;
 	rdfs:label "Default" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -48,7 +48,7 @@
 
 <http://moddevices.com/plugins/mda/presets#EPiano-bright>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano_NOT> ;
 	rdfs:label "Bright" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -92,7 +92,7 @@
 
 <http://moddevices.com/plugins/mda/presets#EPiano-mellow>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano_NOT> ;
 	rdfs:label "Mellow" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -136,7 +136,7 @@
 
 <http://moddevices.com/plugins/mda/presets#EPiano-autopan>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano_NOT> ;
 	rdfs:label "Autopan" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -180,7 +180,7 @@
 
 <http://moddevices.com/plugins/mda/presets#EPiano-tremolo>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano_NOT> ;
 	rdfs:label "Tremolo" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;

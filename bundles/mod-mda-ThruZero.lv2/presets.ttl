@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#ThruZero-thru-zero-flanger>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero_NOT> ;
 	rdfs:label "Thru-Zero Flanger" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -25,7 +25,7 @@
 
 <http://moddevices.com/plugins/mda/presets#ThruZero-phase-canceller>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero_NOT> ;
 	rdfs:label "Phase Canceller" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -46,7 +46,7 @@
 
 <http://moddevices.com/plugins/mda/presets#ThruZero-chorus-doubler>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero_NOT> ;
 	rdfs:label "Chorus Doubler" ;
 	lv2:port [
 		lv2:symbol "rate" ;
@@ -67,7 +67,7 @@
 
 <http://moddevices.com/plugins/mda/presets#ThruZero-mad-modulator>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero_NOT> ;
 	rdfs:label "Mad Modulator" ;
 	lv2:port [
 		lv2:symbol "rate" ;

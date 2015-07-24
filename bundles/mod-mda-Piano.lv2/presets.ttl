@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-mda-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "MDA Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -46,7 +46,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-plain-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Plain Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -88,7 +88,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-compressed-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Compressed Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -130,7 +130,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-dance-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Dance Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -172,7 +172,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-concert-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Concert Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -214,7 +214,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-dark-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Dark Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -256,7 +256,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-school-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "School Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
@@ -298,7 +298,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Piano-broken-piano>
     a pset:Preset ;
-    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+    lv2:appliesTo <http://moddevices.com/plugins/mda/Piano_NOT> ;
     rdfs:label "Broken Piano" ;
     lv2:port [
         lv2:symbol "env_decay" ;
