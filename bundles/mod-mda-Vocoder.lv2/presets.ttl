@@ -2,34 +2,41 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://moddevices.com/plugins/mda/presets#Vocoder-default>
+<http://moddevices.com/plugins/mda/presets#Vocoder-vocoder>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
-	rdfs:label "Default" ;
+	rdfs:label "Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_thru" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_band" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.16
-	] , [
+		pset:value 1611.76 ;
+	] ;
+	lv2:port [
 		lv2:symbol "filter_q" ;
-		pset:value 0.55
-	] , [
+		pset:value 55 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mid_freq" ;
-		pset:value 0.6667
-	] , [
+		pset:value 1133.38 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 0.0
+		pset:value 0 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-16-band-vocoder>
@@ -38,28 +45,35 @@
 	rdfs:label "16 Band Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_thru" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_band" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.16
-	] , [
+		pset:value 1611.76 ;
+	] ;
+	lv2:port [
 		lv2:symbol "filter_q" ;
-		pset:value 0.55
-	] , [
+		pset:value 55 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mid_freq" ;
-		pset:value 0.6667
-	] , [
+		pset:value 1133.38 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 1.0
+		pset:value 1 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-old-vocoder>
@@ -68,28 +82,35 @@
 	rdfs:label "Old Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_thru" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_band" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.16
-	] , [
+		pset:value 1611.76 ;
+	] ;
+	lv2:port [
 		lv2:symbol "filter_q" ;
-		pset:value 0.55
-	] , [
+		pset:value 55 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mid_freq" ;
-		pset:value 0.5
-	] , [
+		pset:value 900 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 0.0
+		pset:value 0 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-choral-vocoder>
@@ -98,28 +119,35 @@
 	rdfs:label "Choral Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_thru" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_band" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.16
-	] , [
+		pset:value 1611.76 ;
+	] ;
+	lv2:port [
 		lv2:symbol "filter_q" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mid_freq" ;
-		pset:value 0.5
-	] , [
+		pset:value 900 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 0.0
+		pset:value 0 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-pad-vocoder>
@@ -128,26 +156,34 @@
 	rdfs:label "Pad Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_thru" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_band" ;
-		pset:value 0.4
-	] , [
+		pset:value 40 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.78
-	] , [
+		pset:value 7803.08 ;
+	] ;
+	lv2:port [
 		lv2:symbol "filter_q" ;
-		pset:value 0.55
-	] , [
+		pset:value 55 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mid_freq" ;
-		pset:value 0.3
-	] , [
+		pset:value 620 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 0.0
+		pset:value 0 ;
 	] .
+
