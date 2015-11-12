@@ -5,104 +5,123 @@
 <http://moddevices.com/plugins/mda/presets#Leslie-leslie-simulator>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
-	rdfs:label "Default" ;
-	lv2:minorVersion 0;
-	lv2:microVersion 1;
-	lv2:port[
+	rdfs:label "Leslie Simulator" ;
+	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.5
-	] , [
+		pset:value 0.66 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_width" ;
-		pset:value 0.5
-	] , [
+		pset:value 50 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_throb" ;
-		pset:value 0.6
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_width" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_depth" ;
-		pset:value 0.6
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_throb" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 0.48
-	] , [
+		pset:value 802.8 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "speed" ;
-		pset:value 0.5
+		pset:value 100 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Leslie-slow>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
 	rdfs:label "Slow" ;
-	lv2:minorVersion 0;
-	lv2:microVersion 1;
-	lv2:port[
+	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.5
-	] , [
+		pset:value 0.5 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_width" ;
-		pset:value 0.5
-	] , [
+		pset:value 50 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_throb" ;
-		pset:value 0.6
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_width" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_depth" ;
-		pset:value 0.75
-	] , [
+		pset:value 75 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_throb" ;
-		pset:value 0.57
-	] , [
+		pset:value 57 ;
+	] ;
+	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 0.48
-	] , [
+		pset:value 802.8 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "speed" ;
-		pset:value 0.5
+		pset:value 100 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Leslie-fast>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
 	rdfs:label "Fast" ;
-	lv2:minorVersion 0;
-	lv2:microVersion 1;
-	lv2:port[
+	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 1.0
-	] , [
+		pset:value 1 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_width" ;
-		pset:value 0.5
-	] , [
+		pset:value 50 ;
+	] ;
+	lv2:port [
 		lv2:symbol "lo_throb" ;
-		pset:value 0.6
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_width" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_depth" ;
-		pset:value 0.6
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "hi_throb" ;
-		pset:value 0.7
-	] , [
+		pset:value 70 ;
+	] ;
+	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 0.48
-	] , [
+		pset:value 802.8 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "speed" ;
-		pset:value 0.5
+		pset:value 100 ;
 	] .
+
