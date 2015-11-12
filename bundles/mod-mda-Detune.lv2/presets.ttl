@@ -8,16 +8,19 @@
 	rdfs:label "Stereo Detune" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 0.2
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mix" ;
-		pset:value 0.9
-	] , [
+		pset:value 89.1 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "latency" ;
-		pset:value 0.5
+		pset:value 49.35 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Detune-symphonic>
@@ -26,16 +29,19 @@
 	rdfs:label "Symphonic" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 0.2
-	] , [
+		pset:value 60 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mix" ;
-		pset:value 0.9
-	] , [
+		pset:value 89.1 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "latency" ;
-		pset:value 0.5
+		pset:value 49.35 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Detune-out-of-tune>
@@ -44,14 +50,18 @@
 	rdfs:label "Out Of Tune" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 0.8
-	] , [
+		pset:value 240 ;
+	] ;
+	lv2:port [
 		lv2:symbol "mix" ;
-		pset:value 0.7
-	] , [
+		pset:value 69.3 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "latency" ;
-		pset:value 0.5
+		pset:value 49.35 ;
 	] .
+
