@@ -96,6 +96,8 @@ symbolify(const char* name, char space_char='_')
 	    str = "vel_to_muffling";
 	else if (str == "velocity_sensitivity")
 	    str = "vel_sensitivity";
+	else if (str == "depthmod")
+	    str = "depth_mod";
 
 	return str;
 }
