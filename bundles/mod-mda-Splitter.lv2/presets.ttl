@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Splitter-frequency-level-splitter>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Frequency/Level Splitter" ;
 	lv2:port [
 		lv2:symbol "mode" ;
@@ -31,7 +31,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Splitter-pass-peaks-only>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Pass Peaks Only" ;
 	lv2:port [
 		lv2:symbol "mode" ;
@@ -58,7 +58,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Splitter-stereo-crossover>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Splitter> ;
 	rdfs:label "Stereo Crossover" ;
 	lv2:port [
 		lv2:symbol "mode" ;

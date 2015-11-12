@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-5th-sweep-pad>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "5th Sweep Pad" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -84,7 +84,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-echo-pad>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Echo Pad [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -164,7 +164,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-space-chimes>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Space Chimes [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -244,7 +244,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-solid-backing>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Solid Backing" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -324,7 +324,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-velocity-backing>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Velocity Backing [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -404,7 +404,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-rubber-backing-zf->
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Rubber Backing [ZF]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -484,7 +484,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-808-state-lead>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "808 State Lead" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -564,7 +564,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-mono-glide>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Mono Glide" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -644,7 +644,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-detuned-techno-lead>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Detuned Techno Lead" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -724,7 +724,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-hard-lead>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Hard Lead [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -804,7 +804,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-bubble>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Bubble" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -884,7 +884,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-monosynth>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Monosynth" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -964,7 +964,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-moogcury-lite>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Moogcury Lite" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1044,7 +1044,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-gangsta-whine>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Gangsta Whine" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1124,7 +1124,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-higher-synth-zf->
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Higher Synth [ZF]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1204,7 +1204,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-303-saw-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "303 Saw Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1284,7 +1284,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-303-square-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "303 Square Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1364,7 +1364,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-analog-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Analog Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1444,7 +1444,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-analog-bass-2>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Analog Bass 2" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1524,7 +1524,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-low-pulses>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Low Pulses" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1604,7 +1604,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-sine-infra-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Sine Infra-Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1684,7 +1684,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-wobble-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Wobble Bass [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1764,7 +1764,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-squelch-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Squelch Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1844,7 +1844,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-rubber-bass-zf->
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Rubber Bass [ZF]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -1924,7 +1924,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-soft-pick-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Soft Pick Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2004,7 +2004,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-fretless-bass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Fretless Bass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2084,7 +2084,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-whistler>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Whistler" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2164,7 +2164,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-very-soft-pad>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Very Soft Pad" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2244,7 +2244,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-pizzicato>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Pizzicato" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2324,7 +2324,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-synth-strings>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Synth Strings" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2404,7 +2404,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-synth-strings-2>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Synth Strings 2" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2484,7 +2484,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-leslie-organ>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Leslie Organ" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2564,7 +2564,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-click-organ>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Click Organ" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2644,7 +2644,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-hard-organ>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Hard Organ" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2724,7 +2724,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-bass-clarinet>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Bass Clarinet" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2804,7 +2804,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-trumpet>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Trumpet" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2884,7 +2884,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-soft-horn>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Soft Horn" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -2964,7 +2964,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-brass-section>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Brass Section" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3044,7 +3044,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-synth-brass>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Synth Brass" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3124,7 +3124,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-detuned-syn-brass-zf->
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Detuned Syn Brass [ZF]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3204,7 +3204,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-power-pwm>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Power PWM" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3284,7 +3284,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-water-velocity>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Water Velocity [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3364,7 +3364,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-ghost>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Ghost [SA]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3444,7 +3444,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-soft-e-piano>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Soft E.Piano" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3524,7 +3524,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-thumb-piano>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Thumb Piano" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3604,7 +3604,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-steel-drums-zf->
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Steel Drums [ZF]" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3684,7 +3684,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-car-horn>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Car Horn" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3764,7 +3764,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-helicopter>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Helicopter" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3844,7 +3844,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-arctic-wind>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Arctic Wind" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -3924,7 +3924,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-thip>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Thip" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -4004,7 +4004,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-synth-tom>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Synth Tom" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
@@ -4084,7 +4084,7 @@
 
 <http://moddevices.com/plugins/mda/presets#JX10-squelchy-frog>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
 	rdfs:label "Squelchy Frog" ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;

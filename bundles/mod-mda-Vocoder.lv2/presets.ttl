@@ -4,7 +4,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-default>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Default" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -34,7 +34,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-16-band-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "16 Band Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -64,7 +64,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-old-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Old Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -94,7 +94,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-choral-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Choral Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
@@ -124,7 +124,7 @@
 
 <http://moddevices.com/plugins/mda/presets#Vocoder-pad-vocoder>
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder_NOT> ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	rdfs:label "Pad Vocoder" ;
 	lv2:port [
 		lv2:symbol "mod_in" ;
