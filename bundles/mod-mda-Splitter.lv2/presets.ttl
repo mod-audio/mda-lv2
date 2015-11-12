@@ -8,25 +8,31 @@
 	rdfs:label "Frequency/Level Splitter" ;
 	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq" ;
-		pset:value 0.5
-	] , [
+		pset:value 5050 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq_sw" ;
-		pset:value 0.25
-	] , [
+		pset:value 0.25 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level" ;
-		pset:value 0.5
-	] , [
+		pset:value -20 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level_sw" ;
-		pset:value 0.5
-	] , [
+		pset:value 0.5 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.5
-	] , [
+		pset:value 505 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
+		pset:value 0 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Splitter-pass-peaks-only>
@@ -35,25 +41,31 @@
 	rdfs:label "Pass Peaks Only" ;
 	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq" ;
-		pset:value 0.5
-	] , [
+		pset:value 5050 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq_sw" ;
-		pset:value 0.5
-	] , [
+		pset:value 0.5 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level" ;
-		pset:value 0.5
-	] , [
+		pset:value -20 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level_sw" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.5
-	] , [
+		pset:value 505 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
+		pset:value 0 ;
 	] .
 
 <http://moddevices.com/plugins/mda/presets#Splitter-stereo-crossover>
@@ -62,23 +74,30 @@
 	rdfs:label "Stereo Crossover" ;
 	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.666667
-	] , [
+		pset:value 0.666667 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq" ;
-		pset:value 0.5
-	] , [
+		pset:value 5050 ;
+	] ;
+	lv2:port [
 		lv2:symbol "freq_sw" ;
-		pset:value 0.25
-	] , [
+		pset:value 0.25 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level" ;
-		pset:value 0.5
-	] , [
+		pset:value -20 ;
+	] ;
+	lv2:port [
 		lv2:symbol "level_sw" ;
-		pset:value 0.5
-	] , [
+		pset:value 0.5 ;
+	] ;
+	lv2:port [
 		lv2:symbol "envelope" ;
-		pset:value 0.5
-	] , [
+		pset:value 505 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.5
+		pset:value 0 ;
 	] .
+
