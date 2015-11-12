@@ -168,9 +168,8 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(3):
             return inverted ? value*4 - 2 : (value + 2)/(4);
             case(4):
-            return inverted ? (log40(value)/(log(10)) + 1 : 1 - pow(10.0, (value/40.0));
+            return inverted ? (40.0*log(value)/log(10)) + 1 : 1 - pow(10.0, (value/40.0));
         }
-
     }
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
         switch(port) {
@@ -318,7 +317,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(8):
             return inverted ? value*200 : value/(200);
         }
-    }s
+    }
     else if(strcmp(effect->getUniqueID(), "mdaLimiter") == 0) {
         switch(port) {
             case(0):
