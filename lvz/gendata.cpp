@@ -81,6 +81,16 @@ symbolify(const char* name, char space_char='_')
 		}
 	}
 
+	// Compat
+	/**/ if (str == "envelope_decay")
+	    str = "env_decay";
+	else if (str == "envelope_release")
+	    str = "env_release";
+	else if (str == "polyphony")
+	    str = "polyphonic";
+	else if (str == "velocity_sense")
+	    str = "vel_sense";
+
 	return str;
 }
 
@@ -161,7 +171,10 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 			effect->setProgram(i);
 			effect->getProgramName(name_buf);
 
-			std::string preset_uri = string("http://moddevices.com/plugins/mda/presets#") + base_name + "-" + symbolify(name_buf);
+			if (!strcmp(name_buf, "Empty Patch"))
+				continue;
+
+			std::string preset_uri = string("http://moddevices.com/plugins/mda/presets#") + base_name + "-" + symbolify(name_buf, '-');
 
 			// Write manifest entry
 			std::cout << "<" << preset_uri << ">"
