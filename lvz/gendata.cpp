@@ -119,9 +119,9 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 		os << "\t\tlv2:index" << " " << idx << " ;" << endl;
 		os << "\t\tlv2:name \"" << name_buf << "\" ;" << endl;
 		os << "\t\tlv2:symbol \"" << symbolify(name_buf) << "\" ;" << endl;
-		os << "\t\tlv2:default " << effect->getParameter(i) << " ;" << endl;
-		os << "\t\tlv2:minimum 0.0 ;" << endl;
-		os << "\t\tlv2:maximum 1.0 ;" << endl;
+		os << "\t\tlv2:default " << lvz_translate_parameter(effect, i, effect->getParameter(i)) << " ;" << endl;
+		os << "\t\tlv2:minimum " << lvz_translate_parameter(effect, i, 0.0f) << " ;" << endl;
+		os << "\t\tlv2:maximum " << lvz_translate_parameter(effect, i, 1.0f) << " ;" << endl;
 		os << ((idx == num_ports - 1) ? "\t] ." : "\t] , [") << endl;
 	}
 
