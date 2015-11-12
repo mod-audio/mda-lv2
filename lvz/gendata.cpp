@@ -161,9 +161,8 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 			effect->setProgram(i);
 			effect->getProgramName(name_buf);
 
-			std::string preset_uri = string(effect->getURI())
-				+ "#pset-" + symbolify(name_buf, '-');
-			
+			std::string preset_uri = string("http://moddevices.com/plugins/mda/presets#") + base_name + "-" + symbolify(name_buf);
+
 			// Write manifest entry
 			std::cout << "<" << preset_uri << ">"
 			          << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
