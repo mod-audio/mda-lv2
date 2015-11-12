@@ -546,7 +546,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(0):
             return inverted ? (value+0.1*93.24)+1 : 1 - ((value - 0.1)/(93.24));
             case(1):
-            return inverted ? value*45.35 value/(45.35);
+            return inverted ? value*45.35 : value/(45.35);
             case(2):
             return inverted ? value*100 : value/(100);
             case(3):
