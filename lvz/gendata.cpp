@@ -43,6 +43,9 @@ struct Record {
 typedef std::map<string, Record> Manifest;
 Manifest manifest;
 
+typedef float (*lvz_translate_parameter_func)(void* effect,int port,float value);
+static lvz_translate_parameter_func lvz_translate_parameter;
+
 string
 symbolify(const char* name, char space_char='_')
 {
@@ -176,7 +179,7 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 				effect->getParameterName(i, name_buf);
 				pos << " ;\n\tlv2:port [" << endl;
 				pos << "\t\tlv2:symbol \"" << symbolify(name_buf) << "\" ;" << endl;
-				pos << "\t\tpset:value " << effect->getParameter(i) << " ;" << endl;
+				pos << "\t\tpset:value " << lvz_translate_parameter(effect, i, effect->getParameter(i)) << " ;" << endl;
 				pos << "\t]";
 			}
 			pos << " .\n" << endl;
@@ -234,6 +237,7 @@ main(int argc, char** argv)
 
 		constructor = (new_effect_func)dlsym(handle, "lvz_new_audioeffectx");
 		if (constructor != NULL) {
+			lvz_translate_parameter = (lvz_translate_parameter_func)dlsym(handle, "lvz_translate_parameter");
 			effect = constructor();
 			write_plugin(effect, lib_path);
 		}

@@ -701,8 +701,7 @@ lvz_instantiate(const LV2_Descriptor*    descriptor,
         plugin->controls        = (float*)malloc(sizeof(float) * num_params);
         plugin->control_buffers = (float**)malloc(sizeof(float*) * num_params);
         for (uint32_t i = 0; i < num_params; ++i) {
-            plugin->controls[i] = effect->getParameter(i);
-            //plugin->controls[i] = translateParameter(effect, i, effect->getParameter(i), true); TODO
+            plugin->controls[i] = translateParameter(effect, i, effect->getParameter(i), true);
             plugin->control_buffers[i] = NULL;
         }
     } else {
@@ -737,7 +736,7 @@ lvz_run(LV2_Handle instance, uint32_t sample_count)
     LVZPlugin* plugin = (LVZPlugin*)instance;
 
     for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i) {
-        float val = plugin->control_buffers[i][0];
+        const float val = *plugin->control_buffers[i];
         if (val != plugin->controls[i]) {
             plugin->effect->setParameter(i, translateParameter(plugin->effect, i, val, false));
             plugin->controls[i] = val;
@@ -778,7 +777,7 @@ lv2_select_program(LV2_Handle handle, uint32_t bank, uint32_t program)
 		plugin->effect->setProgram(realProgram);
 
 		for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i)
-			plugin->controls[i] = plugin->control_buffers[i][0] = plugin->effect->getParameter(i);
+			plugin->controls[i] = *plugin->control_buffers[i] = translateParameter(plugin->effect, i, plugin->effect->getParameter(i), true);
 	}
 }
 
@@ -835,6 +834,14 @@ lvz_new_audioeffectx()
     PLUGIN_CLASS* effect = new PLUGIN_CLASS(master_callback);
     effect->setURI(URI_PREFIX PLUGIN_URI_SUFFIX);
     return effect;
+}
+
+
+LV2_SYMBOL_EXPORT
+float
+lvz_translate_parameter(void* effect,int port,float value)
+{
+    return translateParameter((PLUGIN_CLASS*)effect, port, value, true);
 }
 
 } // extern "C"
