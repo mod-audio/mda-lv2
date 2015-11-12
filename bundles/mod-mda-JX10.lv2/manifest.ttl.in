@@ -15,12 +15,12 @@ mdap:JX10-5th-sweep-pad
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-echo-pad
+mdap:JX10-echo-pad-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-space-chimes
+mdap:JX10-space-chimes-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
@@ -30,7 +30,7 @@ mdap:JX10-solid-backing
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-velocity-backing
+mdap:JX10-velocity-backing-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
@@ -55,7 +55,7 @@ mdap:JX10-detuned-techno-lead
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-hard-lead
+mdap:JX10-hard-lead-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
@@ -115,7 +115,7 @@ mdap:JX10-sine-infra-bass
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-wobble-bass
+mdap:JX10-wobble-bass-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
@@ -215,12 +215,12 @@ mdap:JX10-power-pwm
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-water-velocity
+mdap:JX10-water-velocity-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
 
-mdap:JX10-ghost
+mdap:JX10-ghost-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
     rdfs:seeAlso <presets.ttl> .
