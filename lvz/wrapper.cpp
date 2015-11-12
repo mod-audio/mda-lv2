@@ -61,23 +61,23 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     else if(strcmp(effect->getUniqueID(), "mdaBand") == 0) {
         switch(port) {
             case(0):
-            return value/(3);
+            return inverted ? value*(3) : value/(3);
             case(1):
-            return (value - 88)/(1020 - 88);
+            return inverted ? value*(1020 - 88) + 88 : (value - 88)/(1020 - 88);
             case(2):
-            return (value - 112)/(19606 - 112);
+            return inverted ? value*(1606 - 112) + 112 : (value - 112)/(19606 - 112);
             case(3):
-            return value/(60);
+            return inverted ? value*(60) : value/(60);
             case(4):
-            return value/(60);
+            return inverted ? value*(60) : value/(60);
             case(5):
-            return value/(60);
+            return inverted ? value*(60) : value/(60);
             case(6):
-            return (value - 20)/(40);
+            return inverted ? value*40 + 20 : (value - 20)/(40);
             case(7):
-            return (value - 20)/(40);
+            return inverted ? value*40 + 20 : (value - 20)/(40);
             case(8):
-            return (value - 20)/(40);
+            return inverted ? value*40 + 20 : (value - 20)/(40);
             case(9):
             return value;
         }
@@ -85,58 +85,58 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     else if(strcmp(effect->getUniqueID(), "mdaBBox") == 0) {
         switch(port) {
             case(0):
-            return (value + 40)/(40);
+            return inverted ? value*40 - 40 : (value + 40)/(40);
             case(1):
-            return (value - 40)/(200);
+            return inverted ? value*200 + 40 : (value - 40)/(200);
             case(2):
-            return (value + 80)/(92);
+            return inverted ? value*92 - 80 : (value + 80)/(92);
             case(3):
-            return (value + 40)/(40);
+            return inverted ? value*40 - 40 : (value + 40)/(40);
             case(4):
-            return (value - 22)/(3472);
+            return inverted ? value*3472 + 22 : (value - 22)/(3472);
             case(5):
-            return (value + 80)/(92);
+            return inverted ? value*92 - 80 : (value + 80)/(92);
             case(6):
-            return (value + 40)/(40);
+            return inverted ? value*40 - 40 : (value + 40)/(40);
             case(7):
-            return (value - 22)/(3472);
+            return inverted ? value*3472 + 22 : (value - 22)/(3472);
             case(8):
-            return (value + 80)/(92);
+            return inverted ? value*92 - 80 : (value + 80)/(92);
             case(9):
-            return (value - 1)/(99);
+            return inverted ? value*99 + 1 : (value - 1)/(99);
             case(10):
-            return value/4;
+            return inverted ? value*4 : value/4;
             case(11):
-            return (value + 41)/(41);
+            return inverted ? value*41 - 41 : (value + 41)/(41);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaCombo") == 0) {
         switch(port) {
             case(0):
-            return  value/6;
+            return inverted ? value*6 : value/6;
             case(1):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(2):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(3):
-            return (value + 20)/(40);
+            return inverted ? value*40 - 20 : (value + 20)/(40);
             case(4):
-            return  value;
+            return value;
             case(5):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(6):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
         }
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaDeEss") == 0) {
         switch(port) {
             case(0):
-            return (value + 60)/(60);
+            return inverted ? value*60 - 60 : (value + 60)/(60);
             case(1):
-            return (value - 1000)/(11000);
+            return inverted ? value*11000 + 1000 : (value - 1000)/(11000);
             case(2):
-            return (value + 20)/(40);
+            return inverted ? value*40 - 20 : (value + 20)/(40);
         }
     }
     //else if(strcmp(effect->getUniqueID(), "mdaDegrade") == 0) {
@@ -148,150 +148,150 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     else if(strcmp(effect->getUniqueID(), "mdaDetune") == 0) {
         switch(port) {
             case(0):
-            return value/(300);
+            return inverted ? value*300 : value/(300);
             case(1):
-            return value/(99);
+            return inverted ? value*99 : value/(99);
             case(2):
-            return (value + 20)/(40);
+            return inverted ? value*40 - 20 : (value + 20)/(40);
             case(3):
-            return (value - 5.8)/(87.1);
+            return inverted ? value*87.1 + 5.8 : (value - 5.8)/(87.1);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDither") == 0) {
         switch(port) {
             case(0):
-            return (value - 8)/(16);
+            return inverted ? value*16 + 8 : (value - 8)/(16);
             case(1):
-            return value/(3);
+            return inverted ? value*3 : value/(3);
             case(2):
-            return value/(4);
+            return inverted ? value*4 : value/(4);
             case(3):
-            return (value + 2)/(4);
+            return inverted ? value*4 - 2 : (value + 2)/(4);
             case(4):
-            return 1 - pow(10.0, (value/40.0));
+            return inverted ? (log40(value)/(log(10)) + 1 : 1 - pow(10.0, (value/40.0));
         }
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
         switch(port) {
             case(0):
-            return value/7341;
+            return inverted ? value*7341 : value/7341;
             case(1):
-            return (value + 110)/(220);
+            return inverted ? value*220 - 110 : (value + 110)/(220);
             case(2):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(3):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(4):
-            return  1 - ((value - 0.10)/99.9);
+            return inverted ? value*99.9 + 0.10 + 1 : 1 - ((value - 0.10)/99.9);
             case(5):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(6):
-            return (value + 34)/(40);
+            return inverted ? value*40 - 34 : (value + 34)/(40);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDX10") == 0) {
         switch(port) {
             case(0):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(1):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(2):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(3):
-            return value/(40);
+            return inverted ? value*40 : value/(40);
             case(4):
-            return value/(0.750);
+            return inverted ? value*0.750 : value/(0.750);
             case(5):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(6):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(7):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(8):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(9):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(10):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(11):
-            return (value + 3)/(6);
+            return inverted ? value*6 - 3 : (value + 3)/(6);
             case(12):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(13):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(14):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(15):
-            return value/(25);
+            return inverted ? value*25 : value/(25);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDynamics") == 0) {
         switch(port) {
             case(0):
-            return (value + 40)/(40);
+            return inverted ? value*40 - 40 : (value + 40)/(40);
             case(1):
-            return 1 - ((value + 17)/(17.5));
+            return inverted ? value*17.5 - 17 + 1 : 1 - ((value + 17)/(17.5));
             case(2):
-            return value/(40);
+            return inverted ? value*40 : value/(40);
             case(3):
-            return (value - 2)/(1569);
+            return inverted ? value*1569 + 2 : (value - 2)/(1569);
             case(4):
-            return (value - 1)/(1570);
+            return inverted ? value*1570 + 1 : (value - 1)/(1570);
             case(5):
-            return (value + 20)/(30);
+            return inverted ? value*30 - 20 : (value + 20)/(30);
             case(6):
-            return (value + 60)/60;
+            return inverted ? value*60 - 60 : (value + 60)/60;
             case(7):
-            return (value - 5)/(15777);
+            return inverted ? value*15777 + 5 : (value - 5)/(15777);
             case(8):
-            return (value - 9)/(17375);
+            return inverted ? value*17375 + 9 : (value - 9)/(17375);
             case(9):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaEPiano") == 0) {
         switch(port) {
             case(0):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(1):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(2):
-            return (value + 50)/(100);
+            return inverted ? value*100 - 50 : (value + 50)/(100);
             case(3):
-            return (value + 50)/(100);
+            return inverted ? value*100 - 50 : (value + 50)/(100);
             case(4):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            return (value - 0.07)/(36.90);
+            return inverted ? value*36.90 + 0.07 : (value - 0.07)/(36.90);
             case(6):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(7):
-            return value/(200);
+            return inverted ? value*200 : value/(200);
             case(8):
             return value;
             case(9):
-            return (value + 50)/(100);
+            return inverted ? value*100 - 50 : (value + 50)/(100);
             case(10):
-            return value/(50);
+            return inverted ? value*50 : value/(50);
             case(11):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaImage") == 0) {
         switch(port) {
             case(0):
-            return value;
+            return inverted ? value : value;
             case(1):
-            return (value + 200)/(400);
+            return inverted ? value*400 - 200 : (value + 200)/(400);
             case(2):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(3):
-            return (value + 200)/(400);
+            return inverted ? value*400 - 200 : (value + 200)/(400);
             case(4):
-            return (value + 100)/(200);
+            return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            return (value + 20)/(40);
+            return inverted ? value*40 - 20 : (value + 20)/(40);
         }
     }
     //else if(strcmp(effect->getUniqueID(), "mdaJX10") == 0) {
@@ -302,23 +302,23 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(0):
             return value;
             case(1):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(2):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(3):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(4):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(5):
-            return value/(100);
+            return inverted ? value*100 : value/(100);
             case(6):
-            return (value - 150)/(1360);
+            return inverted ? value*1360 + 150 : (value - 150)/(1360);
             case(7):
-            return (value + 20)/(40);
+            return inverted ? value*40 - 20 : (value + 20)/(40);
             case(8):
-            return value/(200);
+            return inverted ? value*200 : value/(200);
         }
-    }
+    }s
     else if(strcmp(effect->getUniqueID(), "mdaLimiter") == 0) {
         switch(port) {
             case(0):
