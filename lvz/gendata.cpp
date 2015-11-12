@@ -86,10 +86,16 @@ symbolify(const char* name, char space_char='_')
 	    str = "env_decay";
 	else if (str == "envelope_release")
 	    str = "env_release";
-	else if (str == "polyphony")
-	    str = "polyphonic";
+// 	else if (str == "polyphony")
+// 	    str = "polyphonic";
 	else if (str == "velocity_sense")
 	    str = "vel_sense";
+	else if (str == "velocity_to_hardness")
+	    str = "vel_to_hardness";
+	else if (str == "velocity_to_muffling")
+	    str = "vel_to_muffling";
+	else if (str == "velocity_sensitivity")
+	    str = "vel_sensitivity";
 
 	return str;
 }
