@@ -1,6 +1,5 @@
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
-@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
 
 <http://moddevices.com/plugins/mda/Tracker>
     modgui:gui [
@@ -12,8 +11,9 @@
         modgui:brand "MDA" ;
         modgui:label "Tracker" ;
         modgui:model "boxy" ;
-        modgui:panel "8-knobs" ;
+        modgui:panel "7-knobs" ;
         modgui:color "darkblue" ;
+        modgui:knob "blue" ;
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "mode" ;
@@ -42,9 +42,5 @@
             lv2:index 6 ;
             lv2:symbol "trigger" ;
             lv2:name "Trigger" ;
-        ] , [
-            lv2:index 7 ;
-            lv2:symbol "output" ;
-            lv2:name "Output" ;
         ] ;
     ] .

@@ -1,6 +1,5 @@
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
-@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
 
 <http://moddevices.com/plugins/mda/RingMod>
     modgui:gui [
@@ -14,6 +13,7 @@
         modgui:model "boxy" ;
         modgui:panel "3-knobs" ;
         modgui:color "purple" ;
+        modgui:knob "silver" ;
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "freq" ;

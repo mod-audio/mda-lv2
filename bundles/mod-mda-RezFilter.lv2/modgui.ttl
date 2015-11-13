@@ -1,6 +1,5 @@
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
-@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
 
 <http://moddevices.com/plugins/mda/RezFilter>
     modgui:gui [
@@ -12,8 +11,9 @@
         modgui:brand "MDA" ;
         modgui:label "RezFilter" ;
         modgui:model "boxy" ;
-        modgui:panel "8-knobs" ;
+        modgui:panel "7-knobs" ;
         modgui:color "yellow" ;
+        modgui:knob "black" ;
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "freq" ;
@@ -42,9 +42,5 @@
             lv2:index 6 ;
             lv2:symbol "lfo_vcf" ;
             lv2:name "LFO->VCF" ;
-        ] , [
-            lv2:index 7 ;
-            lv2:symbol "lfo_rate" ;
-            lv2:name "LFO Rate" ;
         ] ;
     ] .

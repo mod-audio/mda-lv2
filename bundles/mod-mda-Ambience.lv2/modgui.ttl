@@ -1,6 +1,5 @@
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
-@prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
 
 <http://moddevices.com/plugins/mda/Ambience>
     modgui:gui [
@@ -13,7 +12,7 @@
         modgui:label "Ambience" ;
         modgui:model "japanese" ;
         modgui:panel "4-knobs" ;
-        modgui:color "cream" ;
+        modgui:color "white" ;
         modgui:knob "darkblue" ;
         modgui:port [
             lv2:index 0 ;
