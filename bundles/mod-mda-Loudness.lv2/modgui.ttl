@@ -1,0 +1,30 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/mda/Loudness>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-loudness.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-loudness.css> ;
+        modgui:screenshot <modgui/screenshot-mda-loudness.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-loudness.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Loudness" ;
+        modgui:model "boxy" ;
+        modgui:panel "3-knobs" ;
+        modgui:color "orange" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "loudness" ;
+            lv2:name "Loudness" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "link" ;
+            lv2:name "Link" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "output" ;
+            lv2:name "Level" ;
+        ] ;
+    ] .

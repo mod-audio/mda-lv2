@@ -1,0 +1,46 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/mda/Dynamics>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-dynamics.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-dynamics.css> ;
+        modgui:screenshot <modgui/screenshot-mda-dynamics.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-dynamics.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Dynamics" ;
+        modgui:model "boxy" ;
+        modgui:panel "7-knobs" ;
+        modgui:color "red" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "thresh" ;
+            lv2:name "Thresh" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "ratio" ;
+            lv2:name "Ratio" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "limiter" ;
+            lv2:name "Limiter" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "attack" ;
+            lv2:name "Attack" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "release" ;
+            lv2:name "Release" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "output" ;
+            lv2:name "Makeup" ;
+        ] ;
+    ] .
