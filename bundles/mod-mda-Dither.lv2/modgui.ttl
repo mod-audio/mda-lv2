@@ -17,7 +17,7 @@
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "word_len" ;
-            lv2:name "Word Len" ;
+            lv2:name "Word len" ;
         ] , [
             lv2:index 1 ;
             lv2:symbol "dither" ;

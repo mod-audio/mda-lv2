@@ -29,7 +29,7 @@
         ] , [
             lv2:index 3 ;
             lv2:symbol "s_thresh" ;
-            lv2:name "S Thresh" ;
+            lv2:name "Thresh" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "max_freq" ;

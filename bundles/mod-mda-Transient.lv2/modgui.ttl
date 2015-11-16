@@ -21,7 +21,7 @@
         ] , [
             lv2:index 1 ;
             lv2:symbol "att_hold" ;
-            lv2:name "Att Hold" ;
+            lv2:name "<Hold" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "release" ;
@@ -29,7 +29,7 @@
         ] , [
             lv2:index 3 ;
             lv2:symbol "rel_hold" ;
-            lv2:name "Rel Hold" ;
+            lv2:name "<Hold" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "filter" ;

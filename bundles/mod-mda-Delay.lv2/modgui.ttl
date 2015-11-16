@@ -24,19 +24,19 @@
             lv2:name "R/L Delay" ;
         ] , [
             lv2:index 2 ;
+            lv2:symbol "fx_mix" ;
+            lv2:name "Mix" ;
+        ] , [
+            lv2:index 3 ;
             lv2:symbol "feedback" ;
             lv2:name "Feedback" ;
         ] , [
-            lv2:index 3 ;
-            lv2:symbol "fb_tone" ;
-            lv2:name "Fb Tone" ;
-        ] , [
             lv2:index 4 ;
-            lv2:symbol "fx_mix" ;
-            lv2:name "FX Mix" ;
+            lv2:symbol "fb_tone" ;
+            lv2:name "Tone" ;
         ] , [
             lv2:index 5 ;
             lv2:symbol "output" ;
-            lv2:name "Output" ;
+            lv2:name "Level" ;
         ] ;
     ] .

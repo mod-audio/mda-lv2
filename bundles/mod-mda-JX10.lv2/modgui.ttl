@@ -33,11 +33,11 @@
         ] , [
             lv2:index 4 ;
             lv2:symbol "vcf_freq" ;
-            lv2:name "VCF Freq" ;
+            lv2:name "Filter" ;
         ] , [
             lv2:index 5 ;
             lv2:symbol "vcf_reso" ;
-            lv2:name "VCF Reso" ;
+            lv2:name "Reson" ;
         ] , [
             lv2:index 6 ;
             lv2:symbol "vibrato" ;

@@ -20,11 +20,11 @@
             lv2:name "Detune" ;
         ] , [
             lv2:index 1 ;
-            lv2:symbol "mix" ;
-            lv2:name "Mix" ;
+            lv2:symbol "output" ;
+            lv2:name "Level" ;
         ] , [
             lv2:index 2 ;
-            lv2:symbol "output" ;
-            lv2:name "Output" ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
         ] ;
     ] .
