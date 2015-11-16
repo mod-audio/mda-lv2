@@ -20,7 +20,7 @@
             lv2:name "L Delay" ;
         ] , [
             lv2:index 1 ;
-            lv2:symbol "r_delay" ;
+            lv2:symbol "rl_delay" ;
             lv2:name "R/L Delay" ;
         ] , [
             lv2:index 2 ;
