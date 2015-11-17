@@ -143,7 +143,7 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:default 0 ;
         lv2:minimum 0 ;
         lv2:maximum 4 ;
-        lv2:portProperty lv2:enumeration ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
         lv2:scalePoint [
             rdfs:label "None" ;
             rdf:value 0
@@ -166,12 +166,12 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 11 ;
         lv2:name "Thru Mix" ;
         lv2:symbol "thru_mix" ;
-        lv2:default -41 ;
-        lv2:minimum -41 ;
-        lv2:maximum 0 ;
+        lv2:default -41.0 ;
+        lv2:minimum -41.0 ;
+        lv2:maximum 0.0 ;
         lv2:scalePoint [
             rdfs:label "OFF" ;
-            rdf:value -41
+            rdf:value -41.0
         ];
         units:unit units:db ;
         rdfs:comment "Allow some of the input signal to be mixed with the output"

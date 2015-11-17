@@ -81,7 +81,6 @@ mda:DX10
         lv2:minimum 0 ;
         lv2:maximum 40 ;
         units:unit [
-            a units:Unit ;
             rdfs:label   "ratio" ;
             units:symbol "ratio" ;
         ]
@@ -96,7 +95,6 @@ mda:DX10
         lv2:minimum 0.000 ;
         lv2:maximum 0.750 ;
         units:unit [
-            a units:Unit ;
             rdfs:label   "ratio" ;
             units:symbol "ratio" ;
         ]

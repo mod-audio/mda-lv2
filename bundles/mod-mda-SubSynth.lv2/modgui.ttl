@@ -15,26 +15,26 @@
         modgui:port [
             lv2:index 0 ;
             lv2:name "Type" ;
-            lv2:name "type" ;
+            lv2:symbol "type" ;
         ] , [
             lv2:index 1 ;
             lv2:name "Level" ;
-            lv2:name "level" ;
+            lv2:symbol "level" ;
         ] , [
             lv2:index 2 ;
             lv2:name "Tune" ;
-            lv2:name "tune" ;
+            lv2:symbol "tune" ;
         ] , [
             lv2:index 3 ;
             lv2:name "Dry Mix" ;
-            lv2:name "dry_mix" ;
+            lv2:symbol "dry_mix" ;
         ] , [
             lv2:index 4 ;
             lv2:name "Thresh" ;
-            lv2:name "thresh" ;
+            lv2:symbol "thresh" ;
         ] , [
             lv2:index 5 ;
             lv2:name "Release" ;
-            lv2:name "release" ;
+            lv2:symbol "release" ;
         ] ;
     ] .

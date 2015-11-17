@@ -47,7 +47,6 @@ mda:DubDelay
         lv2:minimum -110 ;
         lv2:maximum 110 ;
         units:unit [
-            a units:Unit ;
             rdfs:label   "Saturation/Limiter" ;
             units:symbol "Sat <> Lim" ;
         ];
@@ -62,7 +61,6 @@ mda:DubDelay
         lv2:minimum -100 ;
         lv2:maximum 100 ;
         units:unit [
-            a units:Unit ;
             rdfs:label   "Low/High" ;
             units:symbol "Lo <> Hi" ;
         ];
@@ -106,12 +104,12 @@ mda:DubDelay
         lv2:index 6 ;
         lv2:name "Output" ;
         lv2:symbol "output" ;
-        lv2:default 0 ;
-        lv2:minimum -34 ;
-        lv2:maximum 6 ;
+        lv2:default 0.0 ;
+        lv2:minimum -34.0 ;
+        lv2:maximum 6.0 ;
         lv2:scalePoint [
             rdfs:label "OFF" ;
-            rdf:value -34
+            rdf:value -34.0
         ];
         units:unit units:db;
         rdfs:comment "Level trim"
