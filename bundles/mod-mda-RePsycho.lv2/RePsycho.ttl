@@ -8,6 +8,39 @@
 @prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
+
 
 mda:RePsycho
     a lv2:Plugin ,
@@ -20,15 +53,17 @@ mda:RePsycho
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
-    rdfs:comment """Event-based pitch shifter
-
-Chops audio into individual beats and shifts each beat downwards in pitch. Only allowing downwards shifts helps keep timing very tight - depending on complexity, whole rhythm sections can be shifted!
-
-Alternative uses include a triggered flanger or sub-octave doubler (both with mix set to 50% or less) and a swing quantizer (with a high threshold so not all beats trigger).""" ;
     lv2:minorVersion 0;
     lv2:microVersion 1;
     mod:brand "MDA" ;
     mod:label "RePsycho" ;
+    rdfs:comment """ Event-based pitch shifter
+    
+Chops audio into individual beats and shifts each beat downwards in pitch. Only allowing downwards shifts helps keep timing very tight - depending on complexity, whole rhythm sections can be shifted!
+
+Alternative uses include a triggered flanger or sub-octave doubler (both with mix set to 50% or less) and a swing quantizer (with a high threshold so not all beats trigger).
+""";
+
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;

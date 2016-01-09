@@ -9,7 +9,8 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
 
 mda:BeatBox
-    a lv2:Plugin ;
+    a lv2:Plugin,
+      lv2:GeneratorPlugin ;
     lv2:project mda: ;
     lv2:symbol "BBox" ;
     doap:name "MDA BeatBox" ;
@@ -32,9 +33,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 0 ;
         lv2:name "Hat Thr" ;
         lv2:symbol "hat_thr" ;
-        lv2:default -38 ;
-        lv2:minimum -40 ;
-        lv2:maximum 0 ;
+        lv2:default -38.0 ;
+        lv2:minimum -40.0 ;
+        lv2:maximum 0.0 ;
         units:unit units:db ;
         rdfs:comment "Trigger threshold level"
     ] , [
@@ -43,9 +44,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 1 ;
         lv2:name "Hat Rate" ;
         lv2:symbol "hat_rate" ;
-        lv2:default 130 ;
-        lv2:minimum 40 ;
-        lv2:maximum 240 ;
+        lv2:default 130.0 ;
+        lv2:minimum 40.0 ;
+        lv2:maximum 240.0 ;
         units:unit units:ms ;
         rdfs:comment "Maximum trigger rate"
     ] , [
@@ -54,9 +55,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 2 ;
         lv2:name "Hat Mix" ;
         lv2:symbol "hat_mix" ;
-        lv2:default -34 ;
-        lv2:minimum -80 ;
-        lv2:maximum 12 ;
+        lv2:default -34.0 ;
+        lv2:minimum -80.0 ;
+        lv2:maximum 12.0 ;
         units:unit units:db ;
         rdfs:comment "Sample playback level"
     ] , [
@@ -65,9 +66,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 3 ;
         lv2:name "Kik Thr" ;
         lv2:symbol "kik_thr" ;
-        lv2:default -20 ;
-        lv2:minimum -40 ;
-        lv2:maximum 0 ;
+        lv2:default -20.0 ;
+        lv2:minimum -40.0 ;
+        lv2:maximum 0.0 ;
         units:unit units:db ;
         rdfs:comment """Trigger filter frequency - switches to "key listen" mode while adjusted"""
     ] , [
@@ -78,8 +79,8 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:symbol "kik_trig" ;
         lv2:portProperty epp:logarithmic;
         lv2:default 527.4 ;
-        lv2:minimum 22 ;
-        lv2:maximum 3494 ;
+        lv2:minimum 22.0 ;
+        lv2:maximum 3494.0 ;
         units:unit units:hz
     ] , [
         a lv2:InputPort ,
@@ -87,9 +88,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 5 ;
         lv2:name "Kik Mix" ;
         lv2:symbol "kik_mix" ;
-        lv2:default -34 ;
-        lv2:minimum -80 ;
-        lv2:maximum 12 ;
+        lv2:default -34.0 ;
+        lv2:minimum -80.0 ;
+        lv2:maximum 1.02 ;
         units:unit units:db
     ] , [
         a lv2:InputPort ,
@@ -97,9 +98,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 6 ;
         lv2:name "Snr Thr" ;
         lv2:symbol "snr_thr" ;
-        lv2:default -20 ;
-        lv2:minimum -40 ;
-        lv2:maximum 0 ;
+        lv2:default -20.0 ;
+        lv2:minimum -40.0 ;
+        lv2:maximum 0.0 ;
         units:unit units:db ;
         rdfs:comment "Trigger filter frequency - increase if snare sample is triggered by kick drum"
     ] , [
@@ -110,8 +111,8 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:symbol "snr_trig" ;
         lv2:portProperty epp:logarithmic;
         lv2:default 527.4 ;
-        lv2:minimum 22 ;
-        lv2:maximum 3494 ;
+        lv2:minimum 22.0 ;
+        lv2:maximum 3494.0 ;
         units:unit units:hz
     ] , [
         a lv2:InputPort ,
@@ -119,9 +120,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 8 ;
         lv2:name "Snr Mix" ;
         lv2:symbol "snr_mix" ;
-        lv2:default -34 ;
-        lv2:minimum -80 ;
-        lv2:maximum 12 ;
+        lv2:default -34.0 ;
+        lv2:minimum -80.0 ;
+        lv2:maximum 12.0 ;
         units:unit units:db
     ] , [
         a lv2:InputPort ,
@@ -129,9 +130,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 9 ;
         lv2:name "Dynamics" ;
         lv2:symbol "dynamics" ;
-        lv2:default 50 ;
-        lv2:minimum 1 ;
-        lv2:maximum 100 ;
+        lv2:default 50.0 ;
+        lv2:minimum 1.0 ;
+        lv2:maximum 100.0 ;
         units:unit units:pc ;
         rdfs:comment "Apply input signal level variations to output"
     ] , [

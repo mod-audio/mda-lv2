@@ -26,7 +26,8 @@
             lv2:symbol "tune" ;
         ] , [
             lv2:index 3 ;
-            lv2:name "Dry Mix" ;
+            lv2:name "Dry" ;
+            lv2:shortName "Dry";
             lv2:symbol "dry_mix" ;
         ] , [
             lv2:index 4 ;

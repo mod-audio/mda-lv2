@@ -21,23 +21,23 @@
         ] , [
             lv2:index 1 ;
             lv2:symbol "hi_width" ;
-            lv2:name "Hi Width" ;
+            lv2:name "Hi-Width" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "hi_depth" ;
-            lv2:name "Hi Depth" ;
+            lv2:name "Hi-Depth" ;
         ] , [
             lv2:index 3 ;
             lv2:symbol "hi_throb" ;
-            lv2:name "Hi Throb" ;
+            lv2:name "Hi-Throb" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "lo_width" ;
-            lv2:name "Lo Width" ;
+            lv2:name "Lo-Width" ;
         ] , [
             lv2:index 5 ;
             lv2:symbol "lo_throb" ;
-            lv2:name "Lo Throb" ;
+            lv2:name "Lo-Throb" ;
         ] , [
             lv2:index 6 ;
             lv2:symbol "output" ;
