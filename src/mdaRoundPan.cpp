@@ -58,31 +58,23 @@ bool  mdaRoundPan::getEffectName(char* name)    { strcpy(name, "RoundPan"); retu
 
 void mdaRoundPan::setParameter(int32_t index, float value)
 {
-  float odphi;
-  float ophi;
 	switch(index)
   {
-    case 0: fParam1 = value;
-            ophi=phi;
-            phi = (float)(6.2831853 * (fParam1 - 0.5));
-            phi = (float)((ophi+phi)*0.5);
-            break;
-    case 1: fParam2 = value; break;
+    case 0:
+       fParam1 = value; phi = (float)(6.2831853 * (fParam1 - 0.5)); break;
+    case 1:
+       fParam2 = value; break;
   }
   //calcs here
   if (fParam2>0.55)
   {
-    odphi=dphi;
     dphi = (float)(20.0 * (fParam2 - 0.55) / getSampleRate());
-    dphi = (float)((odphi+dphi)*0.5);
   }
   else
   {
     if (fParam2<0.45)
     {
-      odphi=dphi;
       dphi = (float)(-20.0 * (0.45 - fParam2) / getSampleRate());
-      dphi = (float)((odphi+dphi)*0.5);
     }
     else
     {
