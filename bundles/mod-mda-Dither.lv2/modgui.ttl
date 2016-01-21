@@ -1,0 +1,38 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/mda/Dither>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-dither.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-dither.css> ;
+        modgui:screenshot <modgui/screenshot-mda-dither.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-dither.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Dither" ;
+        modgui:model "boxy" ;
+        modgui:panel "5-knobs" ;
+        modgui:color "dots" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "word_len" ;
+            lv2:name "Word len" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "dither" ;
+            lv2:name "Dither" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "dith_amp" ;
+            lv2:name "Level" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "dc_trim" ;
+            lv2:name "DC Trim" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "zoom" ;
+            lv2:name "Zoom" ;
+        ] ;
+    ] .

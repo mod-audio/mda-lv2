@@ -1,0 +1,46 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/mda/TestTone>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-testtone.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-testtone.css> ;
+        modgui:screenshot <modgui/screenshot-mda-testtone.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-testtone.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "TestTone" ;
+        modgui:model "boxy" ;
+        modgui:panel "7-sliders" ;
+        modgui:color "black" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "channel" ;
+            lv2:name "Channel" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "f1" ;
+            lv2:name "F1" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "f2" ;
+            lv2:name "F2" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "thru" ;
+            lv2:name "Thru" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "sweep" ;
+            lv2:name "Sweep" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "zero_db" ;
+            lv2:name "Zero dB" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "level" ;
+            lv2:name "Level" ;
+        ] ;
+    ] .

@@ -5,6 +5,42 @@
 @prefix mod: <http://moddevices.com/ns/mod#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
 
 mda:Ambience
     a lv2:Plugin ,
@@ -20,26 +56,31 @@ mda:Ambience
     lv2:microVersion 3 ;
     mod:brand "MDA" ;
     mod:label "Ambience" ;
+    rdfs:comment """
+A plugin that simulates a room.
+""";
 
     lv2:port [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 0 ;
         lv2:name "Size" ;
+        lv2:shortName "Roomsize" ;
         lv2:symbol "size" ;
-        lv2:default 7 ;
-        lv2:minimum 0 ;
-        lv2:maximum 10 ;
+        lv2:default 7.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 10.0 ;
         units:unit units:m ;
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 1 ;
         lv2:name "HF Damp" ;
+        lv2:shortName "Damping" ;
         lv2:symbol "hf_damp" ;
-        lv2:default 70 ;
-        lv2:minimum 0 ;
-        lv2:maximum 100 ;
+        lv2:default 70.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
         units:unit units:pc ;
     ] , [
         a lv2:InputPort ,
@@ -47,19 +88,20 @@ mda:Ambience
         lv2:index 2 ;
         lv2:name "Mix" ;
         lv2:symbol "mix" ;
-        lv2:default 90 ;
-        lv2:minimum 0 ;
-        lv2:maximum 100 ;
+        lv2:default 90.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
         units:unit units:pc ;
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 3 ;
         lv2:name "Output" ;
+        lv2:shortName "Level" ;
         lv2:symbol "output" ;
-        lv2:default 0 ;
-        lv2:minimum -20 ;
-        lv2:maximum 20 ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
         units:unit units:db ;
     ] , [
         a lv2:InputPort ,

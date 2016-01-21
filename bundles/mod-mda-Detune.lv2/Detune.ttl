@@ -31,9 +31,9 @@ mda:Detune
         lv2:index 0 ;
         lv2:name "Detune" ;
         lv2:symbol "detune" ;
-        lv2:default 120 ;
-        lv2:minimum 0 ;
-        lv2:maximum 300 ;
+        lv2:default 120.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 300.0 ;
         units:unit units:cent ;
         rdfs:comment "Detune amount in cents (left channel is lowered in pitch, right channel is raised)"
     ] , [
@@ -42,9 +42,9 @@ mda:Detune
         lv2:index 1 ;
         lv2:name "Mix" ;
         lv2:symbol "mix" ;
-        lv2:default 50 ;
-        lv2:minimum 0 ;
-        lv2:maximum 99 ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 99.0 ;
         units:unit units:pc ;
         rdfs:comment "Wet / dry mix"
     ] , [
@@ -53,9 +53,10 @@ mda:Detune
         lv2:index 2 ;
         lv2:name "Output" ;
         lv2:symbol "output" ;
-        lv2:default 0 ;
-        lv2:minimum -20 ;
-        lv2:maximum 20 ;
+        lv2:shortName "Level" ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
         units:unit units:db ;
         rdfs:comment "Level trim"
     ] , [

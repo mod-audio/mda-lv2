@@ -12,35 +12,35 @@
         modgui:label "Piano" ;
         modgui:model "boxy" ;
         modgui:panel "7-knobs" ;
-        modgui:color "green" ;
-        modgui:knob "aluminium" ;
+        modgui:color "white" ;
+        modgui:knob "black" ;
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "env_decay" ;
-            lv2:name "Envelope Decay" ;
+            lv2:name "Decay" ;
         ] , [
             lv2:index 1 ;
             lv2:symbol "env_release" ;
-            lv2:name "Envelope Release" ;
+            lv2:name "Release" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "hardness_offset" ;
-            lv2:name "Hardness Offset" ;
+            lv2:name "Hardness" ;
         ] , [
             lv2:index 3 ;
             lv2:symbol "vel_to_hardness" ;
-            lv2:name "Velocity to Hardness" ;
+            lv2:name "Velocity" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "muffling_filter" ;
-            lv2:name "Muffling Filter" ;
+            lv2:name "Filter" ;
         ] , [
             lv2:index 5 ;
             lv2:symbol "vel_to_muffling" ;
-            lv2:name "Velocity to Muffling" ;
+            lv2:name "Muffling" ;
         ] , [
             lv2:index 6 ;
             lv2:symbol "vel_sensitivity" ;
-            lv2:name "Velocity Sensitivity" ;
+            lv2:name "Sensitiv" ;
         ] ;
     ] .

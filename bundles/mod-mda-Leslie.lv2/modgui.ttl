@@ -1,1 +1,46 @@
- 
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<http://moddevices.com/plugins/mda/Leslie>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-mda-leslie.html> ;
+        modgui:stylesheet <modgui/stylesheet-mda-leslie.css> ;
+        modgui:screenshot <modgui/screenshot-mda-leslie.png> ;
+        modgui:thumbnail <modgui/thumbnail-mda-leslie.png> ;
+        modgui:brand "MDA" ;
+        modgui:label "Leslie" ;
+        modgui:model "boxy" ;
+        modgui:panel "7-knobs" ;
+        modgui:color "wood3" ;
+        modgui:knob "black" ;
+        modgui:port [
+            lv2:index 0 ;
+            lv2:symbol "speed" ;
+            lv2:name "Speed" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "hi_width" ;
+            lv2:name "Hi-Width" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "hi_depth" ;
+            lv2:name "Hi-Depth" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "hi_throb" ;
+            lv2:name "Hi-Throb" ;
+        ] , [
+            lv2:index 4 ;
+            lv2:symbol "lo_width" ;
+            lv2:name "Lo-Width" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "lo_throb" ;
+            lv2:name "Lo-Throb" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "output" ;
+            lv2:name "Level" ;
+        ] ;
+    ] .

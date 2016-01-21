@@ -11,17 +11,17 @@
         modgui:brand "MDA" ;
         modgui:label "ThruZero" ;
         modgui:model "boxy" ;
-        modgui:panel "7-knobs" ;
+        modgui:panel "5-knobs" ;
         modgui:color "purple" ;
         modgui:knob "purple" ;
         modgui:port [
             lv2:index 0 ;
-            lv2:symbol "rate" ;
-            lv2:name "Rate" ;
-        ] , [
-            lv2:index 1 ;
             lv2:symbol "depth" ;
             lv2:name "Depth" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "rate" ;
+            lv2:name "Rate" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "mix" ;
@@ -33,6 +33,6 @@
         ] , [
             lv2:index 4 ;
             lv2:symbol "depth_mod" ;
-            lv2:name "Depth Mod" ;
+            lv2:name "Mod" ;
         ] ;
     ] .

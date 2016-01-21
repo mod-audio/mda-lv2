@@ -12,19 +12,19 @@
         modgui:label "Overdrive" ;
         modgui:model "boxy" ;
         modgui:panel "3-knobs" ;
-        modgui:color "warning" ;
+        modgui:color "yellow" ;
         modgui:knob "copper" ;
         modgui:port [
             lv2:index 0 ;
-            lv2:symbol "drive" ;
-            lv2:name "Drive" ;
+            lv2:symbol "output" ;
+            lv2:name "Level" ;
         ] , [
             lv2:index 1 ;
             lv2:symbol "muffle" ;
             lv2:name "Muffle" ;
         ] , [
             lv2:index 2 ;
-            lv2:symbol "output" ;
-            lv2:name "Output" ;
+            lv2:symbol "drive" ;
+            lv2:name "Drive" ;
         ] ;
     ] .

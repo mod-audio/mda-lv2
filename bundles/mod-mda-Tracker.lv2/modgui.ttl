@@ -24,12 +24,12 @@
             lv2:name "Dynamics" ;
         ] , [
             lv2:index 2 ;
-            lv2:symbol "mix" ;
-            lv2:name "Mix" ;
-        ] , [
-            lv2:index 3 ;
             lv2:symbol "glide" ;
             lv2:name "Glide" ;
+        ] , [
+            lv2:index 3 ;
+            lv2:symbol "mix" ;
+            lv2:name "Mix" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "transpose" ;

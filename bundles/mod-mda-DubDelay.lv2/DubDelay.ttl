@@ -8,6 +8,39 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix time: <http://lv2plug.in/ns/ext/time#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
+
 
 mda:DubDelay
     a lv2:Plugin ,
@@ -24,16 +57,21 @@ mda:DubDelay
     lv2:microVersion 5;
     mod:brand "MDA" ;
     mod:label "DubDelay" ;
+    rdfs:comment """
+A Delay that can also pitchshift per delay.
+""";
+
 
     lv2:port[
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 0 ;
         lv2:name "Delay" ;
+        lv2:shortName "Time" ;
         lv2:symbol "delay" ;
         lv2:default 1835.25 ;
-        lv2:minimum 0 ;
-        lv2:maximum 7341 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 7341.0 ;
         lv2:designation  time:beatsPerMinute;
         units:unit units:ms ;
         rdfs:comment "Delay time (delay is mono for authenticity!)"
@@ -43,28 +81,25 @@ mda:DubDelay
         lv2:index 1 ;
         lv2:name "Feedback" ;
         lv2:symbol "feedback" ;
-        lv2:default 55 ;
-        lv2:minimum -110 ;
-        lv2:maximum 110 ;
-        units:unit [
-            a units:Unit ;
-            rdfs:label   "Saturation/Limiter" ;
-            units:symbol "Sat <> Lim" ;
-        ];
+        lv2:default 55.0 ;
+        lv2:minimum -110.0 ;
+        lv2:maximum 110.0 ;
+        units:unit units:pc ;
         rdfs:comment "Feedback - with soft saturation at maximum left position, hard clipping at maximum right"
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 2 ;
         lv2:name "Fb Tone" ;
+        lv2:shortName "Tone" ;
         lv2:symbol "fb_tone" ;
-        lv2:default 0 ;
-        lv2:minimum -100 ;
-        lv2:maximum 100 ;
+        lv2:default 0.0 ;
+        lv2:minimum -100.0 ;
+        lv2:maximum 100.0 ;
         units:unit [
-            a units:Unit ;
             rdfs:label   "Low/High" ;
             units:symbol "Lo <> Hi" ;
+            units:render "%f";
         ];
         rdfs:comment "Feedback filtering - low-pass to left, high-pass to right"
     ] , [
@@ -72,10 +107,11 @@ mda:DubDelay
             lv2:ControlPort ;
         lv2:index 3 ;
         lv2:name "LFO Depth" ;
+        lv2:shortName "Depth" ;
         lv2:symbol "lfo_depth" ;
-        lv2:default 50 ;
-        lv2:minimum 0 ;
-        lv2:maximum 100 ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
         units:unit units:pc;
         rdfs:comment "Delay time modulation (sine wave)"
     ] , [
@@ -83,21 +119,23 @@ mda:DubDelay
             lv2:ControlPort ;
         lv2:index 4 ;
         lv2:name "LFO Rate" ;
+        lv2:shortName "Rate" ;
         lv2:symbol "lfo_rate" ;
-        lv2:default 50 ;
+        lv2:default 50.0 ;
         lv2:minimum 0.10 ;
-        lv2:maximum 100 ;
-        units:unit units:s;
+        lv2:maximum 100.0 ;
+        units:unit units:pc;
         rdfs:comment "Modulation rate"
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 5 ;
         lv2:name "FX Mix" ;
+        lv2:shortName "Mix" ;
         lv2:symbol "fx_mix" ;
-        lv2:default 50 ;
-        lv2:minimum 0 ;
-        lv2:maximum 100 ;
+        lv2:default 50.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 100.0 ;
         units:unit units:pc;
         rdfs:comment "Wet / dry mix"
     ] , [
@@ -105,13 +143,14 @@ mda:DubDelay
             lv2:ControlPort ;
         lv2:index 6 ;
         lv2:name "Output" ;
+        lv2:shortName "Level" ;
         lv2:symbol "output" ;
-        lv2:default 0 ;
-        lv2:minimum -34 ;
-        lv2:maximum 6 ;
+        lv2:default 0.0 ;
+        lv2:minimum -34.0 ;
+        lv2:maximum 6.0 ;
         lv2:scalePoint [
             rdfs:label "OFF" ;
-            rdf:value -34
+            rdf:value -34.0
         ];
         units:unit units:db;
         rdfs:comment "Level trim"

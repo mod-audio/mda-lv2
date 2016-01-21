@@ -7,6 +7,37 @@
 @prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
 
 <http://moddevices.com/plugins/mda/JX10/filt_env>
 	a param:EnvelopeControls ,
@@ -32,7 +63,9 @@ mda:JX10
 	lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
-	rdfs:comment """When Vibrato is set to PWM, the two oscillators are phase-locked and will produce a square wave if set to the same pitch. Pitch modulation of one oscillator then causes Pulse Width Modulation. (pitch modulation of both oscillators for vibrato is still available from the modulation wheel). Unlike other synths, in PWM mode the oscillators can still be detuned to give a wider range of PWM effects.
+	rdfs:comment """
+  A very nice polyphone synthesizer. This one has a lot of options to modulate the filter, with envelope and/or lfo.
+  When Vibrato is set to PWM, the two oscillators are phase-locked and will produce a square wave if set to the same pitch. Pitch modulation of one oscillator then causes Pulse Width Modulation. (pitch modulation of both oscillators for vibrato is still available from the modulation wheel). Unlike other synths, in PWM mode the oscillators can still be detuned to give a wider range of PWM effects.
     """ ;
 	lv2:minorVersion 0;
 	lv2:microVersion 1;
