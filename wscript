@@ -34,7 +34,8 @@ def build(bld):
     module_ext = module_pat[module_pat.rfind('.'):]
 
     plugins = '''
-
+            Ambience
+            Bandisto
             BeatBox
             Combo
             DX10
