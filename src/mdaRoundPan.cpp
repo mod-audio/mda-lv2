@@ -58,27 +58,38 @@ bool  mdaRoundPan::getEffectName(char* name)    { strcpy(name, "RoundPan"); retu
 
 void mdaRoundPan::setParameter(int32_t index, float value)
 {
+  float odphi;
+  float ophi;
 	switch(index)
   {
-    case 0: fParam1 = value; phi = (float)(6.2831853 * (fParam1 - 0.5)); break;
+    case 0: fParam1 = value;
+            ophi=phi;
+            phi = (float)(6.2831853 * (fParam1 - 0.5));
+            phi = (float)((ophi+phi)*0.5);
+            break;
     case 1: fParam2 = value; break;
   }
   //calcs here
   if (fParam2>0.55)
   {
+    odphi=dphi;
     dphi = (float)(20.0 * (fParam2 - 0.55) / getSampleRate());
+    dphi = (float)((odphi+dphi)*0.5);
   }
   else
   {
     if (fParam2<0.45)
     {
+      odphi=dphi;
       dphi = (float)(-20.0 * (0.45 - fParam2) / getSampleRate());
+      dphi = (float)((odphi+dphi)*0.5);
     }
     else
     {
       dphi = 0.0;
     }
   }
+
 }
 
 mdaRoundPan::~mdaRoundPan()
@@ -105,7 +116,7 @@ void mdaRoundPan::getProgramName(char *name)
 
 bool mdaRoundPan::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
-	if (index == 0) 
+	if (index == 0)
 	{
 	    strcpy(name, programName);
 	    return true;
@@ -165,7 +176,8 @@ void mdaRoundPan::process(float **inputs, float **outputs, int32_t sampleFrames)
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
 	float a, c, d, x=0.5, y=(float)0.7854;
-  float ph, dph, fourpi=(float)12.566371;
+  float ph, dph;
+  float fourpi=(float)12.566371;
 
   ph = phi;
   dph = dphi;

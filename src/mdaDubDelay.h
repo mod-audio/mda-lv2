@@ -56,6 +56,7 @@ protected:
   float *buffer;               //delay
 	int32_t size, ipos;             //delay max time, pointer, left time, right time
   float wet, dry, fbk;         //wet & dry mix
+	float oldwet, olddry;
   float lmix, hmix, fil, fil0; //low & high mix, crossover filter coeff & buffer
   float env, rel;              //limiter (clipper when release is instant)
   float del, mod, phi, dphi;   //lfo

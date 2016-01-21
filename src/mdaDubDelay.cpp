@@ -36,6 +36,8 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam4 = 0.50f; //lfo speed
   fParam5 = 0.33f; //wet mix
   fParam6 = 0.50f; //output
+  oldwet = 0.33f;
+  olddry = 0.50f;
          ///CHANGED///too long?
   size = 323766; //705600; //95998; //32766;  //set max delay time at max sample rate
 	buffer = new float[size + 2]; //spare just in case!
@@ -63,7 +65,7 @@ bool  mdaDubDelay::getEffectName(char* name)    { strcpy(name, "DubDelay"); retu
 void mdaDubDelay::setParameter(int32_t index, float value)
 {
   float fs=getSampleRate();
-  if(fs < 8000.0f) fs = 44100.0f; //??? bug somewhere!
+  if(fs < 8000.0f) fs = 48000.0f; //??? bug somewhere!
 
 	switch(index)
   {
@@ -100,7 +102,6 @@ void mdaDubDelay::setParameter(int32_t index, float value)
   wet = 1.0f - fParam5;
   wet = fParam6 * (1.0f - wet * wet); //-3dB at 50% mix
   dry = fParam6 * 2.0f * (1.0f - fParam5 * fParam5);
-
   dphi = 628.31853f * (float)pow(10.0f, 3.0f * fParam4 - 2.0f) / fs; //100-sample steps
 }
 
@@ -126,7 +127,7 @@ void mdaDubDelay::getProgramName(char *name)
 
 bool mdaDubDelay::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
-	if (index == 0) 
+	if (index == 0)
 	{
 	    strcpy(name, programName);
 	    return true;
@@ -206,6 +207,7 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
 	float a, b, c, d, ol, w=wet, y=dry, fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
+  float ow=oldwet, oy=olddry;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
   float e=env, g, r=rel; //limiter envelope, gain, release
   float twopi=6.2831853f;
@@ -254,10 +256,15 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 
     *(buffer + i) = tmp;                      //delay input
 
+    w=(w*0.3+ow*0.7);                         //smoothing wet parameter
     ol *= w;                                  //wet
 
+    y=(y*0.3+oy*0.7);                         //smoothing dry parameter
     *++out1 = c + y * a + ol;                 //dry
 		*++out2 = d + y * b + ol;
+
+    ow=w;                                     //saving old val for smoothing
+    oy=y;                                     //saving old val for smoothing
 	}
   ipos = i;
   dlbuf=dl;
@@ -326,4 +333,3 @@ void mdaDubDelay::processReplacing(float **inputs, float **outputs, int32_t samp
   dlbuf=dl;
   if(fabs(f0)<1.0e-10) { fil0=0.0f; env=0.0f; } else { fil0=f0; env=e; } //trap denormals
 }
-

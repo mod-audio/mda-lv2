@@ -50,7 +50,7 @@ protected:
   float fParam3;
   float fParam4;
   float phi, dphi;
-  
+
   //float *buffer, *buffer2;
 	//int32_t size, bufpos;
 
