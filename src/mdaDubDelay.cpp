@@ -34,10 +34,8 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam2 = 0.40f; //tone
   fParam3 = 0.00f; //lfo depth
   fParam4 = 0.50f; //lfo speed
-  fParam5 = 0.33f; //wet mix
-  fParam6 = 0.50f; //output
-  oldwet = 0.33f;
-  olddry = 0.50f;
+  oldwet = fParam5 = 0.33f; //wet mix
+  olddry = fParam6 = 0.50f; //output
          ///CHANGED///too long?
   size = 323766; //705600; //95998; //32766;  //set max delay time at max sample rate
 	buffer = new float[size + 2]; //spare just in case!
@@ -206,7 +204,7 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 	float *in2 = inputs[1];
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
-	float a, b, c, d, ol, w=wet, y=dry, fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
+	float a, b, c, d, ol, w=(wet*0.3+oldwet*0.7), y=(dry*0.3+olddry*0.7), fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
   float ow=oldwet, oy=olddry;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
   float e=env, g, r=rel; //limiter envelope, gain, release
@@ -256,16 +254,15 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 
     *(buffer + i) = tmp;                      //delay input
 
-    w=(w*0.3+ow*0.7);                         //smoothing wet parameter
     ol *= w;                                  //wet
 
-    y=(y*0.3+oy*0.7);                         //smoothing dry parameter
     *++out1 = c + y * a + ol;                 //dry
 		*++out2 = d + y * b + ol;
-
-    ow=w;                                     //saving old val for smoothing
-    oy=y;                                     //saving old val for smoothing
 	}
+
+  oldwet=w;                                     //saving old val for smoothing
+  olddry=y;                                     //saving old val for smoothing
+
   ipos = i;
   dlbuf=dl;
   if(fabs(f0)<1.0e-10) { fil0=0.0f; env=0.0f; } else { fil0=f0; env=e; } //trap denormals
