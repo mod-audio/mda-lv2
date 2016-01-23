@@ -67,6 +67,7 @@ protected:
   float twopi; //speed, target, momentum, phase, width, ampmod, freqmod...
   float hspd, hset, hmom, hphi, hwid, hlev, hdep;
   float lspd, lset, lmom, lphi, lwid, llev, gain;
+	float smoothgain;
   float *hbuf;  //HF delay buffer
 	int32_t size, hpos; //buffer length & pointer
 

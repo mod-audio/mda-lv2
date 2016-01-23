@@ -4,6 +4,6 @@ build/
 *.so
 *.pyc
 .lock*
-
+lv2.h
 manifest.ttl
 debian

@@ -67,7 +67,8 @@ protected:
 
   ///global internal variables
   float rat, dep, wet, dry, fb, dem; //rate, depth, wet & dry mix, feedback, mindepth
-  float phi, fb1, fb2, deps;         //lfo & feedback buffers, depth change smoothing 
+  float orat, odep, owet, odry, odem, ofb, odeps;//smoothing
+  float phi, fb1, fb2, deps;         //lfo & feedback buffers, depth change smoothing
   float *buffer, *buffer2;           //maybe use 2D buffer?
 	int32_t size, bufpos;
 };

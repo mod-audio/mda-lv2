@@ -43,13 +43,13 @@ mdaLeslieProgram::mdaLeslieProgram()
   strcpy(name, "Leslie Simulator");
 }
 
-mdaLeslie::mdaLeslie(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 3, NPARAMS)	// programs, parameters 
+mdaLeslie::mdaLeslie(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 3, NPARAMS)	// programs, parameters
 {
   size = 256; hpos = 0;
 	hbuf = new float[size];
   fbuf1 = fbuf2 = 0.0f;
   twopi = 6.2831853f;
-
+  smoothgain = 0.50f;
   setNumInputs(2);
 	setNumOutputs(2);
 	setUniqueID("mdaLeslie");  // identify here
@@ -104,10 +104,10 @@ void mdaLeslie::setParameter(int32_t index, float value)
 mdaLeslie::~mdaLeslie()
 {
   if(hbuf) delete [] hbuf;
-  if(programs) delete [] programs; 
+  if(programs) delete [] programs;
 }
 
-void mdaLeslie::setProgram(int32_t program) 
+void mdaLeslie::setProgram(int32_t program)
 {
 	curProgram = program;
     update();
@@ -170,7 +170,7 @@ void mdaLeslie::getProgramName(char *name)
 
 bool mdaLeslie::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
-	if ((unsigned int)index < NPROGS) 
+	if ((unsigned int)index < NPROGS)
 	{
 	    strcpy(name, programs[index].name);
 	    return true;
@@ -223,9 +223,9 @@ void mdaLeslie::getParameterDisplay(int32_t index, char *text)
 	switch(index)
   {
     case 0:
-      if(param[0]<0.5f) 
+      if(param[0]<0.5f)
       {
-        if(param[0] < 0.1f) strcpy(text, "STOP"); 
+        if(param[0] < 0.1f) strcpy(text, "STOP");
                       else strcpy(text, "SLOW");
       }               else strcpy(text, "FAST");  break;
     case 1: int2strng((int32_t)(100 * param[6]), text); break;
@@ -233,7 +233,7 @@ void mdaLeslie::getParameterDisplay(int32_t index, char *text)
     case 3: int2strng((int32_t)(100 * param[3]), text); break;
     case 4: int2strng((int32_t)(100 * param[4]), text); break;
     case 5: int2strng((int32_t)(100 * param[5]), text); break;
-    case 6: int2strng((int32_t)(10*int((float)pow(10.0f,1.179f + param[2]))), text); break; 
+    case 6: int2strng((int32_t)(10*int((float)pow(10.0f,1.179f + param[2]))), text); break;
     case 7: int2strng((int32_t)(40 * param[1] - 20), text); break;
     case 8: int2strng((int32_t)(200 * param[7]), text); break;
   }
@@ -258,7 +258,7 @@ void mdaLeslie::process(float **inputs, float **outputs, int32_t sampleFrames)
 	float *in2 = inputs[1];
 	float *out1 = outputs[0];
 	float *out2 = outputs[1];
-	float a, c, d, g=gain, h, l;
+	float a, c, d, g=(gain*0.3+smoothgain*0.7), h, l;
   float fo=filo, fb1=fbuf1, fb2=fbuf2;
   float hl=hlev, hs=hspd, ht, hm=hmom, hp=hphi, hw=hwid, hd=hdep;
   float ll=llev, ls=lspd, lt, lm=lmom, lp=lphi, lw=lwid;
@@ -330,6 +330,7 @@ void mdaLeslie::process(float **inputs, float **outputs, int32_t sampleFrames)
     shp += dshp;
     slp += dslp;
 	}
+  g=smoothgain;
   lspd = ls;
   hspd = hs;
   hpos = hps;
