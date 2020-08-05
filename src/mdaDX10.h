@@ -23,6 +23,8 @@
 
 #include "audioeffectx.h"
 
+#define PI_2 6.28318530717959
+
 #define NPARAMS 16       //number of parameters
 #define NPROGS  32       //number of programs
 #define NOUTS    2       //number of outputs

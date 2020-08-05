@@ -141,7 +141,9 @@ void mdaDX10::update()  //parameter change //if multitimbral would have to move 
   rich = 0.50f - 3.0f * param[13] * param[13];
   //rich = -1.0f + 2 * param[13];
   modmix = 0.25f * param[14] * param[14];
-  dlfo = 628.3f * ifs * 25.0f * param[15] * param[15]; //these params not in original DX10
+
+  float frequency = param[15];
+  dlfo = PI_2 * ifs * frequency; //lfo rate
 }
 
 
@@ -307,11 +309,10 @@ void mdaDX10::getParameterLabel(int32_t index, char *label)
 
 void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
-	float* out1 = outputs[0];
-	float* out2 = outputs[1];
-	int32_t frame=0, frames, v;
+  float* out1 = outputs[0];
+  float* out2 = outputs[1];
+  int32_t frame=0, frames, v;
   float o, x, e, mw=MW, w=rich, m=modmix;
-  int32_t k=K;
 
   LV2_Atom_Event* ev = lv2_atom_sequence_begin(&eventInput->body);
   bool end = lv2_atom_sequence_is_end(&eventInput->body, eventInput->atom.size, ev);
@@ -329,13 +330,9 @@ void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
         VOICE *V = voice;
         o = 0.0f;
 
-        if(--k<0)
-        {
-          lfo0 += dlfo * lfo1; //sine LFO
-          lfo1 -= dlfo * lfo0;
-          mw = lfo1 * (modwhl + vibrato);
-          k=100;
-        }
+        lfo0 += dlfo * lfo1; //sine LFO
+        lfo1 -= dlfo * lfo0;
+        mw = lfo1 * (modwhl + vibrato);
 
         for(v=0; v<NVOICES; v++) //for each voice
         {
@@ -392,7 +389,8 @@ void mdaDX10::processReplacing(float **inputs, float **outputs, int32_t sampleFr
 			*out2++ = 0.0f;
 		}
   }
-  K=k; MW=mw; //remember these so vibrato speed not buffer size dependant!
+
+  MW=mw; //remember these so vibrato speed not buffer size dependant!
 }
 
 

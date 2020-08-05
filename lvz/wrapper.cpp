@@ -222,7 +222,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(14):
             return inverted ? value*100 : value/(100);
             case(15):
-            return inverted ? value*25 : value/(25);
+            return value;
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDynamics") == 0) {
