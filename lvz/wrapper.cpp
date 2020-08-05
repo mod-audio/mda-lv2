@@ -262,7 +262,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(4):
             return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            return inverted ? value*36.90 + 0.07 : (value - 0.07)/(36.90);
+            return value;
             case(6):
             return inverted ? value*100 : value/(100);
             case(7):
