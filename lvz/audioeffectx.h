@@ -80,7 +80,7 @@ public:
 		: URI("NIL")
 		, uniqueID("NIL")
 		, eventInput(NULL)
-		, sampleRate(44100)
+		, sampleRate(48000)
 		, curProgram(0)
 		, numInputs(0)
 		, numOutputs(0)
