@@ -69,9 +69,9 @@ mdaVocoder::mdaVocoder(audioMasterCallback audioMaster): AudioEffectX(audioMaste
   strcpy(programs[4].name,"Pad Vocoder");
 
   for(unsigned i=1;i<NBANDS;i++) {
-      for(unsigned k=3; k<13; k++) {
-          f[i][k] = 0.0f;
-      }
+    for(unsigned k=3; k<13; k++) {
+      f[i][k] = 0.0f;
+    }
   }
 
   suspend();
