@@ -36,7 +36,7 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam4 = 0.50f; //lfo speed
   oldwet = fParam5 = 0.33f; //wet mix
   olddry = fParam6 = 0.50f; //output
-         ///CHANGED///too long?
+  ///CHANGED///too long?
   float max_delay_in_seconds = 7.341;
   size = (int)(max_delay_in_seconds * getSampleRate());
   buffer = new float[size + 2]; //spare just in case!
@@ -47,11 +47,11 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   dlbuf= 0.0f;
 
   setNumInputs(2);
-	setNumOutputs(2);
-	setUniqueID("mdaDubDelay");  //identify here
-	DECLARE_LVZ_DEPRECATED(canMono) ();
-	canProcessReplacing();
-	strcpy(programName, "Dub Feedback Delay");
+  setNumOutputs(2);
+  setUniqueID("mdaDubDelay");  //identify here
+  DECLARE_LVZ_DEPRECATED(canMono) ();
+  canProcessReplacing();
+  strcpy(programName, "Dub Feedback Delay");
 
   suspend();		//flush buffer
   setParameter(0, 0.5);
@@ -66,7 +66,7 @@ void mdaDubDelay::setParameter(int32_t index, float value)
   float fs=getSampleRate();
   if(fs < 8000.0f) fs = 48000.0f; //??? bug somewhere!
 
-	switch(index)
+  switch(index)
   {
     case 0: fParam0 = value; break;
     case 1: fParam1 = value; break;
@@ -75,10 +75,9 @@ void mdaDubDelay::setParameter(int32_t index, float value)
     case 4: fParam4 = value; break;
     case 5: fParam5 = value; break;
     case 6: fParam6 = value; break;
- }
+  }
   //calcs here
-  ///CHANGED///del = fParam0 * fParam0 * fParam0 * (float)size;
-  del = fParam0 * fParam0 * (float)size;
+  del = fParam0 * size;
   mod = 0.049f * fParam3 * del;
 
   fil = fParam2;
@@ -106,37 +105,37 @@ void mdaDubDelay::setParameter(int32_t index, float value)
 
 mdaDubDelay::~mdaDubDelay()
 {
-	if(buffer) delete [] buffer;
+  if(buffer) delete [] buffer;
 }
 
 void mdaDubDelay::suspend()
 {
-	memset(buffer, 0, size * sizeof(float));
+  memset(buffer, 0, size * sizeof(float));
 }
 
 void mdaDubDelay::setProgramName(char *name)
 {
-	strcpy(programName, name);
+  strcpy(programName, name);
 }
 
 void mdaDubDelay::getProgramName(char *name)
 {
-	strcpy(name, programName);
+  strcpy(name, programName);
 }
 
 bool mdaDubDelay::getProgramNameIndexed (int32_t category, int32_t index, char* name)
 {
-	if (index == 0)
-	{
-	    strcpy(name, programName);
-	    return true;
-	}
-	return false;
+  if (index == 0)
+  {
+    strcpy(name, programName);
+    return true;
+  }
+  return false;
 }
 
 float mdaDubDelay::getParameter(int32_t index)
 {
-	float v=0;
+  float v=0;
 
   switch(index)
   {
@@ -153,7 +152,7 @@ float mdaDubDelay::getParameter(int32_t index)
 
 void mdaDubDelay::getParameterName(int32_t index, char *label)
 {
-	switch(index)
+  switch(index)
   {
     case 0: strcpy(label, "Delay"); break;
     case 1: strcpy(label, "Feedback"); break;
@@ -201,27 +200,28 @@ void mdaDubDelay::getParameterLabel(int32_t index, char *label)
 
 void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 {
-	float *in1 = inputs[0];
-	float *in2 = inputs[1];
-	float *out1 = outputs[0];
-	float *out2 = outputs[1];
-	float a, b, c, d, ol, w=(wet*0.3+oldwet*0.7), y=(dry*0.3+olddry*0.7), fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
+  float *in1 = inputs[0];
+  float *in2 = inputs[1];
+  float *out1 = outputs[0];
+  float *out2 = outputs[1];
+  float a, b, c, d, ol, w=(wet*0.3+oldwet*0.7), y=(dry*0.3+olddry*0.7), fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
   float ow=oldwet, oy=olddry;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
   float e=env, g, r=rel; //limiter envelope, gain, release
   float twopi=6.2831853f;
   int32_t  i=ipos, l, s=size, k=0;
 
-	--in1;
-	--in2;
-	--out1;
-	--out2;
+  --in1;
+  --in2;
+  --out1;
+  --out2;
+
   while(--sampleFrames >= 0)
-	{
-		a = *++in1;
+  {
+    a = *++in1;
     b = *++in2;
-		c = out1[1];
-		d = out2[1];
+    c = out1[1];
+    d = out2[1];
 
     if(k==0) //update delay length at slower rate (could be improved!)
     {
@@ -258,8 +258,8 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
     ol *= w;                                  //wet
 
     *++out1 = c + y * a + ol;                 //dry
-		*++out2 = d + y * b + ol;
-	}
+    *++out2 = d + y * b + ol;
+  }
 
   oldwet=w;                                     //saving old val for smoothing
   olddry=y;                                     //saving old val for smoothing
@@ -271,23 +271,23 @@ void mdaDubDelay::process(float **inputs, float **outputs, int32_t sampleFrames)
 
 void mdaDubDelay::processReplacing(float **inputs, float **outputs, int32_t sampleFrames)
 {
-	float *in1 = inputs[0];
-	float *in2 = inputs[1];
-	float *out1 = outputs[0];
-	float *out2 = outputs[1];
-	float a, b, ol, w=wet, y=dry, fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
+  float *in1 = inputs[0];
+  float *in2 = inputs[1];
+  float *out1 = outputs[0];
+  float *out2 = outputs[1];
+  float a, b, ol, w=wet, y=dry, fb=fbk, dl=dlbuf, db=dlbuf, ddl=0.0f;
   float lx=lmix, hx=hmix, f=fil, f0=fil0, tmp;
   float e=env, g, r=rel; //limiter envelope, gain, release
   float twopi=6.2831853f;
   int32_t  i=ipos, l, s=size, k=0;
 
-	--in1;
-	--in2;
-	--out1;
-	--out2;
+  --in1;
+  --in2;
+  --out1;
+  --out2;
   while(--sampleFrames >= 0)
-	{
-		a = *++in1;
+  {
+    a = *++in1;
     b = *++in2;
 
     if(k==0) //update delay length at slower rate (could be improved!)
@@ -325,8 +325,8 @@ void mdaDubDelay::processReplacing(float **inputs, float **outputs, int32_t samp
     ol *= w;                                  //wet
 
     *++out1 = y * a + ol;                     //dry
-		*++out2 = y * b + ol;
-	}
+    *++out2 = y * b + ol;
+  }
   ipos = i;
   dlbuf=dl;
   if(fabs(f0)<1.0e-10) { fil0=0.0f; env=0.0f; } else { fil0=f0; env=e; } //trap denormals
