@@ -122,7 +122,7 @@ void mdaLeslie::update()
   //calcs here!
   filo = 1.f - (float)pow(10.0f, param[2] * (2.27f - 0.54f * param[2]) - 1.92f);
 
-  if(param[0]<0.50f)
+  if(param[0]<=0.50f)
   {
      if(param[0]<0.1f) //stop
      {
@@ -140,6 +140,7 @@ void mdaLeslie::update()
     lset = 5.31f; hset = 6.40f;
     lmom = 0.14f; hmom = 0.09f;
   }
+
   hmom = (float)pow(10.0f, -ifs / hmom);
   lmom = (float)pow(10.0f, -ifs / lmom);
   hset *= spd;
