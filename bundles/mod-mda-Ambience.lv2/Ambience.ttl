@@ -11,24 +11,24 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 
-
-mda:
-    a doap:Project ;
-    lv2:symbol "mda" ;
-    doap:name "MDA LV2" ;
-    doap:shortdesc "An LV2 port of the MDA plugins." ;
-    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <mailto:devel@moddevices.com>;
-    ] ;
-    doap:developer [
-        a foaf:Person ;
-        foaf:name "Paul Kellett" ;
-        foaf:mbox <mailto:paul@mda-vst.com>
-    ] .
-
+#
+#mda:
+#    a doap:Project ;
+#    lv2:symbol "mda" ;
+#    doap:name "MDA LV2" ;
+#    doap:shortdesc "An LV2 port of the MDA plugins." ;
+#    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+#    doap:maintainer [
+#        foaf:name "MOD Team";
+#        foaf:homepage <http://moddevices.com>;
+#        foaf:mbox <mailto:devel@moddevices.com>;
+#    ] ;
+#    doap:developer [
+#        a foaf:Person ;
+#        foaf:name "Paul Kellett" ;
+#        foaf:mbox <mailto:paul@mda-vst.com>
+#    ] .
+#
 mda:mainIn
     a pg:StereoGroup ,
         pg:InputGroup ;
@@ -57,7 +57,10 @@ mda:Ambience
     mod:brand "MDA" ;
     mod:label "Ambience" ;
     rdfs:comment """
-A plugin that simulates a room.
+The Ambience aims to emulate the sonic properties of a room. By tweaking the damping or roomsize controls, add some texture and reverb to your sound.
+
+Features:
+Modeled by MDA
 """;
 
     lv2:port [
