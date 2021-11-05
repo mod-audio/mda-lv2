@@ -33,7 +33,6 @@ mda:Degrade
         lv2:default 0.8 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-#        units:unit units:db ;
         rdfs:comment "Peak clipping threshold"
     ] , [
         a lv2:InputPort ,
@@ -41,15 +40,9 @@ mda:Degrade
         lv2:index 1 ;
         lv2:name "Quant" ;
         lv2:symbol "quant" ;
-#        lv2:portProperty lv2:integer ;
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-#        units:unit [
-#        rdfs:label   "bits" ;
-#        units:symbol "bit" ;
-#        units:render "%f bits"
-#        ] ;
         rdfs:comment """Bit depth (typically 8 or below for "telephone" quality)"""
     ] , [
         a lv2:InputPort ,
@@ -57,8 +50,6 @@ mda:Degrade
         lv2:index 2 ;
         lv2:name "Rate" ;
         lv2:symbol "rate" ;
-#        lv2:portProperty lv2:integer ;
-#        lv2:portProperty epp:logarithmic ;
         lv2:default 0.65 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -74,12 +65,9 @@ mda:Degrade
         lv2:index 3 ;
         lv2:name "Post Filter" ;
         lv2:symbol "post_filt" ;
-#        lv2:portProperty lv2:integer ;
-#        lv2:portProperty epp:logarithmic ;
         lv2:default 0.9 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-#        units:unit units:db ;
         rdfs:comment "Low-pass filter to muffle the distortion produced by the previous two controls"
     ] , [
         a lv2:InputPort ,
@@ -87,7 +75,6 @@ mda:Degrade
         lv2:index 4 ;
         lv2:name "Non-Lin" ;
         lv2:symbol "non_lin" ;
-#        lv2:portProperty lv2:integer ;
         lv2:default 0.58 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -103,7 +90,6 @@ mda:Degrade
         lv2:index 5 ;
         lv2:name "Output" ;
         lv2:symbol "output" ;
-#        lv2:portProperty lv2:integer ;
         lv2:default 0.5 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
