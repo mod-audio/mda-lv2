@@ -57,11 +57,11 @@ mda:RePsycho
     lv2:microVersion 1;
     mod:brand "MDA" ;
     mod:label "RePsycho" ;
-    rdfs:comment """ Event-based pitch shifter
-    
-Chops audio into individual beats and shifts each beat downwards in pitch. Only allowing downwards shifts helps keep timing very tight - depending on complexity, whole rhythm sections can be shifted!
+    rdfs:comment """
+The RePsycho is an event-based pitch shifter. It chops audio into individual beats and shifts each beat upwards in pitch. Only allowing downwards pitch shifting helps to keep the timing very tight, and depending on the complexity, whole rhythm sections can be shifted.
 
-Alternative uses include a triggered flanger or sub-octave doubler (both with mix set to 50% or less) and a swing quantizer (with a high threshold so not all beats trigger).
+Features:
+Modeled by MDA
 """;
 
     lv2:port [
@@ -73,6 +73,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:default 0.0 ;
         lv2:minimum -24.0 ;
         lv2:maximum 0.0 ;
+        mod:default -12.0;
         units:unit units:semitone12TET ;
         rdfs:comment "Coarse tune (semitones)"
     ] , [
@@ -95,6 +96,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:default 0.0 ;
         lv2:minimum -50.0 ;
         lv2:maximum 50.0 ;
+        mod:default -37.0;
         units:unit units:pc ;
         rdfs:comment "Adjust envelope of each chunk (a fast decay can be useful while setting up)"
     ] , [
@@ -106,6 +108,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:default -12.0 ;
         lv2:minimum -30.0 ;
         lv2:maximum 0.0 ;
+        mod:default -25.0;
         units:unit units:db ;
         rdfs:comment "Trigger level to divide the input into chunks"
     ] , [
@@ -117,6 +120,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:default 122.5 ;
         lv2:minimum 10.0 ;
         lv2:maximum 260.0 ;
+        mod:default 162.34;
         units:unit units:ms ;
         rdfs:comment "Minimum chunk length"
     ] , [
@@ -128,6 +132,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:default 100.0 ;
         lv2:minimum 0.0 ;
         lv2:maximum 100.0 ;
+        mod:default 90.0;
         units:unit units:pc ;
         rdfs:comment "Mix original signal with output"
     ] , [
@@ -136,7 +141,7 @@ Alternative uses include a triggered flanger or sub-octave doubler (both with mi
         lv2:index 6 ;
         lv2:name "Quality" ;
         lv2:symbol "quality" ;
-        lv2:default 0.0 ;
+        lv2:default 1.0 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         lv2:portProperty lv2:enumeration ;

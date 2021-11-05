@@ -11,22 +11,22 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-mda:
-    a doap:Project ;
-    lv2:symbol "mda" ;
-    doap:name "MDA LV2" ;
-    doap:shortdesc "An LV2 port of the MDA plugins." ;
-    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <mailto:devel@moddevices.com>;
-    ] ;
-    doap:developer [
-        a foaf:Person ;
-        foaf:name "Paul Kellett" ;
-        foaf:mbox <mailto:paul@mda-vst.com>
-    ] .
+#mda:
+#    a doap:Project ;
+#    lv2:symbol "mda" ;
+#    doap:name "MDA LV2" ;
+#    doap:shortdesc "An LV2 port of the MDA plugins." ;
+#    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+#    doap:maintainer [
+#        foaf:name "MOD Team";
+#        foaf:homepage <http://moddevices.com>;
+#        foaf:mbox <mailto:devel@moddevices.com>;
+#    ] ;
+#    doap:developer [
+#        a foaf:Person ;
+#        foaf:name "Paul Kellett" ;
+#        foaf:mbox <mailto:paul@mda-vst.com>
+#    ] .
 
 mda:mainIn
     a pg:StereoGroup ,
@@ -59,9 +59,15 @@ mda:DX10
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
-    rdfs:comment "Sounds similar to the later Yamaha DX synths including the heavy bass but with a warmer, cleaner tone.  This plug-in is 8-voice polyphonic." ;
+    rdfs:comment """
+The DX10 is inspired by the later Yamaha DX© (*) synthesizers which are some of the most popular digital synths in the world. This generator, however, was tweaked a bit to give it a warmer cleaner tone. It is 8-voice polyphonic and has a wide variety of sounds and presets. Some of these are bound to give you flashbacks to the 80’s where the DX series really shined!
+
+Features:
+Modeled by MDA
+(*) “Other product names modeled in the software trademarks of their respective companies that do not endorse and are not associated or affiliated with MOD. Yamaha DX© is a trademark or trade name of another manufacturer and was used merely to identify the product whose sound was reviewed in the creation of the product. All other trademarks are the property of their respective holders.”
+    """ ;
     lv2:minorVersion 0;
-    lv2:microVersion 2;
+    lv2:microVersion 3;
     mod:brand "MDA" ;
     mod:label "DX10" ;
 
@@ -109,7 +115,7 @@ mda:DX10
         lv2:symbol "coarse" ;
         lv2:portProperty epp:logarithmic;
         lv2:default 33.68 ;
-        lv2:minimum 0.0 ;
+        lv2:minimum 0.01 ;
         lv2:maximum 40.0 ;
         units:unit [
             rdfs:label   "ratio" ;
@@ -124,7 +130,7 @@ mda:DX10
         lv2:symbol "fine" ;
         lv2:portProperty epp:logarithmic;
         lv2:default 0.247 ;
-        lv2:minimum 0.000 ;
+        lv2:minimum 0.001 ;
         lv2:maximum 0.750 ;
         units:unit [
             rdfs:label   "ratio" ;
@@ -236,6 +242,7 @@ mda:DX10
             lv2:ControlPort ;
         lv2:index 15 ;
         lv2:name "LFO Rate" ;
+        lv2:portProperty  mod:tapTempo , mod:tempoRelatedDynamicScalePoints;
         lv2:symbol "lfo_rate" ;
         lv2:default 10.35 ;
         lv2:minimum 0.0 ;

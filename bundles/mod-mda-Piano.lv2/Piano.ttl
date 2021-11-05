@@ -28,10 +28,28 @@ mda:Piano
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
+    rdfs:comment """
+
+The MDA Piano generates a variety of piano sounds.
+It was designed for a very low CPU usage. Tweak the sound to fit to your personal needs, or check out the presets. There is a bunch of cool stuff in there.
+
+Features:
+Modeled by MDA
+
+    """ ;
     lv2:minorVersion 0;
     lv2:microVersion 1;
     mod:brand "MDA" ;
     mod:label "Piano" ;
+
+rdfs:comment """
+The MDA Piano generates a variety of piano sounds.
+It was designed for a very low CPU usage. Tweak the sound to fit to your personal needs, or check out the presets. There is a bunch of cool stuff in there.
+
+Features:
+Modeled by MDA
+
+""";
 
     lv2:port [
         a lv2:InputPort ,

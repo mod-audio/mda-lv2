@@ -9,22 +9,22 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-mda:
-    a doap:Project ;
-    lv2:symbol "mda" ;
-    doap:name "MDA LV2" ;
-    doap:shortdesc "An LV2 port of the MDA plugins." ;
-    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <mailto:devel@moddevices.com>;
-    ] ;
-    doap:developer [
-        a foaf:Person ;
-        foaf:name "Paul Kellett" ;
-        foaf:mbox <mailto:paul@mda-vst.com>
-    ] .
+#mda:
+#    a doap:Project ;
+#    lv2:symbol "mda" ;
+#    doap:name "MDA LV2" ;
+#    doap:shortdesc "An LV2 port of the MDA plugins." ;
+#    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+#    doap:maintainer [
+#        foaf:name "MOD Team";
+#        foaf:homepage <http://moddevices.com>;
+#        foaf:mbox <mailto:devel@moddevices.com>;
+#    ] ;
+#    doap:developer [
+#        a foaf:Person ;
+#        foaf:name "Paul Kellett" ;
+#        foaf:mbox <mailto:paul@mda-vst.com>
+#    ] .
 
 mda:mainIn
     a pg:StereoGroup ,
@@ -52,11 +52,16 @@ mda:Vocoder
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
     pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
-    rdfs:comment """16-band vocoder for applying the spectrum of one sound (the modulator, usually a voice or rhythm part) to the waveform of another (the carrier, usually a synth pad or sawtooth wave).
+    rdfs:comment """
+This 16-band vocoder applies the spectrum of your voice to the waveform of an instrument.
+Plug your voice signal into the Modulator input and the instrument into the Carrier input.
+The modulator and carrier inputs will be split into a series of frequency-bands that are modifiable with the vocoder. After that, each carrier band will be modulated and added at the end. This vocoder also features an adjustable envelope and output level.
 
-Note that both carrier and modulator signals are taken from one input channel, which therefore must be stereo for normal operation. This is different to some other vocoder plug-ins where one of the input signals is taken from another plug-in in a different channel.""" ;
+Features:
+Modeled by MDA
+""" ;
     lv2:minorVersion 0;
-    lv2:microVersion 3;
+    lv2:microVersion 4;
     mod:brand "MDA" ;
     mod:label "Vocoder" ;
 
