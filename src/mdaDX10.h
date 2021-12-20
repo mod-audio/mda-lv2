@@ -20,17 +20,7 @@
 #define __mdaDX10__
 
 #include "audioeffectx.h"
-
-#include <stdio.h>
-#include <float.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stdint.h>
 #include <string.h>
-#include "lv2/log/log.h"
-#include "lv2/log/logger.h"
-#include <string>
 
 #define NPARAMS 16       //number of parameters
 #define NPROGS  32       //number of programs
@@ -70,10 +60,6 @@ class mdaDX10 : public AudioEffectX
 public:
 	mdaDX10(audioMasterCallback audioMaster);
 	~mdaDX10();
-  
-  //Log feature
-  LV2_URID_Map*  map;
-  LV2_Log_Logger logger;
 
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
 

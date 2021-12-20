@@ -25,16 +25,6 @@
 
 #include "audioeffectx.h"
 
-#include <stdio.h>
-#include <float.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-#include "lv2/log/log.h"
-#include "lv2/log/logger.h"
-
 
 class mdaVocoderProgram
 {
@@ -52,10 +42,6 @@ class mdaVocoder : public AudioEffectX
 public:
   mdaVocoder(audioMasterCallback audioMaster);
   ~mdaVocoder();
-  
-  //Log feature
-  LV2_URID_Map*  map;
-  LV2_Log_Logger logger;
 
   virtual void  process(float **inputs, float **outputs, int32_t sampleFrames);
   virtual void  processReplacing(float **inputs, float **outputs, int32_t sampleFrames);

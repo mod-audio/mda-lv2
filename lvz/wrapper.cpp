@@ -41,14 +41,6 @@
 #include "lv2/lv2plug.in/ns/ext/atom/atom.h"
 #include "lv2/lv2plug.in/ns/ext/midi/midi.h"
 #include "lv2/lv2plug.in/ns/ext/urid/urid.h"
-
-#include "lv2/log/log.h"
-#include "lv2/log/logger.h"
-#include "lv2/core/lv2.h"
-#include "lv2/core/lv2_util.h"
-#include "lv2/log/log.h"
-#include "lv2/log/logger.h"
-
 #include PLUGIN_HEADER
 
 
@@ -59,8 +51,6 @@
 
 float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted) {    
     if(strcmp(effect->getUniqueID(), "mdaAmb") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case 0:
             return inverted ? value*10.f : value/10.f;
@@ -73,8 +63,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaBand") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*(3) : value/(3);
@@ -99,8 +87,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaBBox") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*40 - 40 : (value + 40)/(40);
@@ -148,8 +134,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaDeEss") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*60 - 60 : (value + 60)/(60);
@@ -160,8 +144,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDegrade") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*30-30 : (30+value)/30;
@@ -182,8 +164,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDelay") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*330.f : value/330.f;
@@ -202,8 +182,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDetune") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*300 : value/(300);
@@ -216,8 +194,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDither") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*16 + 8 : (value - 8)/(16);
@@ -232,8 +208,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*7500 : value/7500;
@@ -252,8 +226,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDX10") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         /* 
         Scaling process is convoluted but here is an explanation, 
         but just plugging through a bunch of values would make the presets not work:
@@ -388,8 +360,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDynamics") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*40 - 40 : (value + 40)/(40);
@@ -414,8 +384,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaEPiano") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         /*
         decay and release times (in seconds) are found by solving their recursive equations:
         dec = exp(-exp(-1.0 + 0.03 * note - 2.0 * param[0]))
@@ -477,8 +445,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaJX10") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return value;
@@ -531,8 +497,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaLeslie") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return value;
@@ -561,8 +525,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaLimiter") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*40-40 : (value + 40)/(40);
@@ -580,13 +542,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
 
     //}
     else if(strcmp(effect->getUniqueID(), "mdaLoudness") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaMultiBand") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value : value;
@@ -618,8 +576,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaOverdrive") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*100 : value/(100);
@@ -676,8 +632,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRezFilter") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*100 : value/(100);
@@ -702,8 +656,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRingMod") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
          switch(port) {
             case(0):
             return inverted ? value*16000 : value/(16000);
@@ -714,8 +666,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaRoundPan") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*360-180 :(value + 180)/(360);
@@ -734,8 +684,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaSplitter") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value : value;
@@ -754,8 +702,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaStereo") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value*200 - 100 : (value + 100)/(200);
@@ -770,8 +716,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaSubSynth") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value : value;
@@ -804,13 +748,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaTestTone") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaThruZero") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? (value+0.1*93.24)+1 : 1 - ((value - 0.1)/(93.24));
@@ -825,8 +765,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaTracker") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value : value;
@@ -864,13 +802,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaVocInput") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
 
     }
     else if(strcmp(effect->getUniqueID(), "mdaVocoder") == 0) {
-        /*lv2_log_note(&effect->logger, "from the wrapper:        port: %i. value: %f.", port, value);
-        lv2_log_note(&effect->logger, "from the implementation: port: %i. value: %f.", port, effect->getParameter(port));*/
         switch(port) {
             case(0):
             return inverted ? value : value;
@@ -964,21 +898,6 @@ lvz_instantiate(const LV2_Descriptor*    descriptor,
     PLUGIN_CLASS* effect = new PLUGIN_CLASS(master_callback);
     effect->setURI(URI_PREFIX PLUGIN_URI_SUFFIX);
     effect->setSampleRate(rate);
-    
-    /*
-    const char* missing = lv2_features_query(
-            features,
-            LV2_LOG__log,         &effect->logger.log, false,
-            LV2_URID__map,        &effect->map,        true,
-            NULL);
-    // clang-format on
-    lv2_log_logger_set_map(&effect->logger, effect->map);
-    if (missing) {
-        lv2_log_error(&effect->logger, "Missing feature <%s>\n", missing);
-        free(effect);
-        return NULL;
-    }
-    */
 
     uint32_t num_params  = effect->getNumParameters();
     uint32_t num_inputs  = effect->getNumInputs();

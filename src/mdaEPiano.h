@@ -23,17 +23,6 @@
 
 #include "audioeffectx.h"
 
-#include <stdio.h>
-#include <float.h>
-#include <math.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-#include "lv2/log/log.h"
-#include "lv2/log/logger.h"
-#include <string>
-
 #define NPARAMS 12       //number of parameters
 #define NPROGS   5       //number of programs
 #define NOUTS    2       //number of outputs
@@ -86,10 +75,6 @@ class mdaEPiano : public AudioEffectX
 public:
 	mdaEPiano(audioMasterCallback audioMaster);
 	~mdaEPiano();
-  
-  //Log feature
-  LV2_URID_Map*  map;
-  LV2_Log_Logger logger;
 
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleframes);
 
