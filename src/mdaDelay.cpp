@@ -26,11 +26,12 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
   return new mdaDelay(audioMaster);
 }
 
-mdaDelay::mdaDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 6)	// programs, parameters
+mdaDelay::mdaDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 7)	// programs, parameters
 {
   //inits here!
   fParam0 = 0.50f; //left delay
   fParam1 = 0.27f; //right ratio
+  fFixedRatio = 0.f;
   fParam2 = 0.70f; //feedback
   fParam3 = 0.50f; //tone
   fParam4 = 0.33f; //wet mix
@@ -40,6 +41,7 @@ mdaDelay::mdaDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 
 	buffer = new float[size + 2]; //spare just in case!
   ipos = 0;
   fil0 = 0.0f;
+  lvl = 1.f;
 
   setNumInputs(2);
 	setNumOutputs(2);
@@ -64,15 +66,14 @@ void mdaDelay::setParameter(int32_t index, float value)
   {
     case 0: fParam0 = value; break;
     case 1: fParam1 = value; break;
-    case 2: fParam2 = value; break;
-    case 3: fParam3 = value; break;
-    case 4: fParam4 = value; break;
-    case 5: fParam5 = value; break;
+    case 2: fFixedRatio = value; break;
+    case 3: fParam2 = value; break;
+    case 4: fParam3 = value; break;
+    case 5: fParam4 = value; break;
+    case 6: fParam5 = value; break;
  }
   //calcs here
-  ldel = (int32_t)(size * fParam0 * fParam0);
-  if(ldel<4) ldel=4;
-
+  /*
   switch(int(fParam1 * 17.9f)) //fixed left/right ratios
   {
     case  17: tmp = 0.5000f; break;
@@ -87,6 +88,28 @@ void mdaDelay::setParameter(int32_t index, float value)
     default: tmp = 4.0f * fParam1; break; //variable ratio
   }
   rdel = (int32_t)(size * fParam0 * fParam0 * tmp);
+  */
+  ldel = (int32_t)(getSampleRate()*0.33*fParam0);
+  if(ldel>size) ldel=size;
+  if(ldel<4) ldel=4;
+  
+  if(fFixedRatio == 1.f) {
+    switch((int)(fParam1*8.99)){
+      case 0: tmp = 0.5000f; break;
+      case 1: tmp = 0.6667f; break;
+      case 2: tmp = 0.7500f; break;
+      case 3: tmp = 0.8333f; break;
+      case 4: tmp = 1.0000f; break;
+      case 5: tmp = 1.2000f; break;
+      case 6: tmp = 1.3333f; break;
+      case 7: tmp = 1.5000f; break;
+      case 8: tmp = 2.0000f; break;
+    }
+  } else {
+    tmp = 2.f * fParam1;
+  }
+  
+  rdel = (int32_t)(getSampleRate()*0.33*fParam0*tmp);
   if(rdel>size) rdel=size;
   if(rdel<4) rdel=4;
 
@@ -107,8 +130,9 @@ void mdaDelay::setParameter(int32_t index, float value)
 
   fbk = 0.495f * fParam2;
   wet = 1.0f - fParam4;
-  wet = fParam5 * (1.0f - wet * wet); //-3dB at 50% mix
-  dry = fParam5 * 2.0f * (1.0f - fParam4 * fParam4);
+  lvl = pow(2.f, fParam5 * 3.f - 2.f)*0.5;
+  wet = lvl * (1.0f - wet * wet); //-3dB at 50% mix
+  dry = lvl * 2.0f * (1.0f - fParam4 * fParam4);
 
   //if(fParam2>0.99) { fbk=0.5f; wet=0.0f; } //freeze
 }
@@ -151,10 +175,11 @@ float mdaDelay::getParameter(int32_t index)
   {
     case 0: v = fParam0; break;
     case 1: v = fParam1; break;
-    case 2: v = fParam2; break;
-    case 3: v = fParam3; break;
-    case 4: v = fParam4; break;
-    case 5: v = fParam5; break;
+    case 2: v = fFixedRatio; break;
+    case 3: v = fParam2; break;
+    case 4: v = fParam3; break;
+    case 5: v = fParam4; break;
+    case 6: v = fParam5; break;
   }
   return v;
 }
@@ -165,10 +190,11 @@ void mdaDelay::getParameterName(int32_t index, char *label)
   {
     case 0: strcpy(label, "L Delay"); break;
     case 1: strcpy(label, "R Delay"); break;
-    case 2: strcpy(label, "Feedback"); break;
-    case 3: strcpy(label, "Fb Tone"); break;
-    case 4: strcpy(label, "FX Mix"); break;
-    case 5: strcpy(label, "Output"); break;
+    case 2: strcpy(label, "Fixed Ratio"); break;
+    case 3: strcpy(label, "Feedback"); break;
+    case 4: strcpy(label, "Fb Tone"); break;
+    case 5: strcpy(label, "FX Mix"); break;
+    case 6: strcpy(label, "Output"); break;
   }
 }
 
@@ -181,10 +207,11 @@ void mdaDelay::getParameterDisplay(int32_t index, char *text)
   {
     case 0: int2strng((int32_t)(ldel * 1000.0f / getSampleRate()), text); break;
     case 1: int2strng((int32_t)(100 * rdel / ldel), text); break;
-    case 2: int2strng((int32_t)(99 * fParam2), text); break;
-    case 3: int2strng((int32_t)(200 * fParam3 - 100), text); break;
-    case 4: int2strng((int32_t)(100 * fParam4), text); break;
-    case 5: int2strng((int32_t)(20 * log10(2.0 * fParam5)), text); break;
+    case 2: int2strng((int32_t)(fFixedRatio), text); break;
+    case 3: int2strng((int32_t)(99 * fParam2), text); break;
+    case 4: int2strng((int32_t)(200 * fParam3 - 100), text); break;
+    case 5: int2strng((int32_t)(100 * fParam4), text); break;
+    case 6: int2strng((int32_t)(20 * log10(2.0 * fParam5)), text); break;
   }
 }
 
@@ -193,8 +220,8 @@ void mdaDelay::getParameterLabel(int32_t index, char *label)
 	switch(index)
   {
     case 0:  strcpy(label, "ms"); break;
-    case 3:  strcpy(label, "Lo <> Hi"); break;
-    case 5:  strcpy(label, "dB"); break;
+    case 4:  strcpy(label, "Lo <> Hi"); break;
+    case 6:  strcpy(label, "dB"); break;
     default: strcpy(label, "%"); break;
   }
 }

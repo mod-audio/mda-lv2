@@ -8,7 +8,7 @@
 	rdfs:label "Stereo Detune" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 60 ;
+		pset:value 2.4 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -29,7 +29,7 @@
 	rdfs:label "Symphonic" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 60 ;
+		pset:value 2.4 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -50,7 +50,7 @@
 	rdfs:label "Out Of Tune" ;
 	lv2:port [
 		lv2:symbol "detune" ;
-		pset:value 240 ;
+		pset:value 153.6 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -64,4 +64,3 @@
 		lv2:symbol "latency" ;
 		pset:value 49.35 ;
 	] .
-

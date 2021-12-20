@@ -21,11 +21,25 @@
 
 #include "audioeffectx.h"
 
+#include <stdio.h>
+#include <float.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <string.h>
+#include "lv2/log/log.h"
+#include "lv2/log/logger.h"
+
 class mdaDegrade : public AudioEffectX
 {
 public:
 	mdaDegrade(audioMasterCallback audioMaster);
 	~mdaDegrade();
+  
+  //Log feature
+  LV2_URID_Map*  map;
+  LV2_Log_Logger logger;
 
 	virtual void process(float **inputs, float **outputs, int32_t sampleFrames);
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleFrames);
@@ -52,6 +66,8 @@ protected:
   float fParam4;
   float fParam5;
   float fParam6;
+  float fParamRateCharacter;
+  float fParamNonLinEvenOdd;
   float fi2, fo2, clp, lin, lin2, g1, g2, g3, mode;
   float buf0, buf1, buf2, buf3, buf4, buf5, buf6, buf7, buf8, buf9;
   int tn, tcount;

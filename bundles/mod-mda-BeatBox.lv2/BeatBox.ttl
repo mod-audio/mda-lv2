@@ -44,6 +44,7 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 1 ;
         lv2:name "Hat Rate" ;
         lv2:symbol "hat_rate" ;
+        lv2:portProperty epp:logarithmic;
         lv2:default 130.0 ;
         lv2:minimum 40.0 ;
         lv2:maximum 240.0 ;
@@ -55,8 +56,8 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 2 ;
         lv2:name "Hat Mix" ;
         lv2:symbol "hat_mix" ;
-        lv2:default -34.0 ;
-        lv2:minimum -80.0 ;
+        lv2:default 0.0 ;
+        lv2:minimum -24.0 ;
         lv2:maximum 12.0 ;
         units:unit units:db ;
         rdfs:comment "Sample playback level"
@@ -89,9 +90,9 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 5 ;
         lv2:name "Kik Mix" ;
         lv2:symbol "kik_mix" ;
-        lv2:default -34.0 ;
-        lv2:minimum -80.0 ;
-        lv2:maximum 1.02 ;
+        lv2:default 0.0 ;
+        lv2:minimum -24.0 ;
+        lv2:maximum 12.0 ;
         units:unit units:db
     ] , [
         a lv2:InputPort ,
@@ -121,8 +122,8 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 8 ;
         lv2:name "Snr Mix" ;
         lv2:symbol "snr_mix" ;
-        lv2:default -34.0 ;
-        lv2:minimum -80.0 ;
+        lv2:default 0.0 ;
+        lv2:minimum -24.0 ;
         lv2:maximum 12.0 ;
         units:unit units:db
     ] , [
@@ -168,13 +169,14 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:index 11 ;
         lv2:name "Thru Mix" ;
         lv2:symbol "thru_mix" ;
-        lv2:default -41.0 ;
-        lv2:minimum -41.0 ;
-        lv2:maximum 0.0 ;
+        #lv2:portProperty epp:logarithmic ;
+        lv2:default -45.0 ;
+        lv2:minimum -45.0 ;
+        lv2:maximum 0.0 ; # change back to -0.0001 w/ scalePoint if log works
         lv2:scalePoint [
             rdfs:label "OFF" ;
-            rdf:value -41.0
-        ];
+            rdf:value -45.0
+        ]
         units:unit units:db ;
         rdfs:comment "Allow some of the input signal to be mixed with the output"
     ] , [

@@ -28,7 +28,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "lfo_rate" ;
-		pset:value 24.055 ;
+		pset:value 4.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "vel_sense" ;
@@ -40,7 +40,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 1.0 ;
+		pset:value 0.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -81,7 +81,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "lfo_rate" ;
-		pset:value 24.055 ;
+		pset:value 4.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "vel_sense" ;
@@ -93,7 +93,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 1.0 ;
+		pset:value 0.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -134,7 +134,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "lfo_rate" ;
-		pset:value 24.055 ;
+		pset:value 4.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "vel_sense" ;
@@ -146,7 +146,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 1.0 ;
+		pset:value 0.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -187,7 +187,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "lfo_rate" ;
-		pset:value 24.055 ;
+		pset:value 4.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "vel_sense" ;
@@ -199,7 +199,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 1.0 ;
+		pset:value 0.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -240,7 +240,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "lfo_rate" ;
-		pset:value 24.055 ;
+		pset:value 4.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "vel_sense" ;
@@ -252,7 +252,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 1.0 ;
+		pset:value 0.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;

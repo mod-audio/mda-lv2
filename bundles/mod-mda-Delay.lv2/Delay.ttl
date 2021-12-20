@@ -30,9 +30,10 @@ mda:Delay
         lv2:index 0 ;
         lv2:name "L Delay" ;
         lv2:symbol "l_delay" ;
-        lv2:default 0.5 ;
+        lv2:default 250 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:maximum 330.0 ;
+        units:unit units:ms ;
         rdfs:comment "Left channel delay time";
 
     ] , [
@@ -41,65 +42,85 @@ mda:Delay
         lv2:index 1 ;
         lv2:name "R/L Delay" ;
         lv2:symbol "rl_delay" ;
-        lv2:default 0.27 ;
+        lv2:default 1.0 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:maximum 2.0 ;
         rdfs:comment "Right channel delay as a percentage of left channel delay - variable to left, fixed ratios to right";
 
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 2 ;
+        lv2:name "R Delay Fixed Ratios" ;
+        lv2:symbol "rl_fixed_ratios" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Free" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Fixed" ;
+            rdf:value 1
+        ]
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 3 ;
         lv2:name "Feedback" ;
         lv2:symbol "feedback" ;
-        lv2:default 0.7 ;
+        lv2:default 70.0 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:maximum 100.0 ;
+        units:unit units:pc ;
         rdfs:comment "Feedback (sum of left and right outputs)";
 
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
-        lv2:index 3 ;
-        lv2:name "Fb Tone" ;
+        lv2:index 4 ;
+        lv2:name "Fb Tone\nLo<>Hi" ;
         lv2:symbol "fb_tone" ;
-        lv2:default 0.5 ;
-        lv2:minimum 0.0 ;
+        lv2:default 0.0 ;
+        lv2:minimum -1.0 ;
         lv2:maximum 1.0 ;
-        units:unit [
-        rdfs:label   "lohi" ;
-        units:symbol "lohi" ;
-        units:render "%f Lo<>Hi"
-        ] ;
+        #units:unit [
+        #rdfs:label   "lohi" ;
+        #units:symbol "lohi" ;
+        #units:render "%f Lo<>Hi"
+        #] ;
         rdfs:comment "Feedback filtering - low-pass to left, high-pass to right";
 
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
-        lv2:index 4 ;
+        lv2:index 5 ;
         lv2:name "FX Mix" ;
         lv2:symbol "fx_mix" ;
-        lv2:default 0.33 ;
+        lv2:default 33.0 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:maximum 100.0 ;
         rdfs:comment "Wet / dry mix";
+        units:unit units:pc ;
 
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
-        lv2:index 5 ;
+        lv2:index 6 ;
         lv2:name "Output" ;
         lv2:symbol "output" ;
-        lv2:default 0.5 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:default 0.0 ;
+        lv2:minimum -12.0 ;
+        lv2:maximum 6.0 ;
+        units:unit units:db ;
         lv2:scalePoint [rdfs:label "OFF" ;rdf:value 0.0];
         rdfs:comment "Level trim";
 
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;
-        lv2:index 6 ;
+        lv2:index 7 ;
         lv2:symbol "left_in" ;
         lv2:name "Left In" ;
         lv2:designation pg:left ;
@@ -107,7 +128,7 @@ mda:Delay
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;
-        lv2:index 7 ;
+        lv2:index 8 ;
         lv2:symbol "right_in" ;
         lv2:name "Right In" ;
         lv2:designation pg:right ;
@@ -115,7 +136,7 @@ mda:Delay
     ] , [
         a lv2:OutputPort ,
             lv2:AudioPort ;
-        lv2:index 8 ;
+        lv2:index 9 ;
         lv2:symbol "left_out" ;
         lv2:name "Left Out" ;
         lv2:designation pg:left ;
@@ -123,7 +144,7 @@ mda:Delay
     ] , [
         a lv2:OutputPort ,
             lv2:AudioPort ;
-        lv2:index 9 ;
+        lv2:index 10 ;
         lv2:symbol "right_out" ;
         lv2:name "Right Out" ;
         lv2:designation pg:right ;

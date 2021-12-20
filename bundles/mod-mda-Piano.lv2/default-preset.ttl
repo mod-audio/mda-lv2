@@ -1,0 +1,45 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-preset>
+	a pset:Preset ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Piano> ;
+	lv2:port [
+		lv2:symbol "env_decay" ;
+		pset:value 50.0
+	] , [
+		lv2:symbol "env_release" ;
+		pset:value 50.0
+	] , [
+		lv2:symbol "fine_tuning" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "hardness_offset" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "muffling_filter" ;
+		pset:value 80.30000305
+	] , [
+		lv2:symbol "polyphony" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "random_detuning" ;
+		pset:value 12.30000019
+	] , [
+		lv2:symbol "stereo_width" ;
+		pset:value 100.0
+	] , [
+		lv2:symbol "stretch_tuning" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "vel_sensitivity" ;
+		pset:value 37.59999847
+	] , [
+		lv2:symbol "vel_to_hardness" ;
+		pset:value 50.0
+	] , [
+		lv2:symbol "vel_to_muffling" ;
+		pset:value 25.10000038
+	] .
+

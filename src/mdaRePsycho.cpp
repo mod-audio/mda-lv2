@@ -37,7 +37,7 @@ mdaRePsycho::mdaRePsycho(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   fParam5 = (float)0.45; //minimum chunk length
   fParam6 = (float)1.0; //fine tune
   fParam7 = (float)0.0; //quality
-  size = 22050;
+  size = getSampleRate()/2.0;
 	buffer = new float[size];
   buffer2 = new float[size];
 
@@ -52,7 +52,7 @@ mdaRePsycho::mdaRePsycho(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   //calcs here!
   buf = 0.0; buf2 = 0.0;
   tim = size + 1;
-  dtim = 441 + int(0.5 * size * fParam5);
+  dtim = 480 + int(0.5 * size * fParam5);
   fil = 0.0;
   thr = (float)pow(10.0,(1.5 * fParam1) - 1.5);
 
@@ -84,7 +84,7 @@ void mdaRePsycho::setParameter(int32_t index, float value)
     case 6: fParam7 = value; break;
   }
   //calcs here
-  dtim = 441 + int(0.5 * size * fParam5);
+  dtim = 480 + int(0.5 * size * fParam5);
   thr = (float)pow(10.0,(1.5 * fParam1) - 1.5);
 
   if(fParam2>0.5)

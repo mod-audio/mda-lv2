@@ -9,6 +9,20 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
+
 mda:Vocoder
     a lv2:Plugin ,
         lv2:SpectralPlugin ;
@@ -61,7 +75,7 @@ Modeled by MDA
         lv2:symbol "output" ;
         lv2:default 0.0 ;
         lv2:minimum -20.0 ;
-        lv2:maximum 20.0 ;
+        lv2:maximum 0.0 ;
         units:unit units:db ;
 
         rdfs:comment "Level trim"
@@ -99,6 +113,7 @@ Modeled by MDA
         lv2:minimum 14.0 ;
         lv2:maximum 10000.0 ;
         units:unit units:ms ;
+        lv2:portProperty epp:logarithmic;
         lv2:scalePoint [
             rdf:value 14.0 ;
             rdfs:label "FREEZE" ;
@@ -121,7 +136,7 @@ Modeled by MDA
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 6 ;
-        lv2:name "Mid Freq" ;
+        lv2:name "Mid Freq 400Hz" ;
         lv2:symbol "mid_freq" ;
         lv2:portProperty epp:logarithmic;
         lv2:default 1000.0 ;

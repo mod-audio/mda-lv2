@@ -9,6 +9,19 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
 <http://moddevices.com/plugins/mda/JX10/filt_env>
 	a param:EnvelopeControls ,
 		pg:InputGroup ;
@@ -66,7 +79,7 @@ Modeled by MDA
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
     mod:default 0.5 ;
-		units:unit units:semitone12TET ;
+		#units:unit units:semitone12TET ;
 		rdfs:comment "Tuning of second oscillator in semitones"
 	] , [
 		a lv2:InputPort ,
@@ -77,7 +90,7 @@ Modeled by MDA
 		lv2:default 0.25 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:cent ;
+		#units:unit units:cent ;
 		rdfs:comment "Tuning of second oscillator in cents"
 	] , [
 		a lv2:InputPort ,
@@ -295,7 +308,7 @@ Modeled by MDA
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:cent ;
+		#units:unit units:cent ;
 		rdfs:comment "Master tuning in cents"
 	] , [
 		a lv2:OutputPort ,

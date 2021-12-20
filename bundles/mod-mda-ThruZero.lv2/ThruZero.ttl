@@ -11,6 +11,36 @@
 
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
 mda:ThruZero
     a lv2:Plugin ,
         lv2:FlangerPlugin ;
@@ -40,12 +70,13 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:symbol "rate" ;
         lv2:default 20.00 ;
         lv2:minimum 0.10 ;
-        lv2:maximum 93.34 ;
+        lv2:maximum 100 ;
+        lv2:portProperty epp:logarithmic;
         lv2:scalePoint [
             rdfs:label "-" ;
-            rdf:value 93.34
+            rdf:value 100
         ];
-        units:unit units:s ;
+        units:unit units:hz ;
 
         rdfs:comment "Modulation rate (sine wave) - set to minimum for static comb filtering"
     ] , [
@@ -56,7 +87,7 @@ This plug simulates tape-flanging, where two copies of a signal cancel out compl
         lv2:symbol "depth" ;
         lv2:default 20.0 ;
         lv2:minimum 0.0 ;
-        lv2:maximum 45.35 ;
+        lv2:maximum 42.00 ;
         units:unit units:ms ;
         rdfs:comment "Maximum modulation depth"
     ] , [

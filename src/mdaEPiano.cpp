@@ -33,7 +33,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
 
 mdaEPiano::mdaEPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NPROGS, NPARAMS)
 {
-	Fs = 44100.0f;  iFs = 1.0f/Fs;  //just in case...
+	Fs = 48000.f;  iFs = 1.0f/Fs;  //just in case...
 
   programs = new mdaEPianoProgram[NPROGS];
 	if(programs)
@@ -155,7 +155,7 @@ void mdaEPiano::update()  //parameter change
   rmod = lmod = param[4] + param[4] - 1.0f; //lfo depth
   if(param[4] < 0.5f) rmod = -rmod;
 
-  dlfo = 6.283f * iFs * (float)exp(6.22f * param[5] - 2.61f); //lfo rate
+  dlfo = 6.283f * iFs * (39.95 * param[5] - 0.05f); //lfo rate
 
   velsens = 1.0f + param[6] + param[6];
   if(param[6] < 0.25f) velsens -= 0.75f - 3.0f * param[6];
@@ -163,7 +163,7 @@ void mdaEPiano::update()  //parameter change
   width = 0.03f * param[7];
   poly = 1 + (int32_t)(31.9f * param[8]);
   fine = param[9] - 0.5f;
-  random = 0.077f * param[10] * param[10];
+  random = 0.077f * param[10];
   stretch = 0.0f; //0.000434f * (param[11] - 0.5f); parameter re-used for overdrive!
   overdrive = 1.8f * param[11];
 }
@@ -447,7 +447,7 @@ void mdaEPiano::noteOn(int32_t note, int32_t velocity)
 
     k = (note - 60) * (note - 60);
     l = fine + random * ((float)(k % 13) - 6.5f);  //random & fine tune
-    if(note > 60) l += stretch * (float)k; //stretch
+    if(note > 60) l += stretch * (float)k; //stretch = 0!!!!! NOT APPLICABLE
 
     s = size;
     //if(velocity > 40) s += (int32_t)(sizevel * (float)(velocity - 40));  - no velocity to hardness in ePiano
