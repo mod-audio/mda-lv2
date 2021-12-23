@@ -37,7 +37,7 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   oldwet = fParam5 = 0.33f; //wet mix
   olddry = fParam6 = 0.50f; //output
          ///CHANGED///too long?
-  size = 7.5*getSampleRate(); //705600; //95998; //32766;  //set max delay time at max sample rate
+  size = 7.5*48000.f; //705600; //95998; //32766;  //set max delay time at max sample rate
 	buffer = new float[size + 2]; //spare just in case!
   ipos = 0;
   fil0 = 0.0f;

@@ -11,23 +11,6 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-#mda:
-#    a doap:Project ;
-#    lv2:symbol "mda" ;
-#    doap:name "MDA LV2" ;
-#    doap:shortdesc "An LV2 port of the MDA plugins." ;
-#    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-#    doap:maintainer [
-#        foaf:name "MOD Team";
-#        foaf:homepage <http://moddevices.com>;
-#        foaf:mbox <mailto:devel@moddevices.com>;
-#    ] ;
-#    doap:developer [
-#        a foaf:Person ;
-#        foaf:name "Paul Kellett" ;
-#        foaf:mbox <mailto:paul@mda-vst.com>
-#    ] .
-
 mda:mainIn
     a pg:StereoGroup ,
         pg:InputGroup ;
@@ -64,6 +47,7 @@ The DX10 is inspired by the later Yamaha DX© (*) synthesizers which are some of
 
 Features:
 Modeled by MDA
+N.B. The carrier operator has a fixed coarse tuning ratio of 2. 
 (*) “Other product names modeled in the software trademarks of their respective companies that do not endorse and are not associated or affiliated with MOD. Yamaha DX© is a trademark or trade name of another manufacturer and was used merely to identify the product whose sound was reviewed in the creation of the product. All other trademarks are the property of their respective holders.”
     """ ;
     lv2:minorVersion 0;

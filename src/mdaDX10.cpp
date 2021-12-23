@@ -112,6 +112,7 @@ void mdaDX10::update()  //parameter change //if multitimbral would have to move 
 
   rati = param[3];
   rati = (float)floor(40.1f * rati * rati);
+  /*
   if(param[4]<0.5f)
     ratf = 0.2f * param[4] * param[4];
   else
@@ -122,7 +123,8 @@ void mdaDX10::update()  //parameter change //if multitimbral would have to move 
       case  6: ratf = 0.50f;       break;
       case  7: ratf = 0.66666667f; break;
       default: ratf = 0.75f;
-    }
+    }*/
+  ratf = param[4]*0.75;
   ratio = 1.570796326795f * (rati + ratf);
 
   depth = 0.0002f * param[5] * param[5];
