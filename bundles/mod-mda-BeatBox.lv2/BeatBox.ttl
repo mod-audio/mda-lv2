@@ -176,7 +176,7 @@ To record your own sounds, use the Record control to monitor the plug's input, t
         lv2:scalePoint [
             rdfs:label "OFF" ;
             rdf:value -45.0
-        ]
+        ];
         units:unit units:db ;
         rdfs:comment "Allow some of the input signal to be mixed with the output"
     ] , [

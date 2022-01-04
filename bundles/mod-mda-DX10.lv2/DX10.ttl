@@ -47,7 +47,7 @@ The DX10 is inspired by the later Yamaha DX© (*) synthesizers which are some of
 
 Features:
 Modeled by MDA
-N.B. The carrier operator has a fixed coarse tuning ratio of 2. 
+N.B. The carrier operator has a fixed coarse tuning ratio of 2.
 (*) “Other product names modeled in the software trademarks of their respective companies that do not endorse and are not associated or affiliated with MOD. Yamaha DX© is a trademark or trade name of another manufacturer and was used merely to identify the product whose sound was reviewed in the creation of the product. All other trademarks are the property of their respective holders.”
     """ ;
     lv2:minorVersion 0;
@@ -84,7 +84,7 @@ N.B. The carrier operator has a fixed coarse tuning ratio of 2.
         lv2:scalePoint [
             rdfs:label "Inf" ;
             rdf:value 7000.0
-        ]
+        ];
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

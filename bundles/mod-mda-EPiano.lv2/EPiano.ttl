@@ -62,7 +62,7 @@ Rhodes© Pianos are a trademark or trade name of another manufacturer and were u
         lv2:minimum 3.0 ;
         lv2:maximum 23.0;
         lv2:portProperty epp:logarithmic;
-        units:unit units:seconds
+        units:unit units:s
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;

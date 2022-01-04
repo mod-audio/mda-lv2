@@ -96,7 +96,7 @@ mda:Degrade
         lv2:default 15000 ;
         lv2:minimum 200 ;
         lv2:maximum 20000 ;
-        units:unit units:Hz ;
+        units:unit units:hz ;
         rdfs:comment "Low-pass filter to muffle the distortion produced by the previous two controls"
     ] , [
         a lv2:InputPort ,
