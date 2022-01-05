@@ -24,13 +24,6 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:EPiano
     a lv2:Plugin ;
     rdfs:seeAlso <EPiano.ttl> ,

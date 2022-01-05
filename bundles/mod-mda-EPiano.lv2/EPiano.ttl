@@ -14,7 +14,6 @@
 mda:mainOut
     a pg:StereoGroup ,
         pg:OutputGroup ;
-    pg:source mda:mainIn ;
     lv2:name "Output" ;
     lv2:symbol "out" .
 
