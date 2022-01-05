@@ -57,8 +57,9 @@ mdaBeatBox::mdaBeatBox(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
   wwx = 0;
 
   hbuf = new float[hbuflen];
-	sbuf = new float[sbuflen]; sbuf2 = new float[sbuflen];
-	kbuf = new float[kbuflen];
+  sbuf = new float[sbuflen];
+  sbuf2 = new float[sbuflen];
+  kbuf = new float[kbuflen];
 
   setNumInputs(2);		    // stereo in
 	setNumOutputs(2);		    // stereo out
@@ -227,6 +228,7 @@ void mdaBeatBox::synth()
   }
 
   memset(sbuf, 0, sbuflen * sizeof(float)); //generate snare
+  memset(sbuf2, 0, sbuflen * sizeof(float));
   de = (float)pow(10.0,-15.0/getSampleRate());
   e=0.38f; //dp = 1103.f / getSampleRate();
   for(t=0;t<7000;t++)
