@@ -5,14 +5,13 @@
 <http://moddevices.com/plugins/mda/presets#EPiano-default>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
-	rdfs:label "Default" ;
 	lv2:port [
 		lv2:symbol "env_decay" ;
-		pset:value 50 ;
+		pset:value 8.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "env_release" ;
-		pset:value 50 ;
+		pset:value 0.12 ;
 	] ;
 	lv2:port [
 		lv2:symbol "hardness" ;
@@ -40,7 +39,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 0.5 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -58,14 +57,13 @@
 <http://moddevices.com/plugins/mda/presets#EPiano-bright>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
-	rdfs:label "Bright" ;
 	lv2:port [
 		lv2:symbol "env_decay" ;
-		pset:value 50 ;
+		pset:value 8.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "env_release" ;
-		pset:value 50 ;
+		pset:value 0.12 ;
 	] ;
 	lv2:port [
 		lv2:symbol "hardness" ;
@@ -93,7 +91,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 0.5 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -111,14 +109,13 @@
 <http://moddevices.com/plugins/mda/presets#EPiano-mellow>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
-	rdfs:label "Mellow" ;
 	lv2:port [
 		lv2:symbol "env_decay" ;
-		pset:value 50 ;
+		pset:value 8.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "env_release" ;
-		pset:value 50 ;
+		pset:value 0.12 ;
 	] ;
 	lv2:port [
 		lv2:symbol "hardness" ;
@@ -146,7 +143,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 0.5 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -164,14 +161,13 @@
 <http://moddevices.com/plugins/mda/presets#EPiano-autopan>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
-	rdfs:label "Autopan" ;
 	lv2:port [
 		lv2:symbol "env_decay" ;
-		pset:value 50 ;
+		pset:value 8.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "env_release" ;
-		pset:value 50 ;
+		pset:value 0.12 ;
 	] ;
 	lv2:port [
 		lv2:symbol "hardness" ;
@@ -199,7 +195,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 0.5 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;
@@ -217,14 +213,13 @@
 <http://moddevices.com/plugins/mda/presets#EPiano-tremolo>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/EPiano> ;
-	rdfs:label "Tremolo" ;
 	lv2:port [
 		lv2:symbol "env_decay" ;
-		pset:value 50 ;
+		pset:value 8.5 ;
 	] ;
 	lv2:port [
 		lv2:symbol "env_release" ;
-		pset:value 50 ;
+		pset:value 0.12 ;
 	] ;
 	lv2:port [
 		lv2:symbol "hardness" ;
@@ -252,7 +247,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "polyphonic" ;
-		pset:value 0.5 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "fine_tuning" ;

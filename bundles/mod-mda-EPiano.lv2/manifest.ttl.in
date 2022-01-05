@@ -24,12 +24,6 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
 mda:mainOut
     a pg:StereoGroup ,
         pg:OutputGroup ;
@@ -46,25 +40,30 @@ mda:EPiano
 mdap:EPiano-default
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
+    rdfs:label "Default" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:EPiano-bright
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
+    rdfs:label "Bright" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:EPiano-mellow
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
+    rdfs:label "Mellow" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:EPiano-autopan
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
+    rdfs:label "Autopan" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:EPiano-tremolo
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
+    rdfs:label "Tremolo" ;
     rdfs:seeAlso <presets.ttl> .
 
