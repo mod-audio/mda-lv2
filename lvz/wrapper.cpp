@@ -850,6 +850,7 @@ typedef struct {
     float**       control_buffers;
     float**       inputs;
     float**       outputs;
+    bool          first_run;
 } LVZPlugin;
 
 static void
@@ -905,6 +906,7 @@ lvz_instantiate(const LV2_Descriptor*    descriptor,
 
     LVZPlugin* plugin = (LVZPlugin*)malloc(sizeof(LVZPlugin));
     plugin->effect = effect;
+    plugin->first_run = true;
 
     for (int i = 0; features[i]; ++i) {
         if (!strcmp(features[i]->URI, LV2_URID__map)) {
@@ -953,9 +955,12 @@ lvz_run(LV2_Handle instance, uint32_t sample_count)
 {
     LVZPlugin* plugin = (LVZPlugin*)instance;
 
+    const bool first_run = plugin->first_run;
+    plugin->first_run = false;
+
     for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i) {
         const float val = *plugin->control_buffers[i];
-        if (val != plugin->controls[i]) {
+        if (first_run || val != plugin->controls[i]) {
             plugin->effect->setParameter(i, translateParameter(plugin->effect, i, val, false));
             plugin->controls[i] = val;
         }
