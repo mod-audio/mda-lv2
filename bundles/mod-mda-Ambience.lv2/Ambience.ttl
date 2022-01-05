@@ -10,25 +10,6 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-
-#
-#mda:
-#    a doap:Project ;
-#    lv2:symbol "mda" ;
-#    doap:name "MDA LV2" ;
-#    doap:shortdesc "An LV2 port of the MDA plugins." ;
-#    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-#    doap:maintainer [
-#        foaf:name "MOD Team";
-#        foaf:homepage <http://moddevices.com>;
-#        foaf:mbox <mailto:devel@moddevices.com>;
-#    ] ;
-#    doap:developer [
-#        a foaf:Person ;
-#        foaf:name "Paul Kellett" ;
-#        foaf:mbox <mailto:paul@mda-vst.com>
-#    ] .
-#
 mda:mainIn
     a pg:StereoGroup ,
         pg:InputGroup ;
@@ -46,7 +27,7 @@ mda:Ambience
     a lv2:Plugin ,
         lv2:ReverbPlugin ;
     lv2:project mda: ;
-    lv2:symbol "Amb" ;
+    lv2:symbol "Ambience" ;
     doap:name "MDA Ambience" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
@@ -57,7 +38,7 @@ mda:Ambience
     mod:brand "MDA" ;
     mod:label "Ambience" ;
     rdfs:comment """
-The Ambience aims to emulate the sonic properties of a room. By tweaking the damping or roomsize controls, add some texture and reverb to your sound.
+The Ambience aims to emulate the sonic properties of a room. By tweaking the damping or roomsize controls, you can add some texture and reverb to your sound.
 
 Features:
 Modeled by MDA
@@ -67,8 +48,7 @@ Modeled by MDA
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 0 ;
-        lv2:name "Size" ;
-        lv2:shortName "Roomsize" ;
+        lv2:name "Roomsize" ;
         lv2:symbol "size" ;
         lv2:default 7.0 ;
         lv2:minimum 0.0 ;
@@ -78,8 +58,7 @@ Modeled by MDA
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 1 ;
-        lv2:name "HF Damp" ;
-        lv2:shortName "Damping" ;
+        lv2:name "Damping" ;
         lv2:symbol "hf_damp" ;
         lv2:default 70.0 ;
         lv2:minimum 0.0 ;
@@ -99,8 +78,7 @@ Modeled by MDA
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 3 ;
-        lv2:name "Output" ;
-        lv2:shortName "Level" ;
+        lv2:name "Level" ;
         lv2:symbol "output" ;
         lv2:default 0.0 ;
         lv2:minimum -20.0 ;

@@ -1,8 +1,9 @@
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
 @prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
 @prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix mda: <http://moddevices.com/plugins/mda/> .
 
-<default-preset>
+mdap:Ambience-default
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Ambience> ;
 	lv2:port [
@@ -18,4 +19,3 @@
 		lv2:symbol "size" ;
 		pset:value 7.0
 	] .
-
