@@ -11,12 +11,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
 mda:mainOut
     a pg:StereoGroup ,
         pg:OutputGroup ;
@@ -34,7 +28,6 @@ mda:EPiano
     lv2:optionalFeature lv2:hardRTCapable ;
     lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
-    pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 4;
@@ -73,7 +66,7 @@ Rhodes© Pianos are a trademark or trade name of another manufacturer and were u
         lv2:minimum 0.01 ;
         lv2:maximum 1.4 ;
         lv2:portProperty epp:logarithmic;
-        units:unit units:seconds
+        units:unit units:s
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
