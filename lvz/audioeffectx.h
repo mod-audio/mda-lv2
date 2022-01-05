@@ -80,12 +80,14 @@ public:
 		: URI("NIL")
 		, uniqueID("NIL")
 		, eventInput(NULL)
-		, sampleRate(44100)
+		, sampleRate(48000)
 		, curProgram(0)
 		, numInputs(0)
 		, numOutputs(0)
 		, numParams(params)
 		, numPrograms(progs)
+		, flagIsSynth(false)
+		, flagWantEvents(false)
 	{
 	}
 
@@ -114,8 +116,8 @@ public:
 	virtual bool    canHostDo(const char* act) { return false; }
 	virtual void    canMono()                  {}
 	virtual void    canProcessReplacing()      {}
-	virtual void    isSynth()                  {}
-	virtual void    wantEvents()               {}
+	virtual void    isSynth()                  { flagIsSynth = true; }
+	virtual void    wantEvents()               { flagWantEvents = true; }
 
 	virtual void setBlockSize(int32_t size)  {}
 	virtual void setNumInputs(int32_t num)   { numInputs = num; }
@@ -125,6 +127,7 @@ public:
 	virtual void setURI(const char* uri)     { URI = uri; }
 	virtual void setUniqueID(const char* id) { uniqueID = id; }
 	virtual void suspend()                   {}
+	virtual void resume()                    {}
 	virtual void beginEdit(int32_t index)    {}
 	virtual void endEdit(int32_t index)      {}
 
@@ -143,6 +146,10 @@ protected:
 	int32_t                  numOutputs;
 	int32_t                  numParams;
 	int32_t                  numPrograms;
+
+public:
+	bool                     flagIsSynth;
+	bool                     flagWantEvents;
 };
 
 extern "C" {

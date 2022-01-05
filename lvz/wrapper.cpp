@@ -1009,6 +1009,13 @@ lvz_extension_data(const char* uri)
 }
 
 static void
+lvz_activate(LV2_Handle instance)
+{
+    LVZPlugin* plugin = (LVZPlugin*)instance;
+    plugin->effect->resume();
+}
+
+static void
 lvz_deactivate(LV2_Handle instance)
 {
     LVZPlugin* plugin = (LVZPlugin*)instance;
@@ -1028,7 +1035,7 @@ lv2_descriptor(uint32_t index)
         descriptor.URI            = URI_PREFIX PLUGIN_URI_SUFFIX;
         descriptor.instantiate    = lvz_instantiate;
         descriptor.connect_port   = lvz_connect_port;
-        descriptor.activate       = NULL;
+        descriptor.activate       = lvz_activate;
         descriptor.run            = lvz_run;
         descriptor.deactivate     = lvz_deactivate;
         descriptor.cleanup        = lvz_cleanup;
