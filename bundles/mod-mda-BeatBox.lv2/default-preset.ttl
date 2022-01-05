@@ -1,8 +1,9 @@
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
 @prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
 @prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix mda:   <http://moddevices.com/plugins/mda/> .
 
-<default-preset>
+mda:BeatBox-default
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/BeatBox> ;
 	lv2:port [
@@ -10,7 +11,7 @@
 		pset:value 50.0
 	] , [
 		lv2:symbol "hat_mix" ;
-		pset:value -34.0
+		pset:value 0.0
 	] , [
 		lv2:symbol "hat_rate" ;
 		pset:value 130.0
@@ -19,27 +20,26 @@
 		pset:value -38.0
 	] , [
 		lv2:symbol "kik_mix" ;
-		pset:value -34.0
+		pset:value 0.0
 	] , [
 		lv2:symbol "kik_thr" ;
 		pset:value -20.0
 	] , [
 		lv2:symbol "kik_trig" ;
-		pset:value 527.40002441
+		pset:value 300.0
 	] , [
 		lv2:symbol "record" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "snr_mix" ;
-		pset:value -34.0
+		pset:value 0.0
 	] , [
 		lv2:symbol "snr_thr" ;
 		pset:value -20.0
 	] , [
 		lv2:symbol "snr_trig" ;
-		pset:value 527.40002441
+		pset:value 527.4
 	] , [
 		lv2:symbol "thru_mix" ;
-		pset:value -41.0
+		pset:value -45.0
 	] .
-

@@ -23,21 +23,14 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:BeatBox
     a lv2:Plugin ;
     rdfs:seeAlso <BeatBox.ttl> ,
         <modgui.ttl> ;
     lv2:binary <BeatBox@LIB_EXT@> .
+
+mda:BeatBox-default
+    a pset:Preset ;
+    lv2:appliesTo mda:BeatBox ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
