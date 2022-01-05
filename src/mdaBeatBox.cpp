@@ -481,7 +481,7 @@ void mdaBeatBox::processReplacing(float **inputs, float **outputs, int32_t sampl
       mx4 = 1.f + ym * (ye + ye - 1.f); //dynamics
 
       *++out1 = mx1*a + mx3*s + mx4*(o + slv * *(sbuf  + sp));
-		  *++out2 = mx1*a + mx3*s + mx4*(o + slv * *(sbuf2 + sp));
+      *++out2 = mx1*b + mx3*s + mx4*(o + slv * *(sbuf2 + sp));
 
       hf=e;
     }
