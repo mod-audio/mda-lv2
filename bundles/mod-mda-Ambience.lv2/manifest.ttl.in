@@ -2,7 +2,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
 @prefix mda:  <http://moddevices.com/plugins/mda/> .
-@prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
@@ -30,7 +29,7 @@ mda:Ambience
         <modgui.ttl> ;
     lv2:binary <Ambience@LIB_EXT@> .
 
-mdap:Ambience-default
+mda:Ambience-default
     a pset:Preset ;
     lv2:appliesTo mda:Ambience ;
     rdfs:label "Default" ;
