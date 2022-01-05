@@ -52,10 +52,11 @@ protected:
   float fParam4;
   float fParam5;
   float fParam6;
+  float fFixedRatio;
 
   float *buffer;               //delay
 	int32_t size, ipos, ldel, rdel; //delay max time, pointer, left time, right time
-  float wet, dry, fbk;         //wet & dry mix
+  float wet, dry, fbk, lvl;    //wet & dry mix
   float lmix, hmix, fil, fil0; //low & high mix, crossover filter coeff & buffer
   
   char programName[32];

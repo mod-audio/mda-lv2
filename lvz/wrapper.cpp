@@ -31,6 +31,10 @@
 
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 #include "audioeffectx.h"
 #include "lv2.h"
 #include "lv2_programs.h"
@@ -45,18 +49,18 @@
 // para valores de 0 a 1, pois o código do mda foi projetado para trabalhar com esses valores
 
 
-float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted) {
+float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted) {    
     if(strcmp(effect->getUniqueID(), "mdaAmb") == 0) {
-            switch(port) {
-                case 0:
-                return inverted ? value*10.f : value/10.f;
-                case 1:
-                return inverted ? value*100.f : value/100.f;
-                case 2:
-                return inverted ? value*100.f : value/100.f;
-                case 3:
-                return inverted ? value*40.f-20.f : (value+20.f)/(40.f);
-            }
+        switch(port) {
+            case 0:
+            return inverted ? value*10.f : value/10.f;
+            case 1:
+            return inverted ? value*100.f : value/100.f;
+            case 2:
+            return inverted ? value*100.f : value/100.f;
+            case 3:
+            return inverted ? value*40.f-20.f : (value+20.f)/(40.f);
+        }
     }
     else if(strcmp(effect->getUniqueID(), "mdaBand") == 0) {
         switch(port) {
@@ -65,7 +69,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(1):
             return inverted ? value*(1020 - 88) + 88 : (value - 88)/(1020 - 88);
             case(2):
-            return inverted ? value*(1606 - 112) + 112 : (value - 112)/(19606 - 112);
+            return inverted ? value*(19606 - 112) + 112 : (value - 112)/(19606 - 112);
             case(3):
             return inverted ? value*(60) : value/(60);
             case(4):
@@ -89,25 +93,25 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(1):
             return inverted ? value*200 + 40 : (value - 40)/(200);
             case(2):
-            return inverted ? value*92 - 80 : (value + 80)/(92);
+            return inverted ? value*36 - 24 : (value + 24)/(36);
             case(3):
             return inverted ? value*40 - 40 : (value + 40)/(40);
             case(4):
             return inverted ? value*3472 + 22 : (value - 22)/(3472);
             case(5):
-            return inverted ? value*92 - 80 : (value + 80)/(92);
+            return inverted ? value*36 - 24 : (value + 24)/(36);
             case(6):
             return inverted ? value*40 - 40 : (value + 40)/(40);
             case(7):
             return inverted ? value*3472 + 22 : (value - 22)/(3472);
             case(8):
-            return inverted ? value*92 - 80 : (value + 80)/(92);
+            return inverted ? value*36 - 24 : (value + 24)/(36);
             case(9):
             return inverted ? value*99 + 1 : (value - 1)/(99);
             case(10):
             return inverted ? value*4 : value/4;
             case(11):
-            return inverted ? value*41 - 41 : (value + 41)/(41);
+            return inverted ? value*45 - 45 : (value + 45)/(45);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaCombo") == 0) {
@@ -139,12 +143,44 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*40 - 20 : (value + 20)/(40);
         }
     }
-    //else if(strcmp(effect->getUniqueID(), "mdaDegrade") == 0) {
-
-    //}
-    //else if(strcmp(effect->getUniqueID(), "mdaDelay") == 0) {
-
-    //}
+    else if(strcmp(effect->getUniqueID(), "mdaDegrade") == 0) {
+        switch(port) {
+            case(0):
+            return inverted ? value*30-30 : (30+value)/30;
+            case(1):
+            return inverted ? value*12+4 : (value-4)/12;
+            case(2):
+            return inverted ? value*2.0*43200+4800 : (value-4800)/43200*0.5;
+            case(3):
+            return inverted ? value : value;
+            case(4):
+            return inverted ? value*19800+200 : (value-200)/19800;
+            case(5):
+            return inverted ? value : value;
+            case(6):
+            return inverted ? value : value;
+            case(7):
+            return inverted ? value*40-20 : (value+20)/40;
+        }
+    }
+    else if(strcmp(effect->getUniqueID(), "mdaDelay") == 0) {
+        switch(port) {
+            case(0):
+            return inverted ? value*330.f : value/330.f;
+            case(1):
+            return inverted ? value*2.f : value/2.f;
+            case(2):
+            return inverted ? value : value;
+            case(3):
+            return inverted ? value*100.f : value/100.f;
+            case(4):
+            return inverted ? value*2.f-1.f : (value+1.f)/2.f;
+            case(5):
+            return inverted ? value*100.f : value/100.f;
+            case(6):
+            return inverted ? value*18.f-12.f : (value+12.f)/18.f;
+        }
+    }
     else if(strcmp(effect->getUniqueID(), "mdaDetune") == 0) {
         switch(port) {
             case(0):
@@ -174,7 +210,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
         switch(port) {
             case(0):
-            return inverted ? value*7341 : value/7341;
+            return inverted ? value*7500 : value/7500;
             case(1):
             return inverted ? value*220 - 110 : (value + 110)/(220);
             case(2):
@@ -186,29 +222,127 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(5):
             return inverted ? value*100 : value/(100);
             case(6):
-            return inverted ? value*40 - 34 : (value + 34)/(40);
+            return inverted ? value*18 - 12 : (value + 12)/(18);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDX10") == 0) {
+        /* 
+        Scaling process is convoluted but here is an explanation, 
+        but just plugging through a bunch of values would make the presets not work:
+        
+        All envelope time based parameters are implemented as a recursive equation within the synth.
+        This means that at each sample it calculated something along the lines of: env_volume = env_volume * 0.999...
+        Here the 0.999... parameter is a decayparameter which will be explained later, for now let's call it dec.
+        The volume over time can then be found as: amp = dec^[n_samples].
+        Thus the decay time can be found when subsituting a "silence ratio" for amp, in this case -60db -> 0.001.
+        This gives n_samples = log_{dec}(amp) or in c++ terms: log(0.001)/log(dec). (as log_a(b) = log(b)/log(a)) 
+        
+        Now the host provides the value as a linear interpolation from min to max, no matter if you specify it as logarithmic.
+        F.Y.I. the scaling they use for logarithmic is min*e^(x * ln(max/min)) where x = [0,1].
+        The different time parameters have different equations for how they calculate the parameters:
+        - Carrier   Attack  = exp( -(1/samplerate) * exp(8-8x) )
+        - Carrier   Decay   = exp( -(1/samplerate) * exp(5-8x) )
+        - Carrier   Release = exp( -(1/samplerate) * exp(5-5x) )
+        - Modulator Decay   = exp( -(1/samplerate) * exp(6-7x) )
+        - Modulator Release = exp( -(1/samplerate) * exp(5-8x) )
+        However these map exactly to the way the logarithmic parameter mapping in the host works.
+        Given that the output needs to be scaled the same way we can solve the equation for x given a value between min and max:
+        value = min*e^(x * ln(max/min)) -> x = ln(value/min)/ln(max/min). 
+        Put this value in the equation and it should return the correct value for x for the time parameter.
+        However some parameters have insanely long times so there is some additional stretching going on for the last ten percent of the range.
+        */
         switch(port) {
             case(0):
-            return inverted ? value*100 : value/(100);
+            return inverted ? 2.5*exp(value * log(4000.f/2.5)) : log(value/2.5)/log(4000.f/2.5);
+            //return inverted ? value*100 : value/(100);
             case(1):
-            return inverted ? value*100 : value/(100);
+            /* 
+            carrier decay times range from ~45ms to ~135 seconds 
+            so in order to make it useful some stretching is applied to the value input for 6s to 7s to make it stretch
+            stretching should happen from 6000ms to 7000ms value input
+            log(6000/46.5)/log(7000/46.5) = ~0.97
+            inputting 0.97 * 0.625 in the decay function gives release times of ~6000ms
+            from there scale value up to the extreme for [0.97, 1.0]
+            */
+            if (inverted) {
+                // inverting the stretching done
+                if (value < 0.60625){ // = 0.625*0.97
+                    value = value*1.6;
+                } else {
+                    value = (value+12.125)/13.125;
+                }
+                return 46.5*exp(value * log(7000.f/46.5));
+            } else {
+                // stretching the end of the range
+                value = log(value/46.5)/log(7000.f/46.5);
+                if (value < 0.97) {
+                    return 0.625 * value;
+                } else {
+                    return 0.625 * value + (1.f-0.625)/0.03 * (value - 0.97);
+                }
+            }
+            //return inverted ? value*100 : value/(100);
             case(2):
-            return inverted ? value*100 : value/(100);
+            return inverted ? 46.5*exp(value * log(7000.f/46.5)) : log(value/46.5)/log(7000.f/46.5);
+            //return inverted ? value*100 : value/(100);
             case(3):
-            return inverted ? value*40 : value/(40);
+            // compensate for course [0,1] squaring in the update function without breaking the presets
+            if (inverted) {
+                value = value * value * 40;
+            } else {
+                value = sqrt(value/40.f);
+            }
+            return value;
             case(4):
             return inverted ? value*0.750 : value/(0.750);
             case(5):
             return inverted ? value*100 : value/(100);
             case(6):
-            return inverted ? value*100 : value/(100);
+            // same stretching as the carrier decay except the range is a bit different as it runs from ~17ms to ~18 seconds
+            // this gives the following equations:
+            // log(6000/17)/log(7000/17) = ~0.975
+            // inputting 0.975 * 0.86 in the decay function gives release times of ~6000ms
+            if (inverted) {
+                // inverting the stretching done
+                if (value < 0.8385){ // = 0.86*0.975
+                    value = value/0.86;
+                } else {
+                    value = (value+5.46)/6.46;
+                }
+                return 17.f*exp(value * log(7000.f/17.f));
+            } else {
+                // stretching the end of the range
+                value = log(value/17.f)/log(7000.f/17.f);
+                if (value < 0.975) {
+                    return 0.86 * value;
+                } else {
+                    return 0.86 * value + (1.f-0.86)/0.025 * (value - 0.975);
+                }
+            }
+            //return inverted ? 17.f*exp(value * log(7000.f/17.f)) : log(value/17.f)/log(7000.f/17.f);
+            //return inverted ? value*100 : value/(100);
             case(7):
             return inverted ? value*100 : value/(100);
             case(8):
-            return inverted ? value*100 : value/(100);
+            // same stretching as carrier decay (case 1)
+            if (inverted) {
+                // inverting the stretching done
+                if (value < 0.60625){ // = 0.625*0.97
+                    value = value*1.6;
+                } else {
+                    value = (value+12.125)/13.125;
+                }
+                return 46.5*exp(value * log(7000.f/46.5));
+            } else {
+                // stretching the end of the range
+                value = log(value/46.5)/log(7000.f/46.5);
+                if (value < 0.97) {
+                    return 0.625 * value;
+                } else {
+                    return 0.625 * value + (1.f-0.625)/0.03 * (value - 0.97);
+                }
+            }
+            //return inverted ? value*100 : value/(100);
             case(9):
             return inverted ? value*100 : value/(100);
             case(10):
@@ -250,11 +384,28 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaEPiano") == 0) {
+        /*
+        decay and release times (in seconds) are found by solving their recursive equations:
+        dec = exp(-exp(-1.0 + 0.03 * note - 2.0 * param[0]))
+        rel = exp(-exp(6.0  + 0.01 * note - 5.0 * param[1]))
+        given that they decay as env = env * dec where dec is an amp ratio
+        here note 60 is chosen as the calibration and silence for -60dB -> 0.001
+        solving for amp = 0.001:
+        ( exp(-exp(-1+1.8-2*param[0]) ) ^ x = 0.001
+        then solving for x (= decay/release time):
+        log(0.001)/log( exp( -exp( 0.8-2*value ) ) )
+        or solving for param given a time (=non-inverted):
+        0.4 - 0.5*log(-log(exp(log(0.001)/y))) = value
+        */
         switch(port) {
             case(0):
-            return inverted ? value*100 : value/(100);
+            return inverted ? log(0.001)/-exp(0.8-2.0*value) : 0.4 - 0.5*log(-log(0.001)/value);
+            //return inverted ? log(0.001)/-exp(0.8-2.0*((value-3.f)/20.f)) : 0.4 - 0.5*log(-log(0.001)/value);
+            //return inverted ? value*100 : value/(100);
             case(1):
-            return inverted ? value*100 : value/(100);
+            return inverted ? log(0.001)/-exp(6.6-5.0*value) : 1.32 - 0.2*log(-log(0.001)/value);
+            //return inverted ? log(0.001)/-exp(6.6-5.0*((value-0.01)/1.39)) : 1.32 - 0.2*log(-log(0.001)/value);
+            //return inverted ? value*100 : value/(100);
             case(2):
             return inverted ? value*100 - 50 : (value + 50)/(100);
             case(3):
@@ -262,7 +413,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(4):
             return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            return inverted ? value*36.90 + 0.07 : (value - 0.07)/(36.90);
+            return inverted ? value*39.95 + 0.05 : (value - 0.05)/(39.95);
             case(6):
             return inverted ? value*100 : value/(100);
             case(7):
@@ -293,9 +444,58 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*40 - 20 : (value + 20)/(40);
         }
     }
-    //else if(strcmp(effect->getUniqueID(), "mdaJX10") == 0) {
-
-    //}
+    else if(strcmp(effect->getUniqueID(), "mdaJX10") == 0) {
+        switch(port) {
+            case(0):
+            return value;
+            case(1):
+            return value;
+            case(2):
+            return value;
+            case(3):
+            return value;
+            case(4):
+            return value;
+            case(5):
+            return value;
+            case(6):
+            return value;
+            case(7):
+            return value;
+            case(8):
+            return value;
+            case(9):
+            return value;
+            case(10):
+            return value;
+            case(11):
+            return value;
+            case(12):
+            return value;
+            case(13):
+            return value;
+            case(14):
+            return value;
+            case(15):
+            return value;
+            case(16):
+            return value;
+            case(17):
+            return value;
+            case(18):
+            return value;
+            case(19):
+            return value;
+            case(20):
+            return value;
+            case(21):
+            return value;
+            case(22):
+            return value;
+            case(23):
+            return value;
+        }
+    }
     else if(strcmp(effect->getUniqueID(), "mdaLeslie") == 0) {
         switch(port) {
             case(0):
@@ -311,7 +511,13 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(5):
             return inverted ? value*100 : value/(100);
             case(6):
-            return inverted ? value*1360 + 150 : (value - 150)/(1360);
+            // making it logarithmic:
+            if (inverted) {
+                return 150.f*exp(2.30923*value);
+            } else {
+                return log(value/150.f)/2.30923;
+            }
+            //return inverted ? value*1360 + 150 : (value - 150)/(1360);
             case(7):
             return inverted ? value*40 - 20 : (value + 20)/(40);
             case(8):
@@ -335,9 +541,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     //else if(strcmp(effect->getUniqueID(), "mdaLoopLex") == 0) {
 
     //}
-    //else if(strcmp(effect->getUniqueID(), "mdaLoudness") == 0) {
+    else if(strcmp(effect->getUniqueID(), "mdaLoudness") == 0) {
 
-    //}
+    }
     else if(strcmp(effect->getUniqueID(), "mdaMultiBand") == 0) {
         switch(port) {
             case(0):
@@ -522,7 +728,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(4):
             return inverted ? value*60-60 : (value + 60)/60;
             case(5):
-            return inverted ? value*1568+1 : (value - 1)/(1568);
+            if (inverted) {
+                return 1.64*exp(6.89*value);
+            } else {
+                return log(value/1.64)/6.89;
+            }
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaTalkBox") == 0) {
@@ -537,15 +747,15 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? (value*95+5)/2.5 : pow((value - 5)/(95), 0.5);
         }
     }
-    //else if(strcmp(effect->getUniqueID(), "mdaTestTone") == 0) {
+    else if(strcmp(effect->getUniqueID(), "mdaTestTone") == 0) {
 
-    //}
+    }
     else if(strcmp(effect->getUniqueID(), "mdaThruZero") == 0) {
         switch(port) {
             case(0):
             return inverted ? (value+0.1*93.24)+1 : 1 - ((value - 0.1)/(93.24));
             case(1):
-            return inverted ? value*45.35 : value/(45.35);
+            return inverted ? value*42.f : value/(42.f);
             case(2):
             return inverted ? value*100 : value/(100);
             case(3):
@@ -591,25 +801,33 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
 
         }
     }
-    //else if(strcmp(effect->getUniqueID(), "mdaVocInput") == 0) {
+    else if(strcmp(effect->getUniqueID(), "mdaVocInput") == 0) {
 
-    //}
+    }
     else if(strcmp(effect->getUniqueID(), "mdaVocoder") == 0) {
         switch(port) {
             case(0):
             return inverted ? value : value;
             case(1):
-            return inverted ? value*40-20 : (value + 20)/(40);
+            return inverted ? value*20-20 : (value + 20)/(20);
             case(2):
             return inverted ? value*100 : value/(100);
             case(3):
             return inverted ? value*100 : value/(100);
             case(4):
-            return inverted ? value*9986+14 : (value - 14)/(9986);
+            if (inverted) {
+                return 10.9*exp(6.85*value);
+            } else {
+                return log(value/10.9)/6.85;
+            }
             case(5):
             return inverted ? value*100 : value/(100);
             case(6):
-            return inverted ? value*1400+200 : (value - 200)/(1400);
+            if (inverted) {
+                return 201.f*exp(2.09*value);
+            } else {
+                return log(value/201.f)/2.09;
+            }
             case(7):
             return inverted ? value : value;
         }

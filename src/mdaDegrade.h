@@ -52,6 +52,8 @@ protected:
   float fParam4;
   float fParam5;
   float fParam6;
+  float fParamRateCharacter;
+  float fParamNonLinEvenOdd;
   float fi2, fo2, clp, lin, lin2, g1, g2, g3, mode;
   float buf0, buf1, buf2, buf3, buf4, buf5, buf6, buf7, buf8, buf9;
   int tn, tcount;

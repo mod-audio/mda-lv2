@@ -9,23 +9,6 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-mda:
-    a doap:Project ;
-    lv2:symbol "mda" ;
-    doap:name "MDA LV2" ;
-    doap:shortdesc "An LV2 port of the MDA plugins." ;
-    doap:homepage <http://drobilla.net/software/mda-lv2> ;
-    doap:maintainer [
-        foaf:name "MOD Team";
-        foaf:homepage <http://moddevices.com>;
-        foaf:mbox <mailto:devel@moddevices.com>;
-    ] ;
-    doap:developer [
-        a foaf:Person ;
-        foaf:name "Paul Kellett" ;
-        foaf:mbox <mailto:paul@mda-vst.com>
-    ] .
-
 mda:mainIn
     a pg:StereoGroup ,
         pg:InputGroup ;
@@ -64,11 +47,14 @@ mda:JX10
 	pg:mainInput mda:mainIn ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """
-  A very nice polyphone synthesizer. This one has a lot of options to modulate the filter, with envelope and/or lfo.
-  When Vibrato is set to PWM, the two oscillators are phase-locked and will produce a square wave if set to the same pitch. Pitch modulation of one oscillator then causes Pulse Width Modulation. (pitch modulation of both oscillators for vibrato is still available from the modulation wheel). Unlike other synths, in PWM mode the oscillators can still be detuned to give a wider range of PWM effects.
+The JX10 is a polyphonic synthesizer with high-quality output and lot of options to modulate the filter. This can be done with both the envelope and/or the LFO.
+Due to all its controls, this synthesizer gives you flexibility to create a vast variety of sounds. Or just to find some kick-ass tones among the presets.
+
+Features:
+Modeled by MDA
     """ ;
 	lv2:minorVersion 0;
-	lv2:microVersion 1;
+	lv2:microVersion 2;
 	mod:brand "MDA" ;
 	mod:label "JX10" ;
 
@@ -81,6 +67,7 @@ mda:JX10
 		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
+    mod:default 0.5 ;
 		rdfs:comment "Level of second oscillator"
 	] , [
 		a lv2:InputPort ,
@@ -91,7 +78,8 @@ mda:JX10
 		lv2:default 0.37 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:semitone12TET ;
+    mod:default 0.5 ;
+		#units:unit units:semitone12TET ;
 		rdfs:comment "Tuning of second oscillator in semitones"
 	] , [
 		a lv2:InputPort ,
@@ -102,7 +90,7 @@ mda:JX10
 		lv2:default 0.25 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:cent ;
+		#units:unit units:cent ;
 		rdfs:comment "Tuning of second oscillator in cents"
 	] , [
 		a lv2:InputPort ,
@@ -310,7 +298,6 @@ mda:JX10
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:oct ;
 		rdfs:comment "Master tuning in octaves"
 	] , [
 		a lv2:InputPort ,
@@ -321,7 +308,7 @@ mda:JX10
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		units:unit units:cent ;
+		#units:unit units:cent ;
 		rdfs:comment "Master tuning in cents"
 	] , [
 		a lv2:OutputPort ,

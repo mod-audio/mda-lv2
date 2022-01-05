@@ -26,7 +26,7 @@ AudioEffect *createEffectInstance(audioMasterCallback audioMaster)
   return new mdaDegrade(audioMaster);
 }
 
-mdaDegrade::mdaDegrade(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 6)	// programs, parameters
+mdaDegrade::mdaDegrade(audioMasterCallback audioMaster)	: AudioEffectX(audioMaster, 1, 8)	// programs, parameters
 {
   //inits here!
   fParam1 = (float)0.8; //clip
@@ -35,6 +35,8 @@ mdaDegrade::mdaDegrade(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
   fParam4 = (float)0.9; //postfilt
   fParam5 = (float)0.58; //non-lin
   fParam6 = (float)0.5; //level
+  fParamRateCharacter = 0.0;
+  fParamNonLinEvenOdd = 1.0;
 
   setNumInputs(2);
 	setNumOutputs(2);
@@ -45,7 +47,7 @@ mdaDegrade::mdaDegrade(audioMasterCallback audioMaster)	: AudioEffectX(audioMast
 
   buf0 = buf1 = buf2 = buf3 = buf4 = buf5 = buf6 = buf7 = buf8 = buf9 = 0.0f;
 
-  setParameter(5, 0.5f);
+  setParameter(7, 0.5f);
 }
 
 bool  mdaDegrade::getProductString(char* text) { strcpy(text, "MDA Degrade"); return true; }
@@ -61,28 +63,52 @@ void mdaDegrade::setParameter(int32_t index, float value)
     case 0: fParam1 = value; break;
     case 1: fParam2 = value; break;
     case 2: fParam3 = value; break;
-    case 3: fParam4 = value; break;
-    case 4: fParam5 = value; break;
-    case 5: fParam6 = value; break;
+    case 3: fParamRateCharacter = value; break; // the option for samplerate character
+    case 4: fParam4 = value; break;
+    case 5: fParam5 = value; break;
+    case 6: fParamNonLinEvenOdd = value; break; // the option even or odd non-linearity
+    case 7: fParam6 = value; break;
   }
   //calcs here
-  if(fParam3>0.5) { f = fParam3 - 0.5f;  mode = 1.0f; }
-             else { f = 0.5f - fParam3;  mode = 0.0f; }
-
+  /*
+  if(fParam3>0.5) { 
+    f = fParam3 - 0.5f;  mode = 1.0f; 
+  } else { 
+    f = 0.5f - fParam3;  mode = 0.0f; 
+  }
   tn = (int)exp(18.0f * f);
-
-    //tn = (int)(18.0 * fParam3 - 8.0); mode=1.f; }
-    //         else { tn = (int)(10.0 - 18.0 * fParam3); mode=0.f; }
+  */
+  // due to decoupling the mode from fParam3 the equations are substitueted by he following 6 lines:
+  if(fParamRateCharacter == 1.0) {
+    mode = 1.0;
+  } else {
+    mode = 0.0;
+  }
+  tn = (int)exp(18.0f * (0.5-fParam3) * 0.4);
   tcount = 1;
   clp = (float)(pow(10.0,(-1.5 + 1.5 * fParam1)) );
-  fo2 = filterFreq((float)pow(10.0f, 2.30104f + 2.f*fParam4));
+  fo2 = filterFreq((float)(200.0 + fParam4*19800.0));
   fi2 = (1.f-fo2); fi2=fi2*fi2; fi2=fi2*fi2;
   float _g1 = (float)(pow(2.0,2.0 + int(fParam2*12.0)));
   g2 = (float)(1.0/(2.0 * _g1));
-  if(fParam3>0.5) g1 = -_g1/(float)tn; else g1= -_g1;
+  if(fParamRateCharacter == 1.0) g1 = -_g1/(float)tn; else g1= -_g1;
   g3 = (float)(pow(10.0,2.0*fParam6 - 1.0));
-  if(fParam5>0.5) { lin = (float)(pow(10.0,0.3 * (0.5 - fParam5))); lin2=lin; }
-  else { lin = (float)pow(10.0,0.3 * (fParam5 - 0.5)); lin2=1.0; }
+  /*
+  if(fParam5>0.5) { 
+    lin = (float)(pow(10.0,0.3 * (0.5 - fParam5))); 
+    lin2=lin; 
+  } else { 
+    lin = (float)pow(10.0,0.3 * (fParam5 - 0.5)); 
+    lin2=1.0; 
+  }
+  */
+  // due to decoupling odd or even characteristics from fParam5 the equations are substitueted by he following lines:
+  lin = (float)(pow(10.0, fParam5 * -0.15));
+  if(fParamNonLinEvenOdd == 1.0) {
+    lin2 = lin;
+  } else {
+    lin2 = 1.0;
+  }
 }
 
 mdaDegrade::~mdaDegrade()
@@ -131,9 +157,11 @@ float mdaDegrade::getParameter(int32_t index)
     case 0: v = fParam1; break;
     case 1: v = fParam2; break;
     case 2: v = fParam3; break;
-    case 3: v = fParam4; break;
-    case 4: v = fParam5; break;
-    case 5: v = fParam6; break;
+    case 3: v = fParamRateCharacter; break;
+    case 4: v = fParam4; break;
+    case 5: v = fParam5; break;
+    case 6: v = fParamNonLinEvenOdd; break;
+    case 7: v = fParam6; break;
   }
   return v;
 }
@@ -145,9 +173,11 @@ void mdaDegrade::getParameterName(int32_t index, char *label)
     case 0: strcpy(label, "Headroom"); break;
     case 1: strcpy(label, "Quant"); break;
     case 2: strcpy(label, "Rate"); break;
-    case 3: strcpy(label, "PostFilt"); break;
-    case 4: strcpy(label, "Non-Lin"); break;
-    case 5: strcpy(label, "Output"); break;
+    case 3: strcpy(label, "Rate Char."); break;
+    case 4: strcpy(label, "PostFilt"); break;
+    case 5: strcpy(label, "Non-Lin"); break;
+    case 6: strcpy(label, "Even Odd"); break;
+    case 7: strcpy(label, "Output"); break;
   }
 }
 
@@ -161,9 +191,11 @@ void mdaDegrade::getParameterDisplay(int32_t index, char *text)
     case 0: int2strng((int32_t)(-30.0 * (1.0 - fParam1)), text); break;
     case 1: int2strng((int32_t)(4.0 + 12.0 * fParam2), text); break;
     case 2: int2strng((int32_t)(getSampleRate()/tn), text); break;
-    case 3: int2strng((int32_t)pow(10.0f, 2.30104f + 2.f*fParam4), text); break;
-    case 4: int2strng((int32_t)(200.0 * fabs(fParam5 - 0.5)), text); break;
-    case 5: int2strng((int32_t)(40.0 * fParam6 - 20.0), text); break;
+    case 3: int2strng((int32_t)(fParamRateCharacter), text); break;
+    case 4: int2strng((int32_t)pow(10.0f, 2.30104f + 2.f*fParam4), text); break;
+    case 5: int2strng((int32_t)(200.0 * fabs(fParam5 - 0.5)), text); break;
+    case 6: int2strng((int32_t)(fParamNonLinEvenOdd), text); break;
+    case 7: int2strng((int32_t)(40.0 * fParam6 - 20.0), text); break;
   }
 }
 
@@ -173,9 +205,11 @@ void mdaDegrade::getParameterLabel(int32_t index, char *label)
   {
     case 0: strcpy(label, "dB"); break;
     case 1: strcpy(label, "bits"); break;
-    case 2: strcpy(label, "S<>S&&H"); break;
-    case 3: strcpy(label, "Hz"); break;
-    case 4: strcpy(label, "Odd<>Eve"); break;
+    case 2: strcpy(label, "Rate"); break;
+    case 3: strcpy(label, "Rate Char."); break;
+    case 4: strcpy(label, "Hz"); break;
+    case 5: strcpy(label, "Non lin."); break;
+    case 6: strcpy(label, "Odd Even"); break;
   }
 }
 

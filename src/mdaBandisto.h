@@ -26,7 +26,7 @@ class mdaBandisto : public AudioEffectX
 public:
 	mdaBandisto(audioMasterCallback audioMaster);
 	~mdaBandisto();
-
+  
 	virtual void process(float **inputs, float **outputs, int32_t sampleFrames);
 	virtual void processReplacing(float **inputs, float **outputs, int32_t sampleFrames);
 	virtual void setProgramName(char *name);

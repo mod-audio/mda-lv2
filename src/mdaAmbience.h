@@ -56,6 +56,8 @@ protected:
   int32_t  pos, den, rdy;
 
   char programName[32];
+  
+private:
 };
 
 #endif

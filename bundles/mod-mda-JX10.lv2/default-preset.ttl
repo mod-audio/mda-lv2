@@ -1,0 +1,81 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-preset>
+	a pset:Preset ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/JX10> ;
+	lv2:port [
+		lv2:symbol "env_att" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "env_dec" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "env_rel" ;
+		pset:value 0.70999998
+	] , [
+		lv2:symbol "env_sus" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "gld_bend" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "gld_rate" ;
+		pset:value 0.31999999
+	] , [
+		lv2:symbol "glide" ;
+		pset:value 0.30000001
+	] , [
+		lv2:symbol "lfo_rate" ;
+		pset:value 0.81
+	] , [
+		lv2:symbol "noise" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "osc_fine" ;
+		pset:value 0.25
+	] , [
+		lv2:symbol "osc_mix" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc_tune" ;
+		pset:value 0.37
+	] , [
+		lv2:symbol "tuning" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "vcf_att" ;
+		pset:value 0.89999998
+	] , [
+		lv2:symbol "vcf_dec" ;
+		pset:value 0.88999999
+	] , [
+		lv2:symbol "vcf_env" ;
+		pset:value 0.12
+	] , [
+		lv2:symbol "vcf_freq" ;
+		pset:value 0.89999998
+	] , [
+		lv2:symbol "vcf_lfo" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "vcf_rel" ;
+		pset:value 0.73000002
+	] , [
+		lv2:symbol "vcf_reso" ;
+		pset:value 0.60000002
+	] , [
+		lv2:symbol "vcf_sus" ;
+		pset:value 0.89999998
+	] , [
+		lv2:symbol "vcf_vel" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "vibrato" ;
+		pset:value 0.64999998
+	] .
+

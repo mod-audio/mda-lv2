@@ -95,14 +95,14 @@ void mdaSubSynth::setParameter(int32_t index, float value)
   dvd = 1.0;
   phs = 1.0;
   osc = 0.0; //oscillator phase
-  typ = int(3.5 * fParam1);
+  typ = int(3.5 * fParam1 + 0.5);
   filti = (typ == 3)? 0.018f : (float)pow(10.0,-3.0 + (2.0 * fParam3));
   filto = 1.0f - filti;
   wet = fParam2;
   dry = fParam4;
   thr = (float)pow(10.0,-3.0 + (3.0 * fParam5));
   rls = (float)(1.0 - pow(10.0, -2.0 - (3.0 * fParam6)));
-  dphi = (float)(0.456159 * pow(10.0,-2.5 + (1.5 * fParam3)));
+  dphi = (float)(0.456159/44100.f*getSampleRate() * ( pow(10.0, -2.5) + fParam3*(0.1-pow(10.0, -2.5)) )); // from 0.456159*pow(10, -2.5+fParam3*1.5) because samplerate =/= 44.1kHz and fParam3 is linear, not exponential
 }
 
 float mdaSubSynth::getParameter(int32_t index)

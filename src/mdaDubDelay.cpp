@@ -37,7 +37,7 @@ mdaDubDelay::mdaDubDelay(audioMasterCallback audioMaster)	: AudioEffectX(audioMa
   oldwet = fParam5 = 0.33f; //wet mix
   olddry = fParam6 = 0.50f; //output
          ///CHANGED///too long?
-  size = 323766; //705600; //95998; //32766;  //set max delay time at max sample rate
+  size = 7.5*48000.f; //705600; //95998; //32766;  //set max delay time at max sample rate
 	buffer = new float[size + 2]; //spare just in case!
   ipos = 0;
   fil0 = 0.0f;
@@ -77,7 +77,7 @@ void mdaDubDelay::setParameter(int32_t index, float value)
  }
   //calcs here
   ///CHANGED///del = fParam0 * fParam0 * fParam0 * (float)size;
-  del = fParam0 * fParam0 * (float)size;
+  del = fParam0 * (float)size;
   mod = 0.049f * fParam3 * del;
 
   fil = fParam2;
@@ -98,8 +98,8 @@ void mdaDubDelay::setParameter(int32_t index, float value)
   if(fParam1>0.5f) rel=0.9997f; else rel=0.8f; //limit or clip
 
   wet = 1.0f - fParam5;
-  wet = fParam6 * (1.0f - wet * wet); //-3dB at 50% mix
-  dry = fParam6 * 2.0f * (1.0f - fParam5 * fParam5);
+  wet = (float)pow(10.f, (fParam6*18-12)/20) * (1.0f - wet * wet); //-3dB at 50% mix
+  dry = (float)pow(10.f, (fParam6*18-12)/20) * 2.0f * (1.0f - fParam5 * fParam5);
   dphi = 628.31853f * (float)pow(10.0f, 3.0f * fParam4 - 2.0f) / fs; //100-sample steps
 }
 

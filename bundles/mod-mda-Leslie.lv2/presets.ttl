@@ -8,7 +8,7 @@
 	rdfs:label "Leslie Simulator" ;
 	lv2:port [
 		lv2:symbol "mode" ;
-		pset:value 0.66 ;
+		pset:value 1 ;
 	] ;
 	lv2:port [
 		lv2:symbol "lo_width" ;

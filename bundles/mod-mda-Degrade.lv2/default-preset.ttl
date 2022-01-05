@@ -1,0 +1,27 @@
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+
+<default-preset>
+	a pset:Preset ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/Degrade> ;
+	lv2:port [
+		lv2:symbol "headroom" ;
+		pset:value 0.80000001
+	] , [
+		lv2:symbol "non_lin" ;
+		pset:value 0.57999998
+	] , [
+		lv2:symbol "output" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "post_filt" ;
+		pset:value 0.89999998
+	] , [
+		lv2:symbol "quant" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "rate" ;
+		pset:value 0.64999998
+	] .
+

@@ -1,6 +1,5 @@
 @prefix modgui: <http://moddevices.com/ns/modgui#> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
-
 <http://moddevices.com/plugins/mda/DX10>
     modgui:gui [
         modgui:resourcesDirectory <modgui> ;
@@ -10,10 +9,6 @@
         modgui:thumbnail <modgui/thumbnail-mda-dx10.png> ;
         modgui:brand "MDA " ;
         modgui:label "DX10" ;
-        modgui:model "boxy" ;
-        modgui:panel "5-knobs" ;
-        modgui:color "green" ;
-        modgui:knob "blue" ;
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "attack" ;
@@ -34,5 +29,49 @@
             lv2:index 4 ;
             lv2:symbol "fine" ;
             lv2:name "Fine" ;
+        ] , [
+            lv2:index 5 ;
+            lv2:symbol "mod_init" ;
+            lv2:name "Mod Init" ;
+        ] , [
+            lv2:index 6 ;
+            lv2:symbol "mod_dec" ;
+            lv2:name "Mod Dec" ;
+        ] , [
+            lv2:index 7 ;
+            lv2:symbol "mod_sus" ;
+            lv2:name "Mod Sus" ;
+        ] , [
+            lv2:index 8 ;
+            lv2:symbol "mod_rel" ;
+            lv2:name "Mod Rel" ;
+        ] , [
+            lv2:index 9 ;
+            lv2:symbol "mod_vel" ;
+            lv2:name "Mod Vel" ;
+        ] , [
+            lv2:index 10 ;
+            lv2:symbol "vibrato" ;
+            lv2:name "Vibrato" ;
+        ] , [
+            lv2:index 11 ;
+            lv2:symbol "octave" ;
+            lv2:name "Octave" ;
+        ] , [
+            lv2:index 12 ;
+            lv2:symbol "finetune" ;
+            lv2:name "FineTune" ;
+        ] , [
+            lv2:index 13 ;
+            lv2:symbol "waveform" ;
+            lv2:name "Waveform" ;
+        ] , [
+            lv2:index 14 ;
+            lv2:symbol "mod_thru" ;
+            lv2:name "Mod Thru" ;
+        ] , [
+            lv2:index 15 ;
+            lv2:symbol "lfo_rate" ;
+            lv2:name "LFO Rate" ;
         ] ;
     ] .

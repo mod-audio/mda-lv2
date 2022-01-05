@@ -30,10 +30,10 @@ mda:Degrade
         lv2:index 0 ;
         lv2:name "Headroom" ;
         lv2:symbol "headroom" ;
-        lv2:default 0.8 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
-#        units:unit units:db ;
+        lv2:default -6.0 ;
+        lv2:minimum -30.0 ;
+        lv2:maximum 0.0 ;
+        units:unit units:db ;
         rdfs:comment "Peak clipping threshold"
     ] , [
         a lv2:InputPort ,
@@ -41,15 +41,15 @@ mda:Degrade
         lv2:index 1 ;
         lv2:name "Quant" ;
         lv2:symbol "quant" ;
-#        lv2:portProperty lv2:integer ;
-        lv2:default 0.5 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
-#        units:unit [
-#        rdfs:label   "bits" ;
-#        units:symbol "bit" ;
-#        units:render "%f bits"
-#        ] ;
+        lv2:portProperty lv2:integer ;
+        lv2:default 10 ;
+        lv2:minimum 4 ;
+        lv2:maximum 16 ;
+        units:unit [
+          rdfs:label   "bits" ;
+          units:symbol "bit" ;
+          units:render "%f bits"
+        ] ;
         rdfs:comment """Bit depth (typically 8 or below for "telephone" quality)"""
     ] , [
         a lv2:InputPort ,
@@ -57,65 +57,92 @@ mda:Degrade
         lv2:index 2 ;
         lv2:name "Rate" ;
         lv2:symbol "rate" ;
-#        lv2:portProperty lv2:integer ;
-#        lv2:portProperty epp:logarithmic ;
-        lv2:default 0.65 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
+        lv2:portProperty lv2:integer ;
+        lv2:portProperty epp:logarithmic ;
+        lv2:default 48000 ;
+        lv2:minimum 4800 ;
+        lv2:maximum 48000 ;
         units:unit [
-        rdfs:label   "ssh" ;
-        units:symbol "s_sh" ;
-        units:render "%f S<>S&&H"
+          rdfs:label   "ssh" ;
+          units:symbol "s_sh" ;
+          units:render "%f Hz"
         ] ;
         rdfs:comment "Sample Rate (turn control to left or right for different sound characters)"
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 3 ;
-        lv2:name "Post Filter" ;
-        lv2:symbol "post_filt" ;
-#        lv2:portProperty lv2:integer ;
-#        lv2:portProperty epp:logarithmic ;
-        lv2:default 0.9 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
-#        units:unit units:db ;
-        rdfs:comment "Low-pass filter to muffle the distortion produced by the previous two controls"
+        lv2:name "Integrator" ;
+        lv2:symbol "integrator_sr" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Integrator Off" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Integrator On" ;
+            rdf:value 1
+        ]
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
         lv2:index 4 ;
+        lv2:name "Post Filter" ;
+        lv2:symbol "post_filt" ;
+        lv2:portProperty lv2:integer ;
+        lv2:portProperty epp:logarithmic ;
+        lv2:default 15000 ;
+        lv2:minimum 200 ;
+        lv2:maximum 20000 ;
+        units:unit units:hz ;
+        rdfs:comment "Low-pass filter to muffle the distortion produced by the previous two controls"
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 5 ;
         lv2:name "Non-Lin" ;
         lv2:symbol "non_lin" ;
-#        lv2:portProperty lv2:integer ;
-        lv2:default 0.58 ;
+        lv2:default 0.16 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         units:unit [
-        rdfs:label   "oddeve" ;
-        units:symbol "oddeve" ;
-        units:render "%f Odd<>Eve"
+        rdfs:label   "nonlin" ;
+        units:symbol "nonlin" ;
         ] ;
         rdfs:comment """Additional harmonic distortion "thickening" (turn control to left or right for different sound characters)"""
     ] , [
         a lv2:InputPort ,
             lv2:ControlPort ;
-        lv2:index 5 ;
+        lv2:index 6 ;
+        lv2:name "EvenOdd" ;
+        lv2:symbol "even_odd" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration , lv2:integer ;
+        lv2:scalePoint [
+            rdfs:label "Even" ;
+            rdf:value 0
+        ] , [
+            rdfs:label "Odd" ;
+            rdf:value 1
+        ]
+    ] , [
+        a lv2:InputPort ,
+            lv2:ControlPort ;
+        lv2:index 7 ;
         lv2:name "Output" ;
         lv2:symbol "output" ;
 #        lv2:portProperty lv2:integer ;
-        lv2:default 0.5 ;
-        lv2:minimum 0.0 ;
-        lv2:maximum 1.0 ;
-        units:unit [
-        rdfs:label   "oddeve" ;
-        units:symbol "oddeve" ;
-        units:render "%f Odd<>Eve"
-        ] ;
+        lv2:default 0.0 ;
+        lv2:minimum -20.0 ;
+        lv2:maximum 20.0 ;
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;
-        lv2:index 6 ;
+        lv2:index 8 ;
         lv2:symbol "left_in" ;
         lv2:name "Left In" ;
         lv2:designation pg:left ;
@@ -123,7 +150,7 @@ mda:Degrade
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;
-        lv2:index 7 ;
+        lv2:index 9 ;
         lv2:symbol "right_in" ;
         lv2:name "Right In" ;
         lv2:designation pg:right ;
@@ -131,7 +158,7 @@ mda:Degrade
     ] , [
         a lv2:OutputPort ,
             lv2:AudioPort ;
-        lv2:index 8 ;
+        lv2:index 10 ;
         lv2:symbol "left_out" ;
         lv2:name "Left Out" ;
         lv2:designation pg:left ;
@@ -139,7 +166,7 @@ mda:Degrade
     ] , [
         a lv2:OutputPort ,
             lv2:AudioPort ;
-        lv2:index 9 ;
+        lv2:index 11 ;
         lv2:symbol "right_out" ;
         lv2:name "Right Out" ;
         lv2:designation pg:right ;
