@@ -1,13 +1,14 @@
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
 @prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
 @prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix mda:   <http://moddevices.com/plugins/mda/> .
 
-<default-preset>
+mda:DubDelay-default
 	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/DubDelay> ;
+	lv2:appliesTo mda:DubDelay ;
 	lv2:port [
 		lv2:symbol "delay" ;
-		pset:value 375.02
+		pset:value 460
 	] , [
 		lv2:symbol "fb_tone" ;
 		pset:value 0.0
@@ -19,7 +20,7 @@
 		pset:value 50.0
 	] , [
 		lv2:symbol "lfo_depth" ;
-		pset:value 50.0
+		pset:value 30.0
 	] , [
 		lv2:symbol "lfo_rate" ;
 		pset:value 50.0
@@ -27,4 +28,3 @@
 		lv2:symbol "output" ;
 		pset:value 0.0
 	] .
-

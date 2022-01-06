@@ -2,7 +2,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
 @prefix mda:  <http://moddevices.com/plugins/mda/> .
-@prefix mdap: <http://moddevices.com/plugins/mda/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
 
@@ -23,21 +22,14 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:DubDelay
     a lv2:Plugin ;
     rdfs:seeAlso <DubDelay.ttl> ,
         <modgui.ttl> ;
     lv2:binary <DubDelay@LIB_EXT@> .
+
+mda:DubDelay-default
+    a pset:Preset ;
+    lv2:appliesTo mda:DubDelay ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
