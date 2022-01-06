@@ -5,7 +5,6 @@
 <http://moddevices.com/plugins/mda/presets#Leslie-leslie-simulator>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
-	rdfs:label "Leslie Simulator" ;
 	lv2:port [
 		lv2:symbol "mode" ;
 		pset:value 1 ;
@@ -32,7 +31,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 802.8 ;
+		pset:value 772.8 ;
 	] ;
 	lv2:port [
 		lv2:symbol "output" ;
@@ -46,7 +45,6 @@
 <http://moddevices.com/plugins/mda/presets#Leslie-slow>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
-	rdfs:label "Slow" ;
 	lv2:port [
 		lv2:symbol "mode" ;
 		pset:value 0.5 ;
@@ -73,7 +71,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 802.8 ;
+		pset:value 772.8 ;
 	] ;
 	lv2:port [
 		lv2:symbol "output" ;
@@ -87,7 +85,6 @@
 <http://moddevices.com/plugins/mda/presets#Leslie-fast>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Leslie> ;
-	rdfs:label "Fast" ;
 	lv2:port [
 		lv2:symbol "mode" ;
 		pset:value 1 ;
@@ -114,7 +111,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "x_over" ;
-		pset:value 802.8 ;
+		pset:value 772.8 ;
 	] ;
 	lv2:port [
 		lv2:symbol "output" ;

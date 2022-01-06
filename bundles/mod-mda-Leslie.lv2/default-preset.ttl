@@ -31,6 +31,6 @@
 		pset:value 100.0
 	] , [
 		lv2:symbol "x_over" ;
-		pset:value 772.79998779
+		pset:value 772.8
 	] .
 
