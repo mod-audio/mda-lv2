@@ -1,37 +1,38 @@
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
 @prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
 @prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix mdap:  <http://moddevices.com/plugins/mda/presets#> .
 
-<default-preset>
+mdap:DX10-default
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/DX10> ;
 	lv2:port [
 		lv2:symbol "attack" ;
-		pset:value 2.5
+		pset:value 10.0
 	] , [
 		lv2:symbol "coarse" ;
-		pset:value 28.36
+		pset:value 2.0
 	] , [
 		lv2:symbol "decay" ;
-		pset:value 6123.89
+		pset:value 250.0
 	] , [
 		lv2:symbol "fine" ;
-		pset:value 0.24699999
+		pset:value 0.247
 	] , [
 		lv2:symbol "finetune" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "lfo_rate" ;
-		pset:value 10.35000038
+		pset:value 10.35
 	] , [
 		lv2:symbol "mod_dec" ;
-		pset:value 4599.18
+		pset:value 250.0
 	] , [
 		lv2:symbol "mod_init" ;
 		pset:value 23.0
 	] , [
 		lv2:symbol "mod_rel" ;
-		pset:value 6485.07
+		pset:value 350.0
 	] , [
 		lv2:symbol "mod_sus" ;
 		pset:value 5.0
@@ -46,11 +47,11 @@
 		pset:value 0.0
 	] , [
 		lv2:symbol "release" ;
-		pset:value 424.42
+		pset:value 350.0
 	] , [
 		lv2:symbol "vibrato" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "waveform" ;
-		pset:value 44.70000076
+		pset:value 44.7
 	] .

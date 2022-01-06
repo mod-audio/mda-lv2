@@ -43,162 +43,200 @@ mda:DX10
         <modgui.ttl> ;
     lv2:binary <DX10@LIB_EXT@> .
 
+mdap:DX10-default
+    a pset:Preset ;
+    lv2:appliesTo mda:DX10 ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
+
 mdap:DX10-bright-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Bright E.Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-jazz-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Jazz E.Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-e-piano-pad
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "E.Piano Pad" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-fuzzy-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Fuzzy E.Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-soft-chimes
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Soft Chimes" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-harpsichord
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Harpsichord" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-funk-clav
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Funk Clav" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-sitar
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Sitar" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-chiff-organ
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Chiff Organ" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-tinkle
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Tinkle" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-space-pad
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Space Pad" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-koto
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Koto" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-harp
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Harp" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-jazz-guitar
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Jazz Guitar" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-steel-drum
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Steel Drum" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-log-drum
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Log Drum" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-trumpet
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Trumpet" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-horn
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Horn" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-reed-1
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Reed 1" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-reed-2
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Reed 2" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-violin
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Violin" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-chunky-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Chunky Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-e-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "E.Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-clunk-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Clunk Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-thick-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Thick Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-sine-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Sine Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-square-bass
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Square Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-upright-bass-1
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Upright Bass 1" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-upright-bass-2
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Upright Bass 2" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-harmonics
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Harmonics" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-scratch
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Scratch" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:DX10-syn-tom
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
+    rdfs:label "Syn Tom" ;
     rdfs:seeAlso <presets.ttl> .

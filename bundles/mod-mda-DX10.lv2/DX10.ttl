@@ -11,16 +11,9 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
 mda:mainOut
     a pg:StereoGroup ,
         pg:OutputGroup ;
-    pg:source mda:mainIn ;
     lv2:name "Output" ;
     lv2:symbol "out" .
 
@@ -40,7 +33,6 @@ mda:DX10
     lv2:optionalFeature lv2:hardRTCapable ;
     lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
-    pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
     rdfs:comment """
 The DX10 is inspired by the later Yamaha DX© (*) synthesizers which are some of the most popular digital synths in the world. This generator, however, was tweaked a bit to give it a warmer cleaner tone. It is 8-voice polyphonic and has a wide variety of sounds and presets. Some of these are bound to give you flashbacks to the 80’s where the DX series really shined!
@@ -80,7 +72,7 @@ N.B. The carrier operator has a fixed coarse tuning ratio of 2.
         units:unit units:ms;
         lv2:portProperty epp:logarithmic;
         lv2:designation param:decay ;
-        pg:group <http://moddevices.com/plugins/mda/DX10/env>
+        pg:group <http://moddevices.com/plugins/mda/DX10/env> ;
         lv2:scalePoint [
             rdfs:label "Inf" ;
             rdf:value 7000.0
