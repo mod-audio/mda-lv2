@@ -87,10 +87,11 @@ mdaDX10::mdaDX10(audioMasterCallback audioMaster) : AudioEffectX(audioMaster, NP
  	//initialise...
   for(i=0; i<NVOICES; i++)
   {
-    voice[i].env = 0.0f;
+    voice[i].env = voice[i].menv = 0.0f;
     voice[i].car = voice[i].dcar = 0.0f;
     voice[i].mod0 = voice[i].mod1 = voice[i].dmod = 0.0f;
     voice[i].cdec = 0.99f; //all notes off
+    voice[i].note = 0;
   }
   lfo0 = dlfo = modwhl = 0.0f;
   lfo1 = pbend = 1.0f;
