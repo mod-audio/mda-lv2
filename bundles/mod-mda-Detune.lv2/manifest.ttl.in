@@ -24,37 +24,32 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
-
 mda:Detune
     a lv2:Plugin ;
     rdfs:seeAlso <Detune.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Detune@LIB_EXT@> .
 
+mdap:Detune-default
+    a pset:Preset ;
+    lv2:appliesTo mda:Detune ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <presets.ttl> .
+
 mdap:Detune-stereo-detune
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
+    rdfs:label "Stereo Detune" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Detune-symphonic
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
+    rdfs:label "Symphonic" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Detune-out-of-tune
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
+    rdfs:label "Out Of Tune" ;
     rdfs:seeAlso <presets.ttl> .
