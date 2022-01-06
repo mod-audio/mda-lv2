@@ -7,24 +7,23 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/RePsycho> ;
 	lv2:port [
 		lv2:symbol "decay" ;
-		pset:value 0.0
+		pset:value -37.0
 	] , [
 		lv2:symbol "fine" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "hold" ;
-		pset:value 122.5
+		pset:value 162.34
 	] , [
 		lv2:symbol "mix" ;
-		pset:value 100.0
+		pset:value 90.0
 	] , [
 		lv2:symbol "quality" ;
 		pset:value 1.0
 	] , [
 		lv2:symbol "thresh" ;
-		pset:value -12.0
+		pset:value -25.0
 	] , [
 		lv2:symbol "tune" ;
 		pset:value 0.0
 	] .
-

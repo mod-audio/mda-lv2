@@ -40,8 +40,6 @@ mda:mainOut
     lv2:name "Output" ;
     lv2:symbol "out" .
 
-
-
 mda:RePsycho
     a lv2:Plugin ,
         lv2:PitchPlugin ;
