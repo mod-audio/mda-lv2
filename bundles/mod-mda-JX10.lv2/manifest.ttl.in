@@ -24,282 +24,326 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:JX10
     a lv2:Plugin ;
     rdfs:seeAlso <JX10.ttl> ,
         <modgui.ttl> ;
     lv2:binary <JX10@LIB_EXT@> .
 
+<default-preset>
+    a pset:Preset ;
+    lv2:appliesTo mda:JX10 ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
+
 mdap:JX10-5th-sweep-pad
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "5th Sweep Pad" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-echo-pad-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Echo Pad [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-space-chimes-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Space Chimes [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-solid-backing
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Solid Backing" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-velocity-backing-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Velocity Backing [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-rubber-backing-zf-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Rubber Backing [ZF]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-808-state-lead
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "808 State Lead" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-mono-glide
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Mono Glide" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-detuned-techno-lead
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Detuned Techno Lead" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-hard-lead-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Hard Lead [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-bubble
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Bubble" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-monosynth
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Monosynth" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-moogcury-lite
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Moogcury Lite" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-gangsta-whine
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Gangsta Whine" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-higher-synth-zf-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Higher Synth [ZF]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-303-saw-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "303 Saw Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-303-square-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "303 Square Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-analog-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Analog Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-analog-bass-2
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Analog Bass 2" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-low-pulses
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Low Pulses" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-sine-infra-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Sine Infra-Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-wobble-bass-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Wobble Bass [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-squelch-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Squelch Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-rubber-bass-zf-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Rubber Bass [ZF]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-soft-pick-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Soft Pick Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-fretless-bass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Fretless Bass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-whistler
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Whistler" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-very-soft-pad
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Very Soft Pad" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-pizzicato
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Pizzicato" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-synth-strings
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Synth Strings" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-synth-strings-2
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Synth Strings 2" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-leslie-organ
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Leslie Organ" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-click-organ
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Click Organ" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-hard-organ
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Hard Organ" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-bass-clarinet
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Bass Clarinet" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-trumpet
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Trumpet" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-soft-horn
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Soft Horn" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-brass-section
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Brass Section" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-synth-brass
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Synth Brass" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-detuned-syn-brass-zf-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Detuned Syn Brass [ZF]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-power-pwm
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Power PWM" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-water-velocity-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Water Velocity [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-ghost-sa-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Ghost [SA]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-soft-e-piano
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Soft E.Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-thumb-piano
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Thumb Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-steel-drums-zf-
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Steel Drums [ZF]" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-car-horn
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Car Horn" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-helicopter
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Helicopter" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-arctic-wind
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Arctic Wind" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-thip
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Thip" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-synth-tom
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Synth Tom" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:JX10-squelchy-frog
     a pset:Preset ;
     lv2:appliesTo mda:JX10 ;
+    rdfs:label "Squelchy Frog" ;
     rdfs:seeAlso <presets.ttl> .
-
