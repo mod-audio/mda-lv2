@@ -5,14 +5,13 @@
 <http://moddevices.com/plugins/mda/presets#ThruZero-thru-zero-flanger>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
-	rdfs:label "Thru-Zero Flanger" ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 10.624 ;
+		pset:value 20.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
-		pset:value 19.5005 ;
+		pset:value 18.06 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -30,14 +29,13 @@
 <http://moddevices.com/plugins/mda/presets#ThruZero-phase-canceller>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
-	rdfs:label "Phase Canceller" ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 10.824 ;
+		pset:value 32 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
-		pset:value 9.07 ;
+		pset:value 8.4 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -55,14 +53,13 @@
 <http://moddevices.com/plugins/mda/presets#ThruZero-chorus-doubler>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
-	rdfs:label "Chorus Doubler" ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 10.924 ;
+		pset:value 40 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
-		pset:value 27.21 ;
+		pset:value 25.2 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -80,14 +77,13 @@
 <http://moddevices.com/plugins/mda/presets#ThruZero-mad-modulator>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
-	rdfs:label "Mad Modulator" ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 11.074 ;
+		pset:value 60 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
-		pset:value 45.35 ;
+		pset:value 42 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;

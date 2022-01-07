@@ -24,42 +24,38 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:ThruZero
     a lv2:Plugin ;
     rdfs:seeAlso <ThruZero.ttl> ,
         <modgui.ttl> ;
     lv2:binary <ThruZero@LIB_EXT@> .
 
+<default-preset>
+    a pset:Preset ;
+    lv2:appliesTo mda:ThruZero ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
+
 mdap:ThruZero-thru-zero-flanger
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
+    rdfs:label "Thru-Zero Flanger" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:ThruZero-phase-canceller
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
+    rdfs:label "Phase Canceller" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:ThruZero-chorus-doubler
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
+    rdfs:label "Chorus Doubler" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:ThruZero-mad-modulator
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;
+    rdfs:label "Mad Modulator" ;
     rdfs:seeAlso <presets.ttl> .
-
