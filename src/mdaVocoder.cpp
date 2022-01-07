@@ -51,6 +51,7 @@ mdaVocoder::mdaVocoder(audioMasterCallback audioMaster): AudioEffectX(audioMaste
   canProcessReplacing();
 
   programs = new mdaVocoderProgram[NPROGS];
+  memset(f, 0, sizeof(f));
   setProgram(0);
 
   ///differences from default program...
