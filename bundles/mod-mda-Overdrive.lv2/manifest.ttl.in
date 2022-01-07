@@ -26,8 +26,7 @@ mda:
 
 mda:Overdrive
     a lv2:Plugin ;
-    rdfs:seeAlso <Overdrive.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Overdrive.ttl> ;
     lv2:binary <Overdrive@LIB_EXT@> .
 
 <default-preset>

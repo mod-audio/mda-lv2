@@ -26,8 +26,7 @@ mda:
 
 mda:Detune
     a lv2:Plugin ;
-    rdfs:seeAlso <Detune.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Detune.ttl> ;
     lv2:binary <Detune@LIB_EXT@> .
 
 <default-preset>

@@ -25,8 +25,7 @@ mda:
 
 mda:Delay
     a lv2:Plugin ;
-    rdfs:seeAlso <Delay.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Delay.ttl> ;
     lv2:binary <Delay@LIB_EXT@> .
 
 <default-preset>

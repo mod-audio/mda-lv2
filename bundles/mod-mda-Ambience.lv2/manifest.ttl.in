@@ -25,8 +25,7 @@ mda:
 
 mda:Ambience
     a lv2:Plugin ;
-    rdfs:seeAlso <Ambience.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Ambience.ttl> ;
     lv2:binary <Ambience@LIB_EXT@> .
 
 <default-preset>

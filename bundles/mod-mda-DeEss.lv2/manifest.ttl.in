@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:DeEss
     a lv2:Plugin ;
-    rdfs:seeAlso <DeEss.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <DeEss.ttl> ;
     lv2:binary <DeEss@LIB_EXT@> .

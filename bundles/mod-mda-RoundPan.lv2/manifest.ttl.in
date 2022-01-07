@@ -26,8 +26,7 @@ mda:
 
 mda:RoundPan
     a lv2:Plugin ;
-    rdfs:seeAlso <RoundPan.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <RoundPan.ttl> ;
     lv2:binary <RoundPan@LIB_EXT@> .
 
 <default-preset>

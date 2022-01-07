@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:VocInput
     a lv2:Plugin ;
-    rdfs:seeAlso <VocInput.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <VocInput.ttl> ;
     lv2:binary <VocInput@LIB_EXT@> .

@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Loudness
     a lv2:Plugin ;
-    rdfs:seeAlso <Loudness.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Loudness.ttl> ;
     lv2:binary <Loudness@LIB_EXT@> .

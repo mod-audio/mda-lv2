@@ -26,8 +26,7 @@ mda:
 
 mda:ThruZero
     a lv2:Plugin ;
-    rdfs:seeAlso <ThruZero.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <ThruZero.ttl> ;
     lv2:binary <ThruZero@LIB_EXT@> .
 
 <default-preset>

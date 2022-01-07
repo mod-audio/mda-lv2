@@ -26,8 +26,7 @@ mda:
 
 mda:SubSynth
     a lv2:Plugin ;
-    rdfs:seeAlso <SubSynth.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <SubSynth.ttl> ;
     lv2:binary <SubSynth@LIB_EXT@> .
 
 <default-preset>

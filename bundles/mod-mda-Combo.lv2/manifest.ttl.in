@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Combo
     a lv2:Plugin ;
-    rdfs:seeAlso <Combo.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Combo.ttl> ;
     lv2:binary <Combo@LIB_EXT@> .

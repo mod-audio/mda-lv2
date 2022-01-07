@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Stereo
     a lv2:Plugin ;
-    rdfs:seeAlso <Stereo.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Stereo.ttl> ;
     lv2:binary <Stereo@LIB_EXT@> .

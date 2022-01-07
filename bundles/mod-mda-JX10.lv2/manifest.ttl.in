@@ -26,8 +26,7 @@ mda:
 
 mda:JX10
     a lv2:Plugin ;
-    rdfs:seeAlso <JX10.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <JX10.ttl> ;
     lv2:binary <JX10@LIB_EXT@> .
 
 <default-preset>

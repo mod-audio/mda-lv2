@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Transient
     a lv2:Plugin ;
-    rdfs:seeAlso <Transient.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Transient.ttl> ;
     lv2:binary <Transient@LIB_EXT@> .

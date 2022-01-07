@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Image
     a lv2:Plugin ;
-    rdfs:seeAlso <Image.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Image.ttl> ;
     lv2:binary <Image@LIB_EXT@> .

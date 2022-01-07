@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Tracker
     a lv2:Plugin ;
-    rdfs:seeAlso <Tracker.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Tracker.ttl> ;
     lv2:binary <Tracker@LIB_EXT@> .

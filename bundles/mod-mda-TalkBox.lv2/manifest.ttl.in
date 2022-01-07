@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:TalkBox
     a lv2:Plugin ;
-    rdfs:seeAlso <TalkBox.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <TalkBox.ttl> ;
     lv2:binary <TalkBox@LIB_EXT@> .

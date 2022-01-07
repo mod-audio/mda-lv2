@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:TestTone
     a lv2:Plugin ;
-    rdfs:seeAlso <TestTone.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <TestTone.ttl> ;
     lv2:binary <TestTone@LIB_EXT@> .

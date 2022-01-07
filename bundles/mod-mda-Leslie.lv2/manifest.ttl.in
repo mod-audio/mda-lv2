@@ -26,8 +26,7 @@ mda:
 
 mda:Leslie
     a lv2:Plugin ;
-    rdfs:seeAlso <Leslie.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Leslie.ttl> ;
     lv2:binary <Leslie@LIB_EXT@> .
 
 <default-preset>

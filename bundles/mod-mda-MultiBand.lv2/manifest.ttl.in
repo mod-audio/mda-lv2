@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:MultiBand
     a lv2:Plugin ;
-    rdfs:seeAlso <MultiBand.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <MultiBand.ttl> ;
     lv2:binary <MultiBand@LIB_EXT@> .

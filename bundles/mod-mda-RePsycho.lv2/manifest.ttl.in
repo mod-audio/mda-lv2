@@ -26,8 +26,7 @@ mda:
 
 mda:RePsycho
     a lv2:Plugin ;
-    rdfs:seeAlso <RePsycho.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <RePsycho.ttl> ;
     lv2:binary <RePsycho@LIB_EXT@> .
 
 <default-preset>

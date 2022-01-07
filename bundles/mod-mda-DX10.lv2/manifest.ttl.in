@@ -39,8 +39,7 @@ mda:mainOut
 
 mda:DX10
     a lv2:Plugin ;
-    rdfs:seeAlso <DX10.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <DX10.ttl> ;
     lv2:binary <DX10@LIB_EXT@> .
 
 <default-preset>

@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:Limiter
     a lv2:Plugin ;
-    rdfs:seeAlso <Limiter.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Limiter.ttl> ;
     lv2:binary <Limiter@LIB_EXT@> .

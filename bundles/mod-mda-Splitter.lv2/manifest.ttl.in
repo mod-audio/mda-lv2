@@ -39,8 +39,7 @@ mda:mainOut
 
 mda:Splitter
     a lv2:Plugin ;
-    rdfs:seeAlso <Splitter.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Splitter.ttl> ;
     lv2:binary <Splitter@LIB_EXT@> .
 
 mdap:Splitter-frequency-level-splitter

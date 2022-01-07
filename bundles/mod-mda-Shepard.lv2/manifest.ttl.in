@@ -38,7 +38,6 @@ mda:mainOut
 
 mda:Shepard
     a lv2:Plugin ;
-    rdfs:seeAlso <Shepard.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <Shepard.ttl> ;
     lv2:binary <Shepard@LIB_EXT@> .
 

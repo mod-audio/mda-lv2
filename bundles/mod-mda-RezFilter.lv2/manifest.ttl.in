@@ -38,6 +38,5 @@ mda:mainOut
 
 mda:RezFilter
     a lv2:Plugin ;
-    rdfs:seeAlso <RezFilter.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <RezFilter.ttl> ;
     lv2:binary <RezFilter@LIB_EXT@> .

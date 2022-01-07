@@ -26,8 +26,7 @@ mda:
 
 mda:EPiano
     a lv2:Plugin ;
-    rdfs:seeAlso <EPiano.ttl> ,
-        <modgui.ttl> ;
+    rdfs:seeAlso <EPiano.ttl> ;
     lv2:binary <EPiano@LIB_EXT@> .
 
 <default-preset>
