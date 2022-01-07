@@ -10,6 +10,12 @@
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
 <http://moddevices.com/plugins/mda/Piano/env>
     a param:EnvelopeControls ,
         pg:InputGroup ;
@@ -26,10 +32,8 @@ mda:Piano
     lv2:optionalFeature lv2:hardRTCapable ;
     lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
     lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
-    pg:mainInput mda:mainIn ;
     pg:mainOutput mda:mainOut ;
     rdfs:comment """
-
 The MDA Piano generates a variety of piano sounds.
 It was designed for a very low CPU usage. Tweak the sound to fit to your personal needs, or check out the presets. There is a bunch of cool stuff in there.
 

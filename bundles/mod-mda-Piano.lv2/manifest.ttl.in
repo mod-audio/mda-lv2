@@ -24,61 +24,62 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:Piano
     a lv2:Plugin ;
     rdfs:seeAlso <Piano.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Piano@LIB_EXT@> .
 
+<default-preset>
+    a pset:Preset ;
+    lv2:appliesTo mda:Piano ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
+
 mdap:Piano-mda-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "MDA Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-plain-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Plain Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-compressed-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Compressed Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-dance-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Dance Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-concert-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Concert Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-dark-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Dark Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-school-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "School Piano" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Piano-broken-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
+    rdfs:label "Broken Piano" ;
     rdfs:seeAlso <presets.ttl> .
