@@ -1,11 +1,10 @@
 @prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
 @prefix pset:  <http://lv2plug.in/ns/ext/presets#> .
 @prefix state: <http://lv2plug.in/ns/ext/state#> .
-@prefix mda:   <http://moddevices.com/plugins/mda/> .
 
-mda:DubDelay-default
+<default-preset>
 	a pset:Preset ;
-	lv2:appliesTo mda:DubDelay ;
+	lv2:appliesTo <http://moddevices.com/plugins/mda/DubDelay> ;
 	lv2:port [
 		lv2:symbol "delay" ;
 		pset:value 460

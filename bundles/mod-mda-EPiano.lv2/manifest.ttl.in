@@ -30,7 +30,7 @@ mda:EPiano
         <modgui.ttl> ;
     lv2:binary <EPiano@LIB_EXT@> .
 
-mdap:EPiano-default
+<default-preset>
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
     rdfs:label "Default" ;

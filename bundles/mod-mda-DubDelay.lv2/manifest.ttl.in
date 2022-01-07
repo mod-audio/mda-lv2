@@ -29,7 +29,7 @@ mda:DubDelay
         <modgui.ttl> ;
     lv2:binary <DubDelay@LIB_EXT@> .
 
-mda:DubDelay-default
+<default-preset>
     a pset:Preset ;
     lv2:appliesTo mda:DubDelay ;
     rdfs:label "Default" ;

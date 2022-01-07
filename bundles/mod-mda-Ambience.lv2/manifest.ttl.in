@@ -29,7 +29,7 @@ mda:Ambience
         <modgui.ttl> ;
     lv2:binary <Ambience@LIB_EXT@> .
 
-mda:Ambience-default
+<default-preset>
     a pset:Preset ;
     lv2:appliesTo mda:Ambience ;
     rdfs:label "Default" ;

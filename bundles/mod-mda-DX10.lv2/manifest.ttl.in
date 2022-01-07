@@ -43,7 +43,7 @@ mda:DX10
         <modgui.ttl> ;
     lv2:binary <DX10@LIB_EXT@> .
 
-mdap:DX10-default
+<default-preset>
     a pset:Preset ;
     lv2:appliesTo mda:DX10 ;
     rdfs:label "Default" ;

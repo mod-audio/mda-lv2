@@ -30,11 +30,11 @@ mda:Detune
         <modgui.ttl> ;
     lv2:binary <Detune@LIB_EXT@> .
 
-mdap:Detune-default
+<default-preset>
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;
     rdfs:label "Default" ;
-    rdfs:seeAlso <presets.ttl> .
+    rdfs:seeAlso <default-preset.ttl> .
 
 mdap:Detune-stereo-detune
     a pset:Preset ;
