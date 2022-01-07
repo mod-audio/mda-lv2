@@ -33,7 +33,7 @@ mda:EPiano
     a pset:Preset ;
     lv2:appliesTo mda:EPiano ;
     rdfs:label "Default" ;
-    rdfs:seeAlso <presets.ttl> .
+    rdfs:seeAlso <default-preset.ttl> .
 
 mdap:EPiano-bright
     a pset:Preset ;
