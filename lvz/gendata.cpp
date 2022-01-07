@@ -111,21 +111,74 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 	fstream os(data_file_name.c_str(), ios::out);
 	effect->getProductString(name_buf);
 
-	os << "@prefix lv2: <http://lv2plug.in/ns/lv2core#> ." << endl;
-	os << "@prefix doap: <http://usefulinc.com/ns/doap#> ." << endl << endl;
-	os << "<" << effect->getURI() << ">" << endl;
-	os << "\tlv2:symbol \"" << effect->getUniqueID() << "\" ;" << endl;
-	os << "\tdoap:name \"" << name_buf << "\" ;" << endl;
-	os << "\tdoap:license <http://usefulinc.com/doap/licenses/gpl> ;" << endl;
-	os << "\tlv2:pluginProperty lv2:hardRTCapable";
+	const bool     has_midi_in    = effect->flagWantEvents;
+	const uint32_t num_params     = effect->getNumParameters();
+	const uint32_t num_audio_ins  = effect->getNumInputs();
+	const uint32_t num_audio_outs = effect->getNumOutputs();
+	const uint32_t num_ports      = num_params + num_audio_ins + num_audio_outs + (has_midi_in ? 1 : 0);
 
-	uint32_t num_params     = effect->getNumParameters();
-	uint32_t num_audio_ins  = effect->getNumInputs();
-	uint32_t num_audio_outs = effect->getNumOutputs();
-	uint32_t num_ports      = num_params + num_audio_ins + num_audio_outs;
+	os << "@prefix atom: <http://lv2plug.in/ns/ext/atom#> ." << endl;
+	os << "@prefix doap: <http://usefulinc.com/ns/doap#> ." << endl;
+	os << "@prefix lv2: <http://lv2plug.in/ns/lv2core#> ." << endl;
+	os << "@prefix mda: <http://moddevices.com/plugins/mda/> ." << endl;
+	os << "@prefix mod: <http://moddevices.com/ns/mod#> ." << endl;
+	os << "@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> ." << endl;
+	os << "@prefix epp: <http://lv2plug.in/ns/ext/port-props#> ." << endl;
+	os << "@prefix units: <http://lv2plug.in/ns/extensions/units#> ." << endl;
+	os << "@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> ." << endl;
+	os << "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ." << endl;
+	os << "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> ." << endl;
+	os << "@prefix foaf: <http://xmlns.com/foaf/0.1/> ." << endl;
+	os << endl;
+	if (num_audio_ins == 2) {
+		os << "mda:mainIn" << endl;
+		os << "    a pg:StereoGroup ," << endl;
+		os << "        pg:InputGroup ;" << endl;
+		os << "    lv2:name \"Input\" ;" << endl;
+		os << "    lv2:symbol \"in\" ." << endl;
+		os << endl;
+	}
+	if (num_audio_outs == 2) {
+		os << "mda:mainOut" << endl;
+		os << "    a pg:StereoGroup ," << endl;
+		os << "        pg:OutputGroup ;" << endl;
+		if (num_audio_ins == 2) {
+			os << "    pg:source mda:mainIn ;" << endl;
+		}
+		os << "    lv2:name \"Output\" ;" << endl;
+		os << "    lv2:symbol \"out\" ." << endl;
+		os << endl;
+	}
+	os << "mda:" << base_name << endl;
+	if (effect->flagIsSynth) {
+		os << "    a lv2:Plugin ," << endl;
+		os << "        lv2:InstrumentPlugin ;" << endl;
+	} else {
+		os << "    a lv2:Plugin ;" << endl;
+	}
+	os << "    lv2:project mda: ;" << endl;
+	os << "    lv2:symbol \"" << base_name << "\" ;" << endl;
+	os << "    doap:name \"" << name_buf << "\" ;" << endl;
+	os << "    doap:license <http://usefulinc.com/doap/licenses/gpl> ;" << endl;
+	os << "    lv2:optionalFeature lv2:hardRTCapable ;" << endl;
+	if (has_midi_in) {
+		os << "    lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;" << endl;
+	}
+	if (effect->getNumPrograms() > 1) {
+		os << "    lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;" << endl;
+	}
+	if (num_audio_ins == 2) {
+		os << "    pg:mainInput mda:mainIn ;" << endl;
+	}
+	if (num_audio_outs == 2) {
+		os << "    pg:mainOutput mda:mainOut ;" << endl;
+	}
+	os << "    lv2:minorVersion 0;" << endl;
+	os << "    lv2:microVersion 4;" << endl;
+	os << "    mod:brand \"MDA\"";
 
 	if (num_ports > 0)
-		os << " ;" << endl << "\tlv2:port [" << endl;
+		os << " ;" << endl << "    lv2:port [" << endl;
 	else
 		os << " ." << endl;
 
@@ -133,30 +186,82 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 
 	for (uint32_t i = idx; i < num_params; ++i, ++idx) {
 		effect->getParameterName(i, name_buf);
-		os << "\t\ta lv2:InputPort, lv2:ControlPort ;" << endl;
-		os << "\t\tlv2:index" << " " << idx << " ;" << endl;
-		os << "\t\tlv2:name \"" << name_buf << "\" ;" << endl;
-		os << "\t\tlv2:symbol \"" << symbolify(name_buf) << "\" ;" << endl;
-		os << "\t\tlv2:default " << lvz_translate_parameter(effect, i, effect->getParameter(i)) << " ;" << endl;
-		os << "\t\tlv2:minimum " << lvz_translate_parameter(effect, i, 0.0f) << " ;" << endl;
-		os << "\t\tlv2:maximum " << lvz_translate_parameter(effect, i, 1.0f) << " ;" << endl;
-		os << ((idx == num_ports - 1) ? "\t] ." : "\t] , [") << endl;
+		os << "        a lv2:InputPort ,\n";
+		os << "            lv2:ControlPort ;" << endl;
+		os << "        lv2:index" << " " << idx << " ;" << endl;
+		os << "        lv2:name \"" << name_buf << "\" ;" << endl;
+		os << "        lv2:symbol \"" << symbolify(name_buf) << "\" ;" << endl;
+		os << "        lv2:default " << lvz_translate_parameter(effect, i, effect->getParameter(i)) << " ;" << endl;
+		os << "        lv2:minimum " << lvz_translate_parameter(effect, i, 0.0f) << " ;" << endl;
+		os << "        lv2:maximum " << lvz_translate_parameter(effect, i, 1.0f) << " ;" << endl;
+		os << ((idx == num_ports - 1) ? "    ] ." : "    ] , [") << endl;
 	}
 
-	for (uint32_t i = 0; i < num_audio_ins; ++i, ++idx) {
-		os << "\t\ta lv2:InputPort, lv2:AudioPort ;" << endl;
-		os << "\t\tlv2:index" << " " << idx << " ;" << endl;
-		os << "\t\tlv2:symbol \"in" << i+1 << "\" ;" << endl;
-		os << "\t\tlv2:name \"Input " << i+1 << "\" ;" << endl;
-		os << ((idx == num_ports - 1) ? "\t] ." : "\t] , [") << endl;
+	if (num_audio_ins == 2) {
+		os << "        a lv2:InputPort ,\n";
+		os << "            lv2:AudioPort ;" << endl;
+		os << "        lv2:index " << idx++ << " ;" << endl;
+		os << "        lv2:symbol \"left_in\" ;" << endl;
+		os << "        lv2:name \"Left In\" ;" << endl;
+		os << "        lv2:designation pg:left ;" << endl;
+		os << "        pg:group mda:mainIn" << endl;
+		os << "    ] , [" << endl;
+		os << "        a lv2:InputPort ,\n";
+		os << "            lv2:AudioPort ;" << endl;
+		os << "        lv2:index " << idx++ << " ;" << endl;
+		os << "        lv2:symbol \"right_in\" ;" << endl;
+		os << "        lv2:name \"Right In\" ;" << endl;
+		os << "        lv2:designation pg:right ;" << endl;
+		os << "        pg:group mda:mainIn" << endl;
+		os << (idx == num_ports ? "    ] ." : "    ] , [") << endl;
+	} else {
+		for (uint32_t i = 0; i < num_audio_ins; ++i, ++idx) {
+			os << "        a lv2:InputPort ,\n";
+			os << "            lv2:AudioPort ;" << endl;
+			os << "        lv2:index" << " " << idx << " ;" << endl;
+			os << "        lv2:symbol \"in" << i+1 << "\" ;" << endl;
+			os << "        lv2:name \"Input " << i+1 << "\" ;" << endl;
+			os << ((idx == num_ports - 1) ? "    ] ." : "    ] , [") << endl;
+		}
 	}
 
-	for (uint32_t i = 0; i < num_audio_outs; ++i, ++idx) {
-		os << "\t\ta lv2:OutputPort, lv2:AudioPort ;" << endl;
-		os << "\t\tlv2:index " << idx << " ;" << endl;
-		os << "\t\tlv2:symbol \"out" << i+1 << "\" ;" << endl;
-		os << "\t\tlv2:name \"Output " << i+1 << "\" ;" << endl;
-		os << ((idx == num_ports - 1) ? "\t] ." : "\t] , [") << endl;
+	if (num_audio_outs == 2) {
+		os << "        a lv2:OutputPort ,\n";
+		os << "            lv2:AudioPort ;" << endl;
+		os << "        lv2:index " << idx++ << " ;" << endl;
+		os << "        lv2:symbol \"left_out\" ;" << endl;
+		os << "        lv2:name \"Left Out\" ;" << endl;
+		os << "        lv2:designation pg:left ;" << endl;
+		os << "        pg:group mda:mainOut" << endl;
+		os << "    ] , [" << endl;
+		os << "        a lv2:OutputPort ,\n";
+		os << "            lv2:AudioPort ;" << endl;
+		os << "        lv2:index " << idx++ << " ;" << endl;
+		os << "        lv2:symbol \"right_out\" ;" << endl;
+		os << "        lv2:name \"Right Out\" ;" << endl;
+		os << "        lv2:designation pg:right ;" << endl;
+		os << "        pg:group mda:mainOut" << endl;
+		os << (idx == num_ports ? "    ] ." : "    ] , [") << endl;
+	} else {
+		for (uint32_t i = 0; i < num_audio_outs; ++i, ++idx) {
+			os << "        a lv2:OutputPort ,\n";
+			os << "            lv2:AudioPort ;" << endl;
+			os << "        lv2:index " << idx << " ;" << endl;
+			os << "        lv2:symbol \"out" << i+1 << "\" ;" << endl;
+			os << "        lv2:name \"Output " << i+1 << "\" ;" << endl;
+			os << ((idx == num_ports - 1) ? "    ] ." : "    ] , [") << endl;
+		}
+	}
+
+	if (has_midi_in) {
+		os << "        a lv2:InputPort ," << endl;
+		os << "            atom:AtomPort ;" << endl;
+		os << "        atom:bufferType atom:Sequence ;" << endl;
+		os << "        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;" << endl;
+		os << "        lv2:index " << idx++ << " ;" << endl;
+		os << "        lv2:symbol \"event_in\" ;" << endl;
+		os << "        lv2:name \"Event In\"" << endl;
+		os << "    ] ." << endl;
 	}
 
 	os.close();
@@ -169,7 +274,7 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 	}
 
 	if (effect->getNumPrograms() > 1) {
-		std::string preset_file = base_name + "-presets.ttl";
+		std::string preset_file = "presets.ttl";
 
 		fstream pos(preset_file.c_str(), ios::out);
 		pos << "@prefix lv2: <http://lv2plug.in/ns/lv2core#> ." << endl;
@@ -186,15 +291,15 @@ write_plugin(AudioEffectX* effect, const string& lib_file_name)
 
 			// Write manifest entry
 			std::cout << "<" << preset_uri << ">"
-			          << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
-			          << effect->getURI() << "> ;\n\t"
+			          << "\n    a pset:Preset ;\n    lv2:appliesTo <"
+			          << effect->getURI() << "> ;\n    "
+			          << "rdfs:label \"" << name_buf << "\" ;\n    "
 			          << "rdfs:seeAlso <" << preset_file << "> .\n" << std::endl;
 
 			// Write preset file
-			pos << "<" << preset_uri << ">"
-			    << "\n\ta pset:Preset ;\n\tlv2:appliesTo <"
-			    << effect->getURI() << "> ;\n\t"
-			    << "rdfs:label \"" << name_buf << "\"";
+			pos << "<" << preset_uri << ">\n"
+			    << "\ta pset:Preset ;\n"
+			    << "\tlv2:appliesTo <" << effect->getURI() << ">";
 			for (uint32_t i = 0; i < num_params; ++i) {
 				effect->getParameterName(i, name_buf);
 				pos << " ;\n\tlv2:port [" << endl;
@@ -216,11 +321,11 @@ write_manifest(ostream& os)
 	os << "@prefix uiext: <http://lv2plug.in/ns/extensions/ui#> ." << endl << endl;
 	for (Manifest::iterator i = manifest.begin(); i != manifest.end(); ++i) {
 		Record& r = i->second;
-		os << "<" << i->first << ">\n\ta lv2:Plugin ;" << endl;
-		os << "\trdfs:seeAlso <" << r.base_name << ".ttl> ;" << endl;
-		os << "\tlv2:binary <" << r.base_name << ".so> ";
+		os << "<" << i->first << ">\n    a lv2:Plugin ;" << endl;
+		os << "    rdfs:seeAlso <" << r.base_name << ".ttl> ;" << endl;
+		os << "    lv2:binary <" << r.base_name << ".so> ";
 		for (Record::UIs::iterator j = r.uis.begin(); j != r.uis.end(); ++j)
-			os << ";" << endl << "\tuiext:ui <" << *j << "> ";
+			os << ";" << endl << "    uiext:ui <" << *j << "> ";
 		os << "." << endl << endl;
 	}
 }
@@ -259,6 +364,7 @@ main(int argc, char** argv)
 		if (constructor != NULL) {
 			lvz_translate_parameter = (lvz_translate_parameter_func)dlsym(handle, "lvz_translate_parameter");
 			effect = constructor();
+			effect->resume();
 			write_plugin(effect, lib_path);
 		}
 
