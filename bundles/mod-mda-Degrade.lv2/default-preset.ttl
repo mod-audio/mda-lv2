@@ -7,21 +7,26 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Degrade> ;
 	lv2:port [
 		lv2:symbol "headroom" ;
-		pset:value 0.80000001
+		pset:value -6.0
 	] , [
 		lv2:symbol "non_lin" ;
-		pset:value 0.57999998
+		pset:value 0.16
 	] , [
 		lv2:symbol "output" ;
-		pset:value 0.5
+		pset:value 0.0
 	] , [
 		lv2:symbol "post_filt" ;
-		pset:value 0.89999998
+		pset:value 15000
 	] , [
 		lv2:symbol "quant" ;
-		pset:value 0.5
+		pset:value 10
 	] , [
 		lv2:symbol "rate" ;
-		pset:value 0.64999998
+		pset:value 48000
+	] , [
+		lv2:symbol "even_odd" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "integrator_sr" ;
+		pset:value 0.0
 	] .
-

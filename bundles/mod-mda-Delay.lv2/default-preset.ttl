@@ -7,21 +7,23 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Delay> ;
 	lv2:port [
 		lv2:symbol "fb_tone" ;
-		pset:value 0.5
+		pset:value 0.0
 	] , [
 		lv2:symbol "feedback" ;
-		pset:value 0.69999999
+		pset:value 70
 	] , [
 		lv2:symbol "fx_mix" ;
-		pset:value 0.33000001
+		pset:value 0.33
 	] , [
 		lv2:symbol "l_delay" ;
-		pset:value 0.5
+		pset:value 250
 	] , [
 		lv2:symbol "output" ;
-		pset:value 0.5
+		pset:value 0.0
 	] , [
 		lv2:symbol "rl_delay" ;
-		pset:value 0.27000001
+		pset:value 1.0
+	] , [
+		lv2:symbol "rl_fixed_ratios" ;
+		pset:value 0.0
 	] .
-
