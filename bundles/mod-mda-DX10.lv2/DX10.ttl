@@ -32,7 +32,6 @@ mda:DX10
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
-    lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
     pg:mainOutput mda:mainOut ;
     rdfs:comment """
 The DX10 is inspired by the later Yamaha DX© (*) synthesizers which are some of the most popular digital synths in the world. This generator, however, was tweaked a bit to give it a warmer cleaner tone. It is 8-voice polyphonic and has a wide variety of sounds and presets. Some of these are bound to give you flashbacks to the 80’s where the DX series really shined!

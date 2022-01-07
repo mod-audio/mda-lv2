@@ -969,47 +969,9 @@ lvz_run(LV2_Handle instance, uint32_t sample_count)
     plugin->effect->processReplacing(plugin->inputs, plugin->outputs, sample_count);
 }
 
-static const LV2_Program_Descriptor*
-lv2_get_program(LV2_Handle handle, uint32_t index)
-{
-	static LV2_Program_Descriptor desc = { 0, 0, NULL };
-	static char name[256] = { 0 };
-
-	LVZPlugin* plugin = (LVZPlugin*)handle;
-
-	if ((int)index < plugin->effect->getNumPrograms() && plugin->effect->getProgramNameIndexed(0, index, name))
-	{
-		desc.bank    = index / 128;
-		desc.program = index % 128;
-		desc.name    = name;
-		return &desc;
-	}
-
-	return NULL;
-}
-
-static void
-lv2_select_program(LV2_Handle handle, uint32_t bank, uint32_t program)
-{
-	LVZPlugin* plugin = (LVZPlugin*)handle;
-
-	int realProgram = bank * 128 + program;
-
-	if (realProgram < plugin->effect->getNumPrograms())
-	{
-		plugin->effect->setProgram(realProgram);
-
-		for (int32_t i = 0; i < plugin->effect->getNumParameters(); ++i)
-			plugin->controls[i] = *plugin->control_buffers[i] = translateParameter(plugin->effect, i, plugin->effect->getParameter(i), true);
-	}
-}
-
 static const void*
 lvz_extension_data(const char* uri)
 {
-	static const LV2_Programs_Interface programs = { lv2_get_program, lv2_select_program };
-	if (strcmp(uri, LV2_PROGRAMS__Interface) == 0)
-		return &programs;
     return NULL;
 }
 

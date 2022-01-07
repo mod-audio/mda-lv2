@@ -26,7 +26,6 @@ mda:EPiano
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
-    lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
     pg:mainOutput mda:mainOut ;
     lv2:minorVersion 0;
     lv2:microVersion 4;

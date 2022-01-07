@@ -36,7 +36,6 @@ mda:JX10
 	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
-	lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
 	pg:mainOutput mda:mainOut ;
 	rdfs:comment """
 The JX10 is a polyphonic synthesizer with high-quality output and lot of options to modulate the filter. This can be done with both the envelope and/or the LFO.
