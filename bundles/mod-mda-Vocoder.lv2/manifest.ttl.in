@@ -24,46 +24,44 @@ mda:
         foaf:mbox <mailto:paul@mda-vst.com>
     ] .
 
-mda:mainIn
-    a pg:StereoGroup ,
-        pg:InputGroup ;
-    lv2:name "Input" ;
-    lv2:symbol "in" .
-
-mda:mainOut
-    a pg:StereoGroup ,
-        pg:OutputGroup ;
-    pg:source mda:mainIn ;
-    lv2:name "Output" ;
-    lv2:symbol "out" .
-
 mda:Vocoder
     a lv2:Plugin ;
     rdfs:seeAlso <Vocoder.ttl> ,
         <modgui.ttl> ;
     lv2:binary <Vocoder@LIB_EXT@> .
 
+<default-preset>
+    a pset:Preset ;
+    lv2:appliesTo mda:Vocoder ;
+    rdfs:label "Default" ;
+    rdfs:seeAlso <default-preset.ttl> .
+
 mdap:Vocoder-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
+    rdfs:label "Vocoder" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Vocoder-16-band-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
+    rdfs:label "16 Band Vocoder" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Vocoder-old-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
+    rdfs:label "Old Vocoder" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Vocoder-choral-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
+    rdfs:label "Choral Vocoder" ;
     rdfs:seeAlso <presets.ttl> .
 
 mdap:Vocoder-pad-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;
+    rdfs:label "Pad Vocoder" ;
     rdfs:seeAlso <presets.ttl> .
