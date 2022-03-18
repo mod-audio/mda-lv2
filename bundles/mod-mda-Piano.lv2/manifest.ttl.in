@@ -35,12 +35,6 @@ mda:Piano
     rdfs:label "Default" ;
     rdfs:seeAlso <default-preset.ttl> .
 
-mdap:Piano-mda-piano
-    a pset:Preset ;
-    lv2:appliesTo mda:Piano ;
-    rdfs:label "MDA Piano" ;
-    rdfs:seeAlso <presets.ttl> .
-
 mdap:Piano-plain-piano
     a pset:Preset ;
     lv2:appliesTo mda:Piano ;
