@@ -82,11 +82,7 @@ Modeled by MDA
         lv2:default 0.0 ;
         lv2:minimum -100.0 ;
         lv2:maximum 100.0 ;
-        units:unit [
-            rdfs:label   "Low/High" ;
-            units:symbol "Lo <> Hi" ;
-            units:render "%f";
-        ];
+        units:unit units:pc ;
         rdfs:comment "Feedback filtering - low-pass to left, high-pass to right"
     ] , [
         a lv2:InputPort ,
@@ -108,10 +104,10 @@ Modeled by MDA
         lv2:shortName "Rate" ;
         lv2:portProperty mod:tapTempo;
         lv2:symbol "lfo_rate" ;
-        lv2:default 50.0 ;
-        lv2:minimum 0.10 ;
-        lv2:maximum 100.0 ;
-        units:unit units:pc;
+        lv2:default 0.05 ;
+        lv2:minimum 0.01 ;
+        lv2:maximum 10.0 ;
+        units:unit units:hz ;
         rdfs:comment "Modulation rate"
     ] , [
         a lv2:InputPort ,

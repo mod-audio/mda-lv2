@@ -22,7 +22,7 @@
 		pset:value 30.0
 	] , [
 		lv2:symbol "lfo_rate" ;
-		pset:value 50.0
+		pset:value 0.5
 	] , [
 		lv2:symbol "output" ;
 		pset:value 0.0
