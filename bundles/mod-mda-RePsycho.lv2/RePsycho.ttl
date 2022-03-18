@@ -72,6 +72,7 @@ Modeled by MDA
         lv2:minimum -24.0 ;
         lv2:maximum 0.0 ;
         mod:default -12.0;
+        lv2:portProperty lv2:integer ;
         units:unit units:semitone12TET ;
         rdfs:comment "Coarse tune (semitones)"
     ] , [
