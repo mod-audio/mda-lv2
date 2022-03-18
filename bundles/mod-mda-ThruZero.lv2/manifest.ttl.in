@@ -35,12 +35,6 @@ mda:ThruZero
     rdfs:label "Default" ;
     rdfs:seeAlso <default-preset.ttl> .
 
-mdap:ThruZero-thru-zero-flanger
-    a pset:Preset ;
-    lv2:appliesTo mda:ThruZero ;
-    rdfs:label "Thru-Zero Flanger" ;
-    rdfs:seeAlso <presets.ttl> .
-
 mdap:ThruZero-phase-canceller
     a pset:Preset ;
     lv2:appliesTo mda:ThruZero ;

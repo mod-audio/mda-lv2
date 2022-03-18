@@ -128,10 +128,10 @@ Modeled by MDA
         lv2:symbol "release" ;
         lv2:default 1.0 ;
         lv2:minimum 1.0 ;
-        lv2:maximum 1569.0 ;
+        lv2:maximum 1442.0 ;
         units:unit units:ms ;
         lv2:designation param:release ;
-        rdfs:comment "Decay time in Key Osc mode"
+        rdfs:comment "Release (half-value) time in Key Osc mode"
     ] , [
         a lv2:InputPort ,
             lv2:AudioPort ;

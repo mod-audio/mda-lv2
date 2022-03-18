@@ -2,40 +2,16 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://moddevices.com/plugins/mda/presets#ThruZero-thru-zero-flanger>
-	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
-	lv2:port [
-		lv2:symbol "rate" ;
-		pset:value 20.0 ;
-	] ;
-	lv2:port [
-		lv2:symbol "depth" ;
-		pset:value 18.06 ;
-	] ;
-	lv2:port [
-		lv2:symbol "mix" ;
-		pset:value 47 ;
-	] ;
-	lv2:port [
-		lv2:symbol "feedback" ;
-		pset:value -40 ;
-	] ;
-	lv2:port [
-		lv2:symbol "depth_mod" ;
-		pset:value 100 ;
-	] .
-
 <http://moddevices.com/plugins/mda/presets#ThruZero-phase-canceller>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 32 ;
+		pset:value 0.32 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
-		pset:value 8.4 ;
+		pset:value 0.63 ;
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
@@ -55,7 +31,7 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 40 ;
+		pset:value 0.63 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;
@@ -79,7 +55,7 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/ThruZero> ;
 	lv2:port [
 		lv2:symbol "rate" ;
-		pset:value 60 ;
+		pset:value 1.8 ;
 	] ;
 	lv2:port [
 		lv2:symbol "depth" ;

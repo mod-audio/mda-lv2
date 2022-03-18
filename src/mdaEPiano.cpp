@@ -155,7 +155,7 @@ void mdaEPiano::update()  //parameter change
   rmod = lmod = param[4] + param[4] - 1.0f; //lfo depth
   if(param[4] < 0.5f) rmod = -rmod;
 
-  dlfo = 6.283f * iFs * (39.95 * param[5] - 0.05f); //lfo rate
+  dlfo = 6.283f * iFs * expf(6.22f * param[5] - 2.61f); //lfo rate
 
   velsens = 1.0f + param[6] + param[6];
   if(param[6] < 0.25f) velsens -= 0.75f - 3.0f * param[6];
@@ -174,7 +174,7 @@ void mdaEPiano::setSampleRate(float rate)
     AudioEffectX::setSampleRate(rate);
     Fs = rate;
     iFs = 1.0f / Fs;
-    dlfo = 6.283f * iFs * (float)exp(6.22f * programs[curProgram].param[5] - 2.61f); //lfo rate
+    dlfo = 6.283f * iFs * expf(6.22f * programs[curProgram].param[5] - 2.61f); //lfo rate
 }
 
 
