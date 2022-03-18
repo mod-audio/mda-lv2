@@ -184,13 +184,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
     else if(strcmp(effect->getUniqueID(), "mdaDetune") == 0) {
         switch(port) {
             case(0):
-            return inverted ? value*300 : value/(300);
+            return inverted ? powf(value, 3.0f) * 300.0f : powf(value / 300.0f, 1.0f / 3.0f);
             case(1):
             return inverted ? value*99 : value/(99);
             case(2):
             return inverted ? value*40 - 20 : (value + 20)/(40);
-            case(3):
-            return inverted ? value*87.1 + 5.8 : (value - 5.8)/(87.1);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDither") == 0) {
@@ -204,7 +202,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(3):
             return inverted ? value*4 - 2 : (value + 2)/(4);
             case(4):
-            return inverted ? (40.0*log(value)/log(10)) + 1 : 1 - pow(10.0, (value/40.0));
+            return inverted ? (40.0*logf(value)/logf(10)) + 1 : 1 - powf(10.0, (value/40.0));
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaDubDelay") == 0) {
@@ -253,7 +251,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         */
         switch(port) {
             case(0):
-            return inverted ? 2.5*exp(value * log(4000.f/2.5)) : log(value/2.5)/log(4000.f/2.5);
+            return inverted ? 2.5*expf(value * logf(4000.f/2.5)) : logf(value/2.5)/logf(4000.f/2.5);
             //return inverted ? value*100 : value/(100);
             case(1):
             /* 
@@ -271,10 +269,10 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
                 } else {
                     value = (value+12.125)/13.125;
                 }
-                return 46.5*exp(value * log(7000.f/46.5));
+                return 46.5*expf(value * logf(7000.f/46.5));
             } else {
                 // stretching the end of the range
-                value = log(value/46.5)/log(7000.f/46.5);
+                value = logf(value/46.5)/logf(7000.f/46.5);
                 if (value < 0.97) {
                     return 0.625 * value;
                 } else {
@@ -283,14 +281,14 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             }
             //return inverted ? value*100 : value/(100);
             case(2):
-            return inverted ? 46.5*exp(value * log(7000.f/46.5)) : log(value/46.5)/log(7000.f/46.5);
+            return inverted ? 46.5*expf(value * logf(7000.f/46.5)) : logf(value/46.5)/logf(7000.f/46.5);
             //return inverted ? value*100 : value/(100);
             case(3):
             // compensate for course [0,1] squaring in the update function without breaking the presets
             if (inverted) {
                 value = value * value * 40;
             } else {
-                value = sqrt(value/40.f);
+                value = sqrtf(value/40.f);
             }
             return value;
             case(4):
@@ -309,10 +307,10 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
                 } else {
                     value = (value+5.46)/6.46;
                 }
-                return 17.f*exp(value * log(7000.f/17.f));
+                return 17.f*expf(value * logf(7000.f/17.f));
             } else {
                 // stretching the end of the range
-                value = log(value/17.f)/log(7000.f/17.f);
+                value = logf(value/17.f)/logf(7000.f/17.f);
                 if (value < 0.975) {
                     return 0.86 * value;
                 } else {
@@ -332,10 +330,10 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
                 } else {
                     value = (value+12.125)/13.125;
                 }
-                return 46.5*exp(value * log(7000.f/46.5));
+                return 46.5*expf(value * logf(7000.f/46.5));
             } else {
                 // stretching the end of the range
-                value = log(value/46.5)/log(7000.f/46.5);
+                value = logf(value/46.5)/logf(7000.f/46.5);
                 if (value < 0.97) {
                     return 0.625 * value;
                 } else {
@@ -399,11 +397,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
         */
         switch(port) {
             case(0):
-            return inverted ? log(0.001)/-exp(0.8-2.0*value) : 0.4 - 0.5*log(-log(0.001)/value);
+            return inverted ? logf(0.001)/-expf(0.8-2.0*value) : 0.4 - 0.5*logf(-logf(0.001)/value);
             //return inverted ? log(0.001)/-exp(0.8-2.0*((value-3.f)/20.f)) : 0.4 - 0.5*log(-log(0.001)/value);
             //return inverted ? value*100 : value/(100);
             case(1):
-            return inverted ? log(0.001)/-exp(6.6-5.0*value) : 1.32 - 0.2*log(-log(0.001)/value);
+            return inverted ? logf(0.001)/-expf(6.6-5.0*value) : 1.32 - 0.2*logf(-logf(0.001)/value);
             //return inverted ? log(0.001)/-exp(6.6-5.0*((value-0.01)/1.39)) : 1.32 - 0.2*log(-log(0.001)/value);
             //return inverted ? value*100 : value/(100);
             case(2):
@@ -513,9 +511,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(6):
             // making it logarithmic:
             if (inverted) {
-                return 150.f*exp(2.30923*value);
+                return 150.f*expf(2.30923*value);
             } else {
-                return log(value/150.f)/2.30923;
+                return logf(value/150.f)/2.30923;
             }
             //return inverted ? value*1360 + 150 : (value - 150)/(1360);
             case(7):
@@ -648,7 +646,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(6):
             return inverted ? value*200-100 : (value + 100)/(200);
             case(7):
-            return 2 + log10(value)/4;
+            return 2 + log10f(value)/4;
             case(8):
             return inverted ? value*40-37 : (value + 37)/(40);
             case(9):
@@ -729,9 +727,9 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*60-60 : (value + 60)/60;
             case(5):
             if (inverted) {
-                return 1.64*exp(6.89*value);
+                return 1.64*expf(6.89*value);
             } else {
-                return log(value/1.64)/6.89;
+                return logf(value/1.64)/6.89;
             }
         }
     }
@@ -744,7 +742,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(2):
             return inverted ? value : value;
             case(3):
-            return inverted ? (value*95+5)/2.5 : pow((value - 5)/(95), 0.5);
+            return inverted ? (value*95+5)/2.5 : powf((value - 5)/(95), 0.5);
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaTestTone") == 0) {
@@ -816,17 +814,17 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*100 : value/(100);
             case(4):
             if (inverted) {
-                return 10.9*exp(6.85*value);
+                return 10.9*expf(6.85*value);
             } else {
-                return log(value/10.9)/6.85;
+                return logf(value/10.9)/6.85;
             }
             case(5):
             return inverted ? value*100 : value/(100);
             case(6):
             if (inverted) {
-                return 201.f*exp(2.09*value);
+                return 201.f*expf(2.09*value);
             } else {
-                return log(value/201.f)/2.09;
+                return logf(value/201.f)/2.09;
             }
             case(7):
             return inverted ? value : value;
