@@ -9,12 +9,12 @@
 		lv2:symbol "detune" ;
 		pset:value 2.4
 	] , [
-		lv2:symbol "latency" ;
-		pset:value 92.9
-	] , [
 		lv2:symbol "mix" ;
-		pset:value 50.0
+		pset:value 90.0
 	] , [
 		lv2:symbol "output" ;
 		pset:value 0.0
+	] , [
+		lv2:symbol "latency" ;
+		pset:value 0.5
 	] .
