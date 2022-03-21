@@ -411,11 +411,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(4):
             return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            {
-                float val = inverted ? expf(6.22f * value - 2.61f) : (50.0f * logf(value)) / 311.0f + 261.0f/622.0f;
-                printf("conv value %d | %f -> %f\n", inverted, value, val);
-                return val;
-            }
+            return inverted ? expf(6.22f * value - 2.61f) : (50.0f * logf(value)) / 311.0f + 261.0f/622.0f;
             case(6):
             return inverted ? value*100 : value/(100);
             case(7):
