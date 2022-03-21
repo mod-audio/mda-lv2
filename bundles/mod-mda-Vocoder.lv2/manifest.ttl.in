@@ -35,12 +35,6 @@ mda:Vocoder
     rdfs:label "Default" ;
     rdfs:seeAlso <default-preset.ttl> .
 
-mdap:Vocoder-vocoder
-    a pset:Preset ;
-    lv2:appliesTo mda:Vocoder ;
-    rdfs:label "Vocoder" ;
-    rdfs:seeAlso <presets.ttl> .
-
 mdap:Vocoder-16-band-vocoder
     a pset:Preset ;
     lv2:appliesTo mda:Vocoder ;

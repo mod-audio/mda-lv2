@@ -411,7 +411,11 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(4):
             return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
-            return inverted ? expf(6.22f * value - 2.61f) : (50.0f * log10f(value)) / 311.0f + 261.0f/622.0f;
+            {
+                float val = inverted ? expf(6.22f * value - 2.61f) : (50.0f * logf(value)) / 311.0f + 261.0f/622.0f;
+                printf("conv value %d | %f -> %f\n", inverted, value, val);
+                return val;
+            }
             case(6):
             return inverted ? value*100 : value/(100);
             case(7):
@@ -440,58 +444,6 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*200 - 100 : (value + 100)/(200);
             case(5):
             return inverted ? value*40 - 20 : (value + 20)/(40);
-        }
-    }
-    else if(strcmp(effect->getUniqueID(), "mdaJX10") == 0) {
-        switch(port) {
-            case(0):
-            return value;
-            case(1):
-            return value;
-            case(2):
-            return value;
-            case(3):
-            return value;
-            case(4):
-            return value;
-            case(5):
-            return value;
-            case(6):
-            return value;
-            case(7):
-            return value;
-            case(8):
-            return value;
-            case(9):
-            return value;
-            case(10):
-            return value;
-            case(11):
-            return value;
-            case(12):
-            return value;
-            case(13):
-            return value;
-            case(14):
-            return value;
-            case(15):
-            return value;
-            case(16):
-            return value;
-            case(17):
-            return value;
-            case(18):
-            return value;
-            case(19):
-            return value;
-            case(20):
-            return value;
-            case(21):
-            return value;
-            case(22):
-            return value;
-            case(23):
-            return value;
         }
     }
     else if(strcmp(effect->getUniqueID(), "mdaLeslie") == 0) {
@@ -807,7 +759,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             case(0):
             return inverted ? value : value;
             case(1):
-            return inverted ? value*20-20 : (value + 20)/(20);
+            return inverted ? value*40-20 : (value + 20)/(40);
             case(2):
             return inverted ? value*100 : value/(100);
             case(3):
@@ -822,7 +774,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             return inverted ? value*100 : value/(100);
             case(6):
             if (inverted) {
-                return 201.f*expf(2.09*value);
+                return 201.f*expf(2.09f*value);
             } else {
                 return logf(value/201.f)/2.09;
             }
