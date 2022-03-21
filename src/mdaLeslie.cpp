@@ -122,7 +122,7 @@ void mdaLeslie::update()
   //calcs here!
   filo = 1.f - (float)pow(10.0f, param[2] * (2.27f - 0.54f * param[2]) - 1.92f);
 
-  if(param[0]<0.50f)
+  if(param[0]<0.60f)
   {
      if(param[0]<0.1f) //stop
      {

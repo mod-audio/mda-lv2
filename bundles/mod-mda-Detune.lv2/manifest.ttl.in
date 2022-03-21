@@ -35,18 +35,6 @@ mda:Detune
     rdfs:label "Default" ;
     rdfs:seeAlso <default-preset.ttl> .
 
-mdap:Detune-stereo-detune
-    a pset:Preset ;
-    lv2:appliesTo mda:Detune ;
-    rdfs:label "Stereo Detune" ;
-    rdfs:seeAlso <presets.ttl> .
-
-mdap:Detune-symphonic
-    a pset:Preset ;
-    lv2:appliesTo mda:Detune ;
-    rdfs:label "Symphonic" ;
-    rdfs:seeAlso <presets.ttl> .
-
 mdap:Detune-out-of-tune
     a pset:Preset ;
     lv2:appliesTo mda:Detune ;

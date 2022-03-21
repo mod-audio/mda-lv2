@@ -102,8 +102,8 @@ Rhodes© Pianos are a trademark or trade name of another manufacturer and were u
         lv2:portProperty  mod:tapTempo , mod:tempoRelatedDynamicScalePoints;
         lv2:symbol "lfo_rate" ;
         lv2:default 4.0 ;
-        lv2:minimum 0.05 ;
-        lv2:maximum 40.0 ;
+        lv2:minimum 0.1 ;
+        lv2:maximum 37.0 ;
         lv2:portProperty epp:logarithmic;
         units:unit units:hz
     ] , [

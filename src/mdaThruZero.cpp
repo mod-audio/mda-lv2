@@ -93,7 +93,7 @@ void mdaThruZero::resume() ///update internal parameters...
 
 
   float * param = programs[curProgram].param;
-  rat = (float) ((9.99 * param[0] + 0.01) * 2.f / getSampleRate());  //(float)(pow(10.0f, 3.f * param[0] - 2.f) * 2.f / getSampleRate());
+  rat = (float)(pow(10.0f, 3.f * param[0] - 2.f) * 2.f / getSampleRate());
   dep = 2000.0f * param[1];
   dem = dep - dep * param[4];
   dep -= dem;

@@ -19,6 +19,6 @@
 		pset:value 47.0
 	] , [
 		lv2:symbol "rate" ;
-		pset:value 20.0
+		pset:value 0.08
 	] .
 

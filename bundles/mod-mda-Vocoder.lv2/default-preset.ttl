@@ -6,28 +6,34 @@
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Vocoder> ;
 	lv2:port [
-		lv2:symbol "envelope" ;
-		pset:value 1602.24
-	] , [
-		lv2:symbol "filter_q" ;
-		pset:value 55.0
-	] , [
-		lv2:symbol "hi_band" ;
-		pset:value 40.0
-	] , [
-		lv2:symbol "hi_thru" ;
-		pset:value 40.0
-	] , [
-		lv2:symbol "mid_freq" ;
-		pset:value 1000.0
-	] , [
 		lv2:symbol "mod_in" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
 		lv2:symbol "output" ;
-		pset:value 0.0
-	] , [
+		pset:value 0 ;
+	] ;
+	lv2:port [
+		lv2:symbol "hi_thru" ;
+		pset:value 40 ;
+	] ;
+	lv2:port [
+		lv2:symbol "hi_band" ;
+		pset:value 40 ;
+	] ;
+	lv2:port [
+		lv2:symbol "envelope" ;
+		pset:value 1611.76 ;
+	] ;
+	lv2:port [
+		lv2:symbol "filter_q" ;
+		pset:value 55 ;
+	] ;
+	lv2:port [
+		lv2:symbol "mid_freq" ;
+		pset:value 1133.38 ;
+	] ;
+	lv2:port [
 		lv2:symbol "quality" ;
-		pset:value 1.0
+		pset:value 0 ;
 	] .
-

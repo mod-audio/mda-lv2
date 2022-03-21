@@ -35,12 +35,6 @@ mda:Leslie
     rdfs:label "Default" ;
     rdfs:seeAlso <default-preset.ttl> .
 
-mdap:Leslie-leslie-simulator
-    a pset:Preset ;
-    lv2:appliesTo mda:Leslie ;
-    rdfs:label "Leslie Simulator" ;
-    rdfs:seeAlso <presets.ttl> .
-
 mdap:Leslie-slow
     a pset:Preset ;
     lv2:appliesTo mda:Leslie ;

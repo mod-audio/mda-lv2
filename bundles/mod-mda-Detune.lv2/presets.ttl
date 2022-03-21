@@ -2,46 +2,6 @@
 @prefix pset: <http://lv2plug.in/ns/ext/presets#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://moddevices.com/plugins/mda/presets#Detune-stereo-detune>
-	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Detune> ;
-	lv2:port [
-		lv2:symbol "detune" ;
-		pset:value 2.4 ;
-	] ;
-	lv2:port [
-		lv2:symbol "mix" ;
-		pset:value 89.1 ;
-	] ;
-	lv2:port [
-		lv2:symbol "output" ;
-		pset:value 0 ;
-	] ;
-	lv2:port [
-		lv2:symbol "latency" ;
-		pset:value 49.35 ;
-	] .
-
-<http://moddevices.com/plugins/mda/presets#Detune-symphonic>
-	a pset:Preset ;
-	lv2:appliesTo <http://moddevices.com/plugins/mda/Detune> ;
-	lv2:port [
-		lv2:symbol "detune" ;
-		pset:value 2.4 ;
-	] ;
-	lv2:port [
-		lv2:symbol "mix" ;
-		pset:value 89.1 ;
-	] ;
-	lv2:port [
-		lv2:symbol "output" ;
-		pset:value 0 ;
-	] ;
-	lv2:port [
-		lv2:symbol "latency" ;
-		pset:value 49.35 ;
-	] .
-
 <http://moddevices.com/plugins/mda/presets#Detune-out-of-tune>
 	a pset:Preset ;
 	lv2:appliesTo <http://moddevices.com/plugins/mda/Detune> ;
@@ -51,7 +11,7 @@
 	] ;
 	lv2:port [
 		lv2:symbol "mix" ;
-		pset:value 69.3 ;
+		pset:value 70.0 ;
 	] ;
 	lv2:port [
 		lv2:symbol "output" ;
@@ -59,6 +19,6 @@
 	] ;
 	lv2:port [
 		lv2:symbol "latency" ;
-		pset:value 49.35 ;
+		pset:value 0.5 ;
 	] .
 

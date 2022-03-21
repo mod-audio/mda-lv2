@@ -13,7 +13,7 @@
 		pset:value 0.5
 	] , [
 		lv2:symbol "env_rel" ;
-		pset:value 0.70999998
+		pset:value 0.71
 	] , [
 		lv2:symbol "env_sus" ;
 		pset:value 1.0
@@ -22,10 +22,10 @@
 		pset:value 0.5
 	] , [
 		lv2:symbol "gld_rate" ;
-		pset:value 0.31999999
+		pset:value 0.32
 	] , [
 		lv2:symbol "glide" ;
-		pset:value 0.30000001
+		pset:value 0.3
 	] , [
 		lv2:symbol "lfo_rate" ;
 		pset:value 0.81
@@ -40,42 +40,41 @@
 		pset:value 0.25
 	] , [
 		lv2:symbol "osc_mix" ;
-		pset:value 1.0
+		pset:value 0.5
 	] , [
 		lv2:symbol "osc_tune" ;
-		pset:value 0.37
+		pset:value 0.5
 	] , [
 		lv2:symbol "tuning" ;
 		pset:value 0.5
 	] , [
 		lv2:symbol "vcf_att" ;
-		pset:value 0.89999998
+		pset:value 0.9
 	] , [
 		lv2:symbol "vcf_dec" ;
-		pset:value 0.88999999
+		pset:value 0.9
 	] , [
 		lv2:symbol "vcf_env" ;
 		pset:value 0.12
 	] , [
 		lv2:symbol "vcf_freq" ;
-		pset:value 0.89999998
+		pset:value 0.9
 	] , [
 		lv2:symbol "vcf_lfo" ;
 		pset:value 0.0
 	] , [
 		lv2:symbol "vcf_rel" ;
-		pset:value 0.73000002
+		pset:value 0.73
 	] , [
 		lv2:symbol "vcf_reso" ;
-		pset:value 0.60000002
+		pset:value 0.6
 	] , [
 		lv2:symbol "vcf_sus" ;
-		pset:value 0.89999998
+		pset:value 0.9
 	] , [
 		lv2:symbol "vcf_vel" ;
 		pset:value 0.5
 	] , [
 		lv2:symbol "vibrato" ;
-		pset:value 0.64999998
+		pset:value 0.65
 	] .
-
