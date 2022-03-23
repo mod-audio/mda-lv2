@@ -285,12 +285,7 @@ float translateParameter(PLUGIN_CLASS* effect,int port,float value,bool inverted
             //return inverted ? value*100 : value/(100);
             case(3):
             // compensate for course [0,1] squaring in the update function without breaking the presets
-            if (inverted) {
-                value = value * value * 40;
-            } else {
-                value = sqrtf(value/40.f);
-            }
-            return value;
+            return inverted ? floorf(40.1f * value * value) : sqrtf(value/40.f);
             case(4):
             return inverted ? value*0.750 : value/(0.750);
             case(5):

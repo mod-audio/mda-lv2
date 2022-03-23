@@ -110,13 +110,14 @@ void mdaDX10::update()  //parameter change //if multitimbral would have to move 
   float * param = programs[curProgram].param;
 
   tune = (float)(8.175798915644 * ifs * pow(2.0, floor(param[11] * 6.9) - 2.0));
+  rati = (float)floorf(40.1f * param[3] * param[3]);
 
-  rati = param[3];
-  rati = (float)floor(40.1f * rati * rati);
-  /*
-  if(param[4]<0.5f)
+  if (param[4]<0.5f)
+  {
     ratf = 0.2f * param[4] * param[4];
+  }
   else
+  {
     switch((int32_t)(8.9f * param[4]))
     {
       case  4: ratf = 0.25f;       break;
@@ -124,8 +125,9 @@ void mdaDX10::update()  //parameter change //if multitimbral would have to move 
       case  6: ratf = 0.50f;       break;
       case  7: ratf = 0.66666667f; break;
       default: ratf = 0.75f;
-    }*/
-  ratf = param[4]*0.75;
+    }
+  }
+
   ratio = 1.570796326795f * (rati + ratf);
 
   depth = 0.0002f * param[5] * param[5];

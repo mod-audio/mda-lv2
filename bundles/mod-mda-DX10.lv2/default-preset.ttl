@@ -7,16 +7,16 @@
 	lv2:appliesTo <http://moddevices.com/plugins/mda/DX10> ;
 	lv2:port [
 		lv2:symbol "attack" ;
-		pset:value 10.0
+		pset:value 2.5
 	] , [
 		lv2:symbol "coarse" ;
-		pset:value 2.0
+		pset:value 28
 	] , [
 		lv2:symbol "decay" ;
-		pset:value 250.0
+		pset:value 6124.0
 	] , [
 		lv2:symbol "fine" ;
-		pset:value 0.247
+		pset:value 0.24675
 	] , [
 		lv2:symbol "finetune" ;
 		pset:value 0.0
@@ -25,13 +25,13 @@
 		pset:value 10.35
 	] , [
 		lv2:symbol "mod_dec" ;
-		pset:value 250.0
+		pset:value 4600.0
 	] , [
 		lv2:symbol "mod_init" ;
 		pset:value 23.0
 	] , [
 		lv2:symbol "mod_rel" ;
-		pset:value 350.0
+		pset:value 6485.0
 	] , [
 		lv2:symbol "mod_sus" ;
 		pset:value 5.0
@@ -46,7 +46,7 @@
 		pset:value 0.0
 	] , [
 		lv2:symbol "release" ;
-		pset:value 350.0
+		pset:value 424.42
 	] , [
 		lv2:symbol "vibrato" ;
 		pset:value 0.0
