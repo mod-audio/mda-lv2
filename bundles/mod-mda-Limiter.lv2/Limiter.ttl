@@ -16,6 +16,7 @@ mda:Limiter
     lv2:symbol "Limiter" ;
     doap:name "MDA Limiter" ;
     doap:shortdesc "Opto-electronic style limiter" ;
+    rdfs:comment "Opto-electronic style limiter" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

@@ -28,6 +28,7 @@ mda:Delay
     lv2:symbol "Delay" ;
     doap:name "MDA Delay" ;
     doap:shortdesc "Simple stereo delay with feedback tone control" ;
+    rdfs:comment "Simple stereo delay with feedback tone control" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

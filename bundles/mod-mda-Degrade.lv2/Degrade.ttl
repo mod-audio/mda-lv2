@@ -36,6 +36,15 @@ mda:Degrade
     lv2:microVersion 2;
     mod:brand "MDA" ;
     mod:label "Degrade" ;
+    rdfs:comment """
+The MDA Degrade is a signal degrader with extensive controls.
+Use Quantize for bitcrushing, Rate for sample rate reduction and Integrator to reduce aliasing.
+Use Non-Lin to add non-linear distortion to the signal, set Headroom to configure when the non-linear behavior starts to occur and use Evenodd to choose between even or odd harmonics.
+Finally, use Post Filter to clean up the high frequency artifacts in the signal.
+
+Features:
+Modeled by MDA
+""";
 
     lv2:port [
         a lv2:InputPort ,

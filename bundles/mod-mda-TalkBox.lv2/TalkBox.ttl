@@ -16,6 +16,7 @@ mda:TalkBox
     lv2:symbol "TalkBox" ;
     doap:name "MDA TalkBox" ;
     doap:shortdesc "High resolution vocoder" ;
+    rdfs:comment "High resolution vocoder" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

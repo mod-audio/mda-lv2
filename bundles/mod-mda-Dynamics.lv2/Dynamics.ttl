@@ -15,6 +15,7 @@ mda:Dynamics
     lv2:symbol "Dynamics" ;
     doap:name "MDA Dynamics" ;
     doap:shortdesc "Compressor / Limiter / Gate" ;
+    rdfs:comment "Compressor / Limiter / Gate" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;
@@ -46,6 +47,7 @@ mda:Dynamics
         units:unit [
             rdfs:label   "ratio" ;
             units:symbol ":1" ;
+            units:render "%f" ;
         ];
         rdfs:comment """Very wide range allows "overcompression" where output gets quieter as input gets louder"""
     ] , [

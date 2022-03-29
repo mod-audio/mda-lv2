@@ -28,6 +28,7 @@ mda:RezFilter
     lv2:symbol "RezFilter" ;
     doap:name "MDA RezFilter" ;
     doap:shortdesc "Resonant filter with LFO and envelope follower" ;
+    rdfs:comment "Resonant filter with LFO and envelope follower" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

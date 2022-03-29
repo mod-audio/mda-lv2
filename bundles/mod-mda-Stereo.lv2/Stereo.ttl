@@ -16,6 +16,7 @@ mda:Stereo
     lv2:symbol "Stereo" ;
     doap:name "MDA Stereo" ;
     doap:shortdesc "Haas delay and comb filtering" ;
+    rdfs:comment "Haas delay and comb filtering" ;
     doap:license <http://usefulinc.com/doap/licenses/gpl> ;
     lv2:optionalFeature lv2:hardRTCapable ;
     pg:mainInput mda:mainIn ;

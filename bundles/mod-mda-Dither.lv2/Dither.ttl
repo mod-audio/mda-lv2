@@ -51,6 +51,7 @@ Very technical note This plug-in follows Steinberg's convention that a signal le
         a            units:Unit ;
         rdfs:label   "Bits" ;
         units:symbol "bits" ;
+        units:render "%f bits" ;
         ]
     ] , [
         a lv2:InputPort ,
@@ -84,11 +85,6 @@ Very technical note This plug-in follows Steinberg's convention that a signal le
         lv2:default 2.0 ;
         lv2:minimum 0.0 ;
         lv2:maximum 4.0 ;
-        units:unit [
-        a            units:Unit ;
-        rdfs:label   "Least Significant bit" ;
-        units:symbol "lsb" ;
-        ];
         rdfs:comment """Dither amplitude - can be turned down to reduce background hiss at the expense of dither level "pumping" caused by the input signal type and level"""
     ] , [
         a lv2:InputPort ,
@@ -99,11 +95,6 @@ Very technical note This plug-in follows Steinberg's convention that a signal le
         lv2:default 0.0 ;
         lv2:minimum -2.0 ;
         lv2:maximum 2.0 ;
-        units:unit [
-        a            units:Unit ;
-        rdfs:label   "Least Significant bit" ;
-        units:symbol "lsb" ;
-        ];
         rdfs:comment "Fine tune DC offset - can help get best dither sound for silent or very quiet inputs"
     ] , [
         a lv2:InputPort ,
