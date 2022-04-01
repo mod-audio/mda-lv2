@@ -54,8 +54,8 @@ Modeled by MDA
         lv2:name "Delay" ;
         lv2:shortName "Time" ;
         lv2:symbol "delay" ;
-        lv2:default 460 ;
-        lv2:minimum 0.0 ;
+        lv2:default 460.0 ;
+        lv2:minimum 1.0 ;
         lv2:maximum 7500.0 ;
         lv2:portProperty epp:logarithmic ;
         units:unit units:ms ;
