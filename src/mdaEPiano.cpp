@@ -126,6 +126,7 @@ mdaEPiano::mdaEPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster
   }
 
   //initialise...
+  memset(voice, 0, sizeof(voice));
   for(int32_t v=0; v<NVOICES; v++) 
   {
     voice[v].env = 0.0f;
@@ -133,6 +134,7 @@ mdaEPiano::mdaEPiano(audioMasterCallback audioMaster) : AudioEffectX(audioMaster
   }
   volume = 0.2f;
   muff = 160.0f;
+  muffvel = 1.25f;
   sustain = activevoices = 0;
   tl = tr = lfo0 = dlfo = 0.0f;
   lfo1 = 1.0f;
