@@ -95,6 +95,8 @@ def build(bld):
                                   'PLUGIN_URI_SUFFIX="%s"' % p,
                                   'PLUGIN_HEADER="src/mda%s.h"' % p])
         obj.env.cxxshlib_PATTERN = module_pat
+        obj.env.SHLIB_MARKER = ''
+        obj.env.STLIB_MARKER = ''
 
         # Set extra files for install
         for i in bld.path.ant_glob('bundles/%s/*.ttl' % bundle):
