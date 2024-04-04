@@ -100,6 +100,7 @@ N.B. The carrier operator has a fixed coarse tuning ratio of 2.
         lv2:minimum 0.0 ;
         lv2:maximum 40.0 ;
         units:unit [
+            a            units:Unit ;
             rdfs:label   "ratio" ;
             units:symbol "ratio" ;
             units:render "%f" ;
@@ -115,6 +116,7 @@ N.B. The carrier operator has a fixed coarse tuning ratio of 2.
         lv2:minimum 0.001 ;
         lv2:maximum 0.750 ;
         units:unit [
+            a            units:Unit ;
             rdfs:label   "ratio" ;
             units:symbol "ratio" ;
             units:render "%f" ;

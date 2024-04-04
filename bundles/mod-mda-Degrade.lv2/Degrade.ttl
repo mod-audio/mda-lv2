@@ -68,9 +68,10 @@ Modeled by MDA
         lv2:minimum 4 ;
         lv2:maximum 16 ;
         units:unit [
-          rdfs:label   "bits" ;
-          units:symbol "bit" ;
-          units:render "%f bits"
+            a            units:Unit ;
+            rdfs:label   "bits" ;
+            units:symbol "bit" ;
+            units:render "%f bits"
         ] ;
         rdfs:comment """Bit depth (typically 8 or below for "telephone" quality)"""
     ] , [
@@ -85,9 +86,10 @@ Modeled by MDA
         lv2:minimum 4800 ;
         lv2:maximum 48000 ;
         units:unit [
-          rdfs:label   "ssh" ;
-          units:symbol "s_sh" ;
-          units:render "%f Hz"
+            a            units:Unit ;
+            rdfs:label   "ssh" ;
+            units:symbol "s_sh" ;
+            units:render "%f Hz"
         ] ;
         rdfs:comment "Sample Rate (turn control to left or right for different sound characters)"
     ] , [
@@ -130,8 +132,9 @@ Modeled by MDA
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         units:unit [
-        rdfs:label   "nonlin" ;
-        units:symbol "nonlin" ;
+            a            units:Unit ;
+            rdfs:label   "nonlin" ;
+            units:symbol "nonlin" ;
         ] ;
         rdfs:comment """Additional harmonic distortion "thickening" (turn control to left or right for different sound characters)"""
     ] , [
