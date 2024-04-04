@@ -45,6 +45,7 @@ mda:Dynamics
         lv2:minimum -17.0 ;
         lv2:maximum 0.5 ;
         units:unit [
+            a            units:Unit ;
             rdfs:label   "ratio" ;
             units:symbol ":1" ;
             units:render "%f" ;

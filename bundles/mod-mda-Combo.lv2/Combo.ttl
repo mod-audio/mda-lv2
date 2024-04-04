@@ -68,6 +68,7 @@ mda:Combo
         lv2:minimum -100 ;
         lv2:maximum 100 ;
         units:unit [
+            a            units:Unit ;
             rdfs:label   "Soft/Hard" ;
             units:symbol "S <> H" ;
             units:render "%f Sh"
